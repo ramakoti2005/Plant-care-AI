@@ -17,9 +17,9 @@ class AuthService extends ChangeNotifier {
   // If using a REAL DEVICE, replace 10.0.2.2 with your computer's local IP (e.g., 192.168.1.10)
   Future<void> login(String email, String password) async {
     try {
-      print("LOGIN URL: ${ApiConfig.baseUrl}/api/v1/auth/token");
+      print("LOGIN URL: ${ApiConfig.baseUrl}/auth/token");
       final response = await http.post(
-        Uri.parse('${ApiConfig.baseUrl}/api/v1/auth/token'),
+        Uri.parse('${ApiConfig.baseUrl}/auth/token'),
         headers: {'Content-Type': 'application/x-www-form-urlencoded'},
         body: {
           'username': email, // Backend search works for both username and email now
@@ -52,7 +52,7 @@ class AuthService extends ChangeNotifier {
   Future<void> register(String username, String email, String password) async {
     try {
       final response = await http.post(
-        Uri.parse('${ApiConfig.baseUrl}/api/v1/auth/register'),
+        Uri.parse('${ApiConfig.baseUrl}/auth/register'),
         headers: {'Content-Type': 'application/json'},
         body: jsonEncode({
           'username': username,

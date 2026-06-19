@@ -1,5 +1,5 @@
-import 'dart:io';
 import 'dart:convert';
+import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -17,55 +17,48 @@ class ScanPlantScreen extends StatefulWidget {
 }
 
 class _ScanPlantScreenState extends State<ScanPlantScreen> {
-  File? _image;
-  final FlutterSecureStorage _storage =
-  const FlutterSecureStorage();
+  Uint8List? _imageBytes;
+  String? _imageName;
+  final FlutterSecureStorage _storage = const FlutterSecureStorage();
 
   Map<String, dynamic>? _result;
-
   bool _loading = false;
-
   final ImagePicker _picker = ImagePicker();
 
   Future<void> _pickGallery() async {
-    print("Gallery button pressed");
-
     try {
-      final XFile? pickedFile =
-      await _picker.pickImage(source: ImageSource.gallery);
-
-      print("Result: ${pickedFile?.path}");
+      final XFile? pickedFile = await _picker.pickImage(source: ImageSource.gallery);
 
       if (pickedFile != null) {
+        final bytes = await pickedFile.readAsBytes();
         setState(() {
-          _image = File(pickedFile.path);
+          _imageBytes = bytes;
+          _imageName = pickedFile.name;
         });
       }
     } catch (e) {
-      print("Gallery Error: $e");
+      debugPrint("Gallery Error: $e");
     }
   }
 
   Future<void> _pickCamera() async {
-    print("Camera button pressed");
-
     try {
-      final XFile? pickedFile =
-      await _picker.pickImage(source: ImageSource.camera);
-
-      print("Result: ${pickedFile?.path}");
+      final XFile? pickedFile = await _picker.pickImage(source: ImageSource.camera);
 
       if (pickedFile != null) {
+        final bytes = await pickedFile.readAsBytes();
         setState(() {
-          _image = File(pickedFile.path);
+          _imageBytes = bytes;
+          _imageName = pickedFile.name;
         });
       }
     } catch (e) {
-      print("Camera Error: $e");
+      debugPrint("Camera Error: $e");
     }
   }
+
   Future<void> _analyzeDisease() async {
-    if (_image == null) return;
+    if (_imageBytes == null) return;
 
     setState(() {
       _loading = true;
@@ -73,41 +66,34 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
     });
 
     try {
-      final token = await _storage.read(
-        key: 'auth_token',
-      );
+      final token = await _storage.read(key: 'auth_token');
 
       var request = http.MultipartRequest(
         'POST',
-        Uri.parse(
-            '${ApiConfig.baseUrl}/api/v1/analyze',
-        ),
+        Uri.parse('${ApiConfig.baseUrl}/api/v1/analyze'),
       );
 
-      request.headers['Authorization'] =
-      'Bearer $token';
+      request.headers['Authorization'] = 'Bearer $token';
 
       // Determine the content type based on the file extension
-      String extension = _image!.path.split('.').last.toLowerCase();
+      String extension = _imageName != null ? _imageName!.split('.').last.toLowerCase() : 'jpeg';
       MediaType contentType = MediaType('image', extension == 'png' ? 'png' : 'jpeg');
 
       request.files.add(
-        await http.MultipartFile.fromPath(
+        http.MultipartFile.fromBytes(
           'file',
-          _image!.path,
+          _imageBytes!,
+          filename: _imageName ?? 'image.jpg',
           contentType: contentType,
         ),
       );
 
       var response = await request.send();
-
-      String body =
-      await response.stream.bytesToString();
+      String body = await response.stream.bytesToString();
 
       if (response.statusCode == 200) {
         setState(() {
           _result = jsonDecode(body);
-          // Add local timestamp if not provided by backend
           if (_result != null && !_result!.containsKey('timestamp')) {
             _result!['timestamp'] = DateFormat('yyyy-MM-dd hh:mm a').format(DateTime.now());
           }
@@ -121,19 +107,25 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
           }
         } catch (_) {}
         
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(errorMessage)),
-        );
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text(errorMessage)),
+          );
+        }
       }
     } catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text("Connection error: $e")),
-      );
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text("Connection error: $e")),
+        );
+      }
     }
 
-    setState(() {
-      _loading = false;
-    });
+    if (mounted) {
+      setState(() {
+        _loading = false;
+      });
+    }
   }
 
   @override
@@ -155,7 +147,7 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
             children: [
               const SizedBox(height: 30),
 
-              if (_image != null)
+              if (_imageBytes != null)
                 Container(
                   height: 250,
                   width: double.infinity,
@@ -168,8 +160,8 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
                   ),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(18),
-                    child: Image.file(
-                      _image!,
+                    child: Image.memory(
+                      _imageBytes!,
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -228,7 +220,7 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
 
               const SizedBox(height: 30),
 
-              if (_image != null)
+              if (_imageBytes != null)
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton.icon(

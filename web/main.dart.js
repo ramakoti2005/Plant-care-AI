@@ -93585,7 +93585,7 @@ if(j!=null){r=A.cv(15)
 q=A.aFu(A.al(B.d.aG(127.5),B.by.v()>>>16&255,B.by.v()>>>8&255,B.by.v()&255),1)
 p=A.cv(15)
 if(B.c.bu(j,"http"))o=j
-else o="https://plant-care-ai-1-beem.onrender.com/api/v1"+(B.c.bu(j,"/")?"":"/")+j
+else o="https://plant-care-ai-6ng8.onrender.com/api/v1"+(B.c.bu(j,"/")?"":"/")+j
 s.push(A.ii(n,A.aBA(p,new A.uw(A.aIp(n,n,new A.v1(o,1,n,B.ZJ)),new A.a9G(),B.jh,n)),B.B,n,n,new A.dL(n,n,q,r,n,n,B.b2),n,250,B.Gq,n,n,n,1/0))}r=l.h(m,"plant_name")
 s.push(A.aZ(r==null?"":r,n,n,n,B.VX,n,n))
 s.push(B.FX)
@@ -93625,7 +93625,7 @@ return A.E(B.jl.a_g(0,"auth_token"),$async$uf)
 case 6:n=b
 k=t.N
 s=7
-return A.E(A.b02(A.fK("https://plant-care-ai-1-beem.onrender.com/api/v1/api/v1/history"),A.ai(["Authorization","Bearer "+A.k(n)],k,k)),$async$uf)
+return A.E(A.b02(A.fK("https://plant-care-ai-6ng8.onrender.com/api/v1/api/v1/history"),A.ai(["Authorization","Bearer "+A.k(n)],k,k)),$async$uf)
 case 7:m=b
 if(m.b===200)o.a5(new A.arJ(o,m))
 else{o.a5(new A.arK(o))
@@ -94238,7 +94238,7 @@ p=4
 s=7
 return A.E(B.jl.a_g(0,"auth_token"),$async$pY)
 case 7:m=a5
-l=A.aTs("POST",A.fK("https://plant-care-ai-1-beem.onrender.com/api/v1/api/v1/analyze"))
+l=A.aTs("POST",A.fK("https://plant-care-ai-6ng8.onrender.com/api/v1/api/v1/analyze"))
 l.r.m(0,"Authorization","Bearer "+A.k(m))
 d=n.e
 k=d!=null?B.b.ga9(d.split(".")).toLowerCase():"jpeg"
@@ -94469,8 +94469,8 @@ rr(a,b){return this.atf(a,b)},
 atf(a,b){var s=0,r=A.M(t.H),q=1,p=[],o=this,n,m,l,k,j,i,h,g,f
 var $async$rr=A.H(function(c,d){if(c===1){p.push(d)
 s=q}for(;;)switch(s){case 0:q=3
-A.a1Q("LOGIN URL: https://plant-care-ai-1-beem.onrender.com/api/v1/api/v1/auth/token")
-j=A.fK("https://plant-care-ai-1-beem.onrender.com/api/v1/api/v1/auth/token")
+A.a1Q("LOGIN URL: https://plant-care-ai-6ng8.onrender.com/api/v1/auth/token")
+j=A.fK("https://plant-care-ai-6ng8.onrender.com/api/v1/auth/token")
 i=t.N
 h=A.ai(["Content-Type","application/x-www-form-urlencoded"],i,i)
 s=6
@@ -94512,7 +94512,7 @@ wo(a,b,c,d){return this.avu(0,b,c,d)},
 avu(a,b,c,d){var s=0,r=A.M(t.H),q=1,p=[],o=this,n,m,l,k,j,i,h,g,f,e
 var $async$wo=A.H(function(a0,a1){if(a0===1){p.push(a1)
 s=q}for(;;)switch(s){case 0:q=3
-j=A.fK("https://plant-care-ai-1-beem.onrender.com/api/v1/api/v1/auth/register")
+j=A.fK("https://plant-care-ai-6ng8.onrender.com/api/v1/auth/register")
 i=t.N
 h=A.ai(["Content-Type","application/json"],i,i)
 s=6
