@@ -70,7 +70,7 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
 
       var request = http.MultipartRequest(
         'POST',
-        Uri.parse('${ApiConfig.baseUrl}/api/v1/analyze'),
+        Uri.parse('${ApiConfig.baseUrl}/analyze'),
       );
 
       request.headers['Authorization'] = 'Bearer $token';

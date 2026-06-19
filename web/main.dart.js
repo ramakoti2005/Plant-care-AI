@@ -94238,7 +94238,7 @@ p=4
 s=7
 return A.E(B.jl.a_g(0,"auth_token"),$async$pY)
 case 7:m=a5
-l=A.aTs("POST",A.fK("https://plant-care-ai-6ng8.onrender.com/api/v1/api/v1/analyze"))
+l=A.aTs("POST",A.fK("https://plant-care-ai-6ng8.onrender.com/api/v1/analyze"))
 l.r.m(0,"Authorization","Bearer "+A.k(m))
 d=n.e
 k=d!=null?B.b.ga9(d.split(".")).toLowerCase():"jpeg"
