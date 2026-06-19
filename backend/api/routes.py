@@ -41,6 +41,10 @@ async def analyze_leaf_image(
         # 3. Run inference
         response_data = run_inference(preprocessed_image)
 
+        # Force the confidence number to format as a string percentage text
+        if "confidence" in response_data and isinstance(response_data["confidence"], (int, float)):
+            response_data["confidence"] = f"{response_data['confidence']:.2f}%"
+
         # 4. Save scan history
         try:
             db_scan = ScanHistory(
