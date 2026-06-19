@@ -77,14 +77,37 @@ def run_inference(image):
 
     class_index = int(np.argmax(predictions))
     confidence = float(predictions[class_index]) * 100
-    disease_name = class_names[class_index]
+    raw_label = class_names[class_index] if class_names else f"Unknown_{class_index}"
+
+    # Clean up specific typos or names from your list
+    display_name = raw_label.replace("_", " ").title()
+    if display_name.lower() == "peace":
+        display_name = "Peach"
+    elif display_name.lower() == "pepper bill":
+        display_name = "Pepper Bell"
+
+    # Define simple placeholders since these are flat categories
+    scientific_names = {
+        "Apple": "Malus domestica",
+        "Corn": "Zea mays",
+        "Grape": "Vitis vinifera",
+        "Peach": "Prunus persica",
+        "Potato": "Solanum tuberosum",
+        "Rice": "Oryza sativa",
+        "Tomato": "Solanum lycopersicum",
+        "Pepper Bell": "Capsicum annuum"
+    }
+    
+    sci_name = scientific_names.get(display_name, "Unknown Species")
 
     return {
-        "plant_name": disease_name,
-        "scientific_name": disease_name,
+        "plant_name": display_name,
+        "scientific_name": sci_name, # Match the database column name exactly!
+        "condition_name": "Analyzed", 
         "confidence": round(confidence, 2),
         "possible_matches": [],
         "image_quality": "Good",
         "issues_detected": [],
-        "solution_suggestion": f"Detected disease: {disease_name}"
+        "solution_suggestion": f"Your {display_name} leaf scan has been successfully processed. Check for visible signs of spots, wilting, or discoloration to determine specific treatments."
     }
+
