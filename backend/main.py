@@ -47,8 +47,15 @@ app.include_router(simulator_router, prefix="/api/v1", tags=["simulator"])
 
 # Serve frontend static files
 # Make sure this is AFTER router inclusions
+# Check for 'web' first (common for Flutter Web builds), then fallback to 'frontend'
+web_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), "web")
 frontend_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), "frontend")
-if os.path.exists(frontend_dir):
+
+if os.path.exists(web_dir):
+    app.mount("/", StaticFiles(directory=web_dir, html=True), name="web")
+    logger.info(f"Serving frontend from {web_dir}")
+elif os.path.exists(frontend_dir):
     app.mount("/", StaticFiles(directory=frontend_dir, html=True), name="frontend")
+    logger.info(f"Serving frontend from {frontend_dir}")
 else:
-    logger.warning(f"Frontend directory not found at {frontend_dir}")
+    logger.warning("No frontend directory ('web' or 'frontend') found to serve.")
