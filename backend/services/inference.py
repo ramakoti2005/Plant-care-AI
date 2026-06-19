@@ -75,8 +75,12 @@ def run_inference(image):
     # Extract the prediction scores for the first batch item
     predictions = raw_predictions[0][0]
 
-    class_index = int(np.argmax(predictions))
-    confidence = float(predictions[class_index]) * 100
+    # Apply Softmax to turn logits into real probabilities (0.0 to 1.0)
+    exp_logits = np.exp(predictions - np.max(predictions))
+    probabilities = exp_logits / np.sum(exp_logits)
+
+    class_index = int(np.argmax(probabilities))
+    confidence = float(probabilities[class_index]) * 100
     raw_label = class_names[class_index] if class_names else f"Unknown_{class_index}"
 
     # Clean up specific typos or names from your list
