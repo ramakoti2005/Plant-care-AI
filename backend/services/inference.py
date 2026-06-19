@@ -74,6 +74,9 @@ def run_inference(image):
 
     # Extract the prediction scores for the first batch item
     predictions = raw_predictions[0][0]
+    
+    # DEBUG PRINT: Check if Tomato (usually one of the last indexes) is dominating raw output
+    print(f"RAW LOGITS PREDICTIONS MATRIX: {predictions}")
 
     # Apply Softmax to turn logits into real probabilities (0.0 to 1.0)
     exp_logits = np.exp(predictions - np.max(predictions))
@@ -85,12 +88,11 @@ def run_inference(image):
 
     # Clean up specific typos or names from your list
     display_name = raw_label.replace("_", " ").title()
-    if display_name.lower() == "peace":
-        display_name = "Peach"
-    elif display_name.lower() == "pepper bill":
-        display_name = "Pepper Bell"
+    if "Peace" in display_name:
+        display_name = display_name.replace("Peace", "Peach")
+    elif "Pepper Bill" in display_name:
+        display_name = display_name.replace("Pepper Bill", "Pepper Bell")
 
-    # Define simple placeholders since these are flat categories
     scientific_names = {
         "Apple": "Malus domestica",
         "Corn": "Zea mays",
@@ -99,19 +101,22 @@ def run_inference(image):
         "Potato": "Solanum tuberosum",
         "Rice": "Oryza sativa",
         "Tomato": "Solanum lycopersicum",
-        "Pepper Bell": "Capsicum annuum"
+        "Pepper": "Capsicum annuum"  # Stripped to match the first word
     }
     
-    sci_name = scientific_names.get(display_name, "Unknown Species")
+    # Extract the first word safely to match keys (e.g., "Tomato" from "Tomato Late Blight")
+    first_word = display_name.split()[0] if display_name else ""
+    sci_name = scientific_names.get(first_word, "Unknown Species")
 
     return {
         "plant_name": display_name,
-        "scientific_name": sci_name, # Match the database column name exactly!
+        "scientific_name": sci_name, 
         "condition_name": "Analyzed", 
-        "confidence": round(confidence, 2),
+        "confidence": f"{confidence:.2f}%",  # Handled as clean percentage string string format
         "possible_matches": [],
         "image_quality": "Good",
         "issues_detected": [],
         "solution_suggestion": f"Your {display_name} leaf scan has been successfully processed. Check for visible signs of spots, wilting, or discoloration to determine specific treatments."
     }
+
 
