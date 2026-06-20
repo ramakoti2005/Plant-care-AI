@@ -108,11 +108,26 @@ def run_inference(image):
     first_word = display_name.split()[0] if display_name else ""
     sci_name = scientific_names.get(first_word, "Unknown Species")
 
+    # Define a strict threshold requirement
+    # If the AI model isn't at least 75% sure, it's likely a non-leaf or poor image sample
+    if confidence < 75.0:
+        return {
+            "plant_name": "Unrecognized Target",
+            "scientific_name": "N/A",
+            "condition_name": "Invalid Scan",
+            "confidence": f"{confidence:.2f}%",
+            "possible_matches": [],
+            "image_quality": "Poor or Non-Leaf Image Detected",
+            "issues_detected": [],
+            "solution_suggestion": "The uploaded image does not appear to be a clear plant leaf or is not supported by the model database. Please try taking a well-lit, close-up photo of a valid leaf."
+        }
+
+    # Otherwise, return the normal correct dictionary if confidence is high
     return {
         "plant_name": display_name,
         "scientific_name": sci_name, 
         "condition_name": "Analyzed", 
-        "confidence": f"{confidence:.2f}%",  # Handled as clean percentage string string format
+        "confidence": f"{confidence:.2f}%",
         "possible_matches": [],
         "image_quality": "Good",
         "issues_detected": [],
