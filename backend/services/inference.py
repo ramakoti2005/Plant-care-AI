@@ -69,7 +69,7 @@ def run_inference(image):
     confidence = float(probabilities[class_index]) * 100
 
     # If confidence is too low, we treat it as unrecognized
-    if confidence < 75.0:
+    if confidence < 15.0:
         return {
             "status": "Unrecognized Image",
             "message": "The uploaded image does not match any supported plant leaf in the dataset."
