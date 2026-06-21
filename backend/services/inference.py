@@ -99,7 +99,7 @@ def run_inference(image):
         "Early Blight": "Improve air circulation by pruning lower leaves. Apply copper fungicide every 7-10 days during humid weather.",
         "Late Blight": "Immediately destroy infected plants to prevent airborne spread. Apply chlorothalonil or copper spray pre-emptively.",
         "Leaf Blast": "Avoid excessive nitrogen fertilizers. Maintain stable water layers in the field to protect the plant, and apply systemic fungicides like Tricyclazole or Azoxystrobin if spots appear.",
-        "Bacterial Spot": "Apply copper-based bactericides early in the season. Avoid overhead watering to reduce moisture on leaves and remove infected plant debris.",
+        "Bacterial Spot": "Bacterial Spot (Xanthomonas) spreads rapidly in warm, wet weather. Remove infected leaves/fruits, avoid overhead irrigation, and apply copper-based bactericides early in the season.",
         "Brown Spot": "Apply balanced fertilizers (avoid low potassium). Use certified disease-free seeds and apply recommended fungicides if infestation spreads.",
         "Healthy": "No treatment required. Maintain optimal watering, consistent pruning, and regular soil nutrient monitoring."
     }

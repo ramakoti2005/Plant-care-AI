@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'apple_diseases_screen.dart';
 import 'corn_diseases_screen.dart';
 import 'grape_diseases_screen.dart';
+import 'peach_diseases_screen.dart';
 import 'potato_diseases_screen.dart';
 import 'rice_diseases_screen.dart';
 import 'tomato_diseases_screen.dart';
@@ -23,6 +24,10 @@ class TreatmentsScreen extends StatelessWidget {
       {
         'name': 'Grape Diseases',
         'icon': Icons.local_florist,
+      },
+      {
+        'name': 'Peach Diseases',
+        'icon': Icons.eco,
       },
       {
         'name': 'Potato Diseases',
@@ -101,7 +106,7 @@ class TreatmentsScreen extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (_) => const PotatoDiseasesScreen(),
+                      builder: (_) => const PeachDiseasesScreen(),
                     ),
                   );
                 }
@@ -110,12 +115,21 @@ class TreatmentsScreen extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (_) => const RiceDiseasesScreen(),
+                      builder: (_) => const PotatoDiseasesScreen(),
                     ),
                   );
                 }
 
                 if (index == 5) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => const RiceDiseasesScreen(),
+                    ),
+                  );
+                }
+
+                if (index == 6) {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
