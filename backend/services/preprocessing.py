@@ -18,16 +18,14 @@ def preprocess_image(image_bytes: bytes) -> np.ndarray:
     # Resize image to 224x224
     img = cv2.resize(img, (224, 224))
 
-    # Convert to float32 and scale to [0, 1]
-    img = img.astype(np.float32) / 255.0
+    # Convert image tensor array to float32
+    img = img.astype(np.float32)
 
-    # Apply ImageNet normalization (Mean & Std Deviation subtraction)
-    mean = np.array([0.485, 0.456, 0.406], dtype=np.float32)
-    std = np.array([0.229, 0.224, 0.225], dtype=np.float32)
-    img = (img - mean) / std
-
-    # Add batch dimension (1, 224, 224, 3)
+    # 🔄 Standard raw float scaling (No division or subtraction transformations)
+    # Keeping the values in the native [0.0, 255.0] range
+    
+    # Add batch array layer dimension (1, 224, 224, 3)
     img = np.expand_dims(img, axis=0)
 
-    print(f"Preprocessed image shape with ImageNet scaling: {img.shape}")
+    print(f"Preprocessed image shape with raw 0-255 scaling: {img.shape}")
     return img
