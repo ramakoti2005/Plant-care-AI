@@ -68,7 +68,7 @@ def run_inference(image):
     class_index = int(np.argmax(probabilities))
     confidence = float(probabilities[class_index]) * 100
 
-    # If confidence is too low, we treat it as unrecognized
+    # Set this to 15.0 or lower so your dataset images are never blocked
     if confidence < 15.0:
         return {
             "status": "Unrecognized Image",
