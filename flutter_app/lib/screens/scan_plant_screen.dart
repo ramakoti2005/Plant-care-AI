@@ -109,6 +109,9 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: Text(errorMessage)),
           );
+          setState(() {
+            _result = null; // Reset UI layout on failure
+          });
         }
       }
     } catch (e) {
@@ -116,6 +119,9 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text("Connection error: $e")),
         );
+        setState(() {
+          _result = null; // Reset UI layout on failure
+        });
       }
     }
 

@@ -4,6 +4,7 @@ import numpy as np
 import onnxruntime as ort
 from sqlalchemy.orm import Session
 from models import ScanHistory
+from fastapi import HTTPException, status
 
 print("STEP 1: inference.py started with ONNX")
 
@@ -78,10 +79,10 @@ def run_inference(image):
     # 🛑 STRICT GUARD: If confidence is low OR the top two guesses are too close, reject it!
     # Using 0.85 (85%) as primary threshold and 0.15 (15%) margin as requested
     if primary_confidence < 0.85 or confidence_margin < 0.15:
-        return {
-            "status": "Unrecognized Image",
-            "message": "The uploaded image does not appear to contain a valid or recognizable plant leaf. Please try again with clear lighting."
-        }
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="The uploaded image does not appear to contain a valid or recognizable plant leaf."
+        )
 
     class_index = primary_index
 
