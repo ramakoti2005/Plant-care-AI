@@ -2,6 +2,8 @@ import os
 import json
 import numpy as np
 import onnxruntime as ort
+from sqlalchemy.orm import Session
+from models import ScanHistory
 
 print("STEP 1: inference.py started with ONNX")
 
@@ -18,8 +20,6 @@ MODEL_PATH = os.path.join(
     "ml_models",
     "plant_disease_model.onnx"
 )
-
-print("STEP 2: Paths created")
 
 # -----------------------------
 # Load class names
@@ -46,32 +46,27 @@ except Exception as e:
 
 
 # -----------------------------
-# Inference Function
+# Core Prediction Logic
 # -----------------------------
 def run_inference(image):
     if session is None:
         raise Exception("Model session failed to load.")
 
-    # Preprocessing
     if not isinstance(image, np.ndarray):
         image = np.array(image, dtype=np.float32)
 
     if image.dtype != np.float32:
         image = image.astype(np.float32)
 
-    # Inference
     raw_predictions = session.run([output_name], {input_name: image})
     predictions = raw_predictions[0][0]
 
-    # Apply Softmax to get probabilities
     exp_logits = np.exp(predictions - np.max(predictions))
     probabilities = exp_logits / np.sum(exp_logits)
 
     class_index = int(np.argmax(probabilities))
     confidence = float(probabilities[class_index]) * 100
 
-    # 1. Validation Logic
-    # If confidence is low, categorize as Unrecognized Image
     if confidence < 75.0:
         return {
             "status": "Unrecognized Image",
@@ -80,41 +75,31 @@ def run_inference(image):
 
     raw_label = class_names[class_index]
     
-    # 1. Split the string into distinct parts using delimiter
     if "___" in raw_label:
         plant_part, disease_part = raw_label.split("___")
     else:
-        # Fallback for single underscore or other formats
         parts = raw_label.split('_', 1)
         plant_part = parts[0]
         disease_part = parts[1] if len(parts) > 1 else "Healthy"
 
-    # 2. Clean up underscores and format text beautifully
     plant_name = plant_part.replace("_", " ").title()
     disease_name = disease_part.replace("_", " ").title()
     
-    # Handle specific naming fixes
     if plant_name == "Pepperbell":
         plant_name = "Pepper Bell"
 
-    # 3. Create a deterministic treatment database mapping
     treatment_database = {
         "Black Rot": "Prune infected branches 4-6 inches below the canker. Apply a copper-based fungicide early in the season.",
         "Apple Scab": "Rake and destroy fallen leaves to prevent overwintering spores. Apply preventative fungicides during green tip stage.",
         "Common Rust": "Remove nearby alternate hosts (like cedar trees). Apply sulfur or chlorothalonil fungicides at first sign of spots.",
         "Early Blight": "Improve air circulation by pruning lower leaves. Apply copper fungicide every 7-10 days during humid weather.",
         "Late Blight": "Immediately destroy infected plants to prevent airborne spread. Apply chlorothalonil or copper spray pre-emptively.",
-        
-        # 🌾 Added specific mapping for Rice Leaf Blast:
         "Leaf Blast": "Avoid excessive nitrogen fertilizers. Maintain stable water layers in the field to protect the plant, and apply systemic fungicides like Tricyclazole or Azoxystrobin if spots appear.",
-
         "Healthy": "No treatment required. Maintain optimal watering, consistent pruning, and regular soil nutrient monitoring."
     }
 
-    # Fetch the cure based on the disease name (default back to general care)
     cure_solution = treatment_database.get(disease_name, "Maintain standard plant hygiene, prune affected areas, and ensure proper soil drainage.")
 
-    # 3. Get Reference Image Link
     reference_image_url = None
     dataset_rel_path = os.path.join("appdataset", "dataset", raw_label)
     project_root = os.path.dirname(BASE_DIR)
@@ -128,7 +113,6 @@ def run_inference(image):
     except Exception as e:
         print(f"Error finding reference image: {e}")
 
-    # Return the complete package to your Flutter app
     return {
         "status": "Success",
         "plant_name": plant_name,
@@ -137,3 +121,34 @@ def run_inference(image):
         "reference_image": reference_image_url,
         "reference_image_key": raw_label.lower()
     }
+
+# -----------------------------
+# Success Logging Helper
+# -----------------------------
+def process_prediction_and_save(image, db: Session, user_id: int = None):
+    # 1. Run the existing inference
+    response_data = run_inference(image)
+
+    # 2. If valid, log to history
+    if response_data.get("status") == "Success":
+        try:
+            new_history = ScanHistory(
+                user_id=user_id,
+                plant_name=response_data["plant_name"],
+                disease_name=response_data["disease_name"],
+                solution_suggestion=response_data["cure"], # Mapped to treatment
+                scientific_name=response_data["disease_name"], # Fallback
+                confidence="N/A",
+                image_quality="Good",
+                possible_matches="[]",
+                issues_detected="[]"
+            )
+            db.add(new_history)
+            db.commit()
+            db.refresh(new_history)
+            print("Success: Scan history recorded dynamically in database.")
+        except Exception as e:
+            db.rollback()
+            print(f"Database logging failed: {str(e)}")
+
+    return response_data

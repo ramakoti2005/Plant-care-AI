@@ -33,12 +33,13 @@ class ScanHistory(Base):
     id = Column(Integer, primary_key=True, index=True)
     user_id = Column(Integer, ForeignKey("users.id"))
     plant_name = Column(String, index=True)
+    disease_name = Column(String, index=True) # Added for history compatibility
     scientific_name = Column(String)
     confidence = Column(String)
     image_quality = Column(String)
-    possible_matches = Column(Text) # Stored as JSON string
-    issues_detected = Column(Text) # Stored as JSON string
-    solution_suggestion = Column(Text)
+    possible_matches = Column(Text) 
+    issues_detected = Column(Text) 
+    solution_suggestion = Column(Text) # This maps to 'treatment'
     timestamp = Column(DateTime, default=datetime.utcnow)
 
     user = relationship("User", back_populates="scans")

@@ -6,7 +6,7 @@ import json
 
 from schemas import AnalysisResponse, ScanHistorySchema
 from services.preprocessing import preprocess_image
-from services.inference import run_inference
+from services.inference import run_inference, process_prediction_and_save
 from services.auth import get_current_user
 from models import User, ScanHistory
 from database import get_db
@@ -38,30 +38,13 @@ async def analyze_leaf_image(
         # 2. Preprocess image
         preprocessed_image = preprocess_image(image_bytes)
 
-        # 3. Run inference
-        response_data = run_inference(preprocessed_image)
+        # 3. Run inference and save history in one step
+        response_data = process_prediction_and_save(
+            preprocessed_image, 
+            db, 
+            user_id=current_user.id
+        )
 
-        # 4. Save scan history only on success
-        if response_data.get("status") == "Success":
-            try:
-                db_scan = ScanHistory(
-                    user_id=current_user.id,
-                    plant_name=response_data.get("plant_name"),
-                    scientific_name=response_data.get("disease_name"), # Using disease_name here
-                    confidence="N/A",
-                    image_quality="N/A",
-                    possible_matches=json.dumps([]),
-                    issues_detected=json.dumps([]),
-                    solution_suggestion="Handled via UI"
-                )
-
-                db.add(db_scan)
-                db.commit()
-
-            except Exception as db_err:
-                print(f"Error saving scan history: {db_err}")
-
-        # 5. Return response
         return response_data
 
     except Exception as e:
@@ -71,8 +54,8 @@ async def analyze_leaf_image(
         )
 
 
-@router.get("/history", response_model=List[ScanHistorySchema])
-def get_scan_history(
+@router.get("/plants/history", response_model=List[ScanHistorySchema])
+def get_user_scan_history(
     current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db)
 ):
@@ -81,44 +64,25 @@ def get_scan_history(
     """
 
     try:
-        scans = (
+        history_records = (
             db.query(ScanHistory)
             .filter(ScanHistory.user_id == current_user.id)
-            .order_by(ScanHistory.id.desc())
+            .order_by(ScanHistory.timestamp.desc())
             .all()
         )
 
         results = []
 
-        for s in scans:
-
-            try:
-                possible = (
-                    json.loads(s.possible_matches)
-                    if s.possible_matches
-                    else []
-                )
-            except Exception:
-                possible = []
-
-            try:
-                issues = (
-                    json.loads(s.issues_detected)
-                    if s.issues_detected
-                    else []
-                )
-            except Exception:
-                issues = []
-
+        for s in history_records:
             results.append({
                 "id": s.id,
                 "plant_name": s.plant_name,
-                "scientific_name": s.scientific_name,
-                "confidence": s.confidence,
-                "possible_matches": possible,
-                "image_quality": s.image_quality,
-                "issues_detected": issues,
-                "solution_suggestion": s.solution_suggestion,
+                "scientific_name": s.scientific_name or s.disease_name or "N/A",
+                "confidence": s.confidence or "N/A",
+                "possible_matches": [],
+                "image_quality": s.image_quality or "Good",
+                "issues_detected": [],
+                "solution_suggestion": s.solution_suggestion or "No treatment recorded",
                 "timestamp": s.timestamp
             })
 
