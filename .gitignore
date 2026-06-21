@@ -30,3 +30,4 @@ appdataset/
 objects.txt
 pack.txt
 flutter_app_old/
+.venv/

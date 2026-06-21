@@ -13,7 +13,6 @@ CLASS_NAMES_PATH = os.path.join(
     "class_names.json"
 )
 
-# CHANGED: Update the file extension to point to your new ONNX file
 MODEL_PATH = os.path.join(
     BASE_DIR,
     "ml_models",
@@ -37,18 +36,10 @@ except Exception as e:
 # Load ONNX model session
 # -----------------------------
 try:
-    # CHANGED: Replaced tf.keras.models.load_model with ort.InferenceSession
     session = ort.InferenceSession(MODEL_PATH)
-
-    # Extract structural input/output keys dynamically
     input_name = session.get_inputs()[0].name
     output_name = session.get_outputs()[0].name
-    input_shape = session.get_inputs()[0].shape
-
     print("ONNX MODEL LOADED SUCCESSFULLY")
-    print("Input Name  :", input_name)
-    print("Input Shape :", input_shape)
-
 except Exception as e:
     print("MODEL LOAD ERROR:", e)
     session = None
@@ -61,77 +52,84 @@ def run_inference(image):
     if session is None:
         raise Exception("Model session failed to load.")
 
-    # CHANGED: Ensure the image is a strict NumPy float32 array (ONNX requirement)
+    # Preprocessing
     if not isinstance(image, np.ndarray):
         image = np.array(image, dtype=np.float32)
 
     if image.dtype != np.float32:
         image = image.astype(np.float32)
 
-    # CHANGED: Replaced model.predict() with session.run()
-    # ONNX requires an explicit map dictionary: { input_node_name: input_data }
+    # Inference
     raw_predictions = session.run([output_name], {input_name: image})
-
-    # Extract the prediction scores for the first batch item
     predictions = raw_predictions[0][0]
-    
-    # DEBUG PRINT: Check if Tomato (usually one of the last indexes) is dominating raw output
-    print(f"RAW LOGITS PREDICTIONS MATRIX: {predictions}")
 
-    # Apply Softmax to turn logits into real probabilities (0.0 to 1.0)
+    # Apply Softmax to get probabilities
     exp_logits = np.exp(predictions - np.max(predictions))
     probabilities = exp_logits / np.sum(exp_logits)
 
     class_index = int(np.argmax(probabilities))
     confidence = float(probabilities[class_index]) * 100
-    raw_label = class_names[class_index] if class_names else f"Unknown_{class_index}"
 
-    # Clean up specific typos or names from your list
-    display_name = raw_label.replace("_", " ").title()
-    if "Peace" in display_name:
-        display_name = display_name.replace("Peace", "Peach")
-    elif "Pepper Bill" in display_name:
-        display_name = display_name.replace("Pepper Bill", "Pepper Bell")
-
-    scientific_names = {
-        "Apple": "Malus domestica",
-        "Corn": "Zea mays",
-        "Grape": "Vitis vinifera",
-        "Peach": "Prunus persica",
-        "Potato": "Solanum tuberosum",
-        "Rice": "Oryza sativa",
-        "Tomato": "Solanum lycopersicum",
-        "Pepper": "Capsicum annuum"  # Stripped to match the first word
-    }
-    
-    # Extract the first word safely to match keys (e.g., "Tomato" from "Tomato Late Blight")
-    first_word = display_name.split()[0] if display_name else ""
-    sci_name = scientific_names.get(first_word, "Unknown Species")
-
-    # Define a strict threshold requirement
-    # If the AI model isn't at least 75% sure, it's likely a non-leaf or poor image sample
+    # 1. Validation Logic
+    # If confidence is low, categorize as Unrecognized Image
     if confidence < 75.0:
         return {
-            "plant_name": "Unrecognized Target",
-            "scientific_name": "N/A",
-            "condition_name": "Invalid Scan",
-            "confidence": f"{confidence:.2f}%",
-            "possible_matches": [],
-            "image_quality": "Poor or Non-Leaf Image Detected",
-            "issues_detected": [],
-            "solution_suggestion": "The uploaded image does not appear to be a clear plant leaf or is not supported by the model database. Please try taking a well-lit, close-up photo of a valid leaf."
+            "status": "Unrecognized Image",
+            "message": "This image is not recognized as a supported plant leaf. Please upload a clear image of a supported plant leaf."
         }
 
-    # Otherwise, return the normal correct dictionary if confidence is high
-    return {
-        "plant_name": display_name,
-        "scientific_name": sci_name, 
-        "condition_name": "Analyzed", 
-        "confidence": f"{confidence:.2f}%",
-        "possible_matches": [],
-        "image_quality": "Good",
-        "issues_detected": [],
-        "solution_suggestion": f"Your {display_name} leaf scan has been successfully processed. Check for visible signs of spots, wilting, or discoloration to determine specific treatments."
+    raw_label = class_names[class_index]
+    
+    # 1. Split the string into distinct parts using delimiter
+    if "___" in raw_label:
+        plant_part, disease_part = raw_label.split("___")
+    else:
+        # Fallback for single underscore or other formats
+        parts = raw_label.split('_', 1)
+        plant_part = parts[0]
+        disease_part = parts[1] if len(parts) > 1 else "Healthy"
+
+    # 2. Clean up underscores and format text beautifully
+    plant_name = plant_part.replace("_", " ").title()
+    disease_name = disease_part.replace("_", " ").title()
+    
+    # Handle specific naming fixes
+    if plant_name == "Pepperbell":
+        plant_name = "Pepper Bell"
+
+    # 3. Create a deterministic treatment database mapping
+    treatment_database = {
+        "Black Rot": "Prune infected branches 4-6 inches below the canker. Apply a copper-based fungicide early in the season.",
+        "Apple Scab": "Rake and destroy fallen leaves to prevent overwintering spores. Apply preventative fungicides during green tip stage.",
+        "Common Rust": "Remove nearby alternate hosts (like cedar trees). Apply sulfur or chlorothalonil fungicides at first sign of spots.",
+        "Early Blight": "Improve air circulation by pruning lower leaves. Apply copper fungicide every 7-10 days during humid weather.",
+        "Late Blight": "Immediately destroy infected plants to prevent airborne spread. Apply chlorothalonil or copper spray pre-emptively.",
+        "Healthy": "No treatment required. Maintain optimal watering, consistent pruning, and regular soil nutrient monitoring."
     }
 
+    # Fetch the cure based on the disease name (default back to general care)
+    cure_solution = treatment_database.get(disease_name, "Maintain standard plant hygiene, prune affected areas, and ensure proper soil drainage.")
 
+    # 3. Get Reference Image Link
+    reference_image_url = None
+    dataset_rel_path = os.path.join("appdataset", "dataset", raw_label)
+    project_root = os.path.dirname(BASE_DIR)
+    dataset_full_path = os.path.join(project_root, dataset_rel_path)
+
+    try:
+        if os.path.exists(dataset_full_path) and os.path.isdir(dataset_full_path):
+            files = [f for f in os.listdir(dataset_full_path) if f.lower().endswith(('.png', '.jpg', '.jpeg'))]
+            if files:
+                reference_image_url = f"/dataset/{raw_label}/{files[0]}"
+    except Exception as e:
+        print(f"Error finding reference image: {e}")
+
+    # Return the complete package to your Flutter app
+    return {
+        "status": "Success",
+        "plant_name": plant_name,
+        "disease_name": disease_name,
+        "cure": cure_solution,
+        "reference_image": reference_image_url,
+        "reference_image_key": raw_label.lower()
+    }

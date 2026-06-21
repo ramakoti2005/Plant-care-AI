@@ -45,6 +45,12 @@ app.include_router(auth_router, prefix="/api/v1/auth", tags=["auth"])
 app.include_router(api_router, prefix="/api/v1", tags=["analysis"])
 app.include_router(simulator_router, prefix="/api/v1", tags=["simulator"])
 
+# Serve dataset images
+dataset_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), "appdataset", "dataset")
+if os.path.exists(dataset_dir):
+    app.mount("/dataset", StaticFiles(directory=dataset_dir), name="dataset")
+    logger.info(f"Serving dataset images from {dataset_dir}")
+
 # Serve frontend static files
 # Make sure this is AFTER router inclusions
 # Check for 'web' first (common for Flutter Web builds), then fallback to 'frontend'

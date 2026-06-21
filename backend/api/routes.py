@@ -41,34 +41,25 @@ async def analyze_leaf_image(
         # 3. Run inference
         response_data = run_inference(preprocessed_image)
 
-        # Force the confidence number to format as a string percentage text
-        if "confidence" in response_data and isinstance(response_data["confidence"], (int, float)):
-            response_data["confidence"] = f"{response_data['confidence']:.2f}%"
-
-        # 4. Save scan history
-        try:
-            db_scan = ScanHistory(
-                user_id=current_user.id,
-                plant_name=response_data.get("plant_name"),
-                scientific_name=response_data.get("scientific_name"),
-                confidence=response_data.get("confidence"),
-                image_quality=response_data.get("image_quality"),
-                possible_matches=json.dumps(
-                    response_data.get("possible_matches", [])
-                ),
-                issues_detected=json.dumps(
-                    response_data.get("issues_detected", [])
-                ),
-                solution_suggestion=response_data.get(
-                    "solution_suggestion"
+        # 4. Save scan history only on success
+        if response_data.get("status") == "Success":
+            try:
+                db_scan = ScanHistory(
+                    user_id=current_user.id,
+                    plant_name=response_data.get("plant_name"),
+                    scientific_name=response_data.get("disease_name"), # Using disease_name here
+                    confidence="N/A",
+                    image_quality="N/A",
+                    possible_matches=json.dumps([]),
+                    issues_detected=json.dumps([]),
+                    solution_suggestion="Handled via UI"
                 )
-            )
 
-            db.add(db_scan)
-            db.commit()
+                db.add(db_scan)
+                db.commit()
 
-        except Exception as db_err:
-            print(f"Error saving scan history: {db_err}")
+            except Exception as db_err:
+                print(f"Error saving scan history: {db_err}")
 
         # 5. Return response
         return response_data

@@ -26,13 +26,19 @@ class User(UserBase):
 
 # Analysis Responses
 class AnalysisResponse(BaseModel):
-    plant_name: str
-    scientific_name: str
-    confidence: str
-    possible_matches: List[str]
-    image_quality: str
-    issues_detected: List[str]
-    solution_suggestion: str
+    status: str
+    message: Optional[str] = None
+    plant_name: Optional[str] = None
+    disease_name: Optional[str] = None
+    reference_image: Optional[str] = None
+    cure: Optional[str] = None
+    reference_image_key: Optional[str] = None
+    scientific_name: Optional[str] = None
+    confidence: Optional[str] = None
+    image_quality: Optional[str] = None
+    possible_matches: Optional[List[str]] = []
+    issues_detected: Optional[List[str]] = []
+    solution_suggestion: Optional[str] = None
 
 # Simulator Schemas
 class ProgressionStage(BaseModel):

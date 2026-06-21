@@ -274,16 +274,36 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              "Analysis Result",
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.green),
+            Text(
+              "Plant Name: ${_result!['plant_name']}",
+              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
+            const SizedBox(height: 8),
+            Text(
+              "Disease: ${_result!['disease_name']}",
+              style: TextStyle(
+                fontSize: 16,
+                color: _result!['disease_name'] == "Healthy" ? Colors.green : Colors.red,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            const SizedBox(height: 16),
             const Divider(),
-            _buildResultRow("Plant Name:", _result!['plant_name']),
-            _buildResultRow("Disease:", _result!['disease_name']),
-            
+            const SizedBox(height: 8),
+            const Text(
+              "Recommended Treatment:",
+              style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold, color: Colors.green),
+            ),
+            const SizedBox(height: 4),
+            Text(
+              "${_result!['cure']}",
+              style: const TextStyle(fontSize: 14, height: 1.4),
+            ),
+
             if (_result!['reference_image'] != null) ...[
-              const SizedBox(height: 15),
+              const SizedBox(height: 16),
+              const Divider(),
+              const SizedBox(height: 8),
               const Text(
                 "Reference Leaf Image:",
                 style: TextStyle(fontWeight: FontWeight.bold),
@@ -292,7 +312,6 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
               ClipRRect(
                 borderRadius: BorderRadius.circular(15),
                 child: Image.network(
-                  // Extract base domain from baseUrl to build full image URL
                   'https://${Uri.parse(ApiConfig.baseUrl).host}${_result!['reference_image']}',
                   height: 200,
                   width: double.infinity,
