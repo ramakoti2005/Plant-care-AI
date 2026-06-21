@@ -17,7 +17,6 @@ router = APIRouter()
 @router.post("/analyze", response_model=AnalysisResponse)
 async def analyze_leaf_image(
     file: UploadFile = File(...),
-    current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db)
 ):
     """
@@ -42,7 +41,7 @@ async def analyze_leaf_image(
         response_data = process_prediction_and_save(
             preprocessed_image, 
             db, 
-            user_id=current_user.id
+            user_id=None
         )
 
         return response_data
