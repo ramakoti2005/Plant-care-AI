@@ -64,14 +64,26 @@ def run_inference(image):
     exp_logits = np.exp(predictions - np.max(predictions))
     probabilities = exp_logits / np.sum(exp_logits)
 
-    class_index = int(np.argmax(probabilities))
-    confidence = float(probabilities[class_index]) * 100
+    # Get the indices of the top two highest predictions
+    top_indices = np.argsort(probabilities)[-2:][::-1]
+    primary_index = top_indices[0]
+    secondary_index = top_indices[1]
 
-    if confidence < 75.0:
+    primary_confidence = float(probabilities[primary_index])
+    secondary_confidence = float(probabilities[secondary_index])
+
+    # Calculate the margin gap between the two highest guesses
+    confidence_margin = primary_confidence - secondary_confidence
+
+    # 🛑 STRICT GUARD: If confidence is low OR the top two guesses are too close, reject it!
+    # Using 0.85 (85%) as primary threshold and 0.15 (15%) margin as requested
+    if primary_confidence < 0.85 or confidence_margin < 0.15:
         return {
             "status": "Unrecognized Image",
-            "message": "This image is not recognized as a supported plant leaf. Please upload a clear image of a supported plant leaf."
+            "message": "The uploaded image does not appear to contain a valid or recognizable plant leaf. Please try again with clear lighting."
         }
+
+    class_index = primary_index
 
     raw_label = class_names[class_index]
     
