@@ -94,8 +94,9 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
       String body = await response.stream.bytesToString();
 
       if (response.statusCode == 200) {
+        final data = jsonDecode(body);
         setState(() {
-          _result = jsonDecode(body);
+          _result = data;
         });
       } else {
         String errorMessage = "An error occurred";
