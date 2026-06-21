@@ -91,18 +91,24 @@ def run_inference(image):
     if plant_name == "Pepperbell":
         plant_name = "Pepper Bell"
 
-    # Treatment database
+    # Treatment database (Expanded to support all your model classes)
     treatment_database = {
-        "Black Rot": "Prune infected branches 4-6 inches below the canker. Apply a copper-based fungicide early in the season.",
+        "Black Rot": "Prune infected branches 4-6 inches below the canker. Apply a copper-based fungicide early in the season and destroy fallen leaves.",
         "Apple Scab": "Rake and destroy fallen leaves to prevent overwintering spores. Apply preventative fungicides during green tip stage.",
         "Common Rust": "Remove nearby alternate hosts (like cedar trees). Apply sulfur or chlorothalonil fungicides at first sign of spots.",
         "Early Blight": "Improve air circulation by pruning lower leaves. Apply copper fungicide every 7-10 days during humid weather.",
         "Late Blight": "Immediately destroy infected plants to prevent airborne spread. Apply chlorothalonil or copper spray pre-emptively.",
         "Leaf Blast": "Avoid excessive nitrogen fertilizers. Maintain stable water layers in the field to protect the plant, and apply systemic fungicides like Tricyclazole or Azoxystrobin if spots appear.",
+        "Bacterial Spot": "Apply copper-based bactericides early in the season. Avoid overhead watering to reduce moisture on leaves and remove infected plant debris.",
+        "Brown Spot": "Apply balanced fertilizers (avoid low potassium). Use certified disease-free seeds and apply recommended fungicides if infestation spreads.",
         "Healthy": "No treatment required. Maintain optimal watering, consistent pruning, and regular soil nutrient monitoring."
     }
 
-    treatment = treatment_database.get(disease_name, "Maintain standard plant hygiene, prune affected areas, and ensure proper soil drainage.")
+    # Fallback to a general safe message if a disease isn't explicitly listed
+    treatment = treatment_database.get(
+        disease_name, 
+        f"Prune affected areas, optimize water drainage, remove plant debris, and apply a general-purpose crop protector matching {disease_name} if symptoms persist."
+    )
 
     # Get Reference Image Link
     reference_image_url = None
@@ -118,13 +124,15 @@ def run_inference(image):
     except Exception as e:
         print(f"Error finding reference image: {e}")
 
-    # Return structure matching requirements: Plant Name, Disease Name, Reference Image, Treatment
+    # 🚀 MULTI-KEY PAYLOAD: Sends every possible variant so Flutter never reads a null field!
     return {
         "status": "Success",
         "plant_name": plant_name,
         "disease_name": disease_name,
         "reference_image": reference_image_url,
-        "treatment": treatment
+        "treatment": treatment,
+        "cure": treatment,
+        "solution_suggestion": treatment
     }
 
 # -----------------------------
