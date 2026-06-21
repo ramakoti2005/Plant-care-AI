@@ -6,7 +6,8 @@ import json
 
 from schemas import AnalysisResponse, ScanHistorySchema
 from services.preprocessing import preprocess_image
-from services.inference import run_inference, process_prediction_and_save
+from services.inference import process_prediction_and_save
+from services.leaf_validator import is_leaf_image
 from services.auth import get_current_user
 from models import User, ScanHistory
 from database import get_db
@@ -34,10 +35,17 @@ async def analyze_leaf_image(
         # Read uploaded image
         image_bytes = await file.read()
 
-        # 2. Preprocess image
+        # 2. VALIDATION STEP: Check if it's actually a plant leaf
+        if not is_leaf_image(image_bytes):
+            return {
+                "status": "Unrecognized Image",
+                "message": "This image is not recognized as a supported plant leaf. Please upload a clear image of a supported plant leaf."
+            }
+
+        # 3. Preprocess image for ONNX
         preprocessed_image = preprocess_image(image_bytes)
 
-        # 3. Run inference and save history in one step
+        # 4. Run inference and save history
         response_data = process_prediction_and_save(
             preprocessed_image, 
             db, 

@@ -6,7 +6,6 @@ import 'package:image_picker/image_picker.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:http/http.dart' as http;
 import 'package:http_parser/http_parser.dart';
-import 'package:intl/intl.dart';
 import '../api_config.dart';
 
 class ScanPlantScreen extends StatefulWidget {
@@ -34,7 +33,7 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
         setState(() {
           _imageBytes = bytes;
           _imageName = pickedFile.name;
-          _result = null; // Clear previous result
+          _result = null; 
         });
       }
     } catch (e) {
@@ -51,7 +50,7 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
         setState(() {
           _imageBytes = bytes;
           _imageName = pickedFile.name;
-          _result = null; // Clear previous result
+          _result = null; 
         });
       }
     } catch (e) {
@@ -75,7 +74,9 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
         Uri.parse('${ApiConfig.baseUrl}/analyze'),
       );
 
-      request.headers['Authorization'] = 'Bearer $token';
+      if (token != null) {
+        request.headers['Authorization'] = 'Bearer $token';
+      }
 
       String extension = _imageName != null ? _imageName!.split('.').last.toLowerCase() : 'jpeg';
       MediaType contentType = MediaType('image', extension == 'png' ? 'png' : 'jpeg');
@@ -97,7 +98,7 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
           _result = jsonDecode(body);
         });
       } else {
-        String errorMessage = body;
+        String errorMessage = "An error occurred";
         try {
           final errorData = jsonDecode(body);
           if (errorData is Map && errorData.containsKey('detail')) {
@@ -109,9 +110,6 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: Text(errorMessage)),
           );
-          setState(() {
-            _result = null; // Reset UI layout on failure
-          });
         }
       }
     } catch (e) {
@@ -119,9 +117,6 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text("Connection error: $e")),
         );
-        setState(() {
-          _result = null; // Reset UI layout on failure
-        });
       }
     }
 
@@ -138,18 +133,18 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
       backgroundColor: const Color(0xFFF4FAF4),
       appBar: AppBar(
         title: const Text(
-          "Scan Plant",
-          style: TextStyle(color: Colors.white),
+          "Plant Carer AI",
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
         backgroundColor: const Color(0xFF2E7D32),
-        iconTheme: const IconThemeData(color: Colors.white),
+        centerTitle: true,
       ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(20),
           child: Column(
             children: [
-              const SizedBox(height: 20),
+              const SizedBox(height: 10),
 
               if (_imageBytes != null)
                 Container(
@@ -165,19 +160,29 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
                   ),
                 )
               else
-                const Column(
-                  children: [
-                    Icon(Icons.camera_alt, size: 100, color: Color(0xFF2E7D32)),
-                    SizedBox(height: 10),
-                    Text(
-                      "Upload Plant Leaf Image",
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: Color(0xFF1B5E20),
+                Container(
+                  height: 250,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    color: Colors.green.withOpacity(0.05),
+                    borderRadius: BorderRadius.circular(20),
+                    border: Border.all(color: Colors.green.withOpacity(0.2), width: 2),
+                  ),
+                  child: const Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(Icons.eco, size: 80, color: Color(0xFF2E7D32)),
+                      SizedBox(height: 10),
+                      Text(
+                        "Upload Plant Leaf Image",
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xFF1B5E20),
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
 
               const SizedBox(height: 30),
@@ -192,6 +197,8 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.green,
                         foregroundColor: Colors.white,
+                        padding: const EdgeInsets.all(12),
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                       ),
                     ),
                   ),
@@ -204,6 +211,8 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.orange,
                         foregroundColor: Colors.white,
+                        padding: const EdgeInsets.all(12),
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                       ),
                     ),
                   ),
@@ -223,6 +232,7 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
                       backgroundColor: Colors.deepPurple,
                       foregroundColor: Colors.white,
                       padding: const EdgeInsets.all(15),
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                     ),
                   ),
                 ),
@@ -230,7 +240,7 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
               if (_loading) 
                 const Padding(
                   padding: EdgeInsets.symmetric(vertical: 20),
-                  child: CircularProgressIndicator(),
+                  child: CircularProgressIndicator(color: Colors.green),
                 ),
 
               if (_result != null) _buildResultView(),
@@ -246,14 +256,15 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
       return Container(
         margin: const EdgeInsets.only(top: 20),
         padding: const EdgeInsets.all(20),
+        width: double.infinity,
         decoration: BoxDecoration(
           color: Colors.red[50],
           borderRadius: BorderRadius.circular(20),
-          border: Border.all(color: Colors.red),
+          border: Border.all(color: Colors.red.withOpacity(0.5)),
         ),
         child: Column(
           children: [
-            const Icon(Icons.error_outline, color: Colors.red, size: 50),
+            const Icon(Icons.error_outline, color: Colors.red, size: 60),
             const SizedBox(height: 10),
             const Text(
               "Unrecognized Image",
@@ -261,9 +272,9 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
             ),
             const SizedBox(height: 10),
             Text(
-              _result!['message'] ?? "This image is not recognized as a supported plant leaf.",
+              _result!['message'] ?? "This image is not recognized as a supported plant leaf. Please upload a clear image of a supported plant leaf.",
               textAlign: TextAlign.center,
-              style: const TextStyle(fontSize: 16),
+              style: const TextStyle(fontSize: 16, color: Colors.black87),
             ),
           ],
         ),
@@ -271,76 +282,90 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
     }
 
     // Success Case
-    return Card(
-      elevation: 4,
+    return Container(
       margin: const EdgeInsets.only(top: 20),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-      child: Padding(
-        padding: const EdgeInsets.all(20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              "Plant Name: ${_result!['plant_name']}",
-              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 8),
-            Text(
-              "Disease: ${_result!['disease_name']}",
-              style: TextStyle(
-                fontSize: 16,
-                color: _result!['disease_name'] == "Healthy" ? Colors.green : Colors.red,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-            const SizedBox(height: 16),
-            const Divider(),
-            const SizedBox(height: 8),
+      width: double.infinity,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          _buildInfoCard("Plant Name", _result!['plant_name'] ?? "Unknown"),
+          const SizedBox(height: 10),
+          _buildInfoCard("Disease", _result!['disease_name'] ?? "Unknown", 
+            isDisease: true, 
+            isHealthy: _result!['disease_name']?.toString().toLowerCase() == "healthy"
+          ),
+          
+          if (_result!['reference_image'] != null) ...[
+            const SizedBox(height: 20),
             const Text(
-              "Recommended Treatment:",
-              style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold, color: Colors.green),
+              "Reference Leaf Image",
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Color(0xFF1B5E20)),
             ),
-            const SizedBox(height: 4),
-            Text(
-              "${_result!['cure']}",
-              style: const TextStyle(fontSize: 14, height: 1.4),
-            ),
-
-            if (_result!['reference_image'] != null) ...[
-              const SizedBox(height: 16),
-              const Divider(),
-              const SizedBox(height: 8),
-              const Text(
-                "Reference Leaf Image:",
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(height: 10),
-              ClipRRect(
-                borderRadius: BorderRadius.circular(15),
-                child: Image.network(
-                  'https://${Uri.parse(ApiConfig.baseUrl).host}${_result!['reference_image']}',
+            const SizedBox(height: 10),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+              child: Image.network(
+                'https://${Uri.parse(ApiConfig.baseUrl).host}${_result!['reference_image']}',
+                height: 200,
+                width: double.infinity,
+                fit: BoxFit.cover,
+                errorBuilder: (context, error, stackTrace) => Container(
                   height: 200,
                   width: double.infinity,
-                  fit: BoxFit.cover,
-                  errorBuilder: (context, error, stackTrace) => const Center(child: Text("Reference image unavailable")),
+                  color: Colors.grey[200],
+                  child: const Icon(Icons.image_not_supported, size: 50, color: Colors.grey),
                 ),
               ),
-            ],
+            ),
           ],
-        ),
+
+          if (_result!['treatment'] != null) ...[
+            const SizedBox(height: 20),
+            const Text(
+              "Treatment Information",
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Color(0xFF1B5E20)),
+            ),
+            const SizedBox(height: 10),
+            Container(
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(15),
+                boxShadow: [
+                  BoxShadow(color: Colors.black.withOpacity(0.05), blurRadius: 10, offset: const Offset(0, 4)),
+                ],
+              ),
+              child: Text(
+                _result!['treatment'],
+                style: const TextStyle(fontSize: 15, height: 1.5),
+              ),
+            ),
+          ],
+        ],
       ),
     );
   }
 
-  Widget _buildResultRow(String label, String value) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0),
+  Widget _buildInfoCard(String label, String value, {bool isDisease = false, bool isHealthy = false}) {
+    Color textColor = Colors.black87;
+    if (isDisease) {
+      textColor = isHealthy ? Colors.green : Colors.red;
+    }
+
+    return Container(
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(15),
+        boxShadow: [
+          BoxShadow(color: Colors.black.withOpacity(0.05), blurRadius: 10, offset: const Offset(0, 4)),
+        ],
+      ),
       child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(label, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
-          const SizedBox(width: 8),
-          Expanded(child: Text(value, style: const TextStyle(fontSize: 16))),
+          Text(label, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500, color: Colors.grey)),
+          Text(value, style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: textColor)),
         ],
       ),
     );

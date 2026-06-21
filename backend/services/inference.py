@@ -4,7 +4,6 @@ import numpy as np
 import onnxruntime as ort
 from sqlalchemy.orm import Session
 from models import ScanHistory
-from fastapi import HTTPException, status
 
 print("STEP 1: inference.py started with ONNX")
 
@@ -65,29 +64,20 @@ def run_inference(image):
     exp_logits = np.exp(predictions - np.max(predictions))
     probabilities = exp_logits / np.sum(exp_logits)
 
-    # Get the indices of the top two highest predictions
-    top_indices = np.argsort(probabilities)[-2:][::-1]
-    primary_index = top_indices[0]
-    secondary_index = top_indices[1]
+    # Get the top prediction
+    class_index = int(np.argmax(probabilities))
+    confidence = float(probabilities[class_index]) * 100
 
-    primary_confidence = float(probabilities[primary_index])
-    secondary_confidence = float(probabilities[secondary_index])
-
-    # Calculate the margin gap between the two highest guesses
-    confidence_margin = primary_confidence - secondary_confidence
-
-    # 🛑 STRICT GUARD: If confidence is low OR the top two guesses are too close, reject it!
-    # Using 0.85 (85%) as primary threshold and 0.15 (15%) margin as requested
-    if primary_confidence < 0.85 or confidence_margin < 0.15:
-        raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            detail="The uploaded image does not appear to contain a valid or recognizable plant leaf."
-        )
-
-    class_index = primary_index
+    # If confidence is too low, we treat it as unrecognized
+    if confidence < 75.0:
+        return {
+            "status": "Unrecognized Image",
+            "message": "The uploaded image does not match any supported plant leaf in the dataset."
+        }
 
     raw_label = class_names[class_index]
     
+    # Split the string into distinct parts (Plant and Disease)
     if "___" in raw_label:
         plant_part, disease_part = raw_label.split("___")
     else:
@@ -101,6 +91,7 @@ def run_inference(image):
     if plant_name == "Pepperbell":
         plant_name = "Pepper Bell"
 
+    # Treatment database
     treatment_database = {
         "Black Rot": "Prune infected branches 4-6 inches below the canker. Apply a copper-based fungicide early in the season.",
         "Apple Scab": "Rake and destroy fallen leaves to prevent overwintering spores. Apply preventative fungicides during green tip stage.",
@@ -111,8 +102,9 @@ def run_inference(image):
         "Healthy": "No treatment required. Maintain optimal watering, consistent pruning, and regular soil nutrient monitoring."
     }
 
-    cure_solution = treatment_database.get(disease_name, "Maintain standard plant hygiene, prune affected areas, and ensure proper soil drainage.")
+    treatment = treatment_database.get(disease_name, "Maintain standard plant hygiene, prune affected areas, and ensure proper soil drainage.")
 
+    # Get Reference Image Link
     reference_image_url = None
     dataset_rel_path = os.path.join("appdataset", "dataset", raw_label)
     project_root = os.path.dirname(BASE_DIR)
@@ -126,40 +118,32 @@ def run_inference(image):
     except Exception as e:
         print(f"Error finding reference image: {e}")
 
+    # Return structure matching requirements: Plant Name, Disease Name, Reference Image, Treatment
     return {
         "status": "Success",
         "plant_name": plant_name,
         "disease_name": disease_name,
-        "cure": cure_solution,
         "reference_image": reference_image_url,
-        "reference_image_key": raw_label.lower()
+        "treatment": treatment
     }
 
 # -----------------------------
 # Success Logging Helper
 # -----------------------------
 def process_prediction_and_save(image, db: Session, user_id: int = None):
-    # 1. Run the existing inference
     response_data = run_inference(image)
 
-    # 2. If valid, log to history
     if response_data.get("status") == "Success":
         try:
             new_history = ScanHistory(
                 user_id=user_id,
                 plant_name=response_data["plant_name"],
                 disease_name=response_data["disease_name"],
-                solution_suggestion=response_data["cure"], # Mapped to treatment
-                scientific_name=response_data["disease_name"], # Fallback
-                confidence="N/A",
-                image_quality="Good",
-                possible_matches="[]",
-                issues_detected="[]"
+                solution_suggestion=response_data["treatment"],
+                timestamp=None # Default will be used
             )
             db.add(new_history)
             db.commit()
-            db.refresh(new_history)
-            print("Success: Scan history recorded dynamically in database.")
         except Exception as e:
             db.rollback()
             print(f"Database logging failed: {str(e)}")
