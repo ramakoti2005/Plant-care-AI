@@ -34,6 +34,7 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
         setState(() {
           _imageBytes = bytes;
           _imageName = pickedFile.name;
+          _result = null; // Clear previous result
         });
       }
     } catch (e) {
@@ -50,6 +51,7 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
         setState(() {
           _imageBytes = bytes;
           _imageName = pickedFile.name;
+          _result = null; // Clear previous result
         });
       }
     } catch (e) {
@@ -75,7 +77,6 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
 
       request.headers['Authorization'] = 'Bearer $token';
 
-      // Determine the content type based on the file extension
       String extension = _imageName != null ? _imageName!.split('.').last.toLowerCase() : 'jpeg';
       MediaType contentType = MediaType('image', extension == 'png' ? 'png' : 'jpeg');
 
@@ -94,9 +95,6 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
       if (response.statusCode == 200) {
         setState(() {
           _result = jsonDecode(body);
-          if (_result != null && !_result!.containsKey('timestamp')) {
-            _result!['timestamp'] = DateFormat('yyyy-MM-dd hh:mm a').format(DateTime.now());
-          }
         });
       } else {
         String errorMessage = body;
@@ -145,7 +143,7 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
           padding: const EdgeInsets.all(20),
           child: Column(
             children: [
-              const SizedBox(height: 30),
+              const SizedBox(height: 20),
 
               if (_imageBytes != null)
                 Container(
@@ -153,32 +151,22 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
                   width: double.infinity,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
-                    border: Border.all(
-                      color: Colors.green,
-                      width: 2,
-                    ),
+                    border: Border.all(color: Colors.green, width: 2),
                   ),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(18),
-                    child: Image.memory(
-                      _imageBytes!,
-                      fit: BoxFit.cover,
-                    ),
+                    child: Image.memory(_imageBytes!, fit: BoxFit.cover),
                   ),
                 )
               else
                 const Column(
                   children: [
-                    Icon(
-                      Icons.camera_alt,
-                      size: 120,
-                      color: Color(0xFF2E7D32),
-                    ),
-                    SizedBox(height: 15),
+                    Icon(Icons.camera_alt, size: 100, color: Color(0xFF2E7D32)),
+                    SizedBox(height: 10),
                     Text(
                       "Upload Plant Leaf Image",
                       style: TextStyle(
-                        fontSize: 22,
+                        fontSize: 20,
                         fontWeight: FontWeight.bold,
                         color: Color(0xFF1B5E20),
                       ),
@@ -186,41 +174,39 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
                   ],
                 ),
 
-              const SizedBox(height: 40),
+              const SizedBox(height: 30),
 
-              SizedBox(
-                width: double.infinity,
-                child: ElevatedButton.icon(
-                  onPressed: _pickGallery,
-                  icon: const Icon(Icons.photo_library),
-                  label: const Text("Choose From Gallery"),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.green,
-                    foregroundColor: Colors.white,
-                    padding: const EdgeInsets.all(15),
+              Row(
+                children: [
+                  Expanded(
+                    child: ElevatedButton.icon(
+                      onPressed: _pickGallery,
+                      icon: const Icon(Icons.photo_library),
+                      label: const Text("Gallery"),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.green,
+                        foregroundColor: Colors.white,
+                      ),
+                    ),
                   ),
-                ),
+                  const SizedBox(width: 10),
+                  Expanded(
+                    child: ElevatedButton.icon(
+                      onPressed: _pickCamera,
+                      icon: const Icon(Icons.camera_alt),
+                      label: const Text("Camera"),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.orange,
+                        foregroundColor: Colors.white,
+                      ),
+                    ),
+                  ),
+                ],
               ),
 
               const SizedBox(height: 20),
 
-              SizedBox(
-                width: double.infinity,
-                child: ElevatedButton.icon(
-                  onPressed: _pickCamera,
-                  icon: const Icon(Icons.camera_alt),
-                  label: const Text("Take Photo"),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.orange,
-                    foregroundColor: Colors.white,
-                    padding: const EdgeInsets.all(15),
-                  ),
-                ),
-              ),
-
-              const SizedBox(height: 30),
-
-              if (_imageBytes != null)
+              if (_imageBytes != null && !_loading && _result == null)
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton.icon(
@@ -235,42 +221,102 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
                   ),
                 ),
 
-              const SizedBox(height: 20),
-
-              if (_loading) const Center(child: CircularProgressIndicator()),
-
-              if (_result != null)
-                Card(
-                  child: Padding(
-                    padding: const EdgeInsets.all(16),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Plant: ${_result!['plant_name']}",
-                          style: const TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        Text("Scientific Name: ${_result!['scientific_name']}"),
-                        Text("Confidence: ${_result!['confidence']}"),
-                        Text("Image Quality: ${_result!['image_quality']}"),
-                        if (_result!.containsKey('timestamp'))
-                          Text("Scan Date & Time: ${_result!['timestamp']}"),
-                        const SizedBox(height: 10),
-                        const Text(
-                          "Solution:",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                        Text(_result!['solution_suggestion'] ?? "No suggestion available"),
-                      ],
-                    ),
-                  ),
+              if (_loading) 
+                const Padding(
+                  padding: EdgeInsets.symmetric(vertical: 20),
+                  child: CircularProgressIndicator(),
                 ),
+
+              if (_result != null) _buildResultView(),
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  Widget _buildResultView() {
+    if (_result!['status'] == "Unrecognized Image") {
+      return Container(
+        margin: const EdgeInsets.only(top: 20),
+        padding: const EdgeInsets.all(20),
+        decoration: BoxDecoration(
+          color: Colors.red[50],
+          borderRadius: BorderRadius.circular(20),
+          border: Border.all(color: Colors.red),
+        ),
+        child: Column(
+          children: [
+            const Icon(Icons.error_outline, color: Colors.red, size: 50),
+            const SizedBox(height: 10),
+            const Text(
+              "Unrecognized Image",
+              style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.red),
+            ),
+            const SizedBox(height: 10),
+            Text(
+              _result!['message'] ?? "This image is not recognized as a supported plant leaf.",
+              textAlign: TextAlign.center,
+              style: const TextStyle(fontSize: 16),
+            ),
+          ],
+        ),
+      );
+    }
+
+    // Success Case
+    return Card(
+      elevation: 4,
+      margin: const EdgeInsets.only(top: 20),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+      child: Padding(
+        padding: const EdgeInsets.all(20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text(
+              "Analysis Result",
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.green),
+            ),
+            const Divider(),
+            _buildResultRow("Plant Name:", _result!['plant_name']),
+            _buildResultRow("Disease:", _result!['disease_name']),
+            
+            if (_result!['reference_image'] != null) ...[
+              const SizedBox(height: 15),
+              const Text(
+                "Reference Leaf Image:",
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 10),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(15),
+                child: Image.network(
+                  // Extract base domain from baseUrl to build full image URL
+                  'https://${Uri.parse(ApiConfig.baseUrl).host}${_result!['reference_image']}',
+                  height: 200,
+                  width: double.infinity,
+                  fit: BoxFit.cover,
+                  errorBuilder: (context, error, stackTrace) => const Center(child: Text("Reference image unavailable")),
+                ),
+              ),
+            ],
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildResultRow(String label, String value) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(label, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+          const SizedBox(width: 8),
+          Expanded(child: Text(value, style: const TextStyle(fontSize: 16))),
+        ],
       ),
     );
   }
