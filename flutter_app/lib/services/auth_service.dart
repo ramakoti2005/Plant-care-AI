@@ -84,15 +84,7 @@ class AuthService extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> loadTokenFromStorage() async {
-    _token = await _storage.read(key: 'auth_token');
-    if (_token != null) {
-      notifyListeners();
-    }
-  }
-}
-
-  Future<void> loadTokenFromStorage() async {
+  Future<void> loadToken() async {
     _token = await _storage.read(key: 'auth_token');
     if (_token != null) {
       notifyListeners();
