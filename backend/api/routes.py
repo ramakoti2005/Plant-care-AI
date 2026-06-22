@@ -63,6 +63,7 @@ async def analyze_leaf_image(
 
 
 @router.get("/plants/history", response_model=List[ScanHistorySchema])
+@router.get("/history", response_model=List[ScanHistorySchema])
 def get_user_scan_history(
     current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db)
