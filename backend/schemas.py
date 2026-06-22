@@ -5,6 +5,8 @@ from typing import Optional, List
 class Token(BaseModel):
     access_token: str
     token_type: str
+    username: Optional[str] = None
+    email: Optional[str] = None
 
 class TokenData(BaseModel):
     username: Optional[str] = None

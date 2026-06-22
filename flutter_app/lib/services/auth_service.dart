@@ -32,7 +32,7 @@ class AuthService extends ChangeNotifier {
 
         // Store user info for Profile Screen
         final prefs = await SharedPreferences.getInstance();
-        await prefs.setString('email', email);
+        await prefs.setString('email', data['email'] ?? email);
         // If your backend returns username, use it. Otherwise, use email prefix.
         await prefs.setString('username', data['username'] ?? email.split('@')[0]);
 

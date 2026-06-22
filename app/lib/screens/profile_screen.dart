@@ -18,13 +18,36 @@ class _ProfileScreenState extends State<ProfileScreen> {
   static const String _imageKey = 'profile_image_path';
 
   // Temporary mock data
-  final String _username = "Ramu2005";
-  final String _email = "ramakotireddy2005@gmail.com";
+  String _username = "vishnu123";
+  String _email = "vishnu@gmail.com";
 
   @override
   void initState() {
     super.initState();
     _loadImagePath();
+    _loadUserData();
+  }
+
+  Future<void> _loadUserData() async {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      String? storedUsername = prefs.getString('username') ?? prefs.getString('saved_username');
+      String? storedEmail = prefs.getString('email');
+      setState(() {
+        if (storedUsername == null || storedUsername == "Ramu2005" || storedUsername.toLowerCase() == "ramu2005") {
+          _username = "vishnu123";
+          _email = "vishnu@gmail.com";
+        } else {
+          _username = storedUsername;
+          _email = storedEmail ?? "vishnu@gmail.com";
+        }
+      });
+    } catch (e) {
+      setState(() {
+        _username = "vishnu123";
+        _email = "vishnu@gmail.com";
+      });
+    }
   }
 
   /// Loads the saved image path from SharedPreferences

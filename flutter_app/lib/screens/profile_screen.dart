@@ -25,16 +25,23 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Future<void> _loadUserData() async {
     try {
       final prefs = await SharedPreferences.getInstance();
+      String? storedUsername = prefs.getString('username') ?? prefs.getString('saved_username');
+      String? storedEmail = prefs.getString('email');
+
       setState(() {
-        // Checking for 'saved_username' since LoginScreen uses that
-        username = prefs.getString('username') ?? prefs.getString('saved_username') ?? "Ramu2005"; 
-        email = prefs.getString('email') ?? "ramakotireddy2005@gmail.com";
+        if (storedUsername == null || storedUsername == "Ramu2005" || storedUsername.toLowerCase() == "ramu2005") {
+          username = "vishnu123";
+          email = "vishnu@gmail.com";
+        } else {
+          username = storedUsername;
+          email = storedEmail ?? "vishnu@gmail.com";
+        }
         isLoading = false;
       });
     } catch (e) {
       setState(() {
-        username = "Farmer User";
-        email = "No email linked";
+        username = "vishnu123";
+        email = "vishnu@gmail.com";
         isLoading = false;
       });
     }
