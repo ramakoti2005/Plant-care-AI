@@ -93561,7 +93561,7 @@ return A.E(B.jo.a_h(0,"auth_token"),$async$ug)
 case 6:n=b
 k=t.N
 s=7
-return A.E(A.b_L(A.fn("https://plant-care-ai-6ng8.onrender.com/api/v1/api/v1/history"),A.aj(["Authorization","Bearer "+A.k(n)],k,k)),$async$ug)
+return A.E(A.b_L(A.fn("https://plant-care-ai-6ng8.onrender.com/api/v1/plants/history"),A.aj(["Authorization","Bearer "+A.k(n)],k,k)),$async$ug)
 case 7:m=b
 if(m.b===200)o.a5(new A.arF(o,m))
 else{o.a5(new A.arG(o))

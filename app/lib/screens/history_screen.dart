@@ -34,7 +34,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
       await _storage.read(key: 'auth_token');
 
       final response = await http.get(
-        Uri.parse('$_baseUrl/api/v1/history'),
+        Uri.parse('$_baseUrl/plants/history'),
         headers: {
           'Authorization': 'Bearer $token',
         },
