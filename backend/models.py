@@ -40,6 +40,7 @@ class ScanHistory(Base):
     possible_matches = Column(Text) 
     issues_detected = Column(Text) 
     solution_suggestion = Column(Text) # This maps to 'treatment'
+    image_path = Column(String, nullable=True)
     timestamp = Column(DateTime, default=datetime.utcnow)
 
     user = relationship("User", back_populates="scans")

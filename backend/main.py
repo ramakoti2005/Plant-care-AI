@@ -28,6 +28,11 @@ try:
             with engine.begin() as conn:
                 conn.execute(text("ALTER TABLE scan_histories ADD COLUMN disease_name VARCHAR(255)"))
             logger.info("Migrating Database: Successfully added 'disease_name' column.")
+        if "image_path" not in columns:
+            logger.info("Migrating Database: Adding 'image_path' column to 'scan_histories' table.")
+            with engine.begin() as conn:
+                conn.execute(text("ALTER TABLE scan_histories ADD COLUMN image_path VARCHAR(255)"))
+            logger.info("Migrating Database: Successfully added 'image_path' column.")
 except Exception as e:
     logger.error(f"Error creating database tables or migrating: {e}")
 
@@ -61,6 +66,13 @@ dataset_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), "appdatas
 if os.path.exists(dataset_dir):
     app.mount("/dataset", StaticFiles(directory=dataset_dir), name="dataset")
     logger.info(f"Serving dataset images from {dataset_dir}")
+
+# Serve uploaded images
+uploads_dir = os.path.join(os.path.dirname(__file__), "uploads")
+if not os.path.exists(uploads_dir):
+    os.makedirs(uploads_dir, exist_ok=True)
+app.mount("/uploads", StaticFiles(directory=uploads_dir), name="uploads")
+logger.info(f"Serving uploaded images from {uploads_dir}")
 
 # Serve frontend static files
 # Make sure this is AFTER router inclusions

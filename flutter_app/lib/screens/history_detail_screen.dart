@@ -13,8 +13,21 @@ class HistoryDetailScreen extends StatelessWidget {
   String _formatDate(dynamic dateValue) {
     if (dateValue == null) return 'N/A';
     try {
-      DateTime dt = DateTime.parse(dateValue.toString());
-      return DateFormat('yyyy-MM-dd hh:mm a').format(dt);
+      String dateStr = dateValue.toString();
+      DateTime dt = DateTime.parse(dateStr);
+      if (!dt.isUtc && !dateStr.endsWith('Z') && !RegExp(r'[+-]\d\d:?\d\d$').hasMatch(dateStr)) {
+        dt = DateTime.utc(
+          dt.year,
+          dt.month,
+          dt.day,
+          dt.hour,
+          dt.minute,
+          dt.second,
+          dt.millisecond,
+          dt.microsecond,
+        );
+      }
+      return DateFormat('yyyy-MM-dd hh:mm a').format(dt.toLocal());
     } catch (e) {
       return dateValue.toString();
     }
@@ -44,7 +57,18 @@ class HistoryDetailScreen extends StatelessWidget {
               crossAxisAlignment:
               CrossAxisAlignment.start,
               children: [
-                if (imageUrl != null)
+                Text(
+                  scan['plant_name'] ?? '',
+                  style: const TextStyle(
+                    fontSize: 26,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.green,
+                  ),
+                ),
+
+                const Divider(height: 30),
+
+                if (imageUrl != null) ...[
                   Container(
                     margin: const EdgeInsets.only(bottom: 20),
                     height: 250,
@@ -66,16 +90,7 @@ class HistoryDetailScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                Text(
-                  scan['plant_name'] ?? '',
-                  style: const TextStyle(
-                    fontSize: 26,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.green,
-                  ),
-                ),
-
-                const Divider(height: 30),
+                ],
 
                 Text(
                   "Scientific Name",
@@ -84,16 +99,6 @@ class HistoryDetailScreen extends StatelessWidget {
                   ),
                 ),
                 Text(scan['scientific_name'] ?? ''),
-
-                const SizedBox(height: 15),
-
-                Text(
-                  "Confidence",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                Text(scan['confidence'].toString()),
 
                 const SizedBox(height: 15),
 

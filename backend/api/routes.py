@@ -3,6 +3,8 @@ from fastapi.responses import JSONResponse
 from sqlalchemy.orm import Session
 from typing import List, Optional
 import json
+import os
+import uuid
 
 from schemas import AnalysisResponse, ScanHistorySchema
 from services.preprocessing import preprocess_image
@@ -43,6 +45,22 @@ async def analyze_leaf_image(
                 "message": "This image is not recognized as a supported plant leaf. Please upload a clear image of a supported plant leaf."
             }
 
+        # Create uploads directory if it doesn't exist
+        uploads_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), "uploads")
+        if not os.path.exists(uploads_dir):
+            os.makedirs(uploads_dir, exist_ok=True)
+
+        # Generate a unique name for the file
+        file_ext = file.filename.split(".")[-1] if "." in file.filename else "jpg"
+        unique_filename = f"{uuid.uuid4()}.{file_ext}"
+        file_path = os.path.join(uploads_dir, unique_filename)
+
+        # Save the file
+        with open(file_path, "wb") as buffer:
+            buffer.write(image_bytes)
+
+        relative_image_path = f"/uploads/{unique_filename}"
+
         # 3. Preprocess image for ONNX
         preprocessed_image = preprocess_image(image_bytes)
 
@@ -50,9 +68,11 @@ async def analyze_leaf_image(
         response_data = process_prediction_and_save(
             preprocessed_image, 
             db, 
-            user_id=current_user.id if current_user else None
+            user_id=current_user.id if current_user else None,
+            image_path=relative_image_path
         )
 
+        response_data["image_path"] = relative_image_path
         return response_data
 
     except Exception as e:
@@ -92,7 +112,8 @@ def get_user_scan_history(
                 "image_quality": s.image_quality or "Good",
                 "issues_detected": [],
                 "solution_suggestion": s.solution_suggestion or "No treatment recorded",
-                "timestamp": s.timestamp
+                "timestamp": s.timestamp,
+                "image_path": s.image_path
             })
 
         return results

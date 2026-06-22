@@ -65,6 +65,7 @@ class ScanHistorySchema(BaseModel):
     issues_detected: List[str]
     solution_suggestion: str
     timestamp: datetime
+    image_path: Optional[str] = None
 
     class Config:
         from_attributes = True

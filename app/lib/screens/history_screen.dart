@@ -64,8 +64,21 @@ class _HistoryScreenState extends State<HistoryScreen> {
   String _formatDate(dynamic dateValue) {
     if (dateValue == null) return '';
     try {
-      DateTime dt = DateTime.parse(dateValue.toString());
-      return DateFormat('yyyy-MM-dd hh:mm a').format(dt);
+      String dateStr = dateValue.toString();
+      DateTime dt = DateTime.parse(dateStr);
+      if (!dt.isUtc && !dateStr.endsWith('Z') && !RegExp(r'[+-]\d\d:?\d\d$').hasMatch(dateStr)) {
+        dt = DateTime.utc(
+          dt.year,
+          dt.month,
+          dt.day,
+          dt.hour,
+          dt.minute,
+          dt.second,
+          dt.millisecond,
+          dt.microsecond,
+        );
+      }
+      return DateFormat('yyyy-MM-dd hh:mm a').format(dt.toLocal());
     } catch (e) {
       return dateValue.toString();
     }
@@ -117,8 +130,6 @@ class _HistoryScreenState extends State<HistoryScreen> {
               subtitle: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("Confidence: ${item['confidence']}"),
-                  const SizedBox(height: 4),
                   Text(
                     _formatDate(item['timestamp'] ?? item['created_at'] ?? item['date']),
                     style: TextStyle(
