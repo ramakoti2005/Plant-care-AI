@@ -18,12 +18,12 @@ def is_leaf_image(image_bytes: bytes) -> bool:
     hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
 
     # Define color ranges for plant leaves (Green, Yellow, Brown/Dried)
-    # Green range
-    lower_green = np.array([30, 30, 30])
-    upper_green = np.array([95, 255, 255])
+    # Green range - broadened to support shadows and varied lighting
+    lower_green = np.array([25, 20, 20])
+    upper_green = np.array([100, 255, 255])
     
-    # Yellow/Brown range (for diseased or dried leaves)
-    lower_brown = np.array([10, 30, 30])
+    # Yellow/Brown range (for diseased or dried leaves) - broadened
+    lower_brown = np.array([8, 20, 20])
     upper_brown = np.array([30, 255, 255])
 
     mask_green = cv2.inRange(hsv, lower_green, upper_green)
@@ -40,12 +40,12 @@ def is_leaf_image(image_bytes: bytes) -> bool:
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     blur_score = cv2.Laplacian(gray, cv2.CV_64F).var()
 
-    # Heuristic Thresholds:
-    # - At least 15% of the image should be leaf-colored
-    # - Image shouldn't be extremely blurry (score > 10)
-    # - Image shouldn't be a solid color (density < 98%)
+    # Heuristic Thresholds (Relaxed to avoid blocking valid dataset images):
+    # - At least 5% of the image should be leaf-colored
+    # - Image shouldn't be completely blurry (score > 2)
+    # - No upper density limit is enforced so close-up leaf crops are not blocked
     
-    if leaf_density < 15 or leaf_density > 98 or blur_score < 10:
+    if leaf_density < 5 or blur_score < 2:
         return False
         
     return True
