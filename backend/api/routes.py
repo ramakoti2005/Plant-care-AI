@@ -1,14 +1,14 @@
 from fastapi import APIRouter, UploadFile, File, HTTPException, Depends
 from fastapi.responses import JSONResponse
 from sqlalchemy.orm import Session
-from typing import List
+from typing import List, Optional
 import json
 
 from schemas import AnalysisResponse, ScanHistorySchema
 from services.preprocessing import preprocess_image
 from services.inference import process_prediction_and_save
 from services.leaf_validator import is_leaf_image
-from services.auth import get_current_user
+from services.auth import get_current_user, get_optional_current_user
 from models import User, ScanHistory
 from database import get_db
 
@@ -18,7 +18,8 @@ router = APIRouter()
 @router.post("/analyze", response_model=AnalysisResponse)
 async def analyze_leaf_image(
     file: UploadFile = File(...),
-    db: Session = Depends(get_db)
+    db: Session = Depends(get_db),
+    current_user: Optional[User] = Depends(get_optional_current_user)
 ):
     """
     Endpoint to upload a leaf image and get a disease analysis report.
@@ -49,7 +50,7 @@ async def analyze_leaf_image(
         response_data = process_prediction_and_save(
             preprocessed_image, 
             db, 
-            user_id=None
+            user_id=current_user.id if current_user else None
         )
 
         return response_data

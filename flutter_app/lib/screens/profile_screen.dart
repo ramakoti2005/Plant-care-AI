@@ -1,8 +1,8 @@
-import 'dart:io';
+import 'dart:convert';
+import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'total_scans_screen.dart';
 import 'settings_screen.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -13,9 +13,9 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-  File? _profileImage;
+  Uint8List? _profileImageBytes;
   final ImagePicker _picker = ImagePicker();
-  static const String _imageKey = 'profile_image_path';
+  static const String _imageKey = 'profile_image_base64';
 
   // Temporary mock data
   final String _username = "Ramu2005";
@@ -24,34 +24,32 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   void initState() {
     super.initState();
-    _loadImagePath();
+    _loadImage();
   }
 
-  /// Loads the saved image path from SharedPreferences
-  Future<void> _loadImagePath() async {
+  /// Loads the saved image from SharedPreferences
+  Future<void> _loadImage() async {
     try {
       final SharedPreferences prefs = await SharedPreferences.getInstance();
-      final String? path = prefs.getString(_imageKey);
-      if (path != null && path.isNotEmpty) {
-        final File imageFile = File(path);
-        if (await imageFile.exists()) {
-          setState(() {
-            _profileImage = imageFile;
-          });
-        }
+      final String? base64Str = prefs.getString(_imageKey);
+      if (base64Str != null && base64Str.isNotEmpty) {
+        setState(() {
+          _profileImageBytes = base64Decode(base64Str);
+        });
       }
     } catch (e) {
-      debugPrint("Error loading image path: $e");
+      debugPrint("Error loading profile image: $e");
     }
   }
 
-  /// Saves the image path locally using SharedPreferences
-  Future<void> _saveImagePath(String path) async {
+  /// Saves the image locally using SharedPreferences
+  Future<void> _saveImage(Uint8List bytes) async {
     try {
       final SharedPreferences prefs = await SharedPreferences.getInstance();
-      await prefs.setString(_imageKey, path);
+      final String base64Str = base64Encode(bytes);
+      await prefs.setString(_imageKey, base64Str);
     } catch (e) {
-      debugPrint("Error saving image path: $e");
+      debugPrint("Error saving profile image: $e");
     }
   }
 
@@ -64,10 +62,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
       );
 
       if (pickedFile != null) {
+        final bytes = await pickedFile.readAsBytes();
         setState(() {
-          _profileImage = File(pickedFile.path);
+          _profileImageBytes = bytes;
         });
-        await _saveImagePath(pickedFile.path);
+        await _saveImage(bytes);
       }
     } catch (e) {
       debugPrint("Error picking image: $e");
@@ -102,10 +101,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
               child: CircleAvatar(
                 radius: 65,
                 backgroundColor: const Color(0xFF2E7D32),
-                backgroundImage: _profileImage != null
-                    ? FileImage(_profileImage!)
+                backgroundImage: _profileImageBytes != null
+                    ? MemoryImage(_profileImageBytes!)
                     : null,
-                child: _profileImage == null
+                child: _profileImageBytes == null
                     ? const Icon(
                         Icons.person,
                         size: 80,
@@ -155,27 +154,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
             ),
 
-            const SizedBox(height: 10),
 
-            // Total Scans Card
-            Card(
-              elevation: 2,
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-              child: ListTile(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (_) => const TotalScansScreen(),
-                    ),
-                  );
-                },
-                leading: const Icon(Icons.history, color: Color(0xFF2E7D32)),
-                title: const Text("Total Scans"),
-                subtitle: const Text("View scan count"),
-                trailing: const Icon(Icons.arrow_forward_ios, size: 16),
-              ),
-            ),
 
             const SizedBox(height: 10),
 

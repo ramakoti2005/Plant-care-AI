@@ -149,8 +149,7 @@ def process_prediction_and_save(image, db: Session, user_id: int = None):
                 user_id=user_id,
                 plant_name=response_data.get("plant_name"),
                 disease_name=response_data.get("disease_name"),
-                solution_suggestion=response_data.get("treatment"),
-                timestamp=None 
+                solution_suggestion=response_data.get("treatment")
             )
             db.add(new_history)
             db.commit()

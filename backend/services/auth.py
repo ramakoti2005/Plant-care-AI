@@ -108,3 +108,28 @@ async def get_current_user(
         raise credentials_exception
 
     return user
+
+
+oauth2_scheme_optional = OAuth2PasswordBearer(tokenUrl="/api/v1/auth/token", auto_error=False)
+
+
+async def get_optional_current_user(
+    token: Optional[str] = Depends(oauth2_scheme_optional),
+    db: Session = Depends(get_db)
+) -> Optional[models.User]:
+    if not token:
+        return None
+    try:
+        payload = jwt.decode(
+            token,
+            SECRET_KEY,
+            algorithms=[ALGORITHM]
+        )
+        username: str = payload.get("sub")
+        if username is None:
+            return None
+    except JWTError:
+        return None
+
+    return get_user(db, username=username)
+
