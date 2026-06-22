@@ -17,8 +17,19 @@ logger = logging.getLogger(__name__)
 try:
     Base.metadata.create_all(bind=engine)
     logger.info("Database tables created successfully.")
+
+    # Self-healing database migration for missing columns
+    from sqlalchemy import inspect, text
+    inspector = inspect(engine)
+    if "scan_histories" in inspector.get_table_names():
+        columns = [col["name"] for col in inspector.get_columns("scan_histories")]
+        if "disease_name" not in columns:
+            logger.info("Migrating Database: Adding 'disease_name' column to 'scan_histories' table.")
+            with engine.begin() as conn:
+                conn.execute(text("ALTER TABLE scan_histories ADD COLUMN disease_name VARCHAR(255)"))
+            logger.info("Migrating Database: Successfully added 'disease_name' column.")
 except Exception as e:
-    logger.error(f"Error creating database tables: {e}")
+    logger.error(f"Error creating database tables or migrating: {e}")
 
 app = FastAPI(
     title="Plant Disease API",
