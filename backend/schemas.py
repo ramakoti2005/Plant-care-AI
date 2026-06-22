@@ -32,6 +32,7 @@ class AnalysisResponse(BaseModel):
     disease_name: Optional[str] = None
     reference_image: Optional[str] = None
     treatment: Optional[str] = None
+    cure: Optional[str] = None
     reference_image_key: Optional[str] = None
     scientific_name: Optional[str] = None
     confidence: Optional[str] = None
