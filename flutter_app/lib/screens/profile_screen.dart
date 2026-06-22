@@ -1,21 +1,65 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import '../services/auth_service.dart';
 
-class ProfileScreen extends StatelessWidget {
+class ProfileScreen extends StatefulWidget {
   const ProfileScreen({Key? key}) : super(key: key);
 
   @override
+  State<ProfileScreen> createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
+  String username = "Loading...";
+  String email = "Loading...";
+  bool isLoading = true;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadUserData();
+  }
+
+  // Reads the stored login token credentials out of internal memory
+  Future<void> _loadUserData() async {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      setState(() {
+        // Checking for 'saved_username' since LoginScreen uses that
+        username = prefs.getString('username') ?? prefs.getString('saved_username') ?? "Ramu2005"; 
+        email = prefs.getString('email') ?? "ramakotireddy2005@gmail.com";
+        isLoading = false;
+      });
+    } catch (e) {
+      setState(() {
+        username = "Farmer User";
+        email = "No email linked";
+        isLoading = false;
+      });
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
+    if (isLoading) {
+      return const Scaffold(
+        body: Center(child: CircularProgressIndicator(color: Colors.green)),
+      );
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: const Text("My Profile"),
         backgroundColor: Colors.green[700],
         elevation: 2,
+        iconTheme: const IconThemeData(color: Colors.white),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
         child: Center(
           child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 600), // Keeps it locked & clean on web!
+            constraints: const BoxConstraints(maxWidth: 600),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -26,7 +70,7 @@ class ProfileScreen extends StatelessWidget {
                     CircleAvatar(
                       radius: 60,
                       backgroundColor: Colors.green[50],
-                      backgroundImage: const AssetImage('assets/images/avatar_placeholder.png'), // Or your network image source
+                      child: Icon(Icons.person, size: 60, color: Colors.green[700]),
                     ),
                     Positioned(
                       bottom: 0,
@@ -40,17 +84,19 @@ class ProfileScreen extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 16),
+                
+                // 🔊 DYNAMIC METRICS LINKED HERE:
                 Text(
-                  "Ramu2005",
+                  username, 
                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.green[900]),
                 ),
                 Text(
-                  "ramakotireddy2005@gmail.com",
+                  email, 
                   style: TextStyle(fontSize: 14, color: Colors.grey[600]),
                 ),
                 const SizedBox(height: 24),
 
-                // --- Section: Agro Statistics ---
+                // --- Crop Diagnostics Overview ---
                 _buildSectionHeader("Crop Diagnostics Overview"),
                 const SizedBox(height: 8),
                 Row(
@@ -64,7 +110,7 @@ class ProfileScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 24),
 
-                // --- Section: Account Details ---
+                // --- Account Details ---
                 _buildSectionHeader("Account & Field Management"),
                 const SizedBox(height: 8),
                 Card(
@@ -82,7 +128,7 @@ class ProfileScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 24),
 
-                // --- Section: Preferences ---
+                // --- Settings Preferences ---
                 _buildSectionHeader("Application Settings"),
                 const SizedBox(height: 8),
                 Card(
@@ -103,15 +149,18 @@ class ProfileScreen extends StatelessWidget {
                   width: double.infinity,
                   height: 50,
                   child: ElevatedButton.icon(
-                    onPressed: () {
-                       Navigator.of(context).pushNamedAndRemoveUntil('/', (route) => false);
+                    onPressed: () async {
+                      final auth = Provider.of<AuthService>(context, listen: false);
+                      await auth.logout();
+                      if (mounted) {
+                        Navigator.of(context).pushNamedAndRemoveUntil('/', (route) => false);
+                      }
                     },
                     icon: const Icon(Icons.logout, color: Colors.white),
                     label: const Text("Logout", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white)),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.red[600],
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                      elevation: 1,
                     ),
                   ),
                 ),
@@ -124,18 +173,13 @@ class ProfileScreen extends StatelessWidget {
     );
   }
 
-  // Helper Widget: Section Header
   Widget _buildSectionHeader(String title) {
     return Align(
       alignment: Alignment.centerLeft,
-      child: Text(
-        title,
-        style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: Colors.grey[700], letterSpacing: 0.5),
-      ),
+      child: Text(title, style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: Colors.grey[700], letterSpacing: 0.5)),
     );
   }
 
-  // Helper Widget: Diagnostic Stat Cards
   Widget _buildStatCard(String label, String value, IconData icon, Color color) {
     return Card(
       elevation: 1,
@@ -155,11 +199,10 @@ class ProfileScreen extends StatelessWidget {
     );
   }
 
-  // Helper Widget: Custom List Tiles
   Widget _buildListTile(IconData icon, String title, String subtitle, VoidCallback? onTap) {
     return ListTile(
       leading: Icon(icon, color: Colors.green[700]),
-      title: Text(title, style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w600)),
+      title: Text(title, style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
       subtitle: Text(subtitle, style: TextStyle(fontSize: 12, color: Colors.grey[600])),
       trailing: onTap != null ? const Icon(Icons.chevron_right, size: 20) : null,
       onTap: onTap,

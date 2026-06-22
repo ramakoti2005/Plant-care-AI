@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../api_config.dart';
 
 class AuthService extends ChangeNotifier {
@@ -12,32 +13,28 @@ class AuthService extends ChangeNotifier {
   String? _token;
   String? get token => _token;
 
-  // IMPORTANT:
-  // 10.0.2.2 points to your computer's localhost from the Android Emulator.
-  // If using a REAL DEVICE, replace 10.0.2.2 with your computer's local IP (e.g., 192.168.1.10)
   Future<void> login(String email, String password) async {
     try {
-      print("LOGIN URL: ${ApiConfig.baseUrl}/auth/token");
       final response = await http.post(
         Uri.parse('${ApiConfig.baseUrl}/auth/token'),
         headers: {'Content-Type': 'application/x-www-form-urlencoded'},
         body: {
-          'username': email, // Backend search works for both username and email now
+          'username': email, 
           'password': password,
         },
       );
 
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body);
-
-        print("TOKEN = ${data['access_token']}");
-
         _token = data['access_token'];
 
-        await _storage.write(
-          key: 'auth_token',
-          value: _token,
-        );
+        await _storage.write(key: 'auth_token', value: _token);
+
+        // Store user info for Profile Screen
+        final prefs = await SharedPreferences.getInstance();
+        await prefs.setString('email', email);
+        // If your backend returns username, use it. Otherwise, use email prefix.
+        await prefs.setString('username', data['username'] ?? email.split('@')[0]);
 
         notifyListeners();
       } else {
@@ -62,7 +59,6 @@ class AuthService extends ChangeNotifier {
       );
 
       if (response.statusCode == 200 || response.statusCode == 201) {
-        // After successful registration, log in automatically
         await login(email, password);
       } else {
         final errorBody = jsonDecode(response.body);
@@ -70,7 +66,6 @@ class AuthService extends ChangeNotifier {
         if (detail is List) {
           detail = detail.map((e) => e['msg']).join(', ');
         }
-
         throw Exception(detail.toString());
       }
     } catch (e) {
@@ -81,8 +76,21 @@ class AuthService extends ChangeNotifier {
   Future<void> logout() async {
     _token = null;
     await _storage.delete(key: 'auth_token');
+    
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.remove('username');
+    await prefs.remove('email');
+
     notifyListeners();
   }
+
+  Future<void> loadTokenFromStorage() async {
+    _token = await _storage.read(key: 'auth_token');
+    if (_token != null) {
+      notifyListeners();
+    }
+  }
+}
 
   Future<void> loadTokenFromStorage() async {
     _token = await _storage.read(key: 'auth_token');
