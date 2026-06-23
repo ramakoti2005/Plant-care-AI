@@ -56,6 +56,38 @@ class _HistoryScreenState extends State<HistoryScreen> {
     }
   }
 
+  Future<void> _deleteScan(dynamic scanId) async {
+    if (scanId == null) return;
+    try {
+      String? token = await _storage.read(key: 'auth_token');
+      final response = await http.delete(
+        Uri.parse('$_baseUrl/plants/history/$scanId'),
+        headers: {
+          'Authorization': 'Bearer $token',
+        },
+      );
+
+      if (response.statusCode == 200 || response.statusCode == 204) {
+        setState(() {
+          _history.removeWhere((item) => item['id'] == scanId);
+        });
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text("Scan history deleted successfully")),
+          );
+        }
+      } else {
+        setState(() {
+          _history.removeWhere((item) => item['id'] == scanId);
+        });
+      }
+    } catch (e) {
+      setState(() {
+        _history.removeWhere((item) => item['id'] == scanId);
+      });
+    }
+  }
+
   String _formatDate(dynamic dateValue) {
     if (dateValue == null) return '';
     try {
@@ -162,25 +194,53 @@ class _HistoryScreenState extends State<HistoryScreen> {
                       color: Colors.grey[700],
                     ),
                   ),
-                  const SizedBox(height: 8),
+                  Text(
+                    _formatDate(item['timestamp'] ?? item['created_at'] ?? item['date']),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: Colors.grey[600],
+                    ),
+                  ),
+                  const SizedBox(height: 12),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
+                      // View Details Primary Navigation Target
                       Expanded(
-                        child: Text(
-                          _formatDate(item['timestamp'] ?? item['created_at'] ?? item['date']),
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyle(
-                            fontSize: 12,
-                            color: Colors.grey[600],
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.blue.shade600,
+                            foregroundColor: Colors.white,
+                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                            padding: const EdgeInsets.symmetric(vertical: 12),
                           ),
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (_) => HistoryDetailScreen(scan: item),
+                              ),
+                            );
+                          },
+                          child: const Text("View Details", style: TextStyle(fontWeight: FontWeight.bold)),
                         ),
                       ),
-                      const Icon(
-                        Icons.arrow_forward,
-                        size: 18,
-                        color: Color(0xFF2E7D32),
+                      const SizedBox(width: 12),
+                      // Actionable Delete Icon box container
+                      Container(
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.grey.shade300),
+                          borderRadius: BorderRadius.circular(8),
+                          color: Colors.white,
+                        ),
+                        child: IconButton(
+                          icon: const Icon(Icons.delete_outline, color: Colors.redAccent),
+                          onPressed: () {
+                            _deleteScan(item['id']);
+                          },
+                        ),
                       ),
                     ],
                   ),

@@ -131,3 +131,32 @@ def get_user_scan_history(
             status_code=500,
             detail=f"Failed to fetch scan history: {str(e)}"
         )
+
+
+@router.delete("/plants/history/{scan_id}")
+@router.delete("/history/{scan_id}")
+def delete_scan_history(
+    scan_id: int,
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    try:
+        record = (
+            db.query(ScanHistory)
+            .filter(ScanHistory.id == scan_id, ScanHistory.user_id == current_user.id)
+            .first()
+        )
+        if not record:
+            raise HTTPException(status_code=404, detail="Scan history record not found")
+        
+        db.delete(record)
+        db.commit()
+        return {"status": "success", "message": "Scan history deleted successfully"}
+    except HTTPException:
+        raise
+    except Exception as e:
+        db.rollback()
+        raise HTTPException(
+            status_code=500,
+            detail=f"Failed to delete scan history: {str(e)}"
+        )
