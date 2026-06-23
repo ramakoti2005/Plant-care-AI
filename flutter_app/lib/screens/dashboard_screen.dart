@@ -1,3 +1,4 @@
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:provider/provider.dart';
@@ -10,9 +11,9 @@ class DashboardScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF4FAF4),
+      backgroundColor: const Color(0xFFF4F7F5),
       appBar: AppBar(
-        backgroundColor: const Color(0xFF2E7D32),
+        backgroundColor: Colors.transparent,
         elevation: 0,
         iconTheme: const IconThemeData(color: Colors.white),
         title: const Text(
@@ -23,6 +24,21 @@ class DashboardScreen extends StatelessWidget {
           ),
         ),
         centerTitle: true,
+        flexibleSpace: ClipRRect(
+          child: BackdropFilter(
+            filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+            child: Container(
+              decoration: BoxDecoration(
+                gradient: const LinearGradient(
+                  colors: [Color(0xFF134E5E), Color(0xFF71B280)],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                ),
+                color: Colors.white.withOpacity(0.15),
+              ),
+            ),
+          ),
+        ),
       ),
       drawer: _buildNavigationDrawer(context),
       body: Center(
@@ -260,13 +276,13 @@ class DashboardScreen extends StatelessWidget {
 
   Widget _buildNavigationDrawer(BuildContext context) {
     return Drawer(
-      backgroundColor: const Color(0xFF1B5E20), // Deep forest green canvas theme color
+      backgroundColor: const Color(0xFF0F3A20), // Sleek deep dark-forest matte color layout
       child: Column(
         children: [
           // Drawer Header
           DrawerHeader(
             decoration: const BoxDecoration(
-              color: Color(0xFF2E7D32),
+              color: Color(0xFF134E5E), // Premium deep teal header matching appBar
             ),
             child: Center(
               child: Column(
@@ -307,14 +323,14 @@ class DashboardScreen extends StatelessWidget {
                   children: [
                     // Top Level Actions (Always Visible)
                     ListTile(
-                      leading: const Icon(Icons.dashboard, color: Colors.white),
+                      leading: const Text("🏠", style: TextStyle(fontSize: 20)),
                       title: const Text("Dashboard", style: TextStyle(color: Colors.white)),
                       onTap: () {
                         Navigator.pop(context); // Close drawer
                       },
                     ),
                     ListTile(
-                      leading: const Icon(Icons.camera_alt, color: Colors.white),
+                      leading: const Text("📸", style: TextStyle(fontSize: 20)),
                       title: const Text("Scan Plant", style: TextStyle(color: Colors.white)),
                       onTap: () {
                         Navigator.pop(context);
@@ -327,56 +343,55 @@ class DashboardScreen extends StatelessWidget {
 
                     const Divider(color: Colors.white24, height: 1),
 
-                    // Section 1: Treatments
+                    // Section 1: "Subscriptions" Style Dropdown Block
                     ExpansionTile(
-                      leading: const Icon(Icons.medical_services, color: Colors.white),
                       title: const Text(
                         "Treatments",
                         style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
                       ),
                       iconColor: Colors.white,
                       collapsedIconColor: Colors.white70,
-                      childrenPadding: const EdgeInsets.only(left: 16),
+                      childrenPadding: const EdgeInsets.only(left: 12),
                       children: [
                         _buildSubMenuItem(
                           context,
-                          icon: Icons.apple,
+                          leading: const Text("🍎", style: TextStyle(fontSize: 18)),
                           title: "Apple Diseases",
                           onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const AppleDiseasesScreen())),
                         ),
                         _buildSubMenuItem(
                           context,
-                          icon: Icons.grass,
+                          leading: const Text("🌽", style: TextStyle(fontSize: 18)),
                           title: "Corn Diseases",
                           onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const CornDiseasesScreen())),
                         ),
                         _buildSubMenuItem(
                           context,
-                          icon: Icons.local_florist,
+                          leading: const Text("🍇", style: TextStyle(fontSize: 18)),
                           title: "Grape Diseases",
                           onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const GrapeDiseasesScreen())),
                         ),
                         _buildSubMenuItem(
                           context,
-                          icon: Icons.eco,
+                          leading: const Text("🍑", style: TextStyle(fontSize: 18)),
                           title: "Peach Diseases",
                           onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const PeachDiseasesScreen())),
                         ),
                         _buildSubMenuItem(
                           context,
-                          icon: Icons.eco,
+                          leading: const Text("🥔", style: TextStyle(fontSize: 18)),
                           title: "Potato Diseases",
                           onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const PotatoDiseasesScreen())),
                         ),
                         _buildSubMenuItem(
                           context,
-                          icon: Icons.agriculture,
+                          leading: const Text("🌾", style: TextStyle(fontSize: 18)),
                           title: "Rice Diseases",
                           onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const RiceDiseasesScreen())),
                         ),
                         _buildSubMenuItem(
                           context,
-                          icon: Icons.energy_savings_leaf,
+                          leading: const Text("🍅", style: TextStyle(fontSize: 18)),
                           title: "Tomato Diseases",
                           onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const TomatoDiseasesScreen())),
                         ),
@@ -385,26 +400,25 @@ class DashboardScreen extends StatelessWidget {
 
                     const Divider(color: Colors.white24, height: 1),
 
-                    // Section 2: User Space
+                    // Section 2: "You" Style Dropdown Block
                     ExpansionTile(
-                      leading: const Icon(Icons.person_pin, color: Colors.white),
                       title: const Text(
                         "User Space",
                         style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
                       ),
                       iconColor: Colors.white,
                       collapsedIconColor: Colors.white70,
-                      childrenPadding: const EdgeInsets.only(left: 16),
+                      childrenPadding: const EdgeInsets.only(left: 12),
                       children: [
                         _buildSubMenuItem(
                           context,
-                          icon: Icons.history,
+                          leading: const Text("🕒", style: TextStyle(fontSize: 18)),
                           title: "History",
                           onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const HistoryScreen())),
                         ),
                         _buildSubMenuItem(
                           context,
-                          icon: Icons.person,
+                          leading: const Text("👤", style: TextStyle(fontSize: 18)),
                           title: "Profile",
                           onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const ProfileScreen())),
                         ),
@@ -415,7 +429,7 @@ class DashboardScreen extends StatelessWidget {
 
                     // Section 3: Utilities & System Context
                     ListTile(
-                      leading: const Icon(Icons.settings, color: Colors.white),
+                      leading: const Text("⚙️", style: TextStyle(fontSize: 20)),
                       title: const Text("Settings", style: TextStyle(color: Colors.white)),
                       onTap: () {
                         Navigator.pop(context);
@@ -423,7 +437,7 @@ class DashboardScreen extends StatelessWidget {
                       },
                     ),
                     ListTile(
-                      leading: const Icon(Icons.help_outline, color: Colors.white),
+                      leading: const Text("❓", style: TextStyle(fontSize: 20)),
                       title: const Text("Help & Support", style: TextStyle(color: Colors.white)),
                       onTap: () {
                         Navigator.pop(context);
@@ -431,8 +445,9 @@ class DashboardScreen extends StatelessWidget {
                       },
                     ),
                     ListTile(
-                      leading: const Icon(Icons.logout, color: Colors.white),
+                      leading: const Text("🚪", style: TextStyle(fontSize: 20)),
                       title: const Text("Log Out", style: TextStyle(color: Colors.white)),
+                      trailing: const Icon(Icons.logout, color: Colors.white70, size: 20),
                       onTap: () async {
                         Navigator.pop(context); // Close drawer
                         try {
@@ -489,12 +504,12 @@ class DashboardScreen extends StatelessWidget {
 
   Widget _buildSubMenuItem(
     BuildContext context, {
-    required IconData icon,
+    Widget? leading,
     required String title,
     required VoidCallback onTap,
   }) {
     return ListTile(
-      leading: Icon(icon, color: Colors.white70, size: 20),
+      leading: leading,
       title: Text(
         title,
         style: const TextStyle(color: Colors.white70, fontSize: 14),

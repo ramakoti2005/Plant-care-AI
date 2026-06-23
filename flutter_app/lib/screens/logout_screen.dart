@@ -1,9 +1,14 @@
-onPressed: () {
+import 'package:flutter/material.dart';
 
-Navigator.pushNamedAndRemoveUntil(
-context,
-'/login',
-(route) => false,
-);
+class LogoutScreen extends StatelessWidget {
+  const LogoutScreen({super.key});
 
-},
+  @override
+  Widget build(BuildContext context) {
+    return const Scaffold(
+      body: Center(
+        child: Text("Logging out..."),
+      ),
+    );
+  }
+}

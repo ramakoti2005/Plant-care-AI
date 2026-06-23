@@ -19,10 +19,10 @@ class AppTheme {
       elevation: 0,
     ),
     textTheme: const TextTheme(
-      headline1: TextStyle(fontSize: 32, fontWeight: FontWeight.bold, color: Colors.black),
-      headline6: TextStyle(fontSize: 20, fontWeight: FontWeight.w600, color: Colors.black),
-      bodyText1: TextStyle(fontSize: 16, color: Colors.black87),
-      bodyText2: TextStyle(fontSize: 14, color: Colors.black54),
+      displayLarge: TextStyle(fontSize: 32, fontWeight: FontWeight.bold, color: Colors.black),
+      titleLarge: TextStyle(fontSize: 20, fontWeight: FontWeight.w600, color: Colors.black),
+      bodyLarge: TextStyle(fontSize: 16, color: Colors.black87),
+      bodyMedium: TextStyle(fontSize: 14, color: Colors.black54),
     ),
     visualDensity: VisualDensity.adaptivePlatformDensity,
   );
