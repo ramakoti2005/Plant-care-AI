@@ -13,9 +13,9 @@ class AppleDiseasesScreen extends StatelessWidget {
       ),
       body: Center(
         child: Container(
-          constraints: kIsWeb ? const BoxConstraints(maxWidth: 900) : null,
+          constraints: const BoxConstraints(maxWidth: 900),
+          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
           child: SingleChildScrollView(
-            padding: const EdgeInsets.all(16),
             child: Column(
           children: [
             diseaseCard(
