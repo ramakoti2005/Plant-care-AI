@@ -16,11 +16,8 @@ class HistoryScreen extends StatefulWidget {
 
 class _HistoryScreenState extends State<HistoryScreen> {
   final _storage = const FlutterSecureStorage();
-
   List<dynamic> _history = [];
-
   bool _loading = true;
-
   final String _baseUrl = ApiConfig.baseUrl;
 
   @override
@@ -31,8 +28,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
 
   Future<void> _loadHistory() async {
     try {
-      String? token =
-      await _storage.read(key: 'auth_token');
+      String? token = await _storage.read(key: 'auth_token');
 
       final response = await http.get(
         Uri.parse('$_baseUrl/plants/history'),
@@ -50,14 +46,12 @@ class _HistoryScreenState extends State<HistoryScreen> {
         setState(() {
           _loading = false;
         });
-
         print(response.body);
       }
     } catch (e) {
       setState(() {
         _loading = false;
       });
-
       print(e);
     }
   }
@@ -85,6 +79,122 @@ class _HistoryScreenState extends State<HistoryScreen> {
     }
   }
 
+  Widget _buildHistoryCard(dynamic item) {
+    final String baseUrl = "https://plant-care-ai-6ng8.onrender.com";
+    String imgPath = item['image_path'] ?? item['image'] ?? '';
+
+    if (imgPath.startsWith('/')) {
+      imgPath = imgPath.substring(1);
+    }
+
+    if (imgPath.startsWith('uploads/')) {
+      imgPath = imgPath.replaceFirst('uploads/', '');
+    } else if (imgPath.startsWith('backend/uploads/')) {
+      imgPath = imgPath.replaceFirst('backend/uploads/', '');
+    }
+
+    final String finalImageUrl = "$baseUrl/uploads/$imgPath";
+
+    return Card(
+      elevation: 4,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(16),
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (_) => HistoryDetailScreen(scan: item),
+            ),
+          );
+        },
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Expanded(
+              child: ClipRRect(
+                borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(16),
+                  topRight: Radius.circular(16),
+                ),
+                child: imgPath.isNotEmpty
+                    ? Image.network(
+                        finalImageUrl,
+                        fit: BoxFit.cover,
+                        errorBuilder: (context, error, stackTrace) {
+                          return Container(
+                            color: Colors.grey[200],
+                            child: const Icon(Icons.broken_image, size: 50, color: Colors.grey),
+                          );
+                        },
+                        loadingBuilder: (context, child, loadingProgress) {
+                          if (loadingProgress == null) return child;
+                          return const Center(child: CircularProgressIndicator(color: Colors.green));
+                        },
+                      )
+                    : Container(
+                        color: Colors.grey[200],
+                        child: const Icon(Icons.image, size: 50, color: Colors.grey),
+                      ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    item['plant_name'] ?? 'Unknown Plant',
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: const TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xFF2E7D32),
+                    ),
+                  ),
+                  const SizedBox(height: 4),
+                  Text(
+                    item['scientific_name'] ?? item['disease_name'] ?? 'Healthy',
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.grey[700],
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Expanded(
+                        child: Text(
+                          _formatDate(item['timestamp'] ?? item['created_at'] ?? item['date']),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: Colors.grey[600],
+                          ),
+                        ),
+                      ),
+                      const Icon(
+                        Icons.arrow_forward,
+                        size: 18,
+                        color: Color(0xFF2E7D32),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -94,8 +204,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
           style: TextStyle(color: Colors.white),
         ),
         backgroundColor: const Color(0xFF2E7D32),
-        iconTheme:
-        const IconThemeData(color: Colors.white),
+        iconTheme: const IconThemeData(color: Colors.white),
       ),
       body: _loading
           ? const Center(
@@ -108,48 +217,68 @@ class _HistoryScreenState extends State<HistoryScreen> {
                     style: TextStyle(fontSize: 18),
                   ),
                 )
-              : Center(
-                  child: Container(
-                    constraints: kIsWeb ? const BoxConstraints(maxWidth: 1000) : null,
-                    child: ListView.builder(
-                      itemCount: _history.length,
-                      itemBuilder: (context, index) {
-                        final item = _history[index];
-
-                        return Card(
-                          margin: const EdgeInsets.all(10),
-                          child: ListTile(
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (_) => HistoryDetailScreen(scan: item),
-                                ),
-                              );
-                            },
-                            title: Text(
-                              item['plant_name'] ?? '',
-                              style: const TextStyle(fontWeight: FontWeight.bold),
-                            ),
-                            subtitle: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  _formatDate(item['timestamp'] ?? item['created_at'] ?? item['date']),
-                                  style: TextStyle(
-                                    fontSize: 12,
-                                    color: Colors.grey[600],
-                                  ),
-                                ),
-                              ],
-                            ),
-                            trailing: const Icon(Icons.arrow_forward_ios, size: 16),
+              : kIsWeb
+                  ? Center(
+                      child: Container(
+                        constraints: const BoxConstraints(maxWidth: 1200),
+                        padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 24),
+                        child: GridView.builder(
+                          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 3, // 3 Columns across desktop viewports
+                            crossAxisSpacing: 24,
+                            mainAxisSpacing: 24,
+                            childAspectRatio: 0.85,
                           ),
-                        );
-                      },
+                          itemCount: _history.length,
+                          itemBuilder: (context, index) {
+                            final item = _history[index];
+                            return _buildHistoryCard(item);
+                          },
+                        ),
+                      ),
+                    )
+                  : Center(
+                      child: Container(
+                        constraints: const BoxConstraints(maxWidth: 1000),
+                        child: ListView.builder(
+                          itemCount: _history.length,
+                          itemBuilder: (context, index) {
+                            final item = _history[index];
+
+                            return Card(
+                              margin: const EdgeInsets.all(10),
+                              child: ListTile(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (_) => HistoryDetailScreen(scan: item),
+                                    ),
+                                  );
+                                },
+                                title: Text(
+                                  item['plant_name'] ?? '',
+                                  style: const TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                                subtitle: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      _formatDate(item['timestamp'] ?? item['created_at'] ?? item['date']),
+                                      style: TextStyle(
+                                        fontSize: 12,
+                                        color: Colors.grey[600],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                trailing: const Icon(Icons.arrow_forward_ios, size: 16),
+                              ),
+                            );
+                          },
+                        ),
+                      ),
                     ),
-                  ),
-                ),
     );
   }
 }
