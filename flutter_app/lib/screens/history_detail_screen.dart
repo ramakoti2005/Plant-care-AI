@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import '../api_config.dart';
@@ -81,29 +82,50 @@ class HistoryDetailScreen extends StatelessWidget {
                 const Divider(height: 30),
 
                 if (imgPath.isNotEmpty) ...[
-                  Container(
-                    margin: const EdgeInsets.only(bottom: 20),
-                    height: 250,
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                      border: Border.all(color: Colors.green.withOpacity(0.5)),
-                    ),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(15),
-                      child: Image.network(
-                        finalImageUrl,
-                        fit: BoxFit.cover,
-                        errorBuilder: (context, error, stackTrace) {
-                          return const Center(child: Icon(Icons.broken_image, size: 50, color: Colors.grey));
-                        },
-                        loadingBuilder: (context, child, loadingProgress) {
-                          if (loadingProgress == null) return child;
-                          return const Center(child: CircularProgressIndicator(color: Colors.green));
-                        },
-                      ),
-                    ),
-                  ),
+                  kIsWeb
+                      ? Container(
+                          margin: const EdgeInsets.only(bottom: 20),
+                          child: AspectRatio(
+                            aspectRatio: 4 / 3,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(16),
+                              child: Image.network(
+                                finalImageUrl,
+                                fit: BoxFit.contain,
+                                errorBuilder: (context, error, stackTrace) {
+                                  return const Center(child: Icon(Icons.broken_image, size: 50, color: Colors.grey));
+                                },
+                                loadingBuilder: (context, child, loadingProgress) {
+                                  if (loadingProgress == null) return child;
+                                  return const Center(child: CircularProgressIndicator(color: Colors.green));
+                                },
+                              ),
+                            ),
+                          ),
+                        )
+                      : Container(
+                          margin: const EdgeInsets.only(bottom: 20),
+                          height: 250,
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15),
+                            border: Border.all(color: Colors.green.withOpacity(0.5)),
+                          ),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(15),
+                            child: Image.network(
+                              finalImageUrl,
+                              fit: BoxFit.cover,
+                              errorBuilder: (context, error, stackTrace) {
+                                return const Center(child: Icon(Icons.broken_image, size: 50, color: Colors.grey));
+                              },
+                              loadingBuilder: (context, child, loadingProgress) {
+                                if (loadingProgress == null) return child;
+                                return const Center(child: CircularProgressIndicator(color: Colors.green));
+                              },
+                            ),
+                          ),
+                        ),
                 ],
 
                 Text(

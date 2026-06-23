@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class PeachDiseasesScreen extends StatelessWidget {
@@ -11,10 +12,13 @@ class PeachDiseasesScreen extends StatelessWidget {
         backgroundColor: const Color(0xFF2E7D32),
         iconTheme: const IconThemeData(color: Colors.white),
       ),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          children: [
+      body: Center(
+        child: Container(
+          constraints: kIsWeb ? const BoxConstraints(maxWidth: 800) : null,
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              children: [
             diseaseCard(
               title: "Bacterial Spot",
               scientificName: "Xanthomonas arboricola pv. pruni",
@@ -81,7 +85,9 @@ class PeachDiseasesScreen extends StatelessWidget {
           ],
         ),
       ),
-    );
+    ),
+  ),
+);
   }
 
   Widget diseaseCard({

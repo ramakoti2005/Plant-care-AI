@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class RiceDiseasesScreen extends StatelessWidget {
@@ -10,9 +11,12 @@ class RiceDiseasesScreen extends StatelessWidget {
         title: const Text("Rice Diseases"),
         backgroundColor: const Color(0xFF2E7D32),
       ),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16),
-        child: Column(
+      body: Center(
+        child: Container(
+          constraints: kIsWeb ? const BoxConstraints(maxWidth: 800) : null,
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.all(16),
+            child: Column(
           children: [
 
             diseaseCard(
@@ -101,7 +105,9 @@ class RiceDiseasesScreen extends StatelessWidget {
           ],
         ),
       ),
-    );
+    ),
+  ),
+);
   }
 
   Widget diseaseCard({

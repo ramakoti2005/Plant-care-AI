@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
@@ -98,52 +99,57 @@ class _HistoryScreenState extends State<HistoryScreen> {
       ),
       body: _loading
           ? const Center(
-        child: CircularProgressIndicator(),
-      )
+              child: CircularProgressIndicator(),
+            )
           : _history.isEmpty
-          ? const Center(
-        child: Text(
-          "No Scan History Found",
-          style: TextStyle(fontSize: 18),
-        ),
-      )
-          : ListView.builder(
-        itemCount: _history.length,
-        itemBuilder: (context, index) {
-          final item = _history[index];
-
-          return Card(
-            margin: const EdgeInsets.all(10),
-            child: ListTile(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (_) => HistoryDetailScreen(scan: item),
+              ? const Center(
+                  child: Text(
+                    "No Scan History Found",
+                    style: TextStyle(fontSize: 18),
                   ),
-                );
-              },
-              title: Text(
-                item['plant_name'] ?? '',
-                style: const TextStyle(fontWeight: FontWeight.bold),
-              ),
-              subtitle: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    _formatDate(item['timestamp'] ?? item['created_at'] ?? item['date']),
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: Colors.grey[600],
+                )
+              : Center(
+                  child: Container(
+                    constraints: kIsWeb ? const BoxConstraints(maxWidth: 1000) : null,
+                    child: ListView.builder(
+                      itemCount: _history.length,
+                      itemBuilder: (context, index) {
+                        final item = _history[index];
+
+                        return Card(
+                          margin: const EdgeInsets.all(10),
+                          child: ListTile(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (_) => HistoryDetailScreen(scan: item),
+                                ),
+                              );
+                            },
+                            title: Text(
+                              item['plant_name'] ?? '',
+                              style: const TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                            subtitle: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  _formatDate(item['timestamp'] ?? item['created_at'] ?? item['date']),
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    color: Colors.grey[600],
+                                  ),
+                                ),
+                              ],
+                            ),
+                            trailing: const Icon(Icons.arrow_forward_ios, size: 16),
+                          ),
+                        );
+                      },
                     ),
                   ),
-                ],
-              ),
-              trailing: const Icon(Icons.arrow_forward_ios, size: 16),
-            ),
-          );
-        },
-      ),
+                ),
     );
   }
 }

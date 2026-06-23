@@ -310,20 +310,20 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
                   shadowColor: Colors.black.withOpacity(0.05),
                   child: Padding(
                     padding: const EdgeInsets.all(12.0),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(12),
-                      child: _imageBytes != null 
-                          ? Image.memory(
-                              _imageBytes!,
-                              height: 380,
-                              width: double.infinity,
-                              fit: BoxFit.cover,
-                            )
-                          : Container(
-                              height: 380,
-                              color: Colors.grey[200],
-                              child: const Icon(Icons.image, size: 80, color: Colors.grey),
-                            ),
+                    child: AspectRatio(
+                      aspectRatio: 4 / 3,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(16),
+                        child: _imageBytes != null 
+                            ? Image.memory(
+                                _imageBytes!,
+                                fit: BoxFit.contain,
+                              )
+                            : Container(
+                                color: Colors.grey[200],
+                                child: const Icon(Icons.image, size: 80, color: Colors.grey),
+                              ),
+                      ),
                     ),
                   ),
                 ),
