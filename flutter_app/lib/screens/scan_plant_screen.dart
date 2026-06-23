@@ -156,15 +156,16 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
                     children: [
                       if (_imageBytes != null && !(kIsWeb && _result != null))
                         Container(
-                          height: 250,
-                          width: double.infinity,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
                             border: Border.all(color: Colors.green, width: 2),
                           ),
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(18),
-                            child: Image.memory(_imageBytes!, fit: BoxFit.cover),
+                            child: Padding(
+                              padding: const EdgeInsets.all(16),
+                              child: Image.memory(_imageBytes!, fit: BoxFit.contain),
+                            ),
                           ),
                         )
                       else if (_imageBytes == null)

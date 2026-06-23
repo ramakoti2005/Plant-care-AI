@@ -13,7 +13,7 @@ class CornDiseasesScreen extends StatelessWidget {
       ),
       body: Center(
         child: Container(
-          constraints: kIsWeb ? const BoxConstraints(maxWidth: 800) : null,
+          constraints: kIsWeb ? const BoxConstraints(maxWidth: 900) : null,
           child: SingleChildScrollView(
             padding: const EdgeInsets.all(16),
             child: Column(
@@ -137,7 +137,8 @@ class CornDiseasesScreen extends StatelessWidget {
   }) {
     return Card(
       elevation: 4,
-      margin: const EdgeInsets.only(bottom: 10),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      margin: const EdgeInsets.only(bottom: 20),
       child: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
