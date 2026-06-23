@@ -107,9 +107,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: (kIsWeb || MediaQuery.of(context).size.width >= 900)
-          ? Colors.transparent
-          : const Color(0xFFF4FAF4),
+      backgroundColor: const Color(0xFFF4FAF4),
       appBar: AppBar(
         title: const Text(
           "My Profile",
