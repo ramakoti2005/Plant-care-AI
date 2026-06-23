@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -167,80 +168,100 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
             const SizedBox(height: 30),
 
-            // Email Card
-            Card(
-              elevation: 2,
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-              child: ListTile(
-                leading: const Icon(Icons.email, color: Color(0xFF2E7D32)),
-                title: const Text("Email"),
-                subtitle: Text(_email),
-              ),
-            ),
-
-            const SizedBox(height: 10),
-
-            // Total Scans Card
-            Card(
-              elevation: 2,
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-              child: ListTile(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (_) => const TotalScansScreen(),
+            Center(
+              child: Container(
+                constraints: kIsWeb ? const BoxConstraints(maxWidth: 600) : null,
+                child: Column(
+                  children: [
+                    // Email Card
+                    Card(
+                      elevation: kIsWeb ? 4 : 2,
+                      shadowColor: kIsWeb ? Colors.black.withOpacity(0.04) : null,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(kIsWeb ? 16 : 12),
+                      ),
+                      child: ListTile(
+                        leading: const Icon(Icons.email, color: Color(0xFF2E7D32)),
+                        title: const Text("Email"),
+                        subtitle: Text(_email),
+                      ),
                     ),
-                  );
-                },
-                leading: const Icon(Icons.history, color: Color(0xFF2E7D32)),
-                title: const Text("Total Scans"),
-                subtitle: const Text("View scan count"),
-                trailing: const Icon(Icons.arrow_forward_ios, size: 16),
-              ),
-            ),
 
-            const SizedBox(height: 10),
+                    const SizedBox(height: 10),
 
-            // Settings Card
-            Card(
-              elevation: 2,
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-              child: ListTile(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (_) => const SettingsScreen(),
+                    // Total Scans Card
+                    Card(
+                      elevation: kIsWeb ? 4 : 2,
+                      shadowColor: kIsWeb ? Colors.black.withOpacity(0.04) : null,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(kIsWeb ? 16 : 12),
+                      ),
+                      child: ListTile(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => const TotalScansScreen(),
+                            ),
+                          );
+                        },
+                        leading: const Icon(Icons.history, color: Color(0xFF2E7D32)),
+                        title: const Text("Total Scans"),
+                        subtitle: const Text("View scan count"),
+                        trailing: const Icon(Icons.arrow_forward_ios, size: 16),
+                      ),
                     ),
-                  );
-                },
-                leading: const Icon(Icons.settings, color: Color(0xFF2E7D32)),
-                title: const Text("Settings"),
-                subtitle: const Text("Manage preferences"),
-                trailing: const Icon(Icons.arrow_forward_ios, size: 16),
-              ),
-            ),
 
-            const SizedBox(height: 40),
+                    const SizedBox(height: 10),
 
-            // Logout Button
-            SizedBox(
-              width: double.infinity,
-              height: 50,
-              child: ElevatedButton.icon(
-                onPressed: () {
-                  Navigator.of(context).pushNamedAndRemoveUntil('/', (route) => false);
-                },
-                icon: const Icon(Icons.logout),
-                label: const Text(
-                  "Logout",
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.red,
-                  foregroundColor: Colors.white,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                    // Settings Card
+                    Card(
+                      elevation: kIsWeb ? 4 : 2,
+                      shadowColor: kIsWeb ? Colors.black.withOpacity(0.04) : null,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(kIsWeb ? 16 : 12),
+                      ),
+                      child: ListTile(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => const SettingsScreen(),
+                            ),
+                          );
+                        },
+                        leading: const Icon(Icons.settings, color: Color(0xFF2E7D32)),
+                        title: const Text("Settings"),
+                        subtitle: const Text("Manage preferences"),
+                        trailing: const Icon(Icons.arrow_forward_ios, size: 16),
+                      ),
+                    ),
+
+                    const SizedBox(height: 40),
+
+                    // Logout Button
+                    SizedBox(
+                      width: double.infinity,
+                      height: 50,
+                      child: ElevatedButton.icon(
+                        onPressed: () {
+                          Navigator.of(context).pushNamedAndRemoveUntil('/', (route) => false);
+                        },
+                        icon: const Icon(Icons.logout),
+                        label: const Text(
+                          "Logout",
+                          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                        ),
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.red,
+                          foregroundColor: Colors.white,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(kIsWeb ? 16 : 12),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),

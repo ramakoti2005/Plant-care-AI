@@ -373,48 +373,38 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Color(0xFF1B5E20)),
                   ),
                   const SizedBox(height: 10),
-                  Container(
-                    padding: const EdgeInsets.all(16),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(16),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.03), 
-                          blurRadius: 16, 
-                          offset: const Offset(0, 6)
-                        ),
-                      ],
+                  _buildSectionCard(
+                    title: "Overview & Cause",
+                    content: cause,
+                    icon: Icons.info_outline,
+                    iconColor: const Color(0xFF2E7D32),
+                    bgColor: Colors.white,
+                  ),
+                  if (organicRemedy != null && 
+                      organicRemedy.trim().isNotEmpty && 
+                      organicRemedy.trim().toLowerCase() != "none" && 
+                      organicRemedy.trim().toLowerCase() != "none required" &&
+                      organicRemedy.trim().toLowerCase() != "null")
+                    _buildSectionCard(
+                      title: "Organic Remedy",
+                      content: organicRemedy,
+                      icon: Icons.eco_outlined,
+                      iconColor: Colors.teal,
+                      bgColor: Colors.white,
                     ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text("• Overview & Cause", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: Colors.green[800])),
-                        const SizedBox(height: 4),
-                        Text(cause, style: const TextStyle(fontSize: 14)),
-                        const SizedBox(height: 12),
-                        
-                        Text("• Diagnostic Symptoms", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: Colors.green[800])),
-                        const SizedBox(height: 4),
-                        Text(symptoms, style: const TextStyle(fontSize: 14)),
-                        const SizedBox(height: 12),
-
-                        if (organicRemedy != null && 
-                            organicRemedy.trim().isNotEmpty && 
-                            organicRemedy.trim().toLowerCase() != "none" && 
-                            organicRemedy.trim().toLowerCase() != "none required" &&
-                            organicRemedy.trim().toLowerCase() != "null") ...[
-                          Text("• Organic Remedy", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: Colors.green[800])),
-                          const SizedBox(height: 4),
-                          Text(organicRemedy, style: const TextStyle(fontSize: 14)),
-                          const SizedBox(height: 12),
-                        ],
-                        
-                        Text("• Targeted Chemical Control", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: Colors.green[800])),
-                        const SizedBox(height: 4),
-                        Text(chemicalControl, style: const TextStyle(fontSize: 14)),
-                      ],
-                    ),
+                  _buildSectionCard(
+                    title: "Diagnostic Symptoms",
+                    content: symptoms,
+                    icon: Icons.bug_report_outlined,
+                    iconColor: Colors.orange,
+                    bgColor: Colors.white,
+                  ),
+                  _buildSectionCard(
+                    title: "Targeted Chemical Control",
+                    content: chemicalControl,
+                    icon: Icons.science_outlined,
+                    iconColor: Colors.purple,
+                    bgColor: Colors.white,
                   ),
                 ],
               ),
@@ -526,12 +516,14 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
       decoration: BoxDecoration(
         color: bgColor,
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: iconColor.withOpacity(0.15), width: 1),
+        border: kIsWeb
+            ? Border.all(color: Colors.transparent)
+            : Border.all(color: iconColor.withOpacity(0.15), width: 1),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.02),
-            blurRadius: 8,
-            offset: const Offset(0, 4),
+            color: kIsWeb ? Colors.black.withOpacity(0.03) : Colors.black.withOpacity(0.02),
+            blurRadius: kIsWeb ? 16 : 8,
+            offset: kIsWeb ? const Offset(0, 6) : const Offset(0, 4),
           ),
         ],
       ),
