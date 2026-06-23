@@ -36,9 +36,19 @@ class HistoryDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final String baseUrl = "https://plant-care-ai-6ng8.onrender.com";
-    final String imagePathRaw = scan['image_path'] ?? scan['image'] ?? '';
-    final String imageFileName = imagePathRaw.replaceFirst('/uploads/', '').replaceFirst('uploads/', '');
-    final String imageUrl = "${baseUrl}/uploads/$imageFileName";
+    String imgPath = scan['image_path'] ?? scan['image'] ?? '';
+
+    if (imgPath.startsWith('/')) {
+      imgPath = imgPath.substring(1);
+    }
+
+    if (imgPath.startsWith('uploads/')) {
+      imgPath = imgPath.replaceFirst('uploads/', '');
+    } else if (imgPath.startsWith('backend/uploads/')) {
+      imgPath = imgPath.replaceFirst('backend/uploads/', '');
+    }
+
+    final String finalImageUrl = "$baseUrl/uploads/$imgPath";
 
     return Scaffold(
       appBar: AppBar(
@@ -70,7 +80,7 @@ class HistoryDetailScreen extends StatelessWidget {
 
                 const Divider(height: 30),
 
-                if (imageFileName.isNotEmpty) ...[
+                if (imgPath.isNotEmpty) ...[
                   Container(
                     margin: const EdgeInsets.only(bottom: 20),
                     height: 250,
@@ -82,7 +92,7 @@ class HistoryDetailScreen extends StatelessWidget {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(15),
                       child: Image.network(
-                        imageUrl,
+                        finalImageUrl,
                         fit: BoxFit.cover,
                         errorBuilder: (context, error, stackTrace) {
                           return const Center(child: Icon(Icons.broken_image, size: 50, color: Colors.grey));
