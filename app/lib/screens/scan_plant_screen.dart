@@ -266,30 +266,57 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
 
   Widget _buildResultView() {
     if (_result!['status'] == "Unrecognized Image") {
-      return Container(
-        margin: const EdgeInsets.only(top: 20),
-        padding: const EdgeInsets.all(20),
-        width: double.infinity,
-        decoration: BoxDecoration(
-          color: Colors.red[50],
-          borderRadius: BorderRadius.circular(20),
-          border: Border.all(color: Colors.red.withOpacity(0.5)),
-        ),
-        child: Column(
-          children: [
-            const Icon(Icons.error_outline, color: Colors.red, size: 60),
-            const SizedBox(height: 10),
-            const Text(
-              "Unrecognized Image",
-              style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.red),
-            ),
-            const SizedBox(height: 10),
-            Text(
-              _result!['message'] ?? "This image is not recognized as a supported plant leaf. Please upload a clear image of a supported plant leaf.",
-              textAlign: TextAlign.center,
-              style: const TextStyle(fontSize: 16, color: Colors.black87),
-            ),
-          ],
+      return Center(
+        child: Container(
+          constraints: const BoxConstraints(maxWidth: 700),
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              // 1. Maintain the high-clarity 4:3 image preview panel framework
+              if (_imageBytes != null)
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 20),
+                  child: AspectRatio(
+                    aspectRatio: 4 / 3,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(16),
+                      child: Image.memory(
+                        _imageBytes!, 
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                  ),
+                ),
+              
+              // 2. Your original premium red warning card container box goes right beneath it
+              Container(
+                width: double.infinity,
+                padding: const EdgeInsets.all(24),
+                decoration: BoxDecoration(
+                  color: const Color(0xFFFFEBEE), // Subtle premium soft red background tint
+                  borderRadius: BorderRadius.circular(16),
+                  border: Border.all(color: const Color(0xFFFFCDD2), width: 1.5),
+                ),
+                child: Column(
+                  children: [
+                    const Icon(Icons.error_outline, color: Colors.red, size: 48),
+                    const SizedBox(height: 12),
+                    const Text(
+                      "Unrecognized Image",
+                      style: TextStyle(color: Colors.red, fontSize: 22, fontWeight: FontWeight.bold),
+                    ),
+                    const SizedBox(height: 8),
+                    Text(
+                      _result!['message'] ?? "This image is not recognized as a supported plant leaf. Please upload a clear image of a supported plant leaf.",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(color: Colors.grey.shade800, fontSize: 16),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       );
     }
