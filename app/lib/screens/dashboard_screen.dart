@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
+import 'package:provider/provider.dart';
+import '../services/auth_service.dart';
 import 'screens.dart';
 
 class DashboardScreen extends StatelessWidget {
@@ -12,6 +14,7 @@ class DashboardScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: const Color(0xFF2E7D32),
         elevation: 0,
+        iconTheme: const IconThemeData(color: Colors.white),
         title: const Text(
           'Plant Care AI',
           style: TextStyle(
@@ -21,6 +24,7 @@ class DashboardScreen extends StatelessWidget {
         ),
         centerTitle: true,
       ),
+      drawer: _buildNavigationDrawer(context),
       body: Center(
         child: Container(
           constraints: kIsWeb ? const BoxConstraints(maxWidth: 1100) : null,
@@ -251,6 +255,254 @@ class DashboardScreen extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+
+  Widget _buildNavigationDrawer(BuildContext context) {
+    return Drawer(
+      backgroundColor: const Color(0xFF1B5E20), // Deep forest green canvas theme color
+      child: Column(
+        children: [
+          // Drawer Header
+          DrawerHeader(
+            decoration: const BoxDecoration(
+              color: Color(0xFF2E7D32),
+            ),
+            child: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const CircleAvatar(
+                    radius: 30,
+                    backgroundColor: Colors.white,
+                    child: Icon(Icons.eco, color: Color(0xFF2E7D32), size: 40),
+                  ),
+                  const SizedBox(height: 10),
+                  const Text(
+                    "Plant Care AI",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          
+          // Scrollable Drawer Items
+          Expanded(
+            child: SingleChildScrollView(
+              child: Theme(
+                // Overrides the ExpansionTile theme to ensure white text/icons
+                data: Theme.of(context).copyWith(
+                  dividerColor: Colors.transparent,
+                  unselectedWidgetColor: Colors.white70,
+                  colorScheme: const ColorScheme.light(
+                    primary: Colors.white,
+                  ),
+                ),
+                child: Column(
+                  children: [
+                    // Top Level Actions (Always Visible)
+                    ListTile(
+                      leading: const Icon(Icons.dashboard, color: Colors.white),
+                      title: const Text("Dashboard", style: TextStyle(color: Colors.white)),
+                      onTap: () {
+                        Navigator.pop(context); // Close drawer
+                      },
+                    ),
+                    ListTile(
+                      leading: const Icon(Icons.camera_alt, color: Colors.white),
+                      title: const Text("Scan Plant", style: TextStyle(color: Colors.white)),
+                      onTap: () {
+                        Navigator.pop(context);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (_) => const ScanPlantScreen()),
+                        );
+                      },
+                    ),
+
+                    const Divider(color: Colors.white24, height: 1),
+
+                    // Section 1: Treatments
+                    ExpansionTile(
+                      leading: const Icon(Icons.medical_services, color: Colors.white),
+                      title: const Text(
+                        "Treatments",
+                        style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                      ),
+                      iconColor: Colors.white,
+                      collapsedIconColor: Colors.white70,
+                      childrenPadding: const EdgeInsets.only(left: 16),
+                      children: [
+                        _buildSubMenuItem(
+                          context,
+                          icon: Icons.apple,
+                          title: "Apple Diseases",
+                          onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const AppleDiseasesScreen())),
+                        ),
+                        _buildSubMenuItem(
+                          context,
+                          icon: Icons.grass,
+                          title: "Corn Diseases",
+                          onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const CornDiseasesScreen())),
+                        ),
+                        _buildSubMenuItem(
+                          context,
+                          icon: Icons.local_florist,
+                          title: "Grape Diseases",
+                          onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const GrapeDiseasesScreen())),
+                        ),
+                        _buildSubMenuItem(
+                          context,
+                          icon: Icons.eco,
+                          title: "Peach Diseases",
+                          onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const PeachDiseasesScreen())),
+                        ),
+                        _buildSubMenuItem(
+                          context,
+                          icon: Icons.eco,
+                          title: "Potato Diseases",
+                          onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const PotatoDiseasesScreen())),
+                        ),
+                        _buildSubMenuItem(
+                          context,
+                          icon: Icons.agriculture,
+                          title: "Rice Diseases",
+                          onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const RiceDiseasesScreen())),
+                        ),
+                        _buildSubMenuItem(
+                          context,
+                          icon: Icons.energy_savings_leaf,
+                          title: "Tomato Diseases",
+                          onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const TomatoDiseasesScreen())),
+                        ),
+                      ],
+                    ),
+
+                    const Divider(color: Colors.white24, height: 1),
+
+                    // Section 2: User Space
+                    ExpansionTile(
+                      leading: const Icon(Icons.person_pin, color: Colors.white),
+                      title: const Text(
+                        "User Space",
+                        style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                      ),
+                      iconColor: Colors.white,
+                      collapsedIconColor: Colors.white70,
+                      childrenPadding: const EdgeInsets.only(left: 16),
+                      children: [
+                        _buildSubMenuItem(
+                          context,
+                          icon: Icons.history,
+                          title: "History",
+                          onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const HistoryScreen())),
+                        ),
+                        _buildSubMenuItem(
+                          context,
+                          icon: Icons.person,
+                          title: "Profile",
+                          onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const ProfileScreen())),
+                        ),
+                      ],
+                    ),
+
+                    const Divider(color: Colors.white24, height: 1),
+
+                    // Section 3: Utilities & System Context
+                    ListTile(
+                      leading: const Icon(Icons.settings, color: Colors.white),
+                      title: const Text("Settings", style: TextStyle(color: Colors.white)),
+                      onTap: () {
+                        Navigator.pop(context);
+                        Navigator.push(context, MaterialPageRoute(builder: (_) => const SettingsScreen()));
+                      },
+                    ),
+                    ListTile(
+                      leading: const Icon(Icons.help_outline, color: Colors.white),
+                      title: const Text("Help & Support", style: TextStyle(color: Colors.white)),
+                      onTap: () {
+                        Navigator.pop(context);
+                        Navigator.push(context, MaterialPageRoute(builder: (_) => const AboutAppScreen()));
+                      },
+                    ),
+                    ListTile(
+                      leading: const Icon(Icons.logout, color: Colors.white),
+                      title: const Text("Log Out", style: TextStyle(color: Colors.white)),
+                      onTap: () async {
+                        Navigator.pop(context); // Close drawer
+                        try {
+                          await Provider.of<AuthService>(context, listen: false).logout();
+                        } catch (_) {}
+                        Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
+                      },
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          
+          // Pinned bottom plant decorative graphic
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Icon(
+                  Icons.local_florist,
+                  size: 60,
+                  color: Colors.green[200],
+                ),
+                const SizedBox(height: 4),
+                Container(
+                  width: 30,
+                  height: 20,
+                  decoration: BoxDecoration(
+                    color: Colors.brown[300],
+                    borderRadius: const BorderRadius.only(
+                      bottomLeft: Radius.circular(6),
+                      bottomRight: Radius.circular(6),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 10),
+                const Text(
+                  "Keep your plants healthy!",
+                  style: TextStyle(
+                    color: Colors.white70,
+                    fontSize: 12,
+                    fontStyle: FontStyle.italic,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildSubMenuItem(
+    BuildContext context, {
+    required IconData icon,
+    required String title,
+    required VoidCallback onTap,
+  }) {
+    return ListTile(
+      leading: Icon(icon, color: Colors.white70, size: 20),
+      title: Text(
+        title,
+        style: const TextStyle(color: Colors.white70, fontSize: 14),
+      ),
+      onTap: () {
+        Navigator.pop(context); // Close drawer
+        onTap();
+      },
     );
   }
 }

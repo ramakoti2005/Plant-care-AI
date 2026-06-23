@@ -9,6 +9,7 @@ export 'profile_screen.dart';
 export 'apple_diseases_screen.dart';
 export 'corn_diseases_screen.dart';
 export 'grape_diseases_screen.dart';
+export 'peach_diseases_screen.dart';
 export 'potato_diseases_screen.dart';
 export 'rice_diseases_screen.dart';
 export 'tomato_diseases_screen.dart';
