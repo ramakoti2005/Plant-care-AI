@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
@@ -105,8 +106,10 @@ class _LoginScreenState extends State<LoginScreen> {
             Center(
               child: SingleChildScrollView(
                 padding: const EdgeInsets.all(20),
-                child: AutofillGroup(
-                  child: Card(
+                child: Container(
+                  constraints: kIsWeb ? const BoxConstraints(maxWidth: 500) : null,
+                  child: AutofillGroup(
+                    child: Card(
                     elevation: 10,
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
                     child: Padding(
@@ -213,6 +216,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
             ),
+          ),
             if (_isLoading) const LoadingIndicator(),
           ],
         ),
