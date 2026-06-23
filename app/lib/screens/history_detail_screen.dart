@@ -34,22 +34,20 @@ class HistoryDetailScreen extends StatelessWidget {
     }
   }
 
+  String getFullImageUrl(String path) {
+    if (path.isEmpty) return '';
+    if (path.startsWith('http://') || path.startsWith('https://')) {
+      return path; // Already a valid absolute endpoint path route
+    }
+    // Clean up accidental duplicate edge slashes and append to our live Render API domain
+    final cleanPath = path.startsWith('/') ? path.substring(1) : path;
+    return 'https://plant-care-ai-6ng8.onrender.com/$cleanPath';
+  }
+
   @override
   Widget build(BuildContext context) {
-    final String baseUrl = "https://plant-care-ai-6ng8.onrender.com";
     String imgPath = scan['image_path'] ?? scan['image'] ?? '';
-
-    if (imgPath.startsWith('/')) {
-      imgPath = imgPath.substring(1);
-    }
-
-    if (imgPath.startsWith('uploads/')) {
-      imgPath = imgPath.replaceFirst('uploads/', '');
-    } else if (imgPath.startsWith('backend/uploads/')) {
-      imgPath = imgPath.replaceFirst('backend/uploads/', '');
-    }
-
-    final String finalImageUrl = "$baseUrl/uploads/$imgPath";
+    final String finalImageUrl = getFullImageUrl(imgPath);
 
     return Scaffold(
       appBar: AppBar(
