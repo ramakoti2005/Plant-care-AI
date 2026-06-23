@@ -282,6 +282,15 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
       );
     }
 
+    final String plantName = _result!['plant_name'] ?? 'Unknown';
+    final String diseaseName = _result!['disease_name'] ?? 'Unknown';
+    final bool isHealthy = diseaseName.toLowerCase() == 'healthy';
+    
+    final String cause = _result!['cause'] ?? (isHealthy ? 'No disease symptoms' : 'N/A');
+    final String symptoms = _result!['symptoms'] ?? (isHealthy ? 'None' : 'No symptom details available.');
+    final String? organicRemedy = _result!['organic_remedy'];
+    final String chemicalControl = _result!['chemical_control'] ?? (isHealthy ? 'None required' : 'No chemical control specified.');
+
     // Success Case
     return Container(
       margin: const EdgeInsets.only(top: 20),
@@ -289,11 +298,11 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          _buildInfoCard("Plant Name", _result!['plant_name'] ?? "Unknown"),
+          _buildInfoCard("Plant Name", plantName),
           const SizedBox(height: 10),
-          _buildInfoCard("Disease", _result!['disease_name'] ?? "Unknown", 
+          _buildInfoCard("Disease", diseaseName, 
             isDisease: true, 
-            isHealthy: _result!['disease_name']?.toString().toLowerCase() == "healthy"
+            isHealthy: isHealthy
           ),
           
           if (_result!['reference_image'] != null) ...[
@@ -320,28 +329,103 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
             ),
           ],
 
-          if (_result!['treatment'] != null) ...[
-            const SizedBox(height: 20),
-            const Text(
-              "Treatment Information",
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Color(0xFF1B5E20)),
+          const SizedBox(height: 25),
+          const Text(
+            "Analysis & Treatment Details",
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Color(0xFF1B5E20)),
+          ),
+          const SizedBox(height: 15),
+
+          _buildSectionCard(
+            title: "Overview & Causes",
+            content: "Crop: $plantName\nCondition: $diseaseName\n\nPathogen/Cause: $cause",
+            icon: Icons.info_outline,
+            iconColor: const Color(0xFF2E7D32),
+            bgColor: const Color(0xFFF1F8E9),
+          ),
+
+          _buildSectionCard(
+            title: "Symptoms",
+            content: symptoms,
+            icon: Icons.healing,
+            iconColor: const Color(0xFFE65100),
+            bgColor: const Color(0xFFFFF3E0),
+          ),
+
+          if (organicRemedy != null && 
+              organicRemedy.trim().isNotEmpty && 
+              organicRemedy.trim().toLowerCase() != "none" && 
+              organicRemedy.trim().toLowerCase() != "none required" &&
+              organicRemedy.trim().toLowerCase() != "null")
+            _buildSectionCard(
+              title: "Organic Remedy",
+              content: organicRemedy,
+              icon: Icons.eco,
+              iconColor: const Color(0xFF2E7D32),
+              bgColor: const Color(0xFFE8F5E9),
             ),
-            const SizedBox(height: 10),
-            Container(
-              padding: const EdgeInsets.all(16),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(15),
-                boxShadow: [
-                  BoxShadow(color: Colors.black.withOpacity(0.05), blurRadius: 10, offset: const Offset(0, 4)),
-                ],
+
+          _buildSectionCard(
+            title: "Chemical Control",
+            content: chemicalControl,
+            icon: Icons.science,
+            iconColor: const Color(0xFF0288D1),
+            bgColor: const Color(0xFFE1F5FE),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildSectionCard({
+    required String title,
+    required String content,
+    required IconData icon,
+    required Color iconColor,
+    required Color bgColor,
+  }) {
+    return Container(
+      width: double.infinity,
+      margin: const EdgeInsets.only(bottom: 15),
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: bgColor,
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: iconColor.withOpacity(0.15), width: 1),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.02),
+            blurRadius: 8,
+            offset: const Offset(0, 4),
+          ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Icon(icon, color: iconColor, size: 22),
+              const SizedBox(width: 8),
+              Text(
+                title,
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  color: iconColor.withOpacity(0.85),
+                ),
               ),
-              child: Text(
-                _result!['treatment'],
-                style: const TextStyle(fontSize: 15, height: 1.5),
-              ),
+            ],
+          ),
+          const SizedBox(height: 10),
+          Text(
+            content,
+            style: const TextStyle(
+              fontSize: 14,
+              height: 1.5,
+              color: Colors.black87,
             ),
-          ],
+          ),
         ],
       ),
     );

@@ -8,7 +8,7 @@ import uuid
 
 from schemas import AnalysisResponse, ScanHistorySchema
 from services.preprocessing import preprocess_image
-from services.inference import process_prediction_and_save
+from services.inference import process_prediction_and_save, TREATMENT_BY_NAME
 from services.leaf_validator import is_leaf_image
 from services.auth import get_current_user, get_optional_current_user
 from models import User, ScanHistory
@@ -103,6 +103,10 @@ def get_user_scan_history(
         results = []
 
         for s in history_records:
+            p_name = s.plant_name or ""
+            d_name = s.disease_name or ""
+            detail = TREATMENT_BY_NAME.get((p_name.lower(), d_name.lower()), {})
+
             results.append({
                 "id": s.id,
                 "plant_name": s.plant_name,
@@ -113,7 +117,11 @@ def get_user_scan_history(
                 "issues_detected": [],
                 "solution_suggestion": s.solution_suggestion or "No treatment recorded",
                 "timestamp": s.timestamp,
-                "image_path": s.image_path
+                "image_path": s.image_path,
+                "cause": detail.get("cause"),
+                "symptoms": detail.get("symptoms"),
+                "organic_remedy": detail.get("organic_remedy"),
+                "chemical_control": detail.get("chemical_control")
             })
 
         return results

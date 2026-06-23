@@ -42,6 +42,10 @@ class AnalysisResponse(BaseModel):
     possible_matches: Optional[List[str]] = []
     issues_detected: Optional[List[str]] = []
     solution_suggestion: Optional[str] = None
+    cause: Optional[str] = None
+    symptoms: Optional[str] = None
+    organic_remedy: Optional[str] = None
+    chemical_control: Optional[str] = None
 
 # Simulator Schemas
 class ProgressionStage(BaseModel):
@@ -68,6 +72,10 @@ class ScanHistorySchema(BaseModel):
     solution_suggestion: str
     timestamp: datetime
     image_path: Optional[str] = None
+    cause: Optional[str] = None
+    symptoms: Optional[str] = None
+    organic_remedy: Optional[str] = None
+    chemical_control: Optional[str] = None
 
     class Config:
         from_attributes = True
