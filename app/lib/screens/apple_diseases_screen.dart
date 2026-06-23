@@ -59,27 +59,21 @@ class AppleDiseasesScreen extends StatelessWidget {
                 diseaseCard(
                   title: "Black Rot",
                   scientificName: "Botryosphaeria obtusa",
-                  overview: "Black rot causes frog-eye leaf spot, fruit rot, and cankers on branches. It overwinters in cankers and mummified fruit, spreading rapidly during warm, wet summer weather.",
+                  overview: "Caused by Botryosphaeria obtusa. Spores overwinter in dead wood and old mummified fruit, attacking leaves, twigs, and developing fruit cores during warm, damp spring weather.",
                   causes: [
                     "Botryosphaeria obtusa fungus",
-                    "Warm and humid summer conditions",
-                    "Infected dead wood or mummified fruit left on trees",
+                    "Spores overwintering in dead wood and old mummified fruit",
+                    "Warm, damp spring weather attacking leaves, twigs, and developing fruit cores",
                   ],
                   symptoms: [
-                    "Frog-eye spots on leaves",
-                    "Dark brown rotating circles on fruit",
-                    "Mummified black fruit",
-                    "Cankers on limbs",
+                    "Leaves show purple 'frog-eye' spots with brown centers.",
+                    "Fruit develops a firm, brown-to-black rot expanding in distinct concentric circles, drying completely into a shriveled black mummy.",
                   ],
                   treatment: [
-                    "Remove infected fruits and mummified fruit",
-                    "Prune cankered limbs",
-                    "Apply copper sprays or chemical fungicides",
+                    "Apply Captan 50 WP at a concentration of 0.2% (20g per 10L water) or Mancozeb 75 WP at 0.25% (25g per 10L water) from pink bud stage through petal fall every 10-14 days.",
                   ],
                   organic: [
-                    "Liquid copper hydroxide sprays",
-                    "Organic pruning paint",
-                    "Regular application of compost tea",
+                    "Foliar spray of Liquid Copper Octanoate or Sulfur compounds at 0.5% concentration before bud opening.",
                   ],
                   prevention: [
                     "Practice meticulous sanitation by pruning out dead wood",

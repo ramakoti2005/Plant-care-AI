@@ -48,10 +48,10 @@ except Exception as e:
 # Comprehensive treatment database for the 35 classes
 TREATMENT_METADATA_DATABASE = {
     "Apple_Black_Rot": {
-        "cause": "Botryosphaeria obtusa",
-        "symptoms": "frog-eye spots with brown centers, concentric rot circles, shriveled black mummies",
-        "organic_remedy": "0.5% Liquid Copper Octanoate/Sulfur",
-        "chemical_control": "Captan 50 WP (20g/10L) or Mancozeb 75 WP (25g/10L)"
+        "cause": "Caused by Botryosphaeria obtusa. Spores overwinter in dead wood and old mummified fruit, attacking leaves, twigs, and developing fruit cores during warm, damp spring weather.",
+        "symptoms": "Leaves show purple 'frog-eye' spots with brown centers. Fruit develops a firm, brown-to-black rot expanding in distinct concentric circles, drying completely into a shriveled black mummy.",
+        "organic_remedy": "Foliar spray of Liquid Copper Octanoate or Sulfur compounds at 0.5% concentration before bud opening.",
+        "chemical_control": "Apply Captan 50 WP at a concentration of 0.2% (20g per 10L water) or Mancozeb 75 WP at 0.25% (25g per 10L water) from pink bud stage through petal fall every 10-14 days."
     },
     "Apple_Cedar_Rust": {
         "cause": "Gymnosporangium juniperi-virginianae",

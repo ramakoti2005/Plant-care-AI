@@ -148,13 +148,13 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
             children: [
               const SizedBox(height: 10),
 
-              Center(
-                child: Container(
-                  constraints: const BoxConstraints(maxWidth: 700),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      if (_imageBytes != null && !(kIsWeb && _result != null))
+              if (_imageBytes != null && !(kIsWeb && _result != null))
+                Center(
+                  child: Container(
+                    constraints: const BoxConstraints(maxWidth: 700),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
                         Container(
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
@@ -167,42 +167,58 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
                               child: Image.memory(_imageBytes!, fit: BoxFit.contain),
                             ),
                           ),
-                        )
-                      else if (_imageBytes == null)
-                        Container(
-                          height: 250,
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                            color: Colors.green.withOpacity(0.05),
-                            borderRadius: BorderRadius.circular(20),
-                            border: Border.all(color: Colors.green.withOpacity(0.2), width: 2),
-                          ),
-                          child: const Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(Icons.eco, size: 80, color: Color(0xFF2E7D32)),
-                              SizedBox(height: 10),
-                              Text(
-                                "Upload Plant Leaf Image",
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                  color: Color(0xFF1B5E20),
-                                ),
-                              ),
-                            ],
-                          ),
                         ),
-                    ],
+                      ],
+                    ),
+                  ),
+                )
+              else if (_imageBytes == null)
+                Center(
+                  child: Container(
+                    constraints: const BoxConstraints(maxWidth: 700),
+                    child: Container(
+                      height: 250,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        color: Colors.green.withOpacity(0.05),
+                        borderRadius: BorderRadius.circular(20),
+                        border: Border.all(color: Colors.green.withOpacity(0.2), width: 2),
+                      ),
+                      child: const Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(Icons.eco, size: 80, color: Color(0xFF2E7D32)),
+                          SizedBox(height: 10),
+                          Text(
+                            "Upload Plant Leaf Image",
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xFF1B5E20),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
                 ),
-              ),
+
+              if (_result != null) ...[
+                const SizedBox(height: 20),
+                _buildResultView(),
+              ],
+
+              if (_loading) 
+                const Padding(
+                  padding: EdgeInsets.symmetric(vertical: 20),
+                  child: CircularProgressIndicator(color: Colors.green),
+                ),
 
               const SizedBox(height: 30),
 
               Center(
                 child: Container(
-                  constraints: const BoxConstraints(maxWidth: 700),
+                  constraints: const BoxConstraints(maxWidth: 600),
                   child: Row(
                     children: [
                       Expanded(
@@ -213,7 +229,7 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.green,
                             foregroundColor: Colors.white,
-                            padding: const EdgeInsets.all(12),
+                            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                           ),
                         ),
@@ -227,7 +243,7 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.orange,
                             foregroundColor: Colors.white,
-                            padding: const EdgeInsets.all(12),
+                            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                           ),
                         ),
@@ -240,28 +256,23 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
               const SizedBox(height: 20),
 
               if (_imageBytes != null && !_loading && _result == null)
-                SizedBox(
-                  width: double.infinity,
-                  child: ElevatedButton.icon(
-                    onPressed: _analyzeDisease,
-                    icon: const Icon(Icons.analytics),
-                    label: const Text("Analyze Disease"),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.deepPurple,
-                      foregroundColor: Colors.white,
-                      padding: const EdgeInsets.all(15),
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                Center(
+                  child: Container(
+                    constraints: const BoxConstraints(maxWidth: 600),
+                    width: double.infinity,
+                    child: ElevatedButton.icon(
+                      onPressed: _analyzeDisease,
+                      icon: const Icon(Icons.analytics),
+                      label: const Text("Analyze Disease"),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.deepPurple,
+                        foregroundColor: Colors.white,
+                        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                      ),
                     ),
                   ),
                 ),
-
-              if (_loading) 
-                const Padding(
-                  padding: EdgeInsets.symmetric(vertical: 20),
-                  child: CircularProgressIndicator(color: Colors.green),
-                ),
-
-              if (_result != null) _buildResultView(),
             ],
           ),
         ),
