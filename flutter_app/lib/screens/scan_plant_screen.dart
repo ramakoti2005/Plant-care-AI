@@ -109,11 +109,11 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
           _isAnalyzing = false;
           _result = responseData;
           
-          // Aligns exactly with your backend database model outputs seen in history
-          _plantName = responseData['plant'] ?? responseData['plant_name'] ?? 'Grape';
-          _diseaseName = responseData['disease'] ?? responseData['disease_name'] ?? 'Leaf Blight (Isariopsis Leaf Spot)';
+          // Map directly to the backend keys that work in your history logs
+          _plantName = responseData['plant'] ?? 'Crop';
+          _diseaseName = responseData['disease'] ?? 'Disease';
           
-          // Force the UI toggle layout switch to display the results card panel
+          // Flip the switch to show the results page
           _hasResults = true; 
           _hasError = false;
         });

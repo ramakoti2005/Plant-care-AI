@@ -96044,11 +96044,9 @@ p.x=!1
 s=p.r=this.b
 r=J.aM(s)
 q=r.h(s,"plant")
-if(q==null)q=r.h(s,"plant_name")
-p.y=q==null?"Grape":q
-q=r.h(s,"disease")
-s=q==null?r.h(s,"disease_name"):q
-p.z=s==null?"Leaf Blight (Isariopsis Leaf Spot)":s
+p.y=q==null?"Crop":q
+s=r.h(s,"disease")
+p.z=s==null?"Disease":s
 p.Q=!0},
 $S:0}
 A.axQ.prototype={

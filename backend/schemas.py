@@ -32,6 +32,8 @@ class AnalysisResponse(BaseModel):
     message: Optional[str] = None
     plant_name: Optional[str] = None
     disease_name: Optional[str] = None
+    plant: Optional[str] = None
+    disease: Optional[str] = None
     reference_image: Optional[str] = None
     treatment: Optional[str] = None
     cure: Optional[str] = None
