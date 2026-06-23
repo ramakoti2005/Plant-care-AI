@@ -35,8 +35,10 @@ class HistoryDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final String? imageUrl = scan['image_url'] ?? scan['image_path'] ?? scan['image'];
-    final String baseUrl = ApiConfig.baseUrl;
+    final String baseUrl = "https://plant-care-ai-6ng8.onrender.com";
+    final String imagePathRaw = scan['image_path'] ?? scan['image'] ?? '';
+    final String imageFileName = imagePathRaw.replaceFirst('/uploads/', '').replaceFirst('uploads/', '');
+    final String imageUrl = "${baseUrl}/uploads/$imageFileName";
 
     return Scaffold(
       appBar: AppBar(
@@ -68,7 +70,7 @@ class HistoryDetailScreen extends StatelessWidget {
 
                 const Divider(height: 30),
 
-                if (imageUrl != null) ...[
+                if (imageFileName.isNotEmpty) ...[
                   Container(
                     margin: const EdgeInsets.only(bottom: 20),
                     height: 250,
@@ -80,13 +82,15 @@ class HistoryDetailScreen extends StatelessWidget {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(15),
                       child: Image.network(
-                        imageUrl.startsWith('http')
-                            ? imageUrl
-                            : '$baseUrl${imageUrl.startsWith('/') ? '' : '/'}$imageUrl',
+                        imageUrl,
                         fit: BoxFit.cover,
-                        errorBuilder: (context, error, stackTrace) => const Center(
-                          child: Icon(Icons.broken_image, size: 50, color: Colors.grey),
-                        ),
+                        errorBuilder: (context, error, stackTrace) {
+                          return const Center(child: Icon(Icons.broken_image, size: 50, color: Colors.grey));
+                        },
+                        loadingBuilder: (context, child, loadingProgress) {
+                          if (loadingProgress == null) return child;
+                          return const Center(child: CircularProgressIndicator(color: Colors.green));
+                        },
                       ),
                     ),
                   ),

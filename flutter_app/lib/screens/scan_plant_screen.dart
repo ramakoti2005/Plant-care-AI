@@ -329,48 +329,50 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
             ),
           ],
 
-          const SizedBox(height: 25),
+          const SizedBox(height: 20),
           const Text(
-            "Analysis & Treatment Details",
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Color(0xFF1B5E20)),
+            "Treatment Information",
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Color(0xFF1B5E20)),
           ),
-          const SizedBox(height: 15),
-
-          _buildSectionCard(
-            title: "Overview & Causes",
-            content: "Crop: $plantName\nCondition: $diseaseName\n\nPathogen/Cause: $cause",
-            icon: Icons.info_outline,
-            iconColor: const Color(0xFF2E7D32),
-            bgColor: const Color(0xFFF1F8E9),
-          ),
-
-          _buildSectionCard(
-            title: "Symptoms",
-            content: symptoms,
-            icon: Icons.healing,
-            iconColor: const Color(0xFFE65100),
-            bgColor: const Color(0xFFFFF3E0),
-          ),
-
-          if (organicRemedy != null && 
-              organicRemedy.trim().isNotEmpty && 
-              organicRemedy.trim().toLowerCase() != "none" && 
-              organicRemedy.trim().toLowerCase() != "none required" &&
-              organicRemedy.trim().toLowerCase() != "null")
-            _buildSectionCard(
-              title: "Organic Remedy",
-              content: organicRemedy,
-              icon: Icons.eco,
-              iconColor: const Color(0xFF2E7D32),
-              bgColor: const Color(0xFFE8F5E9),
+          const SizedBox(height: 10),
+          Container(
+            padding: const EdgeInsets.all(16),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(15),
+              boxShadow: [
+                BoxShadow(color: Colors.black.withOpacity(0.05), blurRadius: 10, offset: const Offset(0, 4)),
+              ],
             ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text("• Overview & Cause", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: Colors.green[800])),
+                const SizedBox(height: 4),
+                Text(cause, style: const TextStyle(fontSize: 14)),
+                const SizedBox(height: 12),
+                
+                Text("• Diagnostic Symptoms", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: Colors.green[800])),
+                const SizedBox(height: 4),
+                Text(symptoms, style: const TextStyle(fontSize: 14)),
+                const SizedBox(height: 12),
 
-          _buildSectionCard(
-            title: "Chemical Control",
-            content: chemicalControl,
-            icon: Icons.science,
-            iconColor: const Color(0xFF0288D1),
-            bgColor: const Color(0xFFE1F5FE),
+                if (organicRemedy != null && 
+                    organicRemedy.trim().isNotEmpty && 
+                    organicRemedy.trim().toLowerCase() != "none" && 
+                    organicRemedy.trim().toLowerCase() != "none required" &&
+                    organicRemedy.trim().toLowerCase() != "null") ...[
+                  Text("• Organic Remedy", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: Colors.green[800])),
+                  const SizedBox(height: 4),
+                  Text(organicRemedy, style: const TextStyle(fontSize: 14)),
+                  const SizedBox(height: 12),
+                ],
+                
+                Text("• Targeted Chemical Control", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: Colors.green[800])),
+                const SizedBox(height: 4),
+                Text(chemicalControl, style: const TextStyle(fontSize: 14)),
+              ],
+            ),
           ),
         ],
       ),
