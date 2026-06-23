@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 import 'screens.dart';
 
 class DashboardScreen extends StatelessWidget {
@@ -20,94 +21,149 @@ class DashboardScreen extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-        child: Column(
-          children: [
-            const SizedBox(height: 20),
+      body: Center(
+        child: Container(
+          constraints: kIsWeb ? const BoxConstraints(maxWidth: 1100) : null,
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            child: Column(
+              children: [
+                const SizedBox(height: 20),
 
-            // Leaf Logo Header
-            const CircleAvatar(
-              radius: 50,
-              backgroundColor: Color(0xFF2E7D32),
-              child: Icon(
-                Icons.eco,
-                size: 60,
-                color: Colors.white,
-              ),
+                // Leaf Logo Header
+                const CircleAvatar(
+                  radius: 50,
+                  backgroundColor: Color(0xFF2E7D32),
+                  child: Icon(
+                    Icons.eco,
+                    size: 60,
+                    color: Colors.white,
+                  ),
+                ),
+
+                const SizedBox(height: 20),
+
+                const Text(
+                  "Welcome to Plant Care AI",
+                  style: TextStyle(
+                    fontSize: 26,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xFF1B5E20),
+                  ),
+                ),
+
+                const SizedBox(height: 8),
+
+                const Text(
+                  "AI Powered Plant Disease Detection",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.black54,
+                  ),
+                ),
+
+                const SizedBox(height: 40),
+
+                // Dashboard Cards Grid/List Selection
+                if (kIsWeb)
+                  GridView.count(
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    crossAxisCount: 2,
+                    childAspectRatio: 3.0,
+                    mainAxisSpacing: 16,
+                    crossAxisSpacing: 16,
+                    children: [
+                      _buildDashboardCard(
+                        context,
+                        icon: Icons.camera_alt,
+                        title: "Scan Plant",
+                        subtitle: "Upload leaf image for disease detection",
+                        onTap: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (_) => const ScanPlantScreen()),
+                        ),
+                      ),
+                      _buildDashboardCard(
+                        context,
+                        icon: Icons.history,
+                        title: "History",
+                        subtitle: "View previous diagnoses",
+                        onTap: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (_) => const HistoryScreen()),
+                        ),
+                      ),
+                      _buildDashboardCard(
+                        context,
+                        icon: Icons.medical_services,
+                        title: "Treatments",
+                        subtitle: "Recommended solutions",
+                        onTap: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (_) => const TreatmentsScreen()),
+                        ),
+                      ),
+                      _buildDashboardCard(
+                        context,
+                        icon: Icons.person,
+                        title: "Profile",
+                        subtitle: "Manage account settings",
+                        onTap: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (_) => const ProfileScreen()),
+                        ),
+                      ),
+                    ],
+                  )
+                else ...[
+                  _buildDashboardCard(
+                    context,
+                    icon: Icons.camera_alt,
+                    title: "Scan Plant",
+                    subtitle: "Upload leaf image for disease detection",
+                    onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (_) => const ScanPlantScreen()),
+                    ),
+                  ),
+                  _buildDashboardCard(
+                    context,
+                    icon: Icons.history,
+                    title: "History",
+                    subtitle: "View previous diagnoses",
+                    onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (_) => const HistoryScreen()),
+                    ),
+                  ),
+                  _buildDashboardCard(
+                    context,
+                    icon: Icons.medical_services,
+                    title: "Treatments",
+                    subtitle: "Recommended solutions",
+                    onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (_) => const TreatmentsScreen()),
+                    ),
+                  ),
+                  _buildDashboardCard(
+                    context,
+                    icon: Icons.person,
+                    title: "Profile",
+                    subtitle: "Manage account settings",
+                    onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (_) => const ProfileScreen()),
+                    ),
+                  ),
+                ],
+                
+                const SizedBox(height: 20),
+              ],
             ),
-
-            const SizedBox(height: 20),
-
-            const Text(
-              "Welcome to Plant Care AI",
-              style: TextStyle(
-                fontSize: 26,
-                fontWeight: FontWeight.bold,
-                color: Color(0xFF1B5E20),
-              ),
-            ),
-
-            const SizedBox(height: 8),
-
-            const Text(
-              "AI Powered Plant Disease Detection",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.black54,
-              ),
-            ),
-
-            const SizedBox(height: 40),
-
-            // Dashboard Cards
-            _buildDashboardCard(
-              context,
-              icon: Icons.camera_alt,
-              title: "Scan Plant",
-              subtitle: "Upload leaf image for disease detection",
-              onTap: () => Navigator.push(
-                context,
-                MaterialPageRoute(builder: (_) => const ScanPlantScreen()),
-              ),
-            ),
-
-            _buildDashboardCard(
-              context,
-              icon: Icons.history,
-              title: "History",
-              subtitle: "View previous diagnoses",
-              onTap: () => Navigator.push(
-                context,
-                MaterialPageRoute(builder: (_) => const HistoryScreen()),
-              ),
-            ),
-
-            _buildDashboardCard(
-              context,
-              icon: Icons.medical_services,
-              title: "Treatments",
-              subtitle: "Recommended solutions",
-              onTap: () => Navigator.push(
-                context,
-                MaterialPageRoute(builder: (_) => const TreatmentsScreen()),
-              ),
-            ),
-
-            _buildDashboardCard(
-              context,
-              icon: Icons.person,
-              title: "Profile",
-              subtitle: "Manage account settings",
-              onTap: () => Navigator.push(
-                context,
-                MaterialPageRoute(builder: (_) => const ProfileScreen()),
-              ),
-            ),
-            
-            const SizedBox(height: 20),
-          ],
+          ),
         ),
       ),
     );
@@ -120,16 +176,17 @@ class DashboardScreen extends StatelessWidget {
     required String subtitle,
     required VoidCallback onTap,
   }) {
+    final double radius = kIsWeb ? 16.0 : 20.0;
     return Container(
-      margin: const EdgeInsets.only(bottom: 15),
+      margin: kIsWeb ? EdgeInsets.zero : const EdgeInsets.only(bottom: 15),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(radius),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.05),
-            blurRadius: 10,
-            offset: const Offset(0, 4),
+            color: kIsWeb ? Colors.black.withOpacity(0.03) : Colors.black.withOpacity(0.05),
+            blurRadius: kIsWeb ? 16 : 10,
+            offset: kIsWeb ? const Offset(0, 6) : const Offset(0, 4),
           ),
         ],
       ),
@@ -137,7 +194,7 @@ class DashboardScreen extends StatelessWidget {
         color: Colors.transparent,
         child: InkWell(
           onTap: onTap,
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(radius),
           child: Padding(
             padding: const EdgeInsets.all(20),
             child: Row(

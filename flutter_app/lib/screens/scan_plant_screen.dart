@@ -6,6 +6,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:http/http.dart' as http;
 import 'package:http_parser/http_parser.dart';
+import 'package:flutter/foundation.dart';
 import '../api_config.dart';
 
 class ScanPlantScreen extends StatefulWidget {
@@ -147,7 +148,7 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
             children: [
               const SizedBox(height: 10),
 
-              if (_imageBytes != null)
+              if (_imageBytes != null && !(kIsWeb && _result != null))
                 Container(
                   height: 250,
                   width: double.infinity,
@@ -160,7 +161,7 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
                     child: Image.memory(_imageBytes!, fit: BoxFit.cover),
                   ),
                 )
-              else
+              else if (_imageBytes == null)
                 Container(
                   height: 250,
                   width: double.infinity,
@@ -292,6 +293,138 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
     final String chemicalControl = _result!['chemical_control'] ?? (isHealthy ? 'None required' : 'No chemical control specified.');
 
     // Success Case
+    if (kIsWeb) {
+      return Container(
+        margin: const EdgeInsets.only(top: 20),
+        width: double.infinity,
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Left Column (Flex 2): Leaf Image Preview inside rounded card
+            Expanded(
+              flex: 2,
+              child: Center(
+                child: Card(
+                  elevation: 4,
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+                  shadowColor: Colors.black.withOpacity(0.05),
+                  child: Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(12),
+                      child: _imageBytes != null 
+                          ? Image.memory(
+                              _imageBytes!,
+                              height: 380,
+                              width: double.infinity,
+                              fit: BoxFit.cover,
+                            )
+                          : Container(
+                              height: 380,
+                              color: Colors.grey[200],
+                              child: const Icon(Icons.image, size: 80, color: Colors.grey),
+                            ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(width: 24),
+            // Right Column (Flex 3): Structured details column
+            Expanded(
+              flex: 3,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  _buildInfoCard("Plant Name", plantName),
+                  const SizedBox(height: 10),
+                  _buildInfoCard("Disease", diseaseName, 
+                    isDisease: true, 
+                    isHealthy: isHealthy
+                  ),
+                  
+                  if (_result!['reference_image'] != null) ...[
+                    const SizedBox(height: 20),
+                    const Text(
+                      "Reference Leaf Image",
+                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Color(0xFF1B5E20)),
+                    ),
+                    const SizedBox(height: 10),
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(20),
+                      child: Image.network(
+                        'https://${Uri.parse(ApiConfig.baseUrl).host}${_result!['reference_image']}',
+                        height: 180,
+                        width: double.infinity,
+                        fit: BoxFit.cover,
+                        errorBuilder: (context, error, stackTrace) => Container(
+                          height: 180,
+                          width: double.infinity,
+                          color: Colors.grey[200],
+                          child: const Icon(Icons.image_not_supported, size: 50, color: Colors.grey),
+                        ),
+                      ),
+                    ),
+                  ],
+
+                  const SizedBox(height: 20),
+                  const Text(
+                    "Treatment Information",
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Color(0xFF1B5E20)),
+                  ),
+                  const SizedBox(height: 10),
+                  Container(
+                    padding: const EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(16),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.03), 
+                          blurRadius: 16, 
+                          offset: const Offset(0, 6)
+                        ),
+                      ],
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text("• Overview & Cause", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: Colors.green[800])),
+                        const SizedBox(height: 4),
+                        Text(cause, style: const TextStyle(fontSize: 14)),
+                        const SizedBox(height: 12),
+                        
+                        Text("• Diagnostic Symptoms", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: Colors.green[800])),
+                        const SizedBox(height: 4),
+                        Text(symptoms, style: const TextStyle(fontSize: 14)),
+                        const SizedBox(height: 12),
+
+                        if (organicRemedy != null && 
+                            organicRemedy.trim().isNotEmpty && 
+                            organicRemedy.trim().toLowerCase() != "none" && 
+                            organicRemedy.trim().toLowerCase() != "none required" &&
+                            organicRemedy.trim().toLowerCase() != "null") ...[
+                          Text("• Organic Remedy", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: Colors.green[800])),
+                          const SizedBox(height: 4),
+                          Text(organicRemedy, style: const TextStyle(fontSize: 14)),
+                          const SizedBox(height: 12),
+                        ],
+                        
+                        Text("• Targeted Chemical Control", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: Colors.green[800])),
+                        const SizedBox(height: 4),
+                        Text(chemicalControl, style: const TextStyle(fontSize: 14)),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+
+    // Native Mobile Fallback
     return Container(
       margin: const EdgeInsets.only(top: 20),
       width: double.infinity,
@@ -443,9 +576,13 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(15),
+        borderRadius: BorderRadius.circular(kIsWeb ? 16 : 15),
         boxShadow: [
-          BoxShadow(color: Colors.black.withOpacity(0.05), blurRadius: 10, offset: const Offset(0, 4)),
+          BoxShadow(
+            color: kIsWeb ? Colors.black.withOpacity(0.03) : Colors.black.withOpacity(0.05), 
+            blurRadius: kIsWeb ? 16 : 10, 
+            offset: kIsWeb ? const Offset(0, 6) : const Offset(0, 4)
+          ),
         ],
       ),
       child: Row(
