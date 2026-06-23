@@ -56,35 +56,18 @@ class _HistoryScreenState extends State<HistoryScreen> {
     }
   }
 
-  Future<void> _deleteScan(dynamic scanId) async {
+  Future<void> _deleteScanFromBackend(dynamic scanId) async {
     if (scanId == null) return;
     try {
       String? token = await _storage.read(key: 'auth_token');
-      final response = await http.delete(
+      await http.delete(
         Uri.parse('$_baseUrl/plants/history/$scanId'),
         headers: {
           'Authorization': 'Bearer $token',
         },
       );
-
-      if (response.statusCode == 200 || response.statusCode == 204) {
-        setState(() {
-          _history.removeWhere((item) => item['id'] == scanId);
-        });
-        if (mounted) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text("Scan history deleted successfully")),
-          );
-        }
-      } else {
-        setState(() {
-          _history.removeWhere((item) => item['id'] == scanId);
-        });
-      }
     } catch (e) {
-      setState(() {
-        _history.removeWhere((item) => item['id'] == scanId);
-      });
+      print("Error deleting from backend: $e");
     }
   }
 
@@ -121,7 +104,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
     return 'https://plant-care-ai-6ng8.onrender.com/$cleanPath';
   }
 
-  Widget _buildHistoryCard(dynamic item) {
+  Widget _buildHistoryCard(dynamic item, int index) {
     String imgPath = item['image_path'] ?? item['image'] ?? '';
     final String finalImageUrl = getFullImageUrl(imgPath);
 
@@ -238,7 +221,33 @@ class _HistoryScreenState extends State<HistoryScreen> {
                         child: IconButton(
                           icon: const Icon(Icons.delete_outline, color: Colors.redAccent),
                           onPressed: () {
-                            _deleteScan(item['id']);
+                            final deletedItem = item;
+                            final originalIndex = index;
+
+                            setState(() {
+                              _history.removeAt(originalIndex);
+                            });
+
+                            ScaffoldMessenger.of(context).clearSnackBars();
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: const Text('Scan history deleted successfully'),
+                                duration: const Duration(seconds: 4),
+                                action: SnackBarAction(
+                                  label: 'UNDO',
+                                  textColor: Colors.yellow,
+                                  onPressed: () {
+                                    setState(() {
+                                      _history.insert(originalIndex, deletedItem);
+                                    });
+                                  },
+                                ),
+                              ),
+                            ).closed.then((reason) {
+                              if (reason != SnackBarClosedReason.action) {
+                                _deleteScanFromBackend(deletedItem['id']);
+                              }
+                            });
                           },
                         ),
                       ),
@@ -290,7 +299,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
                           itemCount: _history.length,
                           itemBuilder: (context, index) {
                             final item = _history[index];
-                            return _buildHistoryCard(item);
+                            return _buildHistoryCard(item, index);
                           },
                         ),
                       ),
