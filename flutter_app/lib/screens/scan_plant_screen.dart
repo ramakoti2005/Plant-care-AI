@@ -96,6 +96,22 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
 
       if (response.statusCode == 200) {
         final data = jsonDecode(body);
+        final double predictionConfidence = (data['confidence'] is num)
+            ? (data['confidence'] as num).toDouble()
+            : (data['confidence'] is String)
+                ? (double.tryParse(data['confidence']) ?? 1.0)
+                : 1.0;
+
+        if (predictionConfidence < 0.75) {
+          setState(() {
+            _result = {
+              "status": "Unrecognized Image",
+              "message": "This image is not recognized as a supported plant leaf. Please upload a clear image of a supported plant leaf."
+            };
+          });
+          return;
+        }
+
         setState(() {
           _result = data;
         });

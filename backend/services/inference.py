@@ -299,11 +299,12 @@ def run_inference(image):
     class_index = int(np.argmax(probabilities))
     confidence = float(probabilities[class_index]) * 100
 
-    # Set this to 15.0 or lower so your dataset images are never blocked
-    if confidence < 15.0:
+    # Rejects non-plant graphics or low-confidence predictions below 75%
+    if confidence < 75.0:
         return {
             "status": "Unrecognized Image",
-            "message": "The uploaded image does not match any supported plant leaf in the dataset."
+            "message": "This image is not recognized as a supported plant leaf. Please upload a clear image of a supported plant leaf.",
+            "confidence": confidence / 100.0
         }
 
     raw_label = class_names[class_index]
@@ -360,6 +361,7 @@ def run_inference(image):
         "status": "Success",
         "plant_name": plant_name,
         "disease_name": disease_name,
+        "confidence": confidence / 100.0,
         "reference_image": reference_image_url,
         "treatment": combined_treatment,
         "cure": combined_treatment,
