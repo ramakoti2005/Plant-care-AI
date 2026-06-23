@@ -126,24 +126,41 @@ class _DashboardScreenState extends State<DashboardScreen> {
             ),
             // Right Content Area
             Expanded(
-              child: Scaffold(
-                backgroundColor: const Color(0xFFF4FAF4),
-                appBar: _activePage == 'dashboard'
-                    ? AppBar(
-                        backgroundColor: const Color(0xFF2E7D32),
-                        elevation: 0,
-                        iconTheme: const IconThemeData(color: Colors.white),
-                        title: Text(
-                          pageTitle,
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
+              child: Container(
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: const AssetImage('assets/image_290c76.jpg'),
+                    fit: BoxFit.cover,
+                    colorFilter: ColorFilter.mode(
+                      Colors.black.withOpacity(0.05),
+                      BlendMode.darken,
+                    ),
+                  ),
+                ),
+                child: Scaffold(
+                  backgroundColor: Colors.transparent,
+                  appBar: _activePage == 'dashboard'
+                      ? AppBar(
+                          backgroundColor: const Color(0xFF2E7D32),
+                          elevation: 0,
+                          iconTheme: const IconThemeData(color: Colors.white),
+                          title: Text(
+                            pageTitle,
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
-                        ),
-                        centerTitle: true,
-                      )
-                    : null, // Sub-pages render their own app bar inside the viewport
-                body: currentSelectedPage,
+                          centerTitle: true,
+                        )
+                      : null, // Sub-pages render their own app bar inside the viewport
+                  body: Theme(
+                    data: Theme.of(context).copyWith(
+                      scaffoldBackgroundColor: Colors.transparent,
+                    ),
+                    child: currentSelectedPage,
+                  ),
+                ),
               ),
             ),
           ],

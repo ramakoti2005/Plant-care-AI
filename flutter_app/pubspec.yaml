@@ -35,3 +35,5 @@ flutter_launcher_icons:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/image_290c76.jpg
