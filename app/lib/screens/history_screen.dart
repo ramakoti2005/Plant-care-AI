@@ -5,6 +5,7 @@ import 'package:http/http.dart' as http;
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:intl/intl.dart';
 import 'history_detail_screen.dart';
+import 'dashboard_screen.dart';
 import '../api_config.dart';
 
 class HistoryScreen extends StatefulWidget {
@@ -114,11 +115,11 @@ class _HistoryScreenState extends State<HistoryScreen> {
       child: InkWell(
         borderRadius: BorderRadius.circular(16),
         onTap: () {
-          Navigator.push(
+          DashboardScreen.navigate(
             context,
-            MaterialPageRoute(
-              builder: (_) => HistoryDetailScreen(scan: item),
-            ),
+            'custom',
+            fallbackWidget: HistoryDetailScreen(scan: item),
+            customWidget: HistoryDetailScreen(scan: item),
           );
         },
         child: Column(
@@ -200,11 +201,11 @@ class _HistoryScreenState extends State<HistoryScreen> {
                             padding: const EdgeInsets.symmetric(vertical: 12),
                           ),
                           onPressed: () {
-                            Navigator.push(
+                            DashboardScreen.navigate(
                               context,
-                              MaterialPageRoute(
-                                builder: (_) => HistoryDetailScreen(scan: item),
-                              ),
+                              'custom',
+                              fallbackWidget: HistoryDetailScreen(scan: item),
+                              customWidget: HistoryDetailScreen(scan: item),
                             );
                           },
                           child: const Text("View Details", style: TextStyle(fontWeight: FontWeight.bold)),
@@ -316,11 +317,11 @@ class _HistoryScreenState extends State<HistoryScreen> {
                               margin: const EdgeInsets.all(10),
                               child: ListTile(
                                 onTap: () {
-                                  Navigator.push(
+                                  DashboardScreen.navigate(
                                     context,
-                                    MaterialPageRoute(
-                                      builder: (_) => HistoryDetailScreen(scan: item),
-                                    ),
+                                    'custom',
+                                    fallbackWidget: HistoryDetailScreen(scan: item),
+                                    customWidget: HistoryDetailScreen(scan: item),
                                   );
                                 },
                                 title: Text(

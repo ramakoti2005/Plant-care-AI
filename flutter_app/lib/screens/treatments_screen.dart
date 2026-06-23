@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'dashboard_screen.dart';
 import 'apple_diseases_screen.dart';
 import 'corn_diseases_screen.dart';
 import 'grape_diseases_screen.dart';
@@ -81,65 +82,58 @@ class TreatmentsScreen extends StatelessWidget {
                   ),
                   onTap: () {
                     if (index == 0) {
-                      Navigator.push(
+                      DashboardScreen.navigate(
                         context,
-                        MaterialPageRoute(
-                          builder: (_) => const AppleDiseasesScreen(),
-                        ),
+                        'apple_diseases',
+                        fallbackWidget: const AppleDiseasesScreen(),
                       );
                     }
     
                     if (index == 1) {
-                      Navigator.push(
+                      DashboardScreen.navigate(
                         context,
-                        MaterialPageRoute(
-                          builder: (_) => const CornDiseasesScreen(),
-                        ),
+                        'corn_diseases',
+                        fallbackWidget: const CornDiseasesScreen(),
                       );
                     }
     
                     if (index == 2) {
-                      Navigator.push(
+                      DashboardScreen.navigate(
                         context,
-                        MaterialPageRoute(
-                          builder: (_) => const GrapeDiseasesScreen(),
-                        ),
+                        'grape_diseases',
+                        fallbackWidget: const GrapeDiseasesScreen(),
                       );
                     }
     
                     if (index == 3) {
-                      Navigator.push(
+                      DashboardScreen.navigate(
                         context,
-                        MaterialPageRoute(
-                          builder: (_) => const PeachDiseasesScreen(),
-                        ),
+                        'peach_diseases',
+                        fallbackWidget: const PeachDiseasesScreen(),
                       );
                     }
     
                     if (index == 4) {
-                      Navigator.push(
+                      DashboardScreen.navigate(
                         context,
-                        MaterialPageRoute(
-                          builder: (_) => const PotatoDiseasesScreen(),
-                        ),
+                        'potato_diseases',
+                        fallbackWidget: const PotatoDiseasesScreen(),
                       );
                     }
     
                     if (index == 5) {
-                      Navigator.push(
+                      DashboardScreen.navigate(
                         context,
-                        MaterialPageRoute(
-                          builder: (_) => const RiceDiseasesScreen(),
-                        ),
+                        'rice_diseases',
+                        fallbackWidget: const RiceDiseasesScreen(),
                       );
                     }
     
                     if (index == 6) {
-                      Navigator.push(
+                      DashboardScreen.navigate(
                         context,
-                        MaterialPageRoute(
-                          builder: (_) => const TomatoDiseasesScreen(),
-                        ),
+                        'tomato_diseases',
+                        fallbackWidget: const TomatoDiseasesScreen(),
                       );
                     }
                   },

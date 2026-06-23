@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:typed_data';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'dashboard_screen.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -117,7 +118,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     }
 
     return Scaffold(
-      backgroundColor: const Color(0xFFF4F7F5),
+      backgroundColor: const Color(0xFFF4FAF4),
       appBar: AppBar(
         title: const Text(
           "My Profile",
@@ -216,11 +217,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                       child: ListTile(
                         onTap: () {
-                          Navigator.push(
+                          DashboardScreen.navigate(
                             context,
-                            MaterialPageRoute(
-                              builder: (_) => const SettingsScreen(),
-                            ),
+                            'settings',
+                            fallbackWidget: const SettingsScreen(),
                           );
                         },
                         leading: const Icon(Icons.settings, color: Color(0xFF2E7D32)),
