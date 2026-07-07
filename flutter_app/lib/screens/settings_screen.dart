@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../services/settings_service.dart';
 import '../theme/responsive_theme.dart';
 import 'dashboard_screen.dart';
 import 'about_app_screen.dart';
-import 'language_screen.dart';
 import 'change_password_screen.dart';
 
 class SettingsScreen extends StatefulWidget {
@@ -13,15 +14,8 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
-  // State variables for preferences
-  bool _outbreakAlerts = true;
-  bool _careReminders = false;
-  String _selectedTheme = 'Nature Gradient (Light)';
-  String _selectedUnit = 'Celsius (°C)';
-  double _cacheSizeMB = 14.2;
-
   // Clear cache confirmation dialog
-  void _showClearCacheDialog() {
+  void _showClearCacheDialog(SettingsService settings) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -35,7 +29,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             ],
           ),
           content: Text(
-            "Are you sure you want to clear ${_cacheSizeMB.toStringAsFixed(1)} MB of temporary image cache? This cannot be undone.",
+            "Are you sure you want to clear ${settings.cacheSizeMB.toStringAsFixed(1)} MB of temporary image cache? This cannot be undone.",
             style: const TextStyle(fontSize: 15),
           ),
           actions: [
@@ -44,17 +38,17 @@ class _SettingsScreenState extends State<SettingsScreen> {
               child: const Text("Cancel", style: TextStyle(color: Colors.black54)),
             ),
             ElevatedButton(
-              onPressed: () {
-                setState(() {
-                  _cacheSizeMB = 0.0;
-                });
-                Navigator.of(context).pop();
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(
-                    content: Text("Cache successfully cleared!"),
-                    backgroundColor: Colors.green,
-                  ),
-                );
+              onPressed: () async {
+                await settings.clearCache();
+                if (context.mounted) {
+                  Navigator.of(context).pop();
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text("Cache successfully cleared!"),
+                      backgroundColor: Colors.green,
+                    ),
+                  );
+                }
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.red[700],
@@ -71,8 +65,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
     final bool web = ResponsiveTheme.isWebLayout(context);
-    final Color textColor = web ? Colors.black87 : Colors.white;
-    final Color subtitleColor = web ? Colors.black54 : Colors.white70;
+    final settings = Provider.of<SettingsService>(context);
+
+    final Color textColor = Theme.of(context).brightness == Brightness.dark ? Colors.white70 : Colors.black87;
+    final Color subtitleColor = Theme.of(context).brightness == Brightness.dark ? Colors.white60 : Colors.black54;
 
     return ResponsiveScaffold(
       appBar: AppBar(
@@ -111,18 +107,18 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         style: TextStyle(color: textColor, fontSize: 14),
                       ),
                       subtitle: const Text("Get notified of local disease spikes", style: TextStyle(fontSize: 11, color: Colors.grey)),
-                      value: _outbreakAlerts,
+                      value: settings.outbreakAlerts,
                       activeColor: const Color(0xFF2E7D32),
-                      onChanged: (value) {
-                        setState(() {
-                          _outbreakAlerts = value;
-                        });
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            content: Text('Outbreak alerts ${_outbreakAlerts ? 'enabled' : 'disabled'}'),
-                            duration: const Duration(seconds: 1),
-                          ),
-                        );
+                      onChanged: (value) async {
+                        await settings.setOutbreakAlerts(value);
+                        if (context.mounted) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text('Outbreak alerts ${value ? 'enabled' : 'disabled'}'),
+                              duration: const Duration(seconds: 1),
+                            ),
+                          );
+                        }
                       },
                     ),
                     SwitchListTile(
@@ -131,18 +127,18 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         style: TextStyle(color: textColor, fontSize: 14),
                       ),
                       subtitle: const Text("Get updates on plant schedule suggestions", style: TextStyle(fontSize: 11, color: Colors.grey)),
-                      value: _careReminders,
+                      value: settings.careReminders,
                       activeColor: const Color(0xFF2E7D32),
-                      onChanged: (value) {
-                        setState(() {
-                          _careReminders = value;
-                        });
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            content: Text('Watering reminders ${_careReminders ? 'enabled' : 'disabled'}'),
-                            duration: const Duration(seconds: 1),
-                          ),
-                        );
+                      onChanged: (value) async {
+                        await settings.setCareReminders(value);
+                        if (context.mounted) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text('Watering reminders ${value ? 'enabled' : 'disabled'}'),
+                              duration: const Duration(seconds: 1),
+                            ),
+                          );
+                        }
                       },
                     ),
                   ],
@@ -158,14 +154,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   children: [
                     // Theme Selector
                     DropdownButtonFormField<String>(
-                      value: _selectedTheme,
+                      value: settings.selectedTheme,
                       decoration: InputDecoration(
                         labelText: "App Theme",
                         labelStyle: TextStyle(color: subtitleColor),
                         prefixIcon: Icon(Icons.palette_outlined, color: ResponsiveTheme.getIconColor(context)),
                         border: InputBorder.none,
                       ),
-                      dropdownColor: web ? Colors.white : const Color(0xFF2C3E2F),
+                      dropdownColor: Theme.of(context).brightness == Brightness.dark ? const Color(0xFF1C2D22) : Colors.white,
                       style: TextStyle(color: textColor, fontSize: 15, fontWeight: FontWeight.w600),
                       items: <String>['Nature Gradient (Light)', 'Midnight Forest (Dark)']
                           .map<DropdownMenuItem<String>>((String value) {
@@ -174,28 +170,28 @@ class _SettingsScreenState extends State<SettingsScreen> {
                           child: Text(value),
                         );
                       }).toList(),
-                      onChanged: (String? newValue) {
+                      onChanged: (String? newValue) async {
                         if (newValue != null) {
-                          setState(() {
-                            _selectedTheme = newValue;
-                          });
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(content: Text('Theme updated to $_selectedTheme')),
-                          );
+                          await settings.setSelectedTheme(newValue);
+                          if (context.mounted) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(content: Text('Theme updated to $newValue')),
+                            );
+                          }
                         }
                       },
                     ),
                     const Divider(height: 20, color: Colors.black12),
                     // Measurement Units Selector
                     DropdownButtonFormField<String>(
-                      value: _selectedUnit,
+                      value: settings.selectedUnit,
                       decoration: InputDecoration(
                         labelText: "Temperature Units",
                         labelStyle: TextStyle(color: subtitleColor),
                         prefixIcon: Icon(Icons.thermostat_outlined, color: ResponsiveTheme.getIconColor(context)),
                         border: InputBorder.none,
                       ),
-                      dropdownColor: web ? Colors.white : const Color(0xFF2C3E2F),
+                      dropdownColor: Theme.of(context).brightness == Brightness.dark ? const Color(0xFF1C2D22) : Colors.white,
                       style: TextStyle(color: textColor, fontSize: 15, fontWeight: FontWeight.w600),
                       items: <String>['Celsius (°C)', 'Fahrenheit (°F)']
                           .map<DropdownMenuItem<String>>((String value) {
@@ -204,14 +200,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
                           child: Text(value),
                         );
                       }).toList(),
-                      onChanged: (String? newValue) {
+                      onChanged: (String? newValue) async {
                         if (newValue != null) {
-                          setState(() {
-                            _selectedUnit = newValue;
-                          });
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(content: Text('Measurement unit changed to $_selectedUnit')),
-                          );
+                          await settings.setSelectedUnit(newValue);
+                          if (context.mounted) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(content: Text('Measurement unit changed to $newValue')),
+                            );
+                          }
                         }
                       },
                     ),
@@ -234,13 +230,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     ),
                   ),
                   subtitle: Text(
-                    "Cache Size: ${_cacheSizeMB.toStringAsFixed(1)} MB",
+                    "Cache Size: ${settings.cacheSizeMB.toStringAsFixed(1)} MB",
                     style: TextStyle(color: subtitleColor, fontSize: 12),
                   ),
                   trailing: IconButton(
                     icon: Icon(Icons.delete_outline, color: Colors.red[400]),
                     tooltip: "Clear Cache",
-                    onPressed: _cacheSizeMB > 0 ? _showClearCacheDialog : null,
+                    onPressed: settings.cacheSizeMB > 0 ? () => _showClearCacheDialog(settings) : null,
                   ),
                 ),
               ),
@@ -265,29 +261,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       context,
                       'change_password',
                       fallbackWidget: const ChangePasswordScreen(),
-                    );
-                  },
-                ),
-              ),
-              ResponsiveCard(
-                padding: EdgeInsets.zero,
-                margin: const EdgeInsets.only(bottom: 12),
-                child: ListTile(
-                  leading: Icon(Icons.language, color: ResponsiveTheme.getIconColor(context)),
-                  title: Text(
-                    "Language",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: textColor,
-                    ),
-                  ),
-                  trailing: Icon(Icons.chevron_right, color: ResponsiveTheme.getIconColor(context)),
-                  onTap: () {
-                    DashboardScreen.navigate(
-                      context,
-                      'custom',
-                      fallbackWidget: const LanguageScreen(),
-                      customWidget: const LanguageScreen(),
                     );
                   },
                 ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'services/auth_service.dart';
+import 'services/settings_service.dart';
 import 'screens/screens.dart';
 
 void main() {
@@ -16,23 +17,26 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => AuthService()),
-        // Add other providers here (e.g., DashboardProvider, SettingsProvider)
+        ChangeNotifierProvider(create: (_) => SettingsService()),
       ],
-      child: MaterialApp(
-        title: 'My Flutter App',
-        theme: ThemeData(
-          // Define your color scheme here to match web branding
-          primarySwatch: Colors.indigo,
-          visualDensity: VisualDensity.adaptivePlatformDensity,
-        ),
-        initialRoute: '/',
-        routes: {
-          '/': (context) => const LoginScreen(),
-          '/register': (context) => const RegistrationScreen(),
-          '/dashboard': (context) => const DashboardScreen(),
-          // Add other routes as needed
+      child: Consumer<SettingsService>(
+        builder: (context, settings, _) {
+          return MaterialApp(
+            title: 'My Flutter App',
+            theme: ThemeData(
+              brightness: settings.isDarkMode ? Brightness.dark : Brightness.light,
+              primarySwatch: Colors.green,
+              visualDensity: VisualDensity.adaptivePlatformDensity,
+            ),
+            initialRoute: '/',
+            routes: {
+              '/': (context) => const LoginScreen(),
+              '/register': (context) => const RegistrationScreen(),
+              '/dashboard': (context) => const DashboardScreen(),
+            },
+            debugShowCheckedModeBanner: false,
+          );
         },
-        debugShowCheckedModeBanner: false,
       ),
     );
   }

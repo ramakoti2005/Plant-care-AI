@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:provider/provider.dart';
 import '../services/auth_service.dart';
+import '../services/settings_service.dart';
 import '../theme/responsive_theme.dart';
 import 'screens.dart';
 
@@ -233,6 +234,69 @@ class _DashboardScreenState extends State<DashboardScreen> {
     }
   }
 
+  Widget _buildClimateCard(BuildContext context) {
+    bool isFahrenheit = false;
+    try {
+      final settings = Provider.of<SettingsService>(context);
+      isFahrenheit = settings.selectedUnit == 'Fahrenheit (°F)';
+    } catch (_) {}
+
+    final tempVal = isFahrenheit ? "82°F" : "28°C";
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
+    return ResponsiveCard(
+      child: Row(
+        children: [
+          Container(
+            padding: const EdgeInsets.all(12),
+            decoration: BoxDecoration(
+              color: isDark ? const Color(0xFF1E3525) : const Color(0xFFE8F5E9),
+              shape: BoxShape.circle,
+            ),
+            child: Icon(Icons.wb_sunny_outlined, color: isDark ? const Color(0xFF81C784) : const Color(0xFF2E7D32), size: 28),
+          ),
+          const SizedBox(width: 16),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Local Garden Climate",
+                  style: ResponsiveTheme.getHeaderStyle(context, fontSize: 16),
+                ),
+                const SizedBox(height: 4),
+                Row(
+                  children: [
+                    Text(
+                      "Temperature: $tempVal",
+                      style: ResponsiveTheme.getBodyStyle(context, fontSize: 14).copyWith(fontWeight: FontWeight.bold),
+                    ),
+                    const SizedBox(width: 16),
+                    Text(
+                      "Humidity: 65%",
+                      style: ResponsiveTheme.getBodyStyle(context, fontSize: 14),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+            decoration: BoxDecoration(
+              color: isDark ? const Color(0xFF1E3525) : const Color(0xFFE8F5E9),
+              borderRadius: BorderRadius.circular(12),
+            ),
+            child: Text(
+              "Optimal",
+              style: TextStyle(color: isDark ? const Color(0xFF81C784) : const Color(0xFF2E7D32), fontSize: 12, fontWeight: FontWeight.bold),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
   Widget _buildDashboardBodyContent(BuildContext context) {
     return Center(
       child: Container(
@@ -269,7 +333,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 style: ResponsiveTheme.getSubHeaderStyle(context, fontSize: 16),
               ),
 
-              const SizedBox(height: 40),
+              const SizedBox(height: 30),
+
+              _buildClimateCard(context),
+
+              const SizedBox(height: 25),
 
               // Dashboard Cards Grid/List Selection
               GridView.count(
@@ -349,6 +417,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
     required String subtitle,
     required VoidCallback onTap,
   }) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
     return ResponsiveCard(
       onTap: onTap,
       padding: const EdgeInsets.all(20),
@@ -465,8 +534,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
   }
 
   Widget _buildCustomNavigationDrawerContent(BuildContext context, {required bool isMobile}) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
     return Container(
-      color: const Color(0xFF06331C), // Deep forest matte green
+      color: ResponsiveTheme.getSidebarColor(context),
       child: Column(
         children: [
           // Custom Header (Horizontal Layout matching the screenshot)
@@ -476,10 +546,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
               child: Row(
                 children: [
-                  const CircleAvatar(
+                  CircleAvatar(
                     radius: 22,
                     backgroundColor: Colors.white,
-                    child: Icon(Icons.eco, color: Color(0xFF06331C), size: 26),
+                    child: Icon(Icons.eco, color: ResponsiveTheme.getSidebarColor(context), size: 26),
                   ),
                   const SizedBox(width: 12),
                   Expanded(
@@ -557,20 +627,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     ),
                     _buildMenuItem(
                       context,
-                      page: 'my_plants',
-                      icon: Icons.local_florist_outlined,
-                      title: "My Plants",
-                      isMobile: isMobile,
-                    ),
-                    _buildMenuItem(
-                      context,
-                      page: 'analytics',
-                      icon: Icons.bar_chart_outlined,
-                      title: "Analytics",
-                      isMobile: isMobile,
-                    ),
-                    _buildMenuItem(
-                      context,
                       page: 'settings',
                       icon: Icons.settings_outlined,
                       title: "Settings",
@@ -603,7 +659,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
               width: double.infinity,
               padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
               decoration: BoxDecoration(
-                color: const Color(0xFF032213),
+                color: isDark ? const Color(0xFF14241A) : const Color(0xFF032213),
                 borderRadius: BorderRadius.circular(16),
                 border: Border.all(color: Colors.green.withOpacity(0.2), width: 1),
               ),

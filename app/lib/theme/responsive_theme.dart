@@ -1,6 +1,8 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
+import 'package:provider/provider.dart';
+import '../services/settings_service.dart';
 
 class ResponsiveTheme {
   static bool isWebLayout(BuildContext context) {
@@ -8,6 +10,25 @@ class ResponsiveTheme {
   }
 
   static Decoration getAppBackgroundDecoration(BuildContext context) {
+    bool dark = false;
+    try {
+      final settings = Provider.of<SettingsService>(context, listen: true);
+      dark = settings.isDarkMode;
+    } catch (_) {}
+
+    if (dark) {
+      return const BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [
+            Color(0xFF142217), // Deep dark green gradient starting color
+            Color(0xFF0F1A12), // Deeper forest dark background color
+          ],
+        ),
+      );
+    }
+
     return const BoxDecoration(
       gradient: LinearGradient(
         begin: Alignment.topCenter,
@@ -20,21 +41,35 @@ class ResponsiveTheme {
     );
   }
 
-  static Color getSidebarColor() {
-    return const Color(0xFF1B3B22); // Deep forest green solid color
+  static Color getSidebarColor(BuildContext context) {
+    bool dark = false;
+    try {
+      final settings = Provider.of<SettingsService>(context, listen: false);
+      dark = settings.isDarkMode;
+    } catch (_) {}
+    return dark ? const Color(0xFF0C160E) : const Color(0xFF1B3B22); // Deep forest green solid color
   }
 
   static Decoration getCardDecoration(BuildContext context, {Color? webBgColor}) {
+    bool dark = false;
+    try {
+      final settings = Provider.of<SettingsService>(context, listen: false);
+      dark = settings.isDarkMode;
+    } catch (_) {}
+
+    final cardBg = webBgColor ?? (dark ? const Color(0xFF1C2D22) : Colors.white);
+    final borderCol = dark ? const Color(0xFF2E4233) : const Color(0xFFE2EBE3);
+
     return BoxDecoration(
-      color: webBgColor ?? Colors.white, // Solid pure white card background
+      color: cardBg, // Solid pure white card background or dark green
       borderRadius: BorderRadius.circular(16),
       border: Border.all(
-        color: const Color(0xFFE2EBE3), // Soft matching green border line
+        color: borderCol, // Soft matching green border line
         width: 1.0,
       ),
       boxShadow: [
         BoxShadow(
-          color: Colors.black.withOpacity(0.03),
+          color: Colors.black.withOpacity(dark ? 0.15 : 0.03),
           blurRadius: 10,
           offset: const Offset(0, 4),
         ),
@@ -43,29 +78,49 @@ class ResponsiveTheme {
   }
 
   static TextStyle getHeaderStyle(BuildContext context, {double fontSize = 22, FontWeight fontWeight = FontWeight.bold}) {
+    bool dark = false;
+    try {
+      final settings = Provider.of<SettingsService>(context, listen: false);
+      dark = settings.isDarkMode;
+    } catch (_) {}
     return TextStyle(
       fontSize: fontSize,
       fontWeight: fontWeight,
-      color: const Color(0xFF1B5E20), // Always forest green for high contrast and readability
+      color: dark ? const Color(0xFF81C784) : const Color(0xFF1B5E20), // Always forest green for high contrast and readability
     );
   }
 
   static TextStyle getSubHeaderStyle(BuildContext context, {double fontSize = 16}) {
+    bool dark = false;
+    try {
+      final settings = Provider.of<SettingsService>(context, listen: false);
+      dark = settings.isDarkMode;
+    } catch (_) {}
     return TextStyle(
       fontSize: fontSize,
-      color: Colors.black54,
+      color: dark ? Colors.white70 : Colors.black54,
     );
   }
 
   static TextStyle getBodyStyle(BuildContext context, {double fontSize = 14}) {
+    bool dark = false;
+    try {
+      final settings = Provider.of<SettingsService>(context, listen: false);
+      dark = settings.isDarkMode;
+    } catch (_) {}
     return TextStyle(
       fontSize: fontSize,
-      color: Colors.black87,
+      color: dark ? Colors.white.withOpacity(0.87) : Colors.black87,
     );
   }
 
   static Color getIconColor(BuildContext context, {Color? webColor}) {
-    return webColor ?? const Color(0xFF2E7D32);
+    bool dark = false;
+    try {
+      final settings = Provider.of<SettingsService>(context, listen: false);
+      dark = settings.isDarkMode;
+    } catch (_) {}
+    return webColor ?? (dark ? const Color(0xFF81C784) : const Color(0xFF2E7D32));
   }
 }
 
@@ -197,13 +252,33 @@ class DiseaseCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isFahrenheit = false;
+    try {
+      final settings = Provider.of<SettingsService>(context);
+      isFahrenheit = settings.selectedUnit == 'Fahrenheit (°F)';
+    } catch (_) {}
+
+    String convert(String val) => SettingsService.convertTemperatureString(val, isFahrenheit);
+
+    final resolvedTitle = convert(title);
+    final resolvedOverview = convert(overview);
+    final resolvedCauses = causes.map((e) => convert(e)).toList();
+    final resolvedSymptoms = symptoms.map((e) => convert(e)).toList();
+    final resolvedTreatment = treatment.map((e) => convert(e)).toList();
+    final resolvedPrevention = prevention.map((e) => convert(e)).toList();
+    final resolvedOrganic = organic?.map((e) => convert(e)).toList();
+    final resolvedRecoveryTime = recoveryTime != null ? convert(recoveryTime!) : null;
+    final resolvedTips = tips != null ? convert(tips!) : null;
+
+    final Color txtColor = Theme.of(context).brightness == Brightness.dark ? Colors.white70 : Colors.black87;
+
     return ResponsiveCard(
       margin: const EdgeInsets.only(bottom: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            title,
+            resolvedTitle,
             style: ResponsiveTheme.getHeaderStyle(context, fontSize: 22),
           ),
           const SizedBox(height: 5),
@@ -212,57 +287,57 @@ class DiseaseCard extends StatelessWidget {
             style: TextStyle(
               fontWeight: FontWeight.w600,
               fontStyle: FontStyle.italic,
-              color: Colors.grey[700],
+              color: Theme.of(context).brightness == Brightness.dark ? Colors.white60 : Colors.grey[700],
             ),
           ),
           Divider(height: 25, color: Colors.grey[300]),
           
           Text(
             "Overview",
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 18, 
               fontWeight: FontWeight.bold,
-              color: Colors.black87,
+              color: txtColor,
             ),
           ),
           const SizedBox(height: 5),
           Text(
-            overview,
-            style: const TextStyle(color: Colors.black87),
+            resolvedOverview,
+            style: TextStyle(color: txtColor),
           ),
 
           const SizedBox(height: 15),
           _sectionTitle(context, "Causes"),
-          ...causes.map((e) => _bulletPoint(context, e)),
+          ...resolvedCauses.map((e) => _bulletPoint(context, e)),
 
           const SizedBox(height: 15),
           _sectionTitle(context, "Symptoms"),
-          ...symptoms.map((e) => _bulletPoint(context, e)),
+          ...resolvedSymptoms.map((e) => _bulletPoint(context, e)),
 
           const SizedBox(height: 15),
           _sectionTitle(context, "Treatment"),
-          ...treatment.map((e) => _bulletPoint(context, e)),
+          ...resolvedTreatment.map((e) => _bulletPoint(context, e)),
 
-          if (organic != null) ...[
+          if (resolvedOrganic != null) ...[
             const SizedBox(height: 15),
             _sectionTitle(context, "Organic Remedies"),
-            ...organic!.map((e) => _bulletPoint(context, e)),
+            ...resolvedOrganic.map((e) => _bulletPoint(context, e)),
           ],
 
           const SizedBox(height: 15),
           _sectionTitle(context, "Prevention"),
-          ...prevention.map((e) => _bulletPoint(context, e)),
+          ...resolvedPrevention.map((e) => _bulletPoint(context, e)),
 
-          if (recoveryTime != null && recoveryTime != "N/A") ...[
+          if (resolvedRecoveryTime != null && resolvedRecoveryTime != "N/A") ...[
             const SizedBox(height: 15),
             _sectionTitle(context, "Recovery Time"),
             Text(
-              recoveryTime!,
-              style: const TextStyle(color: Colors.black87),
+              resolvedRecoveryTime,
+              style: TextStyle(color: txtColor),
             ),
           ],
 
-          if (tips != null) ...[
+          if (resolvedTips != null) ...[
             const SizedBox(height: 15),
             Container(
               padding: const EdgeInsets.all(12),
@@ -290,7 +365,7 @@ class DiseaseCard extends StatelessWidget {
                   ),
                   const SizedBox(height: 5),
                   Text(
-                    tips!,
+                    resolvedTips,
                     style: const TextStyle(color: Colors.black87),
                   ),
                 ],
@@ -307,36 +382,24 @@ class DiseaseCard extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 5),
       child: Text(
         title,
-        style: const TextStyle(
-          fontSize: 18,
+        style: TextStyle(
+          fontSize: 16,
           fontWeight: FontWeight.bold,
-          color: Colors.black87,
+          color: Theme.of(context).brightness == Brightness.dark ? Colors.white.withOpacity(0.87) : Colors.black87,
         ),
       ),
     );
   }
 
   Widget _bulletPoint(BuildContext context, String text) {
+    final Color txtColor = Theme.of(context).brightness == Brightness.dark ? Colors.white70 : Colors.black87;
     return Padding(
-      padding: const EdgeInsets.only(bottom: 3),
+      padding: const EdgeInsets.only(left: 8, bottom: 4),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
-            "• ", 
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              color: Colors.black87,
-            ),
-          ),
-          Expanded(
-            child: Text(
-              text,
-              style: const TextStyle(
-                color: Colors.black87,
-              ),
-            ),
-          ),
+          Text("• ", style: TextStyle(fontWeight: FontWeight.bold, color: ResponsiveTheme.getIconColor(context))),
+          Expanded(child: Text(text, style: TextStyle(color: txtColor))),
         ],
       ),
     );
