@@ -15,6 +15,12 @@ class TreatmentsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final titleColor = isDark ? const Color(0xFFA5D6A7) : const Color(0xFF1B5E20);
+    final iconColor = isDark ? const Color(0xFFA5D6A7) : const Color(0xFF2E7D32);
+    final textColor = isDark ? Colors.white : Colors.black87;
+    final trailingColor = isDark ? Colors.white70 : Colors.black54;
+
     final diseases = [
       {
         'name': 'Apple Diseases',
@@ -48,8 +54,12 @@ class TreatmentsScreen extends StatelessWidget {
 
     return ResponsiveScaffold(
       appBar: AppBar(
-        title: const Text(
+        title: Text(
           "Treatments Library",
+          style: TextStyle(
+            color: titleColor,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
       body: Center(
@@ -60,7 +70,6 @@ class TreatmentsScreen extends StatelessWidget {
             padding: const EdgeInsets.all(12),
             itemCount: diseases.length,
             itemBuilder: (context, index) {
-              final bool web = ResponsiveTheme.isWebLayout(context);
               return ResponsiveCard(
                 margin: const EdgeInsets.only(bottom: 12),
                 padding: EdgeInsets.zero,
@@ -124,19 +133,19 @@ class TreatmentsScreen extends StatelessWidget {
                 child: ListTile(
                   leading: Icon(
                     diseases[index]['icon'] as IconData,
-                    color: ResponsiveTheme.getIconColor(context),
+                    color: iconColor,
                     size: 35,
                   ),
                   title: Text(
                     diseases[index]['name'] as String,
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      color: web ? Colors.black87 : Colors.white,
+                      color: textColor,
                     ),
                   ),
                   trailing: Icon(
                     Icons.arrow_forward_ios,
-                    color: ResponsiveTheme.getIconColor(context).withOpacity(0.7),
+                    color: trailingColor,
                     size: 16,
                   ),
                 ),

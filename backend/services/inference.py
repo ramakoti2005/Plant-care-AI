@@ -279,6 +279,40 @@ for label, detail in TREATMENT_METADATA_DATABASE.items():
 # -----------------------------
 # Core Prediction Logic
 # -----------------------------
+SCIENTIFIC_NAMES = {
+    "Apple_Black_Rot": "Botryosphaeria obtusa",
+    "Apple_Cedar_Rust": "Gymnosporangium juniperi-virginianae",
+    "Apple_Scab": "Venturia inaequalis",
+    "Apple_Healthy": "N/A",
+    "Corn_Cercospora_Leaf_Spot": "Cercospora zeae-maydis",
+    "Corn_Common_Rust": "Puccinia sorghi",
+    "Corn_Northern_Leaf_Blight": "Exserohilum turcicum",
+    "Corn_Healthy": "N/A",
+    "Grape_Black_Rot": "Guignardia bidwellii",
+    "Grape_Esca": "Phaeomoniella chlamydospora",
+    "Grape_Leaf_Blight": "Pseudocercospora vitis",
+    "Grape_Healthy": "N/A",
+    "Peach_Bacterial_Spot": "Xanthomonas campestris pv. pruni",
+    "Peach_Healthy": "N/A",
+    "Potato_Early_Blight": "Alternaria solani",
+    "Potato_Late_Blight": "Phytophthora infestans",
+    "Potato_Healthy": "N/A",
+    "Rice_Brown_Spot": "Cochliobolus miyabeanus",
+    "Rice_Leaf_Blast": "Magnaporthe oryzae",
+    "Rice_Neck_Blast": "Magnaporthe oryzae",
+    "Rice_Healthy": "N/A",
+    "Tomato_Bacterial_Spot": "Xanthomonas campestris pv. vesicatoria",
+    "Tomato_Early_Blight": "Alternaria solani",
+    "Tomato_Late_Blight": "Phytophthora infestans",
+    "Tomato_Leaf_Mold": "Passalora fulva",
+    "Tomato_Septoria_Leaf_Spot": "Septoria lycopersici",
+    "Tomato_Spider_Mites": "Tetranychus urticae",
+    "Tomato_Target_Spot": "Corynespora cassiicola",
+    "Tomato_Yellow_Leaf_Curl_Virus": "Begomovirus",
+    "Tomato_Mosaic_Virus": "Tobamovirus",
+    "Tomato_Healthy": "N/A"
+}
+
 def run_inference(image):
     if session is None:
         raise Exception("Model session failed to load.")
@@ -299,11 +333,27 @@ def run_inference(image):
     class_index = int(np.argmax(probabilities))
     confidence = float(probabilities[class_index]) * 100
 
-    # Set this to 15.0 or lower so your dataset images are never blocked
-    if confidence < 15.0:
+    # 🔍 IMAGE VALIDATION GATING STEP
+    # If the model does not detect a supported plant leaf with high enough confidence (e.g. < 45.0%),
+    # return the explicit validation payload.
+    if confidence < 45.0:
         return {
-            "status": "Unrecognized Image",
-            "message": "The uploaded image does not match any supported plant leaf in the dataset."
+            "status": "Success",
+            "plant": "Unknown",
+            "disease": "No Plant Detected",
+            "scientific_name": "N/A",
+            "overview": "The uploaded photo does not look like a plant leaf. Please take a clear, well-lit close-up photo of a plant leaf for accurate disease detection.",
+            "plant_name": "Unknown",
+            "disease_name": "No Plant Detected",
+            "treatment": "The uploaded photo does not look like a plant leaf. Please take a clear, well-lit close-up photo of a plant leaf for accurate disease detection.",
+            "confidence": f"{confidence / 100.0:.2f}",
+            "reference_image": None,
+            "cure": "The uploaded photo does not look like a plant leaf. Please take a clear, well-lit close-up photo of a plant leaf for accurate disease detection.",
+            "solution_suggestion": "The uploaded photo does not look like a plant leaf. Please take a clear, well-lit close-up photo of a plant leaf for accurate disease detection.",
+            "cause": "Unknown",
+            "symptoms": "N/A",
+            "organic_remedy": None,
+            "chemical_control": None
         }
 
     raw_label = class_names[class_index]
@@ -355,6 +405,8 @@ def run_inference(image):
     except Exception as e:
         print(f"Error finding reference image: {e}")
 
+    scientific_name = SCIENTIFIC_NAMES.get(raw_label, "N/A")
+
     # 🚀 MULTI-KEY PAYLOAD: Sends every possible variant so Flutter never reads a null field!
     return {
         "status": "Success",
@@ -362,6 +414,8 @@ def run_inference(image):
         "disease_name": disease_name,
         "plant": plant_name,
         "disease": disease_name,
+        "scientific_name": scientific_name,
+        "overview": detail.get("cause", "No detailed overview available."),
         "confidence": str(confidence / 100.0),
         "reference_image": reference_image_url,
         "treatment": combined_treatment,
@@ -372,6 +426,7 @@ def run_inference(image):
         "organic_remedy": detail.get("organic_remedy"),
         "chemical_control": detail.get("chemical_control")
     }
+
 
 # -----------------------------
 # Success Logging Helper (Safely Isolated)

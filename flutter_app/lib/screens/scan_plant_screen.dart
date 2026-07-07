@@ -36,6 +36,7 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
   bool _hasResults = false;
   bool _hasError = false;
   String _errorMessage = '';
+  String _scientificName = '';
 
   Future<void> _pickGallery() async {
     try {
@@ -119,9 +120,9 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
           _isAnalyzing = false;
           _result = responseData;
           
-          // Fallbacks to prevent null reference crashes
           _plantName = responseData['plant'] ?? 'Rice';
           _diseaseName = responseData['disease'] ?? 'Leaf Blast';
+          _scientificName = responseData['scientific_name'] ?? 'N/A';
           _overview = responseData['overview'] ?? responseData['cause'] ?? 'Magnaporthe oryzae';
           _symptoms = responseData['symptoms'] ?? 'Spindle-shaped/diamond-shaped lesions with gray ash centers.';
           _control = responseData['chemical_control'] ?? responseData['control'] ?? 'Tricyclazole 75% WP or Isoprothiolane 40% EC';
@@ -290,7 +291,7 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
                       ),
                     ),
                     Text(
-                      _diseaseName,
+                      _scientificName,
                       style: const TextStyle(fontSize: 15, color: Colors.black87),
                     ),
                     const SizedBox(height: 15),
