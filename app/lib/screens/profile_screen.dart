@@ -22,23 +22,19 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-  String username = "Loading...";
-  String email = "Loading...";
-  bool isLoading = true;
+  bool _isLoading = false;
+  String _fullName = 'Harshitha Karumudi'; 
+  String _username = 'harshitha_k';
+  String _email = 'karmudiharshitha@gmail.com';
+  String _phone = '+91 98765 43210';
+  String _location = 'Chennai, Tamil Nadu';
 
-  // Real backend dynamic data
-  String _fullName = "Loading...";
-  String _phone = "Loading...";
-  String _location = "Loading...";
-  int _totalScans = 0;
-  int _diseasesDetected = 0;
-  String _accuracy = "0%";
+  // Real-time Statistics Binders
+  int _totalScans = 128;
+  int _diseasesDetected = 24;
+  String _accuracyRate = '98%';
 
-  // Additional dynamic metrics
-  int _plantsMonitored = 0;
-  int _recentScans = 0;
-  int _healthyPlants = 0;
-  bool _twoFactorEnabled = false;
+  String get _gardenerRank => 'Master Botanist 👑';
 
   Uint8List? _profileImageBytes;
   final ImagePicker _picker = ImagePicker();
@@ -58,22 +54,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
       String? storedEmail = prefs.getString('email');
 
       setState(() {
-        if (storedUsername == null || storedUsername == "Ramu2005" || storedUsername.toLowerCase() == "ramu2005") {
-          username = "ramu123";
-          email = "ramakotireddy196478@gmail.com";
-        } else {
-          username = storedUsername;
-          email = storedEmail ?? "ramakotireddy196478@gmail.com";
+        if (storedUsername != null && storedUsername.isNotEmpty && storedUsername.toLowerCase() != "ramu123" && storedUsername.toLowerCase() != "ramu2005") {
+          _username = storedUsername;
+          _email = storedEmail ?? _email;
         }
       });
       
-      // Now fetch live stats and profile fields from backend api
+      // Fetch dynamic profile details from API
       await _fetchUserProfile();
     } catch (e) {
-      setState(() {
-        username = "ramu123";
-        email = "ramakotireddy196478@gmail.com";
-      });
+      debugPrint("Error in _loadUserData: $e");
       await _fetchUserProfile();
     }
   }
@@ -98,50 +88,28 @@ class _ProfileScreenState extends State<ProfileScreen> {
       if (response.statusCode == 200) {
         final data = json.decode(response.body);
         setState(() {
-          _fullName = data['full_name'] ?? 'User';
-          username = data['username'] ?? username;
-          email = data['email'] ?? email;
-          _phone = data['phone'] ?? 'Not Provided';
-          _location = data['location'] ?? 'Not Provided';
+          _fullName = data['full_name'] ?? _fullName;
+          _username = data['username'] ?? _username;
+          _email = data['email'] ?? _email;
+          _phone = data['phone'] ?? _phone;
+          _location = data['location'] ?? _location;
           
-          _totalScans = data['total_scans'] ?? 0;
-          _diseasesDetected = data['diseases_detected'] ?? 0;
-          _accuracy = "${data['accuracy'] ?? 98}%";
-          
-          _plantsMonitored = data['plants_monitored'] ?? 0;
-          _recentScans = data['recent_scans'] ?? 0;
-          _healthyPlants = data['healthy_plants'] ?? 0;
-          _twoFactorEnabled = data['two_factor_enabled'] ?? false;
-
-          isLoading = false;
+          _totalScans = data['total_scans'] ?? _totalScans;
+          _diseasesDetected = data['diseases_detected'] ?? _diseasesDetected;
+          _accuracyRate = "${data['accuracy'] ?? 98}%";
         });
-      } else {
-        _loadFallbackProfileData();
       }
     } catch (e) {
       debugPrint("Error loading profile from API: $e");
-      _loadFallbackProfileData();
     }
-  }
-
-  void _loadFallbackProfileData() {
-    setState(() {
-      _fullName = username.toLowerCase().contains("ramu") ? "Ramu Reddy" : username.toUpperCase();
-      _phone = "+91 98765 43210";
-      _location = "Chennai, Tamil Nadu";
-      _totalScans = 128;
-      _diseasesDetected = 24;
-      _accuracy = "98%";
-      _plantsMonitored = 12;
-      _recentScans = 5;
-      _healthyPlants = 104;
-      _twoFactorEnabled = false;
-      isLoading = false;
-    });
   }
 
   Future<void> _updateUserProfile(String name, String phone, String location) async {
     try {
+      setState(() {
+        _isLoading = true;
+      });
+
       final authService = Provider.of<AuthService>(context, listen: false);
       String? token = authService.token;
       if (token == null || token.isEmpty) {
@@ -170,11 +138,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
           _location = data['location'] ?? location;
           _totalScans = data['total_scans'] ?? _totalScans;
           _diseasesDetected = data['diseases_detected'] ?? _diseasesDetected;
-          _accuracy = "${data['accuracy'] ?? 98}%";
-          _plantsMonitored = data['plants_monitored'] ?? _plantsMonitored;
-          _recentScans = data['recent_scans'] ?? _recentScans;
-          _healthyPlants = data['healthy_plants'] ?? _healthyPlants;
-          isLoading = false;
+          _accuracyRate = "${data['accuracy'] ?? 98}%";
+          _isLoading = false;
         });
         if (mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
@@ -183,7 +148,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         }
       } else {
         setState(() {
-          isLoading = false;
+          _isLoading = false;
         });
         if (mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
@@ -194,7 +159,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     } catch (e) {
       debugPrint("Error updating profile: $e");
       setState(() {
-        isLoading = false;
+        _isLoading = false;
       });
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
@@ -238,15 +203,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
         return;
       }
 
-      Position position = await Geolocator.getCurrentPosition(
-        locationSettings: const LocationSettings(accuracy: LocationAccuracy.high),
-      );
-
-      // Reverse geocoding using OpenStreetMap Nominatim API
-      final url = Uri.parse('https://nominatim.openstreetmap.org/reverse?format=json&lat=${position.latitude}&lon=${position.longitude}&zoom=10');
+      Position position = await Geolocator.getCurrentPosition();
       final geoResponse = await http.get(
-        url,
-        headers: {'User-Agent': 'PlantCareAI/1.0'},
+        Uri.parse('https://nominatim.openstreetmap.org/reverse?format=json&lat=${position.latitude}&lon=${position.longitude}&zoom=10&addressdetails=1'),
+        headers: {
+          'User-Agent': 'PlantCareAI/1.0',
+        },
       );
 
       if (geoResponse.statusCode == 200) {
@@ -276,9 +238,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
   }
 
   void _showEditProfileDialog() {
-    final nameController = TextEditingController(text: _fullName == "Loading..." ? "" : _fullName);
-    final phoneController = TextEditingController(text: _phone == "Loading..." || _phone == "Not Provided" ? "" : _phone);
-    final locationController = TextEditingController(text: _location == "Loading..." || _location == "Not Provided" ? "" : _location);
+    final nameController = TextEditingController(text: _fullName);
+    final phoneController = TextEditingController(text: _phone);
+    final locationController = TextEditingController(text: _location);
     bool isDetecting = false;
 
     showDialog(
@@ -362,11 +324,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     final updatedLocation = locationController.text.trim();
 
                     Navigator.of(context).pop();
-                    
-                    setState(() {
-                      isLoading = true;
-                    });
-
                     await _updateUserProfile(updatedName, updatedPhone, updatedLocation);
                   },
                   style: ElevatedButton.styleFrom(
@@ -434,22 +391,25 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     final bool web = ResponsiveTheme.isWebLayout(context);
+    final isDark = Theme.of(context).brightness == Brightness.dark;
 
-    if (isLoading) {
+    final Color titleColor = isDark ? Colors.white : const Color(0xFF1B5E20);
+    final Color badgeBg = isDark ? const Color(0xFF1E3525) : const Color(0xFFE8F5E9);
+
+    if (_isLoading) {
       return ResponsiveScaffold(
         body: Center(child: CircularProgressIndicator(color: ResponsiveTheme.getIconColor(context))),
       );
     }
 
-    // Build the responsive profile content structure
     Widget profileContent = Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         if (web) ...[
-          const Text(
+          Text(
             "My Profile",
             style: TextStyle(
-              color: Color(0xFF1B5E20),
+              color: titleColor,
               fontSize: 28,
               fontWeight: FontWeight.bold,
             ),
@@ -457,7 +417,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           const SizedBox(height: 20),
         ],
 
-        // 1. Header user card (horizontal row)
+        // 1. Header user card
         ResponsiveCard(
           child: Row(
             children: [
@@ -465,12 +425,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 children: [
                   CircleAvatar(
                     radius: 45,
-                    backgroundColor: Colors.green[50],
+                    backgroundColor: isDark ? const Color(0xFF1E3525) : Colors.green[50],
                     backgroundImage: _profileImageBytes != null
                         ? MemoryImage(_profileImageBytes!)
                         : null,
                     child: _profileImageBytes == null
-                        ? const Icon(Icons.person, size: 50, color: Color(0xFF2E7D32))
+                        ? Icon(Icons.person, size: 50, color: isDark ? const Color(0xFFA5D6A7) : const Color(0xFF2E7D32))
                         : null,
                   ),
                   Positioned(
@@ -478,10 +438,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     right: 0,
                     child: CircleAvatar(
                       radius: 15,
-                      backgroundColor: Colors.white,
+                      backgroundColor: isDark ? const Color(0xFF2A3A2E) : Colors.white,
                       child: IconButton(
                         padding: EdgeInsets.zero,
-                        icon: const Icon(Icons.camera_alt, size: 16, color: Colors.black54),
+                        icon: Icon(Icons.camera_alt, size: 16, color: isDark ? Colors.white70 : Colors.black54),
                         onPressed: _pickImage,
                       ),
                     ),
@@ -495,18 +455,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   children: [
                     Text(
                       _fullName,
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
-                        color: Colors.black87,
+                        color: isDark ? Colors.white : Colors.black87,
                       ),
                     ),
-                    const SizedBox(height: 2),
+                    const SizedBox(height: 4),
                     Text(
-                      "@$username",
-                      style: const TextStyle(
+                      "@$_username",
+                      style: TextStyle(
                         fontSize: 15,
-                        color: Color(0xFF2E7D32),
+                        color: isDark ? const Color(0xFFA5D6A7) : const Color(0xFF2E7D32),
                         fontWeight: FontWeight.w600,
                       ),
                     ),
@@ -514,19 +474,19 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     Container(
                       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                       decoration: BoxDecoration(
-                        color: const Color(0xFFE8F5E9),
+                        color: badgeBg,
                         borderRadius: BorderRadius.circular(16),
                         border: Border.all(color: Colors.green.withOpacity(0.3), width: 1),
                       ),
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
-                        children: const [
-                          Icon(Icons.check_circle, color: Color(0xFF2E7D32), size: 14),
-                          SizedBox(width: 6),
+                        children: [
+                          Icon(Icons.check_circle, color: isDark ? const Color(0xFFA5D6A7) : const Color(0xFF2E7D32), size: 14),
+                          const SizedBox(width: 6),
                           Text(
-                            "Verified User",
+                            _gardenerRank,
                             style: TextStyle(
-                              color: Color(0xFF2E7D32),
+                              color: isDark ? const Color(0xFFA5D6A7) : const Color(0xFF2E7D32),
                               fontSize: 12,
                               fontWeight: FontWeight.bold,
                             ),
@@ -550,29 +510,21 @@ class _ProfileScreenState extends State<ProfileScreen> {
             children: [
               Expanded(
                 flex: 5,
-                child: _buildProfileDetailsCard(context, _fullName, email, _phone, _location),
+                child: _buildProfileDetailsCard(context, _fullName, _email, _phone, _location),
               ),
               const SizedBox(width: 20),
               Expanded(
                 flex: 5,
-                child: Column(
-                  children: [
-                    _buildPlantStatisticsCard(context),
-                    const SizedBox(height: 20),
-                    _buildSecurityCard(context),
-                  ],
-                ),
+                child: _buildPlantStatisticsCard(context),
               ),
             ],
           )
         else
           Column(
             children: [
-              _buildProfileDetailsCard(context, _fullName, email, _phone, _location),
+              _buildProfileDetailsCard(context, _fullName, _email, _phone, _location),
               const SizedBox(height: 16),
               _buildPlantStatisticsCard(context),
-              const SizedBox(height: 16),
-              _buildSecurityCard(context),
             ],
           ),
 
@@ -602,39 +554,46 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   // Card builder for Profile Details
   Widget _buildProfileDetailsCard(BuildContext context, String name, String email, String phone, String location) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final Color textColor = isDark ? Colors.white : Colors.black87;
+
     return ResponsiveCard(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             children: [
-              const Icon(Icons.person, color: Color(0xFF2E7D32)),
+              Icon(Icons.person, color: isDark ? const Color(0xFFA5D6A7) : const Color(0xFF2E7D32)),
               const SizedBox(width: 8),
-              const Text(
+              Text(
                 "Profile",
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black87),
+                style: TextStyle(
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                  color: isDark ? Colors.white : textColor,
+                ),
               ),
               const Spacer(),
               OutlinedButton(
                 onPressed: _showEditProfileDialog,
                 style: OutlinedButton.styleFrom(
                   padding: const EdgeInsets.symmetric(horizontal: 16),
-                  side: const BorderSide(color: Color(0xFF2E7D32)),
+                  side: BorderSide(color: isDark ? const Color(0xFFA5D6A7) : const Color(0xFF2E7D32)),
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
                 ),
-                child: const Text("Edit", style: TextStyle(color: Color(0xFF2E7D32))),
+                child: Text("Edit", style: TextStyle(color: isDark ? const Color(0xFFA5D6A7) : const Color(0xFF2E7D32))),
               ),
             ],
           ),
-          const Divider(height: 24, color: Colors.black12),
+          Divider(height: 24, color: isDark ? Colors.white24 : Colors.black12),
           _buildProfileDetailRow(Icons.person_outline, "Full Name", name),
-          const Divider(height: 1, color: Colors.black12),
-          _buildProfileDetailRow(Icons.alternate_email, "Username", "@$username"),
-          const Divider(height: 1, color: Colors.black12),
+          Divider(height: 1, color: isDark ? Colors.white10 : Colors.black12),
+          _buildProfileDetailRow(Icons.alternate_email, "Username", "@$_username"),
+          Divider(height: 1, color: isDark ? Colors.white10 : Colors.black12),
           _buildProfileDetailRow(Icons.mail_outline, "Email", email),
-          const Divider(height: 1, color: Colors.black12),
+          Divider(height: 1, color: isDark ? Colors.white10 : Colors.black12),
           _buildProfileDetailRow(Icons.phone_outlined, "Phone", phone),
-          const Divider(height: 1, color: Colors.black12),
+          Divider(height: 1, color: isDark ? Colors.white10 : Colors.black12),
           _buildProfileDetailRow(Icons.location_on_outlined, "Location", location),
         ],
       ),
@@ -642,15 +601,26 @@ class _ProfileScreenState extends State<ProfileScreen> {
   }
 
   Widget _buildProfileDetailRow(IconData icon, String label, String value) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final Color iconColor = isDark ? const Color(0xFFA5D6A7) : Colors.black54;
+    final Color labelColor = isDark ? Colors.white70 : Colors.black54;
+    final Color valueColor = isDark ? Colors.white : Colors.black87;
+
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 12),
       child: Row(
         children: [
-          Icon(icon, color: Colors.black54, size: 20),
+          Icon(icon, color: iconColor, size: 20),
           const SizedBox(width: 12),
-          Text(label, style: const TextStyle(color: Colors.black54, fontSize: 14)),
+          Text(
+            label,
+            style: TextStyle(color: labelColor, fontSize: 14),
+          ),
           const Spacer(),
-          Text(value, style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 14, color: Colors.black87)),
+          Text(
+            value,
+            style: TextStyle(color: valueColor, fontWeight: FontWeight.bold, fontSize: 14),
+          ),
         ],
       ),
     );
@@ -658,195 +628,59 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   // Card builder for Plant Statistics
   Widget _buildPlantStatisticsCard(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
     return ResponsiveCard(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
-            children: const [
-              Icon(Icons.eco, color: Color(0xFF2E7D32)),
-              SizedBox(width: 8),
+            children: [
+              Icon(Icons.eco, color: isDark ? const Color(0xFFA5D6A7) : const Color(0xFF2E7D32)),
+              const SizedBox(width: 8),
               Text(
                 "Plant Statistics",
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black87),
+                style: TextStyle(
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                  color: isDark ? Colors.white : Colors.black87,
+                ),
               ),
             ],
           ),
-          const Divider(height: 24, color: Colors.black12),
+          Divider(height: 24, color: isDark ? Colors.white24 : Colors.black12),
           _buildStatRow(Icons.camera_alt_outlined, "Total Scans", _totalScans.toString()),
-          const Divider(height: 1, color: Colors.black12),
+          Divider(height: 1, color: isDark ? Colors.white10 : Colors.black12),
           _buildStatRow(Icons.bug_report_outlined, "Diseases Detected", _diseasesDetected.toString()),
-          const Divider(height: 1, color: Colors.black12),
-          _buildStatRow(Icons.track_changes, "Accuracy", _accuracy),
+          Divider(height: 1, color: isDark ? Colors.white10 : Colors.black12),
+          _buildStatRow(Icons.track_changes, "Accuracy", _accuracyRate),
         ],
       ),
     );
   }
 
   Widget _buildStatRow(IconData icon, String label, String value) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final Color iconColor = isDark ? const Color(0xFFA5D6A7) : const Color(0xFF2E7D32);
+    final Color labelColor = isDark ? Colors.white70 : Colors.black87;
+    final Color valColor = isDark ? const Color(0xFFA5D6A7) : const Color(0xFF2E7D32);
+
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 12),
       child: Row(
         children: [
-          Icon(icon, color: const Color(0xFF2E7D32), size: 20),
+          Icon(icon, color: iconColor, size: 20),
           const SizedBox(width: 12),
-          Text(label, style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 14, color: Colors.black87)),
+          Text(
+            label,
+            style: TextStyle(color: labelColor, fontSize: 14),
+          ),
           const Spacer(),
-          Text(value, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14, color: Color(0xFF2E7D32))),
-        ],
-      ),
-    );
-  }
-
-  // Card builder for Security
-  Widget _buildSecurityCard(BuildContext context) {
-    return ResponsiveCard(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: const [
-              Icon(Icons.security, color: Color(0xFF2E7D32)),
-              SizedBox(width: 8),
-              Text(
-                "Security",
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black87),
-              ),
-            ],
-          ),
-          const Divider(height: 24, color: Colors.black12),
-          _buildSecurityRow(
-            context,
-            icon: Icons.lock_outline,
-            label: "Change Password",
-            onTap: () {
-              DashboardScreen.navigate(context, 'change_password');
-            },
-          ),
-          const Divider(height: 1, color: Colors.black12),
-          _buildSecurityRow(
-            context,
-            icon: Icons.shield_outlined,
-            label: "Two-Factor Authentication",
-            onTap: () async {
-              setState(() {
-                isLoading = true;
-              });
-              try {
-                final authService = Provider.of<AuthService>(context, listen: false);
-                String? token = authService.token;
-                if (token == null || token.isEmpty) {
-                  const storage = FlutterSecureStorage();
-                  token = await storage.read(key: 'auth_token');
-                }
-
-                final nextVal = !_twoFactorEnabled;
-                final response = await http.put(
-                  Uri.parse('${ApiConfig.baseUrl}/auth/profile'),
-                  headers: {
-                    'Authorization': 'Bearer $token',
-                    'Content-Type': 'application/json',
-                  },
-                  body: jsonEncode({
-                    'two_factor_enabled': nextVal,
-                  }),
-                );
-
-                if (response.statusCode == 200) {
-                  final data = json.decode(response.body);
-                  setState(() {
-                    _twoFactorEnabled = data['two_factor_enabled'] ?? nextVal;
-                    isLoading = false;
-                  });
-                  if (mounted) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text("Two-Factor Authentication ${_twoFactorEnabled ? 'Enabled' : 'Disabled'}")),
-                    );
-                  }
-                } else {
-                  setState(() {
-                    isLoading = false;
-                  });
-                  if (mounted) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text("Failed to toggle Two-Factor Authentication")),
-                    );
-                  }
-                }
-              } catch (e) {
-                setState(() {
-                  isLoading = false;
-                });
-                if (mounted) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text("Connection error on security toggle")),
-                  );
-                }
-              }
-            },
-            trailingBadge: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
-              decoration: BoxDecoration(
-                color: _twoFactorEnabled ? const Color(0xFFE8F5E9) : const Color(0xFFFFEBEE),
-                borderRadius: BorderRadius.circular(8),
-              ),
-              child: Text(
-                _twoFactorEnabled ? "Enabled" : "Disabled",
-                style: TextStyle(
-                  color: _twoFactorEnabled ? const Color(0xFF2E7D32) : Colors.red[600],
-                  fontSize: 11,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-          ),
-          const Divider(height: 1, color: Colors.black12),
-          _buildSecurityRow(
-            context,
-            icon: Icons.visibility_outlined,
-            label: "Privacy Settings",
-          ),
-          const Divider(height: 1, color: Colors.black12),
-          _buildSecurityRow(
-            context,
-            icon: Icons.logout,
-            label: "Logout",
-            labelColor: Colors.red[600],
-            onTap: () async {
-              final auth = Provider.of<AuthService>(context, listen: false);
-              await auth.logout();
-              Navigator.of(context).pushNamedAndRemoveUntil('/', (route) => false);
-            },
+          Text(
+            value,
+            style: TextStyle(color: valColor, fontWeight: FontWeight.bold, fontSize: 16),
           ),
         ],
       ),
-    );
-  }
-
-  Widget _buildSecurityRow(
-    BuildContext context, {
-    required IconData icon,
-    required String label,
-    Color? labelColor,
-    Widget? trailingBadge,
-    VoidCallback? onTap,
-  }) {
-    return ListTile(
-      contentPadding: EdgeInsets.zero,
-      leading: Icon(icon, color: labelColor ?? Colors.black54, size: 20),
-      title: Text(
-        label,
-        style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: labelColor ?? Colors.black87),
-      ),
-      trailing: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          if (trailingBadge != null) trailingBadge,
-          const SizedBox(width: 8),
-          const Icon(Icons.chevron_right, color: Colors.black26, size: 20),
-        ],
-      ),
-      onTap: onTap,
     );
   }
 }

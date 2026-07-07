@@ -108,14 +108,15 @@ def get_user_profile(current_user: models.User = Depends(auth.get_current_user),
         (models.ScanHistory.disease_name.ilike("%healthy%") | models.ScanHistory.plant_name.ilike("%healthy%"))
     ).count()
 
-    fullName = current_user.full_name or ("Ramu Reddy" if current_user.username.lower() == "ramu123" or current_user.username.lower() == "ramu2005" else current_user.username.capitalize())
+    fullName = current_user.full_name or ("Harshitha Karumudi" if current_user.username.lower() in ["ramu123", "ramu2005", "harshitha_k"] else current_user.username.capitalize())
     phoneVal = current_user.phone or "+91 98765 43210"
     locationVal = current_user.location or "Chennai, Tamil Nadu"
+    emailVal = current_user.email or "karmudiharshitha@gmail.com"
     
     return {
         "full_name": fullName,
         "username": current_user.username,
-        "email": current_user.email,
+        "email": emailVal,
         "phone": phoneVal,
         "location": locationVal,
         "total_scans": total_scans,
@@ -198,14 +199,15 @@ def update_user_profile(
         (models.ScanHistory.disease_name.ilike("%healthy%") | models.ScanHistory.plant_name.ilike("%healthy%"))
     ).count()
 
-    fullName = current_user.full_name or ("Ramu Reddy" if current_user.username.lower() == "ramu123" or current_user.username.lower() == "ramu2005" else current_user.username.capitalize())
+    fullName = current_user.full_name or ("Harshitha Karumudi" if current_user.username.lower() in ["ramu123", "ramu2005", "harshitha_k"] else current_user.username.capitalize())
     phoneVal = current_user.phone or "+91 98765 43210"
     locationVal = current_user.location or "Chennai, Tamil Nadu"
+    emailVal = current_user.email or "karmudiharshitha@gmail.com"
     
     return {
         "full_name": fullName,
         "username": current_user.username,
-        "email": current_user.email,
+        "email": emailVal,
         "phone": phoneVal,
         "location": locationVal,
         "total_scans": total_scans,
