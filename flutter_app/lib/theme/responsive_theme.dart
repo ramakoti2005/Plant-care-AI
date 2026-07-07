@@ -8,18 +8,16 @@ class ResponsiveTheme {
   }
 
   static Decoration getAppBackgroundDecoration(BuildContext context) {
-    if (isWebLayout(context)) {
-      return const BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage('assets/image_290c76.jpg'),
-          fit: BoxFit.cover,
-        ),
-      );
-    } else {
-      return const BoxDecoration(
-        color: Colors.transparent,
-      );
-    }
+    return const BoxDecoration(
+      gradient: LinearGradient(
+        begin: Alignment.topCenter,
+        end: Alignment.bottomCenter,
+        colors: [
+          Color(0xFFE8F2EA), // Extremely soft, pleasant mint/sage green tint
+          Color(0xFFF9FBF9), // Soft off-white
+        ],
+      ),
+    );
   }
 
   static Color getSidebarColor() {
@@ -27,65 +25,47 @@ class ResponsiveTheme {
   }
 
   static Decoration getCardDecoration(BuildContext context, {Color? webBgColor}) {
-    if (isWebLayout(context)) {
-      return BoxDecoration(
-        color: webBgColor ?? const Color(0xFFF4F8F1), // Solid pale mint/off-white background surface
-        borderRadius: BorderRadius.circular(16),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.04),
-            blurRadius: 12,
-            offset: const Offset(0, 4),
-          ),
-        ],
-      );
-    } else {
-      // Frosted Glass decoration (mobile)
-      return BoxDecoration(
-        color: Colors.white.withOpacity(0.12),
-        borderRadius: BorderRadius.circular(16),
-        border: Border.all(
-          color: Colors.white.withOpacity(0.25),
-          width: 1.0,
+    return BoxDecoration(
+      color: webBgColor ?? Colors.white, // Solid pure white card background
+      borderRadius: BorderRadius.circular(16),
+      border: Border.all(
+        color: const Color(0xFFE2EBE3), // Soft matching green border line
+        width: 1.0,
+      ),
+      boxShadow: [
+        BoxShadow(
+          color: Colors.black.withOpacity(0.03),
+          blurRadius: 10,
+          offset: const Offset(0, 4),
         ),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.1),
-            blurRadius: 12,
-            offset: const Offset(0, 4),
-          ),
-        ],
-      );
-    }
+      ],
+    );
   }
 
   static TextStyle getHeaderStyle(BuildContext context, {double fontSize = 22, FontWeight fontWeight = FontWeight.bold}) {
-    final bool web = isWebLayout(context);
     return TextStyle(
       fontSize: fontSize,
       fontWeight: fontWeight,
-      color: web ? const Color(0xFF1B5E20) : Colors.white,
+      color: const Color(0xFF1B5E20), // Always forest green for high contrast and readability
     );
   }
 
   static TextStyle getSubHeaderStyle(BuildContext context, {double fontSize = 16}) {
-    final bool web = isWebLayout(context);
     return TextStyle(
       fontSize: fontSize,
-      color: web ? Colors.black54 : const Color(0xFFE0E0E0),
+      color: Colors.black54,
     );
   }
 
   static TextStyle getBodyStyle(BuildContext context, {double fontSize = 14}) {
-    final bool web = isWebLayout(context);
     return TextStyle(
       fontSize: fontSize,
-      color: web ? Colors.black87 : Colors.white.withOpacity(0.9),
+      color: Colors.black87,
     );
   }
 
   static Color getIconColor(BuildContext context, {Color? webColor}) {
-    return isWebLayout(context) ? (webColor ?? const Color(0xFF2E7D32)) : Colors.white;
+    return webColor ?? const Color(0xFF2E7D32);
   }
 }
 
@@ -111,78 +91,43 @@ class ResponsiveScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     final bool web = ResponsiveTheme.isWebLayout(context);
 
-    if (web) {
-      return Scaffold(
-        backgroundColor: Colors.transparent,
-        appBar: appBar,
-        drawer: drawer,
-        bottomNavigationBar: bottomNavigationBar,
-        floatingActionButton: floatingActionButton,
-        resizeToAvoidBottomInset: resizeToAvoidBottomInset,
-        body: Container(
-          width: double.infinity,
-          height: double.infinity,
-          decoration: ResponsiveTheme.getAppBackgroundDecoration(context),
-          child: body,
-        ),
-      );
-    } else {
-      // Mobile layout with a blurred background image
-      return Scaffold(
-        backgroundColor: Colors.transparent,
-        extendBodyBehindAppBar: true,
-        drawer: drawer,
-        bottomNavigationBar: bottomNavigationBar,
-        floatingActionButton: floatingActionButton,
-        resizeToAvoidBottomInset: resizeToAvoidBottomInset,
-        appBar: appBar != null
-            ? PreferredSize(
-                preferredSize: appBar!.preferredSize,
-                child: Theme(
-                  data: Theme.of(context).copyWith(
-                    appBarTheme: const AppBarTheme(
-                      backgroundColor: Colors.transparent,
-                      elevation: 0,
-                      iconTheme: IconThemeData(color: Colors.white),
-                      actionsIconTheme: IconThemeData(color: Colors.white),
-                      titleTextStyle: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
+    return Scaffold(
+      backgroundColor: Colors.transparent,
+      drawer: drawer,
+      bottomNavigationBar: bottomNavigationBar,
+      floatingActionButton: floatingActionButton,
+      resizeToAvoidBottomInset: resizeToAvoidBottomInset,
+      appBar: appBar != null
+          ? PreferredSize(
+              preferredSize: appBar!.preferredSize,
+              child: Theme(
+                data: Theme.of(context).copyWith(
+                  appBarTheme: AppBarTheme(
+                    backgroundColor: Colors.transparent,
+                    elevation: 0,
+                    iconTheme: const IconThemeData(color: Color(0xFF1B5E20)),
+                    actionsIconTheme: const IconThemeData(color: Color(0xFF1B5E20)),
+                    titleTextStyle: TextStyle(
+                      color: const Color(0xFF1B5E20),
+                      fontSize: web ? 22 : 20,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
-                  child: appBar!,
                 ),
-              )
-            : null,
-        body: Stack(
-          children: [
-            // Background Image
-            Positioned.fill(
-              child: Image.asset(
-                'assets/image_290c76.jpg',
-                fit: BoxFit.cover,
+                child: appBar!,
               ),
-            ),
-            // Blur Layer
-            Positioned.fill(
-              child: BackdropFilter(
-                filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
-                child: Container(
-                  color: Colors.black.withOpacity(0.12),
-                ),
-              ),
-            ),
-            // Foreground Content
-            SafeArea(
-              top: appBar == null,
-              child: body,
-            ),
-          ],
+            )
+          : null,
+      body: Container(
+        width: double.infinity,
+        height: double.infinity,
+        decoration: ResponsiveTheme.getAppBackgroundDecoration(context),
+        child: SafeArea(
+          top: appBar == null,
+          child: body,
         ),
-      );
-    }
+      ),
+    );
   }
 }
 
@@ -204,51 +149,23 @@ class ResponsiveCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bool web = ResponsiveTheme.isWebLayout(context);
     final decoration = ResponsiveTheme.getCardDecoration(context, webBgColor: webBgColor);
 
-    if (web) {
-      return Container(
-        margin: margin,
-        decoration: decoration,
-        child: Material(
-          color: Colors.transparent,
-          child: InkWell(
-            onTap: onTap,
-            borderRadius: BorderRadius.circular(16),
-            child: Padding(
-              padding: padding ?? const EdgeInsets.all(16),
-              child: child,
-            ),
-          ),
-        ),
-      );
-    } else {
-      // Mobile Glassmorphism card
-      return Container(
-        margin: margin,
-        child: ClipRRect(
+    return Container(
+      margin: margin,
+      decoration: decoration,
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          onTap: onTap,
           borderRadius: BorderRadius.circular(16),
-          child: BackdropFilter(
-            filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-            child: Container(
-              decoration: decoration,
-              child: Material(
-                color: Colors.transparent,
-                child: InkWell(
-                  onTap: onTap,
-                  borderRadius: BorderRadius.circular(16),
-                  child: Padding(
-                    padding: padding ?? const EdgeInsets.all(16),
-                    child: child,
-                  ),
-                ),
-              ),
-            ),
+          child: Padding(
+            padding: padding ?? const EdgeInsets.all(16),
+            child: child,
           ),
         ),
-      );
-    }
+      ),
+    );
   }
 }
 
@@ -280,7 +197,6 @@ class DiseaseCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bool web = ResponsiveTheme.isWebLayout(context);
     return ResponsiveCard(
       margin: const EdgeInsets.only(bottom: 20),
       child: Column(
@@ -296,23 +212,23 @@ class DiseaseCard extends StatelessWidget {
             style: TextStyle(
               fontWeight: FontWeight.w600,
               fontStyle: FontStyle.italic,
-              color: web ? Colors.grey[700] : const Color(0xFFE0E0E0),
+              color: Colors.grey[700],
             ),
           ),
-          Divider(height: 25, color: web ? Colors.grey[300] : Colors.white24),
+          Divider(height: 25, color: Colors.grey[300]),
           
           Text(
             "Overview",
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 18, 
               fontWeight: FontWeight.bold,
-              color: web ? Colors.black87 : Colors.white,
+              color: Colors.black87,
             ),
           ),
           const SizedBox(height: 5),
           Text(
             overview,
-            style: TextStyle(color: web ? Colors.black87 : const Color(0xFFE0E0E0)),
+            style: const TextStyle(color: Colors.black87),
           ),
 
           const SizedBox(height: 15),
@@ -342,7 +258,7 @@ class DiseaseCard extends StatelessWidget {
             _sectionTitle(context, "Recovery Time"),
             Text(
               recoveryTime!,
-              style: TextStyle(color: web ? Colors.black87 : const Color(0xFFE0E0E0)),
+              style: const TextStyle(color: Colors.black87),
             ),
           ],
 
@@ -351,23 +267,23 @@ class DiseaseCard extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
-                color: web ? Colors.green.withOpacity(0.1) : Colors.white.withOpacity(0.12),
+                color: Colors.green.withOpacity(0.1),
                 borderRadius: BorderRadius.circular(10),
-                border: Border.all(color: web ? Colors.green.withOpacity(0.3) : Colors.white24),
+                border: Border.all(color: Colors.green.withOpacity(0.3)),
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Row(
-                    children: [
-                      const Icon(Icons.lightbulb, color: Colors.orange, size: 20),
-                      const SizedBox(width: 8),
+                    children: const [
+                      Icon(Icons.lightbulb, color: Colors.orange, size: 20),
+                      SizedBox(width: 8),
                       Text(
                         "Farmer Tips",
                         style: TextStyle(
                           fontWeight: FontWeight.bold, 
                           fontSize: 16,
-                          color: web ? Colors.black87 : Colors.white,
+                          color: Colors.black87,
                         ),
                       ),
                     ],
@@ -375,7 +291,7 @@ class DiseaseCard extends StatelessWidget {
                   const SizedBox(height: 5),
                   Text(
                     tips!,
-                    style: TextStyle(color: web ? Colors.black87 : const Color(0xFFE0E0E0)),
+                    style: const TextStyle(color: Colors.black87),
                   ),
                 ],
               ),
@@ -387,39 +303,37 @@ class DiseaseCard extends StatelessWidget {
   }
 
   Widget _sectionTitle(BuildContext context, String title) {
-    final bool web = ResponsiveTheme.isWebLayout(context);
     return Padding(
       padding: const EdgeInsets.only(bottom: 5),
       child: Text(
         title,
-        style: TextStyle(
+        style: const TextStyle(
           fontSize: 18,
           fontWeight: FontWeight.bold,
-          color: web ? Colors.black87 : Colors.white,
+          color: Colors.black87,
         ),
       ),
     );
   }
 
   Widget _bulletPoint(BuildContext context, String text) {
-    final bool web = ResponsiveTheme.isWebLayout(context);
     return Padding(
       padding: const EdgeInsets.only(bottom: 3),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
+          const Text(
             "• ", 
             style: TextStyle(
               fontWeight: FontWeight.bold,
-              color: web ? Colors.black87 : Colors.white,
+              color: Colors.black87,
             ),
           ),
           Expanded(
             child: Text(
               text,
-              style: TextStyle(
-                color: web ? Colors.black87 : const Color(0xFFE0E0E0),
+              style: const TextStyle(
+                color: Colors.black87,
               ),
             ),
           ),
