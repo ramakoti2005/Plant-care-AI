@@ -8,6 +8,7 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:http/http.dart' as http;
 import 'package:http_parser/http_parser.dart';
 import 'package:flutter/foundation.dart';
+import 'package:intl/intl.dart';
 import '../api_config.dart';
 import '../theme/responsive_theme.dart';
 
@@ -172,115 +173,177 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
 
   Widget _buildTreatmentResultsView() {
     final bool web = ResponsiveTheme.isWebLayout(context);
-    
-    Widget content = web 
-        ? Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              // Left Column: Image Preview & Meta details
-              Expanded(
-                flex: 1,
-                child: Column(
-                  children: [
-                    Container(
-                      height: 300,
-                      width: 300,
-                      decoration: BoxDecoration(
-                        color: Colors.brown[300],
-                        borderRadius: BorderRadius.circular(16),
-                      ),
-                      child: _imageBytes != null 
-                          ? ClipRRect(borderRadius: BorderRadius.circular(16), child: Image.memory(_imageBytes!, fit: BoxFit.cover))
-                          : const Icon(Icons.eco, size: 80, color: Colors.white),
-                    ),
-                    const SizedBox(height: 20),
-                    _buildMetaField("Plant Name", _plantName, Colors.black),
-                    const SizedBox(height: 12),
-                    _buildMetaField("Disease", _diseaseName, Colors.red),
-                  ],
-                ),
-              ),
-              const SizedBox(width: 32),
-              // Right Column: Treatment Information Cards
-              Expanded(
-                flex: 2,
+    String formattedDate = DateFormat('yyyy-MM-dd hh:mm a').format(DateTime.now());
+
+    Widget content = Center(
+      child: Container(
+        constraints: const BoxConstraints(maxWidth: 850),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Card containing Plant Name, Leaf Image, and Metadata
+            Card(
+              elevation: 4,
+              color: Colors.white,
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+              child: Padding(
+                padding: const EdgeInsets.all(20),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text("Treatment Information", style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Color(0xFF1B5E20))),
-                    const SizedBox(height: 16),
-                    _buildTreatmentCard("Overview & Cause", _overview, Icons.info_outline, Colors.green),
-                    _buildTreatmentCard("Diagnostic Symptoms", _symptoms, Icons.bug_report_outlined, Colors.orange),
-                    _buildTreatmentCard("Targeted Chemical Control", _control, Icons.science_outlined, Colors.purple),
-                    
-                    const SizedBox(height: 24),
-                    ElevatedButton.icon(
-                      onPressed: () => setState(() {
-                        _hasResults = false;
-                        _result = null;
-                      }),
-                      icon: const Icon(Icons.refresh),
-                      label: const Text("Scan New Leaf"),
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.green,
-                        foregroundColor: Colors.white,
-                        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                    Text(
+                      _plantName,
+                      style: const TextStyle(
+                        fontSize: 26,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.green,
                       ),
+                    ),
+                    const Divider(height: 30),
+                    if (_imageBytes != null)
+                      Container(
+                        height: 250,
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          border: Border.all(color: Colors.green.withOpacity(0.2)),
+                        ),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(15),
+                          child: Image.memory(
+                            _imageBytes!,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                    const SizedBox(height: 20),
+                    const Text(
+                      "Scientific Name",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                    ),
+                    Text(
+                      _diseaseName,
+                      style: const TextStyle(fontSize: 15, color: Colors.black87),
+                    ),
+                    const SizedBox(height: 15),
+                    const Text(
+                      "Image Quality",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                    ),
+                    const Text(
+                      "Good",
+                      style: TextStyle(fontSize: 15, color: Colors.black87),
+                    ),
+                    const SizedBox(height: 15),
+                    const Text(
+                      "Scan Date & Time",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                    ),
+                    Text(
+                      formattedDate,
+                      style: const TextStyle(fontSize: 15, color: Colors.black87),
                     ),
                   ],
                 ),
               ),
-            ],
-          )
-        : Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              // Image Preview
-              Center(
-                child: Container(
-                  height: 250,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    color: Colors.brown[300],
-                    borderRadius: BorderRadius.circular(16),
-                  ),
-                  child: _imageBytes != null 
-                      ? ClipRRect(borderRadius: BorderRadius.circular(16), child: Image.memory(_imageBytes!, fit: BoxFit.cover))
-                      : const Icon(Icons.eco, size: 80, color: Colors.white),
-                ),
+            ),
+            const SizedBox(height: 30),
+            
+            // Section Title
+            const Text(
+              "Analysis & Treatment Details",
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: Color(0xFF1B5E20),
               ),
-              const SizedBox(height: 20),
-              _buildMetaField("Plant Name", _plantName, Colors.black),
-              const SizedBox(height: 12),
-              _buildMetaField("Disease", _diseaseName, Colors.red),
-              const SizedBox(height: 24),
-              const Text("Treatment Information", style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.white)),
-              const SizedBox(height: 16),
-              _buildTreatmentCard("Overview & Cause", _overview, Icons.info_outline, Colors.green),
-              _buildTreatmentCard("Diagnostic Symptoms", _symptoms, Icons.bug_report_outlined, Colors.orange),
-              _buildTreatmentCard("Targeted Chemical Control", _control, Icons.science_outlined, Colors.purple),
+            ),
+            const SizedBox(height: 15),
+            
+            // Overview & Causes Card
+            _buildSectionCard(
+              context: context,
+              title: "Overview & Causes",
+              content: "Crop: $_plantName\nCondition: $_diseaseName\n\nPathogen/Cause: $_overview",
+              icon: Icons.info_outline,
+              iconColor: const Color(0xFF2E7D32),
+              bgColor: const Color(0xFFF1F8E9),
+            ),
+            
+            // Symptoms Card
+            _buildSectionCard(
+              context: context,
+              title: "Symptoms",
+              content: _symptoms,
+              icon: Icons.healing,
+              iconColor: const Color(0xFFE65100),
+              bgColor: const Color(0xFFFFF3E0),
+            ),
+            
+            // Organic Remedy Card (if exists)
+            if (_result != null && 
+                _result!['organic_remedy'] != null && 
+                _result!['organic_remedy'].toString().trim().isNotEmpty && 
+                _result!['organic_remedy'].toString().trim().toLowerCase() != "none" && 
+                _result!['organic_remedy'].toString().trim().toLowerCase() != "none required" &&
+                _result!['organic_remedy'].toString().trim().toLowerCase() != "null")
+              _buildSectionCard(
+                context: context,
+                title: "Organic Remedy",
+                content: _result!['organic_remedy'],
+                icon: Icons.eco,
+                iconColor: const Color(0xFF2E7D32),
+                bgColor: const Color(0xFFE8F5E9),
+              ),
               
-              const SizedBox(height: 24),
-              SizedBox(
-                width: double.infinity,
-                child: ElevatedButton.icon(
-                  onPressed: () => setState(() {
+            // Chemical Control Card
+            _buildSectionCard(
+              context: context,
+              title: "Chemical Control",
+              content: _control,
+              icon: Icons.science,
+              iconColor: const Color(0xFF0288D1),
+              bgColor: const Color(0xFFE1F5FE),
+            ),
+            
+            const SizedBox(height: 30),
+            
+            // Scan Another Leaf Button
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton.icon(
+                onPressed: () {
+                  setState(() {
                     _hasResults = false;
                     _result = null;
-                  }),
-                  icon: const Icon(Icons.refresh),
-                  label: const Text("Scan New Leaf"),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.green,
-                    foregroundColor: Colors.white,
-                    padding: const EdgeInsets.symmetric(vertical: 16),
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                  ),
+                    _imageBytes = null;
+                    _imageName = null;
+                  });
+                },
+                icon: const Icon(Icons.refresh),
+                label: const Text("Scan Another Leaf"),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.green,
+                  foregroundColor: Colors.white,
+                  padding: const EdgeInsets.symmetric(vertical: 16),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                 ),
               ),
-            ],
-          );
+            ),
+            const SizedBox(height: 20),
+          ],
+        ),
+      ),
+    );
 
     return ResponsiveScaffold(
       appBar: AppBar(
@@ -298,7 +361,7 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
         ),
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(24),
+        padding: const EdgeInsets.all(20),
         child: content,
       ),
     );
