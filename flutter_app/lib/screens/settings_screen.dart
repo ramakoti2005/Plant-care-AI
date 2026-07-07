@@ -183,21 +183,24 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     ),
                     const Divider(height: 20, color: Colors.black12),
                     // Measurement Units Selector
-                    DropdownButtonFormField<String>(
+                     DropdownButtonFormField<String>(
                       value: settings.selectedUnit,
                       decoration: InputDecoration(
                         labelText: "Temperature Units",
                         labelStyle: TextStyle(color: subtitleColor),
                         prefixIcon: Icon(Icons.thermostat_outlined, color: ResponsiveTheme.getIconColor(context)),
                         border: InputBorder.none,
+                        helperText: settings.selectedUnit == 'Fahrenheit (°F)' ? "Current Garden Temperature: 82°F" : "Current Garden Temperature: 28°C",
+                        helperStyle: TextStyle(color: subtitleColor, fontSize: 12),
                       ),
                       dropdownColor: Theme.of(context).brightness == Brightness.dark ? const Color(0xFF1C2D22) : Colors.white,
                       style: TextStyle(color: textColor, fontSize: 15, fontWeight: FontWeight.w600),
                       items: <String>['Celsius (°C)', 'Fahrenheit (°F)']
                           .map<DropdownMenuItem<String>>((String value) {
+                        final displayVal = value == 'Celsius (°C)' ? 'Celsius (°C) [28°C]' : 'Fahrenheit (°F) [82°F]';
                         return DropdownMenuItem<String>(
                           value: value,
-                          child: Text(value),
+                          child: Text(displayVal),
                         );
                       }).toList(),
                       onChanged: (String? newValue) async {
