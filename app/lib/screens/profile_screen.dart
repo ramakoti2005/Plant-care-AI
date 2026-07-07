@@ -1,33 +1,36 @@
-import 'dart:io';
+import 'dart:convert';
+import 'dart:typed_data';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import '../theme/responsive_theme.dart';
 import 'dashboard_screen.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'total_scans_screen.dart';
+import '../services/auth_service.dart';
 import 'settings_screen.dart';
 
 class ProfileScreen extends StatefulWidget {
-  const ProfileScreen({super.key});
+  const ProfileScreen({Key? key}) : super(key: key);
 
   @override
   State<ProfileScreen> createState() => _ProfileScreenState();
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-  File? _profileImage;
-  final ImagePicker _picker = ImagePicker();
-  static const String _imageKey = 'profile_image_path';
+  String username = "Loading...";
+  String email = "Loading...";
+  bool isLoading = true;
 
-  // Temporary mock data
-  String _username = "vishnu123";
-  String _email = "vishnu@gmail.com";
+  Uint8List? _profileImageBytes;
+  final ImagePicker _picker = ImagePicker();
+  static const String _imageKey = 'profile_image_base64';
 
   @override
   void initState() {
     super.initState();
-    _loadImagePath();
     _loadUserData();
+    _loadImage();
   }
 
   Future<void> _loadUserData() async {
@@ -35,52 +38,50 @@ class _ProfileScreenState extends State<ProfileScreen> {
       final prefs = await SharedPreferences.getInstance();
       String? storedUsername = prefs.getString('username') ?? prefs.getString('saved_username');
       String? storedEmail = prefs.getString('email');
+
       setState(() {
         if (storedUsername == null || storedUsername == "Ramu2005" || storedUsername.toLowerCase() == "ramu2005") {
-          _username = "vishnu123";
-          _email = "vishnu@gmail.com";
+          username = "ramu123";
+          email = "ramakotireddy196478@gmail.com";
         } else {
-          _username = storedUsername;
-          _email = storedEmail ?? "vishnu@gmail.com";
+          username = storedUsername;
+          email = storedEmail ?? "ramakotireddy196478@gmail.com";
         }
+        isLoading = false;
       });
     } catch (e) {
       setState(() {
-        _username = "vishnu123";
-        _email = "vishnu@gmail.com";
+        username = "ramu123";
+        email = "ramakotireddy196478@gmail.com";
+        isLoading = false;
       });
     }
   }
 
-  /// Loads the saved image path from SharedPreferences
-  Future<void> _loadImagePath() async {
+  Future<void> _loadImage() async {
     try {
       final SharedPreferences prefs = await SharedPreferences.getInstance();
-      final String? path = prefs.getString(_imageKey);
-      if (path != null && path.isNotEmpty) {
-        final File imageFile = File(path);
-        if (await imageFile.exists()) {
-          setState(() {
-            _profileImage = imageFile;
-          });
-        }
+      final String? base64Str = prefs.getString(_imageKey);
+      if (base64Str != null && base64Str.isNotEmpty) {
+        setState(() {
+          _profileImageBytes = base64Decode(base64Str);
+        });
       }
     } catch (e) {
-      debugPrint("Error loading image path: $e");
+      debugPrint("Error loading profile image: $e");
     }
   }
 
-  /// Saves the image path locally using SharedPreferences
-  Future<void> _saveImagePath(String path) async {
+  Future<void> _saveImage(Uint8List bytes) async {
     try {
       final SharedPreferences prefs = await SharedPreferences.getInstance();
-      await prefs.setString(_imageKey, path);
+      final String base64Str = base64Encode(bytes);
+      await prefs.setString(_imageKey, base64Str);
     } catch (e) {
-      debugPrint("Error saving image path: $e");
+      debugPrint("Error saving profile image: $e");
     }
   }
 
-  /// Opens gallery to pick an image and saves its path
   Future<void> _pickImage() async {
     try {
       final XFile? pickedFile = await _picker.pickImage(
@@ -89,10 +90,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
       );
 
       if (pickedFile != null) {
+        final bytes = await pickedFile.readAsBytes();
         setState(() {
-          _profileImage = File(pickedFile.path);
+          _profileImageBytes = bytes;
         });
-        await _saveImagePath(pickedFile.path);
+        await _saveImage(bytes);
       }
     } catch (e) {
       debugPrint("Error picking image: $e");
@@ -106,167 +108,516 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color(0xFFF4FAF4),
-      appBar: AppBar(
-        title: const Text(
-          "My Profile",
-          style: TextStyle(color: Colors.white),
-        ),
-        backgroundColor: const Color(0xFF2E7D32),
-        iconTheme: const IconThemeData(color: Colors.white),
-      ),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(20),
-        child: Column(
-          children: [
-            const SizedBox(height: 10),
+    final bool web = ResponsiveTheme.isWebLayout(context);
 
-            // Profile Picture
-            Center(
-              child: CircleAvatar(
-                radius: 65,
-                backgroundColor: const Color(0xFF2E7D32),
-                backgroundImage: _profileImage != null
-                    ? FileImage(_profileImage!)
-                    : null,
-                child: _profileImage == null
-                    ? const Icon(
-                        Icons.person,
-                        size: 80,
-                        color: Colors.white,
-                      )
-                    : null,
-              ),
+    if (isLoading) {
+      return ResponsiveScaffold(
+        body: Center(child: CircularProgressIndicator(color: ResponsiveTheme.getIconColor(context))),
+      );
+    }
+
+    final String displayName = username.toLowerCase().contains("ramu") ? "Ramu Reddy" : (username.toLowerCase().contains("vishnu") ? "Vishnu" : username);
+    final String displayEmail = email;
+    final String displayPhone = username.toLowerCase().contains("ramu") ? "+91 98765 43210" : "+91 98765 00000";
+    final String displayLocation = username.toLowerCase().contains("ramu") ? "Chennai, Tamil Nadu" : "Bangalore, Karnataka";
+
+    // Build the responsive profile content structure
+    Widget profileContent = Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        if (web) ...[
+          const Text(
+            "My Profile",
+            style: TextStyle(
+              color: Color(0xFF1B5E20),
+              fontSize: 28,
+              fontWeight: FontWeight.bold,
             ),
+          ),
+          const SizedBox(height: 20),
+        ],
 
-            const SizedBox(height: 10),
-
-            // Change Photo Button
-            TextButton.icon(
-              onPressed: _pickImage,
-              icon: const Icon(Icons.camera_alt, color: Color(0xFF2E7D32)),
-              label: const Text(
-                "Change Photo",
-                style: TextStyle(
-                  color: Color(0xFF2E7D32),
-                  fontWeight: FontWeight.bold,
-                ),
+        // 1. Header user card (horizontal row)
+        ResponsiveCard(
+          child: Row(
+            children: [
+              Stack(
+                children: [
+                  CircleAvatar(
+                    radius: 45,
+                    backgroundColor: Colors.green[50],
+                    backgroundImage: _profileImageBytes != null
+                        ? MemoryImage(_profileImageBytes!)
+                        : null,
+                    child: _profileImageBytes == null
+                        ? const Icon(Icons.person, size: 50, color: Color(0xFF2E7D32))
+                        : null,
+                  ),
+                  Positioned(
+                    bottom: 0,
+                    right: 0,
+                    child: CircleAvatar(
+                      radius: 15,
+                      backgroundColor: Colors.white,
+                      child: IconButton(
+                        padding: EdgeInsets.zero,
+                        icon: const Icon(Icons.camera_alt, size: 16, color: Colors.black54),
+                        onPressed: _pickImage,
+                      ),
+                    ),
+                  ),
+                ],
               ),
-            ),
-
-            const SizedBox(height: 5),
-
-            // Username
-            Text(
-              _username,
-              style: const TextStyle(
-                fontSize: 26,
-                fontWeight: FontWeight.bold,
-                color: Color(0xFF1B5E20),
-              ),
-            ),
-
-            const SizedBox(height: 30),
-
-            Center(
-              child: Container(
-                constraints: kIsWeb ? const BoxConstraints(maxWidth: 600) : null,
+              const SizedBox(width: 24),
+              Expanded(
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // Email Card
-                    Card(
-                      elevation: kIsWeb ? 4 : 2,
-                      shadowColor: kIsWeb ? Colors.black.withOpacity(0.04) : null,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(kIsWeb ? 16 : 12),
-                      ),
-                      child: ListTile(
-                        leading: const Icon(Icons.email, color: Color(0xFF2E7D32)),
-                        title: const Text("Email"),
-                        subtitle: Text(_email),
+                    Text(
+                      displayName,
+                      style: const TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black87,
                       ),
                     ),
-
-                    const SizedBox(height: 10),
-
-                    // Total Scans Card
-                    Card(
-                      elevation: kIsWeb ? 4 : 2,
-                      shadowColor: kIsWeb ? Colors.black.withOpacity(0.04) : null,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(kIsWeb ? 16 : 12),
-                      ),
-                      child: ListTile(
-                        onTap: () {
-                          DashboardScreen.navigate(
-                            context,
-                            'custom',
-                            fallbackWidget: const TotalScansScreen(),
-                            customWidget: const TotalScansScreen(),
-                          );
-                        },
-                        leading: const Icon(Icons.history, color: Color(0xFF2E7D32)),
-                        title: const Text("Total Scans"),
-                        subtitle: const Text("View scan count"),
-                        trailing: const Icon(Icons.arrow_forward_ios, size: 16),
+                    const SizedBox(height: 2),
+                    Text(
+                      "@$username",
+                      style: const TextStyle(
+                        fontSize: 15,
+                        color: Color(0xFF2E7D32),
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
-
-                    const SizedBox(height: 10),
-
-                    // Settings Card
-                    Card(
-                      elevation: kIsWeb ? 4 : 2,
-                      shadowColor: kIsWeb ? Colors.black.withOpacity(0.04) : null,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(kIsWeb ? 16 : 12),
+                    const SizedBox(height: 8),
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                      decoration: BoxDecoration(
+                        color: const Color(0xFFE8F5E9),
+                        borderRadius: BorderRadius.circular(16),
+                        border: Border.all(color: Colors.green.withOpacity(0.3), width: 1),
                       ),
-                      child: ListTile(
-                        onTap: () {
-                          DashboardScreen.navigate(
-                            context,
-                            'settings',
-                            fallbackWidget: const SettingsScreen(),
-                          );
-                        },
-                        leading: const Icon(Icons.settings, color: Color(0xFF2E7D32)),
-                        title: const Text("Settings"),
-                        subtitle: const Text("Manage preferences"),
-                        trailing: const Icon(Icons.arrow_forward_ios, size: 16),
-                      ),
-                    ),
-
-                    const SizedBox(height: 40),
-
-                    // Logout Button
-                    SizedBox(
-                      width: double.infinity,
-                      height: 50,
-                      child: ElevatedButton.icon(
-                        onPressed: () {
-                          Navigator.of(context).pushNamedAndRemoveUntil('/', (route) => false);
-                        },
-                        icon: const Icon(Icons.logout),
-                        label: const Text(
-                          "Logout",
-                          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                        ),
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.red,
-                          foregroundColor: Colors.white,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(kIsWeb ? 16 : 12),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: const [
+                          Icon(Icons.check_circle, color: Color(0xFF2E7D32), size: 14),
+                          SizedBox(width: 6),
+                          Text(
+                            "Verified User",
+                            style: TextStyle(
+                              color: Color(0xFF2E7D32),
+                              fontSize: 12,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
-                        ),
+                        ],
                       ),
                     ),
                   ],
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
+
+        const SizedBox(height: 20),
+
+        // 2. Middle Cards (2-Column Grid on Web, Single Column on Mobile)
+        if (web)
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Expanded(
+                flex: 5,
+                child: _buildProfileDetailsCard(context, displayName, displayEmail, displayPhone, displayLocation),
+              ),
+              const SizedBox(width: 20),
+              Expanded(
+                flex: 5,
+                child: Column(
+                  children: [
+                    _buildPlantStatisticsCard(context),
+                    const SizedBox(height: 20),
+                    _buildSecurityCard(context),
+                  ],
+                ),
+              ),
+            ],
+          )
+        else
+          Column(
+            children: [
+              _buildProfileDetailsCard(context, displayName, displayEmail, displayPhone, displayLocation),
+              const SizedBox(height: 16),
+              _buildPlantStatisticsCard(context),
+              const SizedBox(height: 16),
+              _buildSecurityCard(context),
+            ],
+          ),
+
+        const SizedBox(height: 20),
+
+        // 3. Bottom Summary Cards
+        if (web)
+          Row(
+            children: [
+              Expanded(
+                child: _buildSummaryCard(
+                  iconBgColor: const Color(0xFFE8F5E9),
+                  icon: Icons.eco,
+                  iconColor: const Color(0xFF2E7D32),
+                  value: "12",
+                  title: "Plants Monitored",
+                  subtitle: "Across your garden",
+                  valueColor: const Color(0xFF2E7D32),
+                ),
+              ),
+              const SizedBox(width: 16),
+              Expanded(
+                child: _buildSummaryCard(
+                  iconBgColor: const Color(0xFFE3F2FD),
+                  icon: Icons.camera_alt,
+                  iconColor: const Color(0xFF1565C0),
+                  value: "5",
+                  title: "Recent Scans",
+                  subtitle: "This Week",
+                  valueColor: const Color(0xFF1565C0),
+                ),
+              ),
+              const SizedBox(width: 16),
+              Expanded(
+                child: _buildSummaryCard(
+                  iconBgColor: const Color(0xFFFFF8E1),
+                  icon: Icons.check_circle_outline,
+                  iconColor: const Color(0xFFF57F17),
+                  value: "104",
+                  title: "Healthy Plants",
+                  subtitle: "Keep it up!",
+                  valueColor: const Color(0xFFF57F17),
+                ),
+              ),
+            ],
+          )
+        else
+          Column(
+            children: [
+              _buildSummaryCard(
+                iconBgColor: const Color(0xFFE8F5E9),
+                icon: Icons.eco,
+                iconColor: const Color(0xFF2E7D32),
+                value: "12",
+                title: "Plants Monitored",
+                subtitle: "Across your garden",
+                valueColor: const Color(0xFF2E7D32),
+              ),
+              const SizedBox(height: 12),
+              _buildSummaryCard(
+                iconBgColor: const Color(0xFFE3F2FD),
+                icon: Icons.camera_alt,
+                iconColor: const Color(0xFF1565C0),
+                value: "5",
+                title: "Recent Scans",
+                subtitle: "This Week",
+                valueColor: const Color(0xFF1565C0),
+              ),
+              const SizedBox(height: 12),
+              _buildSummaryCard(
+                iconBgColor: const Color(0xFFFFF8E1),
+                icon: Icons.check_circle_outline,
+                iconColor: const Color(0xFFF57F17),
+                value: "104",
+                title: "Healthy Plants",
+                subtitle: "Keep it up!",
+                valueColor: const Color(0xFFF57F17),
+              ),
+            ],
+          ),
+
+        const SizedBox(height: 40),
+      ],
+    );
+
+    return ResponsiveScaffold(
+      appBar: !web
+          ? AppBar(
+              title: const Text("My Profile"),
+            )
+          : null,
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(20),
+        child: web
+            ? Center(
+                child: Container(
+                  constraints: const BoxConstraints(maxWidth: 1100),
+                  child: profileContent,
+                ),
+              )
+            : profileContent,
+      ),
+    );
+  }
+
+  // Card builder for Profile Details
+  Widget _buildProfileDetailsCard(BuildContext context, String name, String email, String phone, String location) {
+    return ResponsiveCard(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              const Icon(Icons.person, color: Color(0xFF2E7D32)),
+              const SizedBox(width: 8),
+              const Text(
+                "Profile",
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black87),
+              ),
+              const Spacer(),
+              OutlinedButton(
+                onPressed: () {
+                  DashboardScreen.navigate(context, 'settings');
+                },
+                style: OutlinedButton.styleFrom(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  side: const BorderSide(color: Color(0xFF2E7D32)),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                ),
+                child: const Text("Edit", style: TextStyle(color: Color(0xFF2E7D32))),
+              ),
+            ],
+          ),
+          const Divider(height: 24, color: Colors.black12),
+          _buildProfileDetailRow(Icons.person_outline, "Full Name", name),
+          const Divider(height: 1, color: Colors.black12),
+          _buildProfileDetailRow(Icons.alternate_email, "Username", "@$username"),
+          const Divider(height: 1, color: Colors.black12),
+          _buildProfileDetailRow(Icons.mail_outline, "Email", email),
+          const Divider(height: 1, color: Colors.black12),
+          _buildProfileDetailRow(Icons.phone_outlined, "Phone", phone),
+          const Divider(height: 1, color: Colors.black12),
+          _buildProfileDetailRow(Icons.location_on_outlined, "Location", location),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildProfileDetailRow(IconData icon, String label, String value) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 12),
+      child: Row(
+        children: [
+          Icon(icon, color: Colors.black54, size: 20),
+          const SizedBox(width: 12),
+          Text(label, style: const TextStyle(color: Colors.black54, fontSize: 14)),
+          const Spacer(),
+          Text(value, style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 14, color: Colors.black87)),
+        ],
+      ),
+    );
+  }
+
+  // Card builder for Plant Statistics
+  Widget _buildPlantStatisticsCard(BuildContext context) {
+    return ResponsiveCard(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: const [
+              Icon(Icons.eco, color: Color(0xFF2E7D32)),
+              SizedBox(width: 8),
+              Text(
+                "Plant Statistics",
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black87),
+              ),
+            ],
+          ),
+          const Divider(height: 24, color: Colors.black12),
+          _buildStatRow(Icons.camera_alt_outlined, "Total Scans", "128"),
+          const Divider(height: 1, color: Colors.black12),
+          _buildStatRow(Icons.bug_report_outlined, "Diseases Detected", "24"),
+          const Divider(height: 1, color: Colors.black12),
+          _buildStatRow(Icons.track_changes, "Accuracy", "98%"),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildStatRow(IconData icon, String label, String value) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 12),
+      child: Row(
+        children: [
+          Icon(icon, color: const Color(0xFF2E7D32), size: 20),
+          const SizedBox(width: 12),
+          Text(label, style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 14, color: Colors.black87)),
+          const Spacer(),
+          Text(value, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14, color: Color(0xFF2E7D32))),
+        ],
+      ),
+    );
+  }
+
+  // Card builder for Security
+  Widget _buildSecurityCard(BuildContext context) {
+    return ResponsiveCard(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: const [
+              Icon(Icons.security, color: Color(0xFF2E7D32)),
+              SizedBox(width: 8),
+              Text(
+                "Security",
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black87),
+              ),
+            ],
+          ),
+          const Divider(height: 24, color: Colors.black12),
+          _buildSecurityRow(
+            context,
+            icon: Icons.lock_outline,
+            label: "Change Password",
+            onTap: () {
+              DashboardScreen.navigate(context, 'change_password');
+            },
+          ),
+          const Divider(height: 1, color: Colors.black12),
+          _buildSecurityRow(
+            context,
+            icon: Icons.shield_outlined,
+            label: "Two-Factor Authentication",
+            trailingBadge: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+              decoration: BoxDecoration(
+                color: const Color(0xFFE8F5E9),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: const Text(
+                "Enabled",
+                style: TextStyle(color: Color(0xFF2E7D32), fontSize: 11, fontWeight: FontWeight.bold),
+              ),
+            ),
+          ),
+          const Divider(height: 1, color: Colors.black12),
+          _buildSecurityRow(
+            context,
+            icon: Icons.visibility_outlined,
+            label: "Privacy Settings",
+          ),
+          const Divider(height: 1, color: Colors.black12),
+          _buildSecurityRow(
+            context,
+            icon: Icons.logout,
+            label: "Logout",
+            labelColor: Colors.red[600],
+            onTap: () async {
+              final auth = Provider.of<AuthService>(context, listen: false);
+              await auth.logout();
+              Navigator.of(context).pushNamedAndRemoveUntil('/', (route) => false);
+            },
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildSecurityRow(
+    BuildContext context, {
+    required IconData icon,
+    required String label,
+    Color? labelColor,
+    Widget? trailingBadge,
+    VoidCallback? onTap,
+  }) {
+    return ListTile(
+      contentPadding: EdgeInsets.zero,
+      leading: Icon(icon, color: labelColor ?? Colors.black54, size: 20),
+      title: Text(
+        label,
+        style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: labelColor ?? Colors.black87),
+      ),
+      trailing: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          if (trailingBadge != null) trailingBadge,
+          const SizedBox(width: 8),
+          const Icon(Icons.chevron_right, color: Colors.black26, size: 20),
+        ],
+      ),
+      onTap: onTap,
+    );
+  }
+
+  // Builder for summary metrics cards at bottom
+  Widget _buildSummaryCard({
+    required Color iconBgColor,
+    required IconData icon,
+    required Color iconColor,
+    required String value,
+    required String title,
+    required String subtitle,
+    required Color valueColor,
+  }) {
+    return Container(
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(16),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.04),
+            blurRadius: 8,
+            offset: const Offset(0, 4),
+          ),
+        ],
+      ),
+      child: Row(
+        children: [
+          Container(
+            padding: const EdgeInsets.all(12),
+            decoration: BoxDecoration(
+              color: iconBgColor,
+              shape: BoxShape.circle,
+            ),
+            child: Icon(icon, color: iconColor, size: 24),
+          ),
+          const SizedBox(width: 16),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  value,
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: valueColor,
+                  ),
+                ),
+                const SizedBox(height: 2),
+                Text(
+                  title,
+                  style: const TextStyle(
+                    fontSize: 13,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black87,
+                  ),
+                ),
+                const SizedBox(height: 1),
+                Text(
+                  subtitle,
+                  style: const TextStyle(
+                    fontSize: 11,
+                    color: Colors.black45,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }

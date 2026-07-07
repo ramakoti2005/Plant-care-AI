@@ -41,18 +41,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
       setState(() {
         if (storedUsername == null || storedUsername == "Ramu2005" || storedUsername.toLowerCase() == "ramu2005") {
-          username = "vishnu123";
-          email = "vishnu@gmail.com";
+          username = "ramu123";
+          email = "ramakotireddy196478@gmail.com";
         } else {
           username = storedUsername;
-          email = storedEmail ?? "vishnu@gmail.com";
+          email = storedEmail ?? "ramakotireddy196478@gmail.com";
         }
         isLoading = false;
       });
     } catch (e) {
       setState(() {
-        username = "vishnu123";
-        email = "vishnu@gmail.com";
+        username = "ramu123";
+        email = "ramakotireddy196478@gmail.com";
         isLoading = false;
       });
     }
@@ -116,158 +116,508 @@ class _ProfileScreenState extends State<ProfileScreen> {
       );
     }
 
-    return ResponsiveScaffold(
-      appBar: AppBar(
-        title: const Text(
-          "My Profile",
-        ),
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Container(
-              width: double.infinity,
-              padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 16),
-              decoration: BoxDecoration(
-                color: web ? const Color(0xFF2E7D32) : Colors.green.withOpacity(0.25),
-                borderRadius: const BorderRadius.only(
-                  bottomLeft: Radius.circular(24),
-                  bottomRight: Radius.circular(24),
-                ),
-              ),
-              child: Column(
+    final String displayName = username.toLowerCase().contains("ramu") ? "Ramu Reddy" : (username.toLowerCase().contains("vishnu") ? "Vishnu" : username);
+    final String displayEmail = email;
+    final String displayPhone = username.toLowerCase().contains("ramu") ? "+91 98765 43210" : "+91 98765 00000";
+    final String displayLocation = username.toLowerCase().contains("ramu") ? "Chennai, Tamil Nadu" : "Bangalore, Karnataka";
+
+    // Build the responsive profile content structure
+    Widget profileContent = Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        if (web) ...[
+          const Text(
+            "My Profile",
+            style: TextStyle(
+              color: Color(0xFF1B5E20),
+              fontSize: 28,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(height: 20),
+        ],
+
+        // 1. Header user card (horizontal row)
+        ResponsiveCard(
+          child: Row(
+            children: [
+              Stack(
                 children: [
                   CircleAvatar(
-                    radius: 65,
-                    backgroundColor: Colors.white24,
+                    radius: 45,
+                    backgroundColor: Colors.green[50],
                     backgroundImage: _profileImageBytes != null
                         ? MemoryImage(_profileImageBytes!)
                         : null,
                     child: _profileImageBytes == null
-                        ? const Icon(
-                            Icons.person,
-                            size: 80,
-                            color: Colors.white,
-                          )
+                        ? const Icon(Icons.person, size: 50, color: Color(0xFF2E7D32))
                         : null,
                   ),
-                  const SizedBox(height: 12),
-                  TextButton.icon(
-                    onPressed: _pickImage,
-                    icon: const Icon(Icons.camera_alt, color: Colors.white70),
-                    label: const Text(
-                      "Change Photo",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
+                  Positioned(
+                    bottom: 0,
+                    right: 0,
+                    child: CircleAvatar(
+                      radius: 15,
+                      backgroundColor: Colors.white,
+                      child: IconButton(
+                        padding: EdgeInsets.zero,
+                        icon: const Icon(Icons.camera_alt, size: 16, color: Colors.black54),
+                        onPressed: _pickImage,
                       ),
-                    ),
-                  ),
-                  const SizedBox(height: 8),
-                  Text(
-                    username,
-                    style: const TextStyle(
-                      fontSize: 26,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
                     ),
                   ),
                 ],
               ),
-            ),
-
-            Center(
-              child: Container(
-                constraints: web ? const BoxConstraints(maxWidth: 600) : null,
-                padding: const EdgeInsets.all(20),
+              const SizedBox(width: 24),
+              Expanded(
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    ResponsiveCard(
-                      padding: EdgeInsets.zero,
-                      child: ListTile(
-                        leading: Icon(Icons.email, color: ResponsiveTheme.getIconColor(context)),
-                        title: Text(
-                          "Email",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: web ? Colors.black87 : Colors.white,
-                          ),
-                        ),
-                        subtitle: Text(
-                          email,
-                          style: TextStyle(
-                            color: web ? Colors.grey[700] : const Color(0xFFE0E0E0),
-                          ),
-                        ),
+                    Text(
+                      displayName,
+                      style: const TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black87,
                       ),
                     ),
-                    const SizedBox(height: 12),
-                    ResponsiveCard(
-                      padding: EdgeInsets.zero,
-                      child: ListTile(
-                        onTap: () {
-                          DashboardScreen.navigate(
-                            context,
-                            'settings',
-                            fallbackWidget: const SettingsScreen(),
-                          );
-                        },
-                        leading: Icon(Icons.settings, color: ResponsiveTheme.getIconColor(context)),
-                        title: Text(
-                          "Settings",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: web ? Colors.black87 : Colors.white,
-                          ),
-                        ),
-                        subtitle: Text(
-                          "Manage preferences",
-                          style: TextStyle(
-                            color: web ? Colors.grey[700] : const Color(0xFFE0E0E0),
-                          ),
-                        ),
-                        trailing: Icon(
-                          Icons.chevron_right, 
-                          size: 20, 
-                          color: ResponsiveTheme.getIconColor(context),
-                        ),
+                    const SizedBox(height: 2),
+                    Text(
+                      "@$username",
+                      style: const TextStyle(
+                        fontSize: 15,
+                        color: Color(0xFF2E7D32),
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
-                    const SizedBox(height: 40),
-                    SizedBox(
-                      width: double.infinity,
-                      height: 50,
-                      child: ElevatedButton.icon(
-                        onPressed: () async {
-                          final auth = Provider.of<AuthService>(context, listen: false);
-                          await auth.logout();
-                          if (mounted) {
-                            Navigator.of(context).pushNamedAndRemoveUntil('/', (route) => false);
-                          }
-                        },
-                        icon: const Icon(Icons.logout, color: Colors.white),
-                        label: const Text(
-                          "Logout",
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
+                    const SizedBox(height: 8),
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                      decoration: BoxDecoration(
+                        color: const Color(0xFFE8F5E9),
+                        borderRadius: BorderRadius.circular(16),
+                        border: Border.all(color: Colors.green.withOpacity(0.3), width: 1),
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: const [
+                          Icon(Icons.check_circle, color: Color(0xFF2E7D32), size: 14),
+                          SizedBox(width: 6),
+                          Text(
+                            "Verified User",
+                            style: TextStyle(
+                              color: Color(0xFF2E7D32),
+                              fontSize: 12,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
-                        ),
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.red[600],
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(16),
-                          ),
-                        ),
+                        ],
                       ),
                     ),
                   ],
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
+
+        const SizedBox(height: 20),
+
+        // 2. Middle Cards (2-Column Grid on Web, Single Column on Mobile)
+        if (web)
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Expanded(
+                flex: 5,
+                child: _buildProfileDetailsCard(context, displayName, displayEmail, displayPhone, displayLocation),
+              ),
+              const SizedBox(width: 20),
+              Expanded(
+                flex: 5,
+                child: Column(
+                  children: [
+                    _buildPlantStatisticsCard(context),
+                    const SizedBox(height: 20),
+                    _buildSecurityCard(context),
+                  ],
+                ),
+              ),
+            ],
+          )
+        else
+          Column(
+            children: [
+              _buildProfileDetailsCard(context, displayName, displayEmail, displayPhone, displayLocation),
+              const SizedBox(height: 16),
+              _buildPlantStatisticsCard(context),
+              const SizedBox(height: 16),
+              _buildSecurityCard(context),
+            ],
+          ),
+
+        const SizedBox(height: 20),
+
+        // 3. Bottom Summary Cards
+        if (web)
+          Row(
+            children: [
+              Expanded(
+                child: _buildSummaryCard(
+                  iconBgColor: const Color(0xFFE8F5E9),
+                  icon: Icons.eco,
+                  iconColor: const Color(0xFF2E7D32),
+                  value: "12",
+                  title: "Plants Monitored",
+                  subtitle: "Across your garden",
+                  valueColor: const Color(0xFF2E7D32),
+                ),
+              ),
+              const SizedBox(width: 16),
+              Expanded(
+                child: _buildSummaryCard(
+                  iconBgColor: const Color(0xFFE3F2FD),
+                  icon: Icons.camera_alt,
+                  iconColor: const Color(0xFF1565C0),
+                  value: "5",
+                  title: "Recent Scans",
+                  subtitle: "This Week",
+                  valueColor: const Color(0xFF1565C0),
+                ),
+              ),
+              const SizedBox(width: 16),
+              Expanded(
+                child: _buildSummaryCard(
+                  iconBgColor: const Color(0xFFFFF8E1),
+                  icon: Icons.check_circle_outline,
+                  iconColor: const Color(0xFFF57F17),
+                  value: "104",
+                  title: "Healthy Plants",
+                  subtitle: "Keep it up!",
+                  valueColor: const Color(0xFFF57F17),
+                ),
+              ),
+            ],
+          )
+        else
+          Column(
+            children: [
+              _buildSummaryCard(
+                iconBgColor: const Color(0xFFE8F5E9),
+                icon: Icons.eco,
+                iconColor: const Color(0xFF2E7D32),
+                value: "12",
+                title: "Plants Monitored",
+                subtitle: "Across your garden",
+                valueColor: const Color(0xFF2E7D32),
+              ),
+              const SizedBox(height: 12),
+              _buildSummaryCard(
+                iconBgColor: const Color(0xFFE3F2FD),
+                icon: Icons.camera_alt,
+                iconColor: const Color(0xFF1565C0),
+                value: "5",
+                title: "Recent Scans",
+                subtitle: "This Week",
+                valueColor: const Color(0xFF1565C0),
+              ),
+              const SizedBox(height: 12),
+              _buildSummaryCard(
+                iconBgColor: const Color(0xFFFFF8E1),
+                icon: Icons.check_circle_outline,
+                iconColor: const Color(0xFFF57F17),
+                value: "104",
+                title: "Healthy Plants",
+                subtitle: "Keep it up!",
+                valueColor: const Color(0xFFF57F17),
+              ),
+            ],
+          ),
+
+        const SizedBox(height: 40),
+      ],
+    );
+
+    return ResponsiveScaffold(
+      appBar: !web
+          ? AppBar(
+              title: const Text("My Profile"),
+            )
+          : null,
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(20),
+        child: web
+            ? Center(
+                child: Container(
+                  constraints: const BoxConstraints(maxWidth: 1100),
+                  child: profileContent,
+                ),
+              )
+            : profileContent,
+      ),
+    );
+  }
+
+  // Card builder for Profile Details
+  Widget _buildProfileDetailsCard(BuildContext context, String name, String email, String phone, String location) {
+    return ResponsiveCard(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              const Icon(Icons.person, color: Color(0xFF2E7D32)),
+              const SizedBox(width: 8),
+              const Text(
+                "Profile",
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black87),
+              ),
+              const Spacer(),
+              OutlinedButton(
+                onPressed: () {
+                  DashboardScreen.navigate(context, 'settings');
+                },
+                style: OutlinedButton.styleFrom(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  side: const BorderSide(color: Color(0xFF2E7D32)),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                ),
+                child: const Text("Edit", style: TextStyle(color: Color(0xFF2E7D32))),
+              ),
+            ],
+          ),
+          const Divider(height: 24, color: Colors.black12),
+          _buildProfileDetailRow(Icons.person_outline, "Full Name", name),
+          const Divider(height: 1, color: Colors.black12),
+          _buildProfileDetailRow(Icons.alternate_email, "Username", "@$username"),
+          const Divider(height: 1, color: Colors.black12),
+          _buildProfileDetailRow(Icons.mail_outline, "Email", email),
+          const Divider(height: 1, color: Colors.black12),
+          _buildProfileDetailRow(Icons.phone_outlined, "Phone", phone),
+          const Divider(height: 1, color: Colors.black12),
+          _buildProfileDetailRow(Icons.location_on_outlined, "Location", location),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildProfileDetailRow(IconData icon, String label, String value) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 12),
+      child: Row(
+        children: [
+          Icon(icon, color: Colors.black54, size: 20),
+          const SizedBox(width: 12),
+          Text(label, style: const TextStyle(color: Colors.black54, fontSize: 14)),
+          const Spacer(),
+          Text(value, style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 14, color: Colors.black87)),
+        ],
+      ),
+    );
+  }
+
+  // Card builder for Plant Statistics
+  Widget _buildPlantStatisticsCard(BuildContext context) {
+    return ResponsiveCard(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: const [
+              Icon(Icons.eco, color: Color(0xFF2E7D32)),
+              SizedBox(width: 8),
+              Text(
+                "Plant Statistics",
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black87),
+              ),
+            ],
+          ),
+          const Divider(height: 24, color: Colors.black12),
+          _buildStatRow(Icons.camera_alt_outlined, "Total Scans", "128"),
+          const Divider(height: 1, color: Colors.black12),
+          _buildStatRow(Icons.bug_report_outlined, "Diseases Detected", "24"),
+          const Divider(height: 1, color: Colors.black12),
+          _buildStatRow(Icons.track_changes, "Accuracy", "98%"),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildStatRow(IconData icon, String label, String value) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 12),
+      child: Row(
+        children: [
+          Icon(icon, color: const Color(0xFF2E7D32), size: 20),
+          const SizedBox(width: 12),
+          Text(label, style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 14, color: Colors.black87)),
+          const Spacer(),
+          Text(value, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14, color: Color(0xFF2E7D32))),
+        ],
+      ),
+    );
+  }
+
+  // Card builder for Security
+  Widget _buildSecurityCard(BuildContext context) {
+    return ResponsiveCard(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: const [
+              Icon(Icons.security, color: Color(0xFF2E7D32)),
+              SizedBox(width: 8),
+              Text(
+                "Security",
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black87),
+              ),
+            ],
+          ),
+          const Divider(height: 24, color: Colors.black12),
+          _buildSecurityRow(
+            context,
+            icon: Icons.lock_outline,
+            label: "Change Password",
+            onTap: () {
+              DashboardScreen.navigate(context, 'change_password');
+            },
+          ),
+          const Divider(height: 1, color: Colors.black12),
+          _buildSecurityRow(
+            context,
+            icon: Icons.shield_outlined,
+            label: "Two-Factor Authentication",
+            trailingBadge: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+              decoration: BoxDecoration(
+                color: const Color(0xFFE8F5E9),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: const Text(
+                "Enabled",
+                style: TextStyle(color: Color(0xFF2E7D32), fontSize: 11, fontWeight: FontWeight.bold),
+              ),
+            ),
+          ),
+          const Divider(height: 1, color: Colors.black12),
+          _buildSecurityRow(
+            context,
+            icon: Icons.visibility_outlined,
+            label: "Privacy Settings",
+          ),
+          const Divider(height: 1, color: Colors.black12),
+          _buildSecurityRow(
+            context,
+            icon: Icons.logout,
+            label: "Logout",
+            labelColor: Colors.red[600],
+            onTap: () async {
+              final auth = Provider.of<AuthService>(context, listen: false);
+              await auth.logout();
+              Navigator.of(context).pushNamedAndRemoveUntil('/', (route) => false);
+            },
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildSecurityRow(
+    BuildContext context, {
+    required IconData icon,
+    required String label,
+    Color? labelColor,
+    Widget? trailingBadge,
+    VoidCallback? onTap,
+  }) {
+    return ListTile(
+      contentPadding: EdgeInsets.zero,
+      leading: Icon(icon, color: labelColor ?? Colors.black54, size: 20),
+      title: Text(
+        label,
+        style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: labelColor ?? Colors.black87),
+      ),
+      trailing: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          if (trailingBadge != null) trailingBadge,
+          const SizedBox(width: 8),
+          const Icon(Icons.chevron_right, color: Colors.black26, size: 20),
+        ],
+      ),
+      onTap: onTap,
+    );
+  }
+
+  // Builder for summary metrics cards at bottom
+  Widget _buildSummaryCard({
+    required Color iconBgColor,
+    required IconData icon,
+    required Color iconColor,
+    required String value,
+    required String title,
+    required String subtitle,
+    required Color valueColor,
+  }) {
+    return Container(
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(16),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.04),
+            blurRadius: 8,
+            offset: const Offset(0, 4),
+          ),
+        ],
+      ),
+      child: Row(
+        children: [
+          Container(
+            padding: const EdgeInsets.all(12),
+            decoration: BoxDecoration(
+              color: iconBgColor,
+              shape: BoxShape.circle,
+            ),
+            child: Icon(icon, color: iconColor, size: 24),
+          ),
+          const SizedBox(width: 16),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  value,
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: valueColor,
+                  ),
+                ),
+                const SizedBox(height: 2),
+                Text(
+                  title,
+                  style: const TextStyle(
+                    fontSize: 13,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black87,
+                  ),
+                ),
+                const SizedBox(height: 1),
+                Text(
+                  subtitle,
+                  style: const TextStyle(
+                    fontSize: 11,
+                    color: Colors.black45,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }

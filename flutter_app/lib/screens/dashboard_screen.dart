@@ -40,6 +40,39 @@ class _DashboardScreenState extends State<DashboardScreen> {
     });
   }
 
+  Widget _buildComingSoonPage(BuildContext context, String title, IconData icon) {
+    return ResponsiveScaffold(
+      appBar: AppBar(
+        title: Text(title),
+      ),
+      body: Center(
+        child: Container(
+          constraints: const BoxConstraints(maxWidth: 550),
+          padding: const EdgeInsets.all(24),
+          child: ResponsiveCard(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Icon(icon, size: 64, color: ResponsiveTheme.getIconColor(context)),
+                const SizedBox(height: 16),
+                Text(
+                  "$title Library",
+                  style: ResponsiveTheme.getHeaderStyle(context, fontSize: 22),
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  "This section is currently under development. Check back soon for exciting new features!",
+                  textAlign: TextAlign.center,
+                  style: ResponsiveTheme.getSubHeaderStyle(context, fontSize: 14),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
   Widget _getScreenByPage(String page) {
     switch (page) {
       case 'scan_plant': return const ScanPlantScreen();
@@ -55,6 +88,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
       case 'potato_diseases': return const PotatoDiseasesScreen();
       case 'rice_diseases': return const RiceDiseasesScreen();
       case 'tomato_diseases': return const TomatoDiseasesScreen();
+      case 'my_plants': return _buildComingSoonPage(context, "My Plants", Icons.local_florist);
+      case 'analytics': return _buildComingSoonPage(context, "Analytics", Icons.analytics);
       default: return const SizedBox.shrink();
     }
   }
@@ -87,6 +122,14 @@ class _DashboardScreenState extends State<DashboardScreen> {
       case 'settings':
         currentSelectedPage = const SettingsScreen();
         pageTitle = 'Settings';
+        break;
+      case 'my_plants':
+        currentSelectedPage = _buildComingSoonPage(context, "My Plants", Icons.local_florist);
+        pageTitle = 'My Plants';
+        break;
+      case 'analytics':
+        currentSelectedPage = _buildComingSoonPage(context, "Analytics", Icons.analytics);
+        pageTitle = 'Analytics';
         break;
       case 'change_password':
         currentSelectedPage = const ChangePasswordScreen();
@@ -360,25 +403,36 @@ class _DashboardScreenState extends State<DashboardScreen> {
   Widget _buildMenuItem(
     BuildContext context, {
     required String page,
-    required Widget leading,
+    required IconData icon,
     required String title,
     required bool isMobile,
   }) {
     final bool isActive = _activePage == page;
-    final bool isDesktop = !isMobile;
 
     Widget listTile = ListTile(
-      leading: leading,
+      leading: Icon(
+        icon,
+        color: isActive ? Colors.white : Colors.white.withOpacity(0.6),
+        size: 22,
+      ),
       title: Text(
         title,
         style: TextStyle(
-          color: isActive
-              ? (isDesktop ? const Color(0xFF1B3B22) : Colors.white)
-              : Colors.white70,
+          color: isActive ? Colors.white : Colors.white.withOpacity(0.7),
           fontWeight: isActive ? FontWeight.bold : FontWeight.normal,
         ),
       ),
-      onTap: () {
+      onTap: () async {
+        if (page == 'logout') {
+          if (isMobile) {
+            Navigator.pop(context);
+          }
+          try {
+            await Provider.of<AuthService>(context, listen: false).logout();
+          } catch (_) {}
+          Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
+          return;
+        }
         if (isMobile) {
           Navigator.pop(context);
           if (page != 'dashboard') {
@@ -393,12 +447,12 @@ class _DashboardScreenState extends State<DashboardScreen> {
       },
     );
 
-    if (isActive && isDesktop) {
+    if (isActive) {
       return Container(
         margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
         decoration: BoxDecoration(
-          color: const Color(0xFFE8F5E9),
-          borderRadius: BorderRadius.circular(24),
+          color: Colors.white.withOpacity(0.15),
+          borderRadius: BorderRadius.circular(12),
         ),
         child: listTile,
       );
@@ -410,86 +464,54 @@ class _DashboardScreenState extends State<DashboardScreen> {
     );
   }
 
-  Widget _buildSubMenuItem(
-    BuildContext context, {
-    required String page,
-    Widget? leading,
-    required String title,
-    required bool isMobile,
-    required VoidCallback onTap,
-  }) {
-    final bool isActive = _activePage == page;
-    final bool isDesktop = !isMobile;
-
-    Widget listTile = ListTile(
-      leading: leading,
-      title: Text(
-        title,
-        style: TextStyle(
-          color: isActive
-              ? (isDesktop ? const Color(0xFF1B3B22) : Colors.white)
-              : Colors.white70,
-          fontSize: 14,
-          fontWeight: isActive ? FontWeight.bold : FontWeight.normal,
-        ),
-      ),
-      onTap: () {
-        if (isMobile) {
-          Navigator.pop(context);
-        }
-        onTap();
-      },
-    );
-
-    if (isActive && isDesktop) {
-      return Container(
-        margin: const EdgeInsets.only(left: 12, right: 12, top: 2, bottom: 2),
-        decoration: BoxDecoration(
-          color: const Color(0xFFE8F5E9),
-          borderRadius: BorderRadius.circular(24),
-        ),
-        child: listTile,
-      );
-    }
-
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 2),
-      child: listTile,
-    );
-  }
-
   Widget _buildCustomNavigationDrawerContent(BuildContext context, {required bool isMobile}) {
     return Container(
-      color: ResponsiveTheme.getSidebarColor(),
+      color: const Color(0xFF06331C), // Deep forest matte green
       child: Column(
         children: [
-          // Drawer Header
-          DrawerHeader(
-            decoration: const BoxDecoration(
-              color: Color(0xFF2E5A36), // Deep green header background
-            ),
-            child: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+          // Custom Header (Horizontal Layout matching the screenshot)
+          SafeArea(
+            bottom: false,
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
+              child: Row(
                 children: [
                   const CircleAvatar(
-                    radius: 30,
+                    radius: 22,
                     backgroundColor: Colors.white,
-                    child: Icon(Icons.eco, color: Color(0xFF2E5A36), size: 40),
+                    child: Icon(Icons.eco, color: Color(0xFF06331C), size: 26),
                   ),
-                  const SizedBox(height: 10),
-                  const Text(
-                    "Plant Care AI",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.min,
+                      children: const [
+                        Text(
+                          "Plant Care AI",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        SizedBox(height: 2),
+                        Text(
+                          "AI Powered Plant Disease Detection",
+                          style: TextStyle(
+                            color: Colors.white70,
+                            fontSize: 10,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ],
               ),
             ),
           ),
+          
+          const Divider(color: Colors.white24, height: 1),
           
           // Scrollable Drawer Items
           Expanded(
@@ -504,205 +526,69 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 ),
                 child: Column(
                   children: [
+                    const SizedBox(height: 8),
                     _buildMenuItem(
                       context,
                       page: 'dashboard',
-                      leading: const Text("🏠", style: TextStyle(fontSize: 20)),
+                      icon: Icons.dashboard_outlined,
                       title: "Dashboard",
                       isMobile: isMobile,
                     ),
                     _buildMenuItem(
                       context,
                       page: 'scan_plant',
-                      leading: const Text("📸", style: TextStyle(fontSize: 20)),
+                      icon: Icons.camera_alt_outlined,
                       title: "Scan Plant",
                       isMobile: isMobile,
                     ),
-
-                    const Divider(color: Colors.white24, height: 1),
-
-                    // Section 1: Treatments Style Dropdown Block
-                    ExpansionTile(
-                      title: const Text(
-                        "Treatments",
-                        style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-                      ),
-                      iconColor: Colors.white,
-                      collapsedIconColor: Colors.white70,
-                      childrenPadding: const EdgeInsets.only(left: 12),
-                      children: [
-                        _buildSubMenuItem(
-                          context,
-                          page: 'apple_diseases',
-                          leading: const Text("🍎", style: TextStyle(fontSize: 18)),
-                          title: "Apple Diseases",
-                          isMobile: isMobile,
-                          onTap: () {
-                            if (isMobile) {
-                              Navigator.push(context, MaterialPageRoute(builder: (_) => const AppleDiseasesScreen()));
-                            } else {
-                              _onPageSelected('apple_diseases');
-                            }
-                          },
-                        ),
-                        _buildSubMenuItem(
-                          context,
-                          page: 'corn_diseases',
-                          leading: const Text("🌽", style: TextStyle(fontSize: 18)),
-                          title: "Corn Diseases",
-                          isMobile: isMobile,
-                          onTap: () {
-                            if (isMobile) {
-                              Navigator.push(context, MaterialPageRoute(builder: (_) => const CornDiseasesScreen()));
-                            } else {
-                              _onPageSelected('corn_diseases');
-                            }
-                          },
-                        ),
-                        _buildSubMenuItem(
-                          context,
-                          page: 'grape_diseases',
-                          leading: const Text("🍇", style: TextStyle(fontSize: 18)),
-                          title: "Grape Diseases",
-                          isMobile: isMobile,
-                          onTap: () {
-                            if (isMobile) {
-                              Navigator.push(context, MaterialPageRoute(builder: (_) => const GrapeDiseasesScreen()));
-                            } else {
-                              _onPageSelected('grape_diseases');
-                            }
-                          },
-                        ),
-                        _buildSubMenuItem(
-                          context,
-                          page: 'peach_diseases',
-                          leading: const Text("🍑", style: TextStyle(fontSize: 18)),
-                          title: "Peach Diseases",
-                          isMobile: isMobile,
-                          onTap: () {
-                            if (isMobile) {
-                              Navigator.push(context, MaterialPageRoute(builder: (_) => const PeachDiseasesScreen()));
-                            } else {
-                              _onPageSelected('peach_diseases');
-                            }
-                          },
-                        ),
-                        _buildSubMenuItem(
-                          context,
-                          page: 'potato_diseases',
-                          leading: const Text("🥔", style: TextStyle(fontSize: 18)),
-                          title: "Potato Diseases",
-                          isMobile: isMobile,
-                          onTap: () {
-                            if (isMobile) {
-                              Navigator.push(context, MaterialPageRoute(builder: (_) => const PotatoDiseasesScreen()));
-                            } else {
-                              _onPageSelected('potato_diseases');
-                            }
-                          },
-                        ),
-                        _buildSubMenuItem(
-                          context,
-                          page: 'rice_diseases',
-                          leading: const Text("🌾", style: TextStyle(fontSize: 18)),
-                          title: "Rice Diseases",
-                          isMobile: isMobile,
-                          onTap: () {
-                            if (isMobile) {
-                              Navigator.push(context, MaterialPageRoute(builder: (_) => const RiceDiseasesScreen()));
-                            } else {
-                              _onPageSelected('rice_diseases');
-                            }
-                          },
-                        ),
-                        _buildSubMenuItem(
-                          context,
-                          page: 'tomato_diseases',
-                          leading: const Text("🍅", style: TextStyle(fontSize: 18)),
-                          title: "Tomato Diseases",
-                          isMobile: isMobile,
-                          onTap: () {
-                            if (isMobile) {
-                              Navigator.push(context, MaterialPageRoute(builder: (_) => const TomatoDiseasesScreen()));
-                            } else {
-                              _onPageSelected('tomato_diseases');
-                            }
-                          },
-                        ),
-                      ],
+                    _buildMenuItem(
+                      context,
+                      page: 'treatments',
+                      icon: Icons.medical_services_outlined,
+                      title: "Treatments",
+                      isMobile: isMobile,
                     ),
-
-                    const Divider(color: Colors.white24, height: 1),
-
-                    // Section 2: User Space Style Dropdown Block
-                    ExpansionTile(
-                      title: const Text(
-                        "User Space",
-                        style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-                      ),
-                      iconColor: Colors.white,
-                      collapsedIconColor: Colors.white70,
-                      childrenPadding: const EdgeInsets.only(left: 12),
-                      children: [
-                        _buildSubMenuItem(
-                          context,
-                          page: 'history',
-                          leading: const Text("🕒", style: TextStyle(fontSize: 18)),
-                          title: "History",
-                          isMobile: isMobile,
-                          onTap: () {
-                            if (isMobile) {
-                              Navigator.push(context, MaterialPageRoute(builder: (_) => const HistoryScreen()));
-                            } else {
-                              _onPageSelected('history');
-                            }
-                          },
-                        ),
-                        _buildSubMenuItem(
-                          context,
-                          page: 'profile',
-                          leading: const Text("👤", style: TextStyle(fontSize: 18)),
-                          title: "Profile",
-                          isMobile: isMobile,
-                          onTap: () {
-                            if (isMobile) {
-                              Navigator.push(context, MaterialPageRoute(builder: (_) => const ProfileScreen()));
-                            } else {
-                              _onPageSelected('profile');
-                            }
-                          },
-                        ),
-                      ],
+                    _buildMenuItem(
+                      context,
+                      page: 'history',
+                      icon: Icons.history,
+                      title: "History",
+                      isMobile: isMobile,
                     ),
-
-                    const Divider(color: Colors.white24, height: 1),
-
-                    // Section 3: Utilities & System Context
-                    ListTile(
-                      leading: const Text("⚙️", style: TextStyle(fontSize: 20)),
-                      title: const Text("Settings", style: TextStyle(color: Colors.white)),
-                      onTap: () {
-                        if (isMobile) {
-                          Navigator.pop(context);
-                          Navigator.push(context, MaterialPageRoute(builder: (_) => const SettingsScreen()));
-                        } else {
-                          _onPageSelected('settings');
-                        }
-                      },
+                    _buildMenuItem(
+                      context,
+                      page: 'my_plants',
+                      icon: Icons.local_florist_outlined,
+                      title: "My Plants",
+                      isMobile: isMobile,
                     ),
-                    ListTile(
-                      leading: const Text("🚪", style: TextStyle(fontSize: 20)),
-                      title: const Text("Log Out", style: TextStyle(color: Colors.white)),
-                      trailing: const Icon(Icons.logout, color: Colors.white70, size: 20),
-                      onTap: () async {
-                        if (isMobile) {
-                          Navigator.pop(context);
-                        }
-                        try {
-                          await Provider.of<AuthService>(context, listen: false).logout();
-                        } catch (_) {}
-                        Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
-                      },
+                    _buildMenuItem(
+                      context,
+                      page: 'analytics',
+                      icon: Icons.bar_chart_outlined,
+                      title: "Analytics",
+                      isMobile: isMobile,
+                    ),
+                    _buildMenuItem(
+                      context,
+                      page: 'settings',
+                      icon: Icons.settings_outlined,
+                      title: "Settings",
+                      isMobile: isMobile,
+                    ),
+                    _buildMenuItem(
+                      context,
+                      page: 'profile',
+                      icon: Icons.person_outline,
+                      title: "Profile",
+                      isMobile: isMobile,
+                    ),
+                    _buildMenuItem(
+                      context,
+                      page: 'logout',
+                      icon: Icons.logout,
+                      title: "Logout",
+                      isMobile: isMobile,
                     ),
                   ],
                 ),
@@ -712,37 +598,35 @@ class _DashboardScreenState extends State<DashboardScreen> {
           
           // Pinned bottom plant decorative graphic
           Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Icon(
-                  Icons.local_florist,
-                  size: 60,
-                  color: Colors.green[200],
-                ),
-                const SizedBox(height: 4),
-                Container(
-                  width: 30,
-                  height: 20,
-                  decoration: BoxDecoration(
-                    color: Colors.brown[300],
-                    borderRadius: const BorderRadius.only(
-                      bottomLeft: Radius.circular(6),
-                      bottomRight: Radius.circular(6),
+            padding: const EdgeInsets.all(16.0),
+            child: Container(
+              width: double.infinity,
+              padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
+              decoration: BoxDecoration(
+                color: const Color(0xFF032213),
+                borderRadius: BorderRadius.circular(16),
+                border: Border.all(color: Colors.green.withOpacity(0.2), width: 1),
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const Icon(
+                    Icons.local_florist,
+                    size: 40,
+                    color: Color(0xFF81C784),
+                  ),
+                  const SizedBox(height: 12),
+                  const Text(
+                    "Keep your\nplants healthy!",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 13,
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
-                ),
-                const SizedBox(height: 10),
-                const Text(
-                  "Keep your plants healthy!",
-                  style: TextStyle(
-                    color: Colors.white70,
-                    fontSize: 12,
-                    fontStyle: FontStyle.italic,
-                  ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ],
