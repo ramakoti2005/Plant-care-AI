@@ -134,8 +134,17 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
         setState(() {
           _isAnalyzing = false;
           _hasError = true;
-          _errorMessage = "Analysis failed.";
+          _errorMessage = "Analysis failed with status ${response.statusCode}: $body";
         });
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text("Error ${response.statusCode}: $body"),
+              backgroundColor: Colors.red,
+              duration: const Duration(seconds: 8),
+            ),
+          );
+        }
       }
     } catch (e) {
       setState(() {
