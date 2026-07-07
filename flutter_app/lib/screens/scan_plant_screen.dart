@@ -153,22 +153,78 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
 
   @override
   Widget build(BuildContext context) {
-    if (_isAnalyzing) {
-      return ResponsiveScaffold(
+    try {
+      if (_isAnalyzing) {
+        return ResponsiveScaffold(
+          appBar: AppBar(
+            title: const Text("Plant Carer AI"),
+          ),
+          body: const Center(
+            child: CircularProgressIndicator(color: Colors.green),
+          ),
+        );
+      }
+      
+      if (_hasResults) {
+        return _buildTreatmentResultsView(); 
+      }
+      
+      return _buildUploadAndAnalyzeView(); 
+    } catch (e, stackTrace) {
+      debugPrint("ScanPlantScreen Build Crash: $e\n$stackTrace");
+      return Scaffold(
         appBar: AppBar(
-          title: const Text("Plant Carer AI"),
+          title: const Text("Render Error"),
+          backgroundColor: Colors.red,
         ),
-        body: const Center(
-          child: CircularProgressIndicator(color: Colors.green),
+        body: Center(
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.all(24),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Icon(Icons.error_outline, color: Colors.red, size: 80),
+                const SizedBox(height: 16),
+                const Text(
+                  "A layout error occurred while rendering results.",
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(height: 12),
+                Container(
+                  padding: const EdgeInsets.all(16),
+                  decoration: BoxDecoration(
+                    color: Colors.red.withOpacity(0.05),
+                    borderRadius: BorderRadius.circular(12),
+                    border: Border.all(color: Colors.red.withOpacity(0.2)),
+                  ),
+                  child: Text(
+                    e.toString(),
+                    style: const TextStyle(color: Colors.red, fontFamily: 'monospace'),
+                    textAlign: TextAlign.left,
+                  ),
+                ),
+                const SizedBox(height: 24),
+                ElevatedButton.icon(
+                  onPressed: () {
+                    setState(() {
+                      _isAnalyzing = false;
+                      _hasResults = false;
+                      _result = null;
+                    });
+                  },
+                  icon: const Icon(Icons.arrow_back),
+                  label: const Text("Go Back"),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.green,
+                    foregroundColor: Colors.white,
+                  ),
+                ),
+              ],
+            ),
+          ),
         ),
       );
     }
-    
-    if (_hasResults) {
-      return _buildTreatmentResultsView(); 
-    }
-    
-    return _buildUploadAndAnalyzeView(); 
   }
 
   Widget _buildTreatmentResultsView() {
