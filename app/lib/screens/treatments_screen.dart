@@ -22,27 +22,27 @@ class TreatmentsScreen extends StatelessWidget {
       },
       {
         'name': 'Corn Diseases',
-        'icon': Icons.grass,
+        'icon': Icons.grain,
       },
       {
         'name': 'Grape Diseases',
-        'icon': Icons.local_florist,
+        'icon': Icons.bubble_chart,
       },
       {
         'name': 'Peach Diseases',
-        'icon': Icons.eco,
+        'icon': Icons.spa,
       },
       {
         'name': 'Potato Diseases',
-        'icon': Icons.eco,
+        'icon': Icons.circle,
       },
       {
         'name': 'Rice Diseases',
-        'icon': Icons.agriculture,
+        'icon': Icons.rice_bowl,
       },
       {
         'name': 'Tomato Diseases',
-        'icon': Icons.energy_savings_leaf,
+        'icon': Icons.circle,
       },
     ];
 
