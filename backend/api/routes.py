@@ -70,7 +70,7 @@ async def analyze_leaf_image(
             db, 
             user_id=current_user.id if current_user else None,
             image_path=relative_image_path,
-            image_file=file.file
+            raw_image_bytes=image_bytes
         )
 
         response_data["image_path"] = response_data.get("image_path") or relative_image_path

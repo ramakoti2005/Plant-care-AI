@@ -31,8 +31,18 @@ try:
         if "image_path" not in columns:
             logger.info("Migrating Database: Adding 'image_path' column to 'scan_histories' table.")
             with engine.begin() as conn:
-                conn.execute(text("ALTER TABLE scan_histories ADD COLUMN image_path VARCHAR(255)"))
+                conn.execute(text("ALTER TABLE scan_histories ADD COLUMN image_path TEXT"))
             logger.info("Migrating Database: Successfully added 'image_path' column.")
+        else:
+            # If the column exists, make sure its type is TEXT in PostgreSQL to support long base64 strings
+            if engine.dialect.name == 'postgresql':
+                logger.info("Migrating Database: Modifying 'image_path' column type to TEXT on PostgreSQL.")
+                try:
+                    with engine.begin() as conn:
+                        conn.execute(text("ALTER TABLE scan_histories ALTER COLUMN image_path TYPE TEXT"))
+                    logger.info("Migrating Database: Successfully altered 'image_path' column type to TEXT.")
+                except Exception as ex:
+                    logger.error(f"Migrating Database: Error altering image_path column: {ex}")
 except Exception as e:
     logger.error(f"Error creating database tables or migrating: {e}")
 
