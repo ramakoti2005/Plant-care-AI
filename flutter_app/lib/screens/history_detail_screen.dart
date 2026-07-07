@@ -93,119 +93,112 @@ class HistoryDetailScreen extends StatelessWidget {
                       // Left Column
                       Expanded(
                         flex: 4,
-                        child: SingleChildScrollView(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              if (imgPath.isNotEmpty)
-                                AspectRatio(
-                                  aspectRatio: 4 / 3,
-                                  child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(16),
-                                    child: buildDetailImage(
-                                      finalImageUrl,
-                                      fit: BoxFit.contain,
-                                      progressColor: Colors.green,
-                                      iconColor: Colors.grey,
-                                    ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            if (imgPath.isNotEmpty)
+                              AspectRatio(
+                                aspectRatio: 4 / 3,
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(16),
+                                  child: buildDetailImage(
+                                    finalImageUrl,
+                                    fit: BoxFit.contain,
+                                    progressColor: Colors.green,
+                                    iconColor: Colors.grey,
                                   ),
                                 ),
-                              const SizedBox(height: 16),
-                              Text(
-                                scan['plant_name'] ?? '',
-                                style: const TextStyle(
-                                  fontSize: 26,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.green,
-                                ),
                               ),
-                              const Divider(height: 30),
-                              const Text(
-                                "Scientific Name",
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                ),
+                            const SizedBox(height: 16),
+                            Text(
+                              scan['plant_name'] ?? '',
+                              style: const TextStyle(
+                                fontSize: 26,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.green,
                               ),
-                              Text(scan['scientific_name'] ?? ''),
-                              const SizedBox(height: 15),
-                              const Text(
-                                "Image Quality",
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                ),
+                            ),
+                            const Divider(height: 30),
+                            const Text(
+                              "Scientific Name",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
                               ),
-                              Text(scan['image_quality'].toString()),
-                              const SizedBox(height: 15),
-                              const Text(
-                                "Scan Date & Time",
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                ),
+                            ),
+                            Text(scan['scientific_name'] ?? ''),
+                            const SizedBox(height: 15),
+                            const Text(
+                              "Image Quality",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
                               ),
-                              Text(_formatDate(scan['timestamp'] ?? scan['created_at'] ?? scan['date'])),
-                            ],
-                          ),
+                            ),
+                            Text(scan['image_quality'].toString()),
+                            const SizedBox(height: 15),
+                            const Text(
+                              "Scan Date & Time",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            Text(_formatDate(scan['timestamp'] ?? scan['created_at'] ?? scan['date'])),
+                          ],
                         ),
                       ),
                       const SizedBox(width: 24),
                       // Right Column
                       Expanded(
                         flex: 6,
-                        child: Container(
-                          height: MediaQuery.of(context).size.height * 0.75,
-                          child: SingleChildScrollView(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                const Text(
-                                  "Analysis & Treatment Details",
-                                  style: TextStyle(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold,
-                                    color: Color(0xFF1B5E20),
-                                  ),
-                                ),
-                                const SizedBox(height: 15),
-                                _buildSectionCard(
-                                  context: context,
-                                  title: "Overview & Causes",
-                                  content: "Crop: ${scan['plant_name'] ?? 'Unknown'}\nCondition: ${scan['scientific_name'] ?? scan['disease_name'] ?? 'Unknown'}\n\nPathogen/Cause: ${scan['cause'] ?? ( (scan['disease_name']?.toString().toLowerCase().contains('healthy') ?? false) ? 'No disease symptoms' : 'N/A' )}",
-                                  icon: Icons.info_outline,
-                                  iconColor: const Color(0xFF2E7D32),
-                                  bgColor: const Color(0xFFF1F8E9),
-                                ),
-                                _buildSectionCard(
-                                  context: context,
-                                  title: "Symptoms",
-                                  content: scan['symptoms'] ?? ( (scan['disease_name']?.toString().toLowerCase().contains('healthy') ?? false) ? 'None' : 'No symptom details available.' ),
-                                  icon: Icons.healing,
-                                  iconColor: const Color(0xFFE65100),
-                                  bgColor: const Color(0xFFFFF3E0),
-                                ),
-                                if (scan['organic_remedy'] != null && 
-                                    scan['organic_remedy'].toString().trim().isNotEmpty && 
-                                    scan['organic_remedy'].toString().trim().toLowerCase() != "none" && 
-                                    scan['organic_remedy'].toString().trim().toLowerCase() != "none required" &&
-                                    scan['organic_remedy'].toString().trim().toLowerCase() != "null")
-                                  _buildSectionCard(
-                                    context: context,
-                                    title: "Organic Remedy",
-                                    content: scan['organic_remedy'],
-                                    icon: Icons.eco,
-                                    iconColor: const Color(0xFF2E7D32),
-                                    bgColor: const Color(0xFFE8F5E9),
-                                  ),
-                                _buildSectionCard(
-                                  context: context,
-                                  title: "Chemical Control",
-                                  content: scan['chemical_control'] ?? ( (scan['disease_name']?.toString().toLowerCase().contains('healthy') ?? false) ? 'None required' : 'No chemical control specified.' ),
-                                  icon: Icons.science,
-                                  iconColor: const Color(0xFF0288D1),
-                                  bgColor: const Color(0xFFE1F5FE),
-                                ),
-                              ],
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Text(
+                              "Analysis & Treatment Details",
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                                color: Color(0xFF1B5E20),
+                              ),
                             ),
-                          ),
+                            const SizedBox(height: 15),
+                            _buildSectionCard(
+                              context: context,
+                              title: "Overview & Causes",
+                              content: "Crop: ${scan['plant_name'] ?? 'Unknown'}\nCondition: ${scan['scientific_name'] ?? scan['disease_name'] ?? 'Unknown'}\n\nPathogen/Cause: ${scan['cause'] ?? ( (scan['disease_name']?.toString().toLowerCase().contains('healthy') ?? false) ? 'No disease symptoms' : 'N/A' )}",
+                              icon: Icons.info_outline,
+                              iconColor: const Color(0xFF2E7D32),
+                              bgColor: const Color(0xFFF1F8E9),
+                            ),
+                            _buildSectionCard(
+                              context: context,
+                              title: "Symptoms",
+                              content: scan['symptoms'] ?? ( (scan['disease_name']?.toString().toLowerCase().contains('healthy') ?? false) ? 'None' : 'No symptom details available.' ),
+                              icon: Icons.healing,
+                              iconColor: const Color(0xFFE65100),
+                              bgColor: const Color(0xFFFFF3E0),
+                            ),
+                            if (scan['organic_remedy'] != null && 
+                                scan['organic_remedy'].toString().trim().isNotEmpty && 
+                                scan['organic_remedy'].toString().trim().toLowerCase() != "none" && 
+                                scan['organic_remedy'].toString().trim().toLowerCase() != "none required" &&
+                                scan['organic_remedy'].toString().trim().toLowerCase() != "null")
+                              _buildSectionCard(
+                                context: context,
+                                title: "Organic Remedy",
+                                content: scan['organic_remedy'],
+                                icon: Icons.eco,
+                                iconColor: const Color(0xFF2E7D32),
+                                bgColor: const Color(0xFFE8F5E9),
+                              ),
+                            _buildSectionCard(
+                              context: context,
+                              title: "Chemical Control",
+                              content: scan['chemical_control'] ?? ( (scan['disease_name']?.toString().toLowerCase().contains('healthy') ?? false) ? 'None required' : 'No chemical control specified.' ),
+                              icon: Icons.science,
+                              iconColor: const Color(0xFF0288D1),
+                              bgColor: const Color(0xFFE1F5FE),
+                            ),
+                          ],
                         ),
                       ),
                     ],

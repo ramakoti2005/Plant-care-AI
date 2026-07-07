@@ -437,125 +437,118 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
             // Left Column
             Expanded(
               flex: 4, 
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    AspectRatio(
-                      aspectRatio: 4 / 3,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(16),
-                        child: _imageBytes != null 
-                            ? Image.memory(
-                                _imageBytes!,
-                                fit: BoxFit.contain,
-                              )
-                            : Container(
-                                color: Colors.grey[200],
-                                child: const Icon(Icons.image, size: 80, color: Colors.grey),
-                              ),
-                      ),
+              child: Column(
+                children: [
+                  AspectRatio(
+                    aspectRatio: 4 / 3,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(16),
+                      child: _imageBytes != null 
+                          ? Image.memory(
+                              _imageBytes!,
+                              fit: BoxFit.contain,
+                            )
+                          : Container(
+                              color: Colors.grey[200],
+                              child: const Icon(Icons.image, size: 80, color: Colors.grey),
+                            ),
                     ),
-                    const SizedBox(height: 16),
-                    _buildInfoCard(context, "Plant Name", plantName),
-                    const SizedBox(height: 10),
-                    _buildInfoCard(context, "Disease", diseaseName, 
-                      isDisease: true, 
-                      isHealthy: isHealthy
-                    ),
-                    
-                    if (_result!['reference_image'] != null) ...[
-                      const SizedBox(height: 20),
-                      Align(
-                        alignment: Alignment.centerLeft,
-                        child: Text(
-                          "Reference Leaf Image",
-                          style: TextStyle(
-                            fontSize: 18, 
-                            fontWeight: FontWeight.bold, 
-                            color: ResponsiveTheme.getIconColor(context),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(height: 10),
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(20),
-                        child: Image.network(
-                          'https://${Uri.parse(ApiConfig.baseUrl).host}${_result!['reference_image']}',
-                          height: 180,
-                          width: double.infinity,
-                          fit: BoxFit.cover,
-                          errorBuilder: (context, error, stackTrace) => Container(
-                            height: 180,
-                            width: double.infinity,
-                            color: Colors.grey[200],
-                            child: const Icon(Icons.image_not_supported, size: 50, color: Colors.grey),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ],
-                ),
-              ),
-            ),
-            const SizedBox(width: 24),
-            // Right Column
-            Expanded(
-              flex: 6,
-              child: Container(
-                height: MediaQuery.of(context).size.height * 0.75,
-                child: SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Treatment Information",
+                  ),
+                  const SizedBox(height: 16),
+                  _buildInfoCard(context, "Plant Name", plantName),
+                  const SizedBox(height: 10),
+                  _buildInfoCard(context, "Disease", diseaseName, 
+                    isDisease: true, 
+                    isHealthy: isHealthy
+                  ),
+                  
+                  if (_result!['reference_image'] != null) ...[
+                    const SizedBox(height: 20),
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        "Reference Leaf Image",
                         style: TextStyle(
                           fontSize: 18, 
                           fontWeight: FontWeight.bold, 
                           color: ResponsiveTheme.getIconColor(context),
                         ),
                       ),
-                      const SizedBox(height: 10),
-                      _buildSectionCard(
-                        context: context,
-                        title: "Overview & Cause",
-                        content: cause,
-                        icon: Icons.info_outline,
-                        iconColor: const Color(0xFF2E7D32),
-                        bgColor: Colors.white,
-                      ),
-                      if (organicRemedy != null && 
-                          organicRemedy.trim().isNotEmpty && 
-                          organicRemedy.trim().toLowerCase() != "none" && 
-                          organicRemedy.trim().toLowerCase() != "none required" &&
-                          organicRemedy.trim().toLowerCase() != "null")
-                        _buildSectionCard(
-                          context: context,
-                          title: "Organic Remedy",
-                          content: organicRemedy,
-                          icon: Icons.eco_outlined,
-                          iconColor: Colors.teal,
-                          bgColor: Colors.white,
+                    ),
+                    const SizedBox(height: 10),
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(20),
+                      child: Image.network(
+                        'https://${Uri.parse(ApiConfig.baseUrl).host}${_result!['reference_image']}',
+                        height: 180,
+                        width: double.infinity,
+                        fit: BoxFit.cover,
+                        errorBuilder: (context, error, stackTrace) => Container(
+                          height: 180,
+                          width: double.infinity,
+                          color: Colors.grey[200],
+                          child: const Icon(Icons.image_not_supported, size: 50, color: Colors.grey),
                         ),
-                      _buildSectionCard(
-                        context: context,
-                        title: "Diagnostic Symptoms",
-                        content: symptoms,
-                        icon: Icons.bug_report_outlined,
-                        iconColor: Colors.orange,
-                        bgColor: Colors.white,
                       ),
-                      _buildSectionCard(
-                        context: context,
-                        title: "Targeted Chemical Control",
-                        content: chemicalControl,
-                        icon: Icons.science_outlined,
-                        iconColor: Colors.purple,
-                        bgColor: Colors.white,
-                      ),
-                    ],
+                    ),
+                  ],
+                ],
+              ),
+            ),
+            const SizedBox(width: 24),
+            // Right Column
+            Expanded(
+              flex: 6,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Treatment Information",
+                    style: TextStyle(
+                      fontSize: 18, 
+                      fontWeight: FontWeight.bold, 
+                      color: ResponsiveTheme.getIconColor(context),
+                    ),
                   ),
-                ),
+                  const SizedBox(height: 10),
+                  _buildSectionCard(
+                    context: context,
+                    title: "Overview & Cause",
+                    content: cause,
+                    icon: Icons.info_outline,
+                    iconColor: const Color(0xFF2E7D32),
+                    bgColor: Colors.white,
+                  ),
+                  if (organicRemedy != null && 
+                      organicRemedy.trim().isNotEmpty && 
+                      organicRemedy.trim().toLowerCase() != "none" && 
+                      organicRemedy.trim().toLowerCase() != "none required" &&
+                      organicRemedy.trim().toLowerCase() != "null")
+                    _buildSectionCard(
+                      context: context,
+                      title: "Organic Remedy",
+                      content: organicRemedy,
+                      icon: Icons.eco_outlined,
+                      iconColor: Colors.teal,
+                      bgColor: Colors.white,
+                    ),
+                  _buildSectionCard(
+                    context: context,
+                    title: "Diagnostic Symptoms",
+                    content: symptoms,
+                    icon: Icons.bug_report_outlined,
+                    iconColor: Colors.orange,
+                    bgColor: Colors.white,
+                  ),
+                  _buildSectionCard(
+                    context: context,
+                    title: "Targeted Chemical Control",
+                    content: chemicalControl,
+                    icon: Icons.science_outlined,
+                    iconColor: Colors.purple,
+                    bgColor: Colors.white,
+                  ),
+                ],
               ),
             ),
           ],
