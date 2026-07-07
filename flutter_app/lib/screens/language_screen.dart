@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../theme/responsive_theme.dart';
 
 class LanguageScreen extends StatefulWidget {
   const LanguageScreen({super.key});
@@ -12,78 +13,47 @@ class _LanguageScreenState extends State<LanguageScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    final bool web = ResponsiveTheme.isWebLayout(context);
+    final languages = ["English", "Hindi", "Telugu", "Tamil", "Kannada", "Malayalam"];
+
+    return ResponsiveScaffold(
       appBar: AppBar(
         title: const Text(
           "Language",
-          style: TextStyle(color: Colors.white),
         ),
-        backgroundColor: const Color(0xFF2E7D32),
-        iconTheme: const IconThemeData(color: Colors.white),
       ),
-      body: ListView(
-        children: [
-          RadioListTile(
-            title: const Text("English"),
-            value: "English",
-            groupValue: selectedLanguage,
-            onChanged: (value) {
-              setState(() {
-                selectedLanguage = value.toString();
-              });
+      body: Center(
+        child: Container(
+          constraints: web ? const BoxConstraints(maxWidth: 800) : null,
+          padding: const EdgeInsets.all(16),
+          child: ListView.builder(
+            itemCount: languages.length,
+            itemBuilder: (context, index) {
+              final lang = languages[index];
+              return ResponsiveCard(
+                padding: EdgeInsets.zero,
+                margin: const EdgeInsets.only(bottom: 12),
+                child: RadioListTile(
+                  title: Text(
+                    lang,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: web ? Colors.black87 : Colors.white,
+                    ),
+                  ),
+                  value: lang,
+                  groupValue: selectedLanguage,
+                  activeColor: ResponsiveTheme.getIconColor(context),
+                  onChanged: (value) {
+                    setState(() {
+                      selectedLanguage = value.toString();
+                    });
+                  },
+                ),
+              );
             },
           ),
-          RadioListTile(
-            title: const Text("Hindi"),
-            value: "Hindi",
-            groupValue: selectedLanguage,
-            onChanged: (value) {
-              setState(() {
-                selectedLanguage = value.toString();
-              });
-            },
-          ),
-          RadioListTile(
-            title: const Text("Telugu"),
-            value: "Telugu",
-            groupValue: selectedLanguage,
-            onChanged: (value) {
-              setState(() {
-                selectedLanguage = value.toString();
-              });
-            },
-          ),
-          RadioListTile(
-            title: const Text("Tamil"),
-            value: "Tamil",
-            groupValue: selectedLanguage,
-            onChanged: (value) {
-              setState(() {
-                selectedLanguage = value.toString();
-              });
-            },
-          ),
-          RadioListTile(
-            title: const Text("Kannada"),
-            value: "Kannada",
-            groupValue: selectedLanguage,
-            onChanged: (value) {
-              setState(() {
-                selectedLanguage = value.toString();
-              });
-            },
-          ),
-          RadioListTile(
-            title: const Text("Malayalam"),
-            value: "Malayalam",
-            groupValue: selectedLanguage,
-            onChanged: (value) {
-              setState(() {
-                selectedLanguage = value.toString();
-              });
-            },
-          ),
-        ],
+        ),
       ),
     );
   }

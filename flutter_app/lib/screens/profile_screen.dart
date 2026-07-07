@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:typed_data';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import '../theme/responsive_theme.dart';
 import 'dashboard_screen.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
@@ -32,7 +33,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
     _loadImage();
   }
 
-  // Reads the stored login token credentials out of internal memory
   Future<void> _loadUserData() async {
     try {
       final prefs = await SharedPreferences.getInstance();
@@ -58,7 +58,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
     }
   }
 
-  /// Loads the saved image from SharedPreferences
   Future<void> _loadImage() async {
     try {
       final SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -73,7 +72,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
     }
   }
 
-  /// Saves the image locally using SharedPreferences
   Future<void> _saveImage(Uint8List bytes) async {
     try {
       final SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -84,7 +82,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
     }
   }
 
-  /// Opens gallery to pick an image and saves its path
   Future<void> _pickImage() async {
     try {
       final XFile? pickedFile = await _picker.pickImage(
@@ -111,40 +108,35 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final bool web = ResponsiveTheme.isWebLayout(context);
+
     if (isLoading) {
-      return const Scaffold(
-        body: Center(child: CircularProgressIndicator(color: Colors.green)),
+      return ResponsiveScaffold(
+        body: Center(child: CircularProgressIndicator(color: ResponsiveTheme.getIconColor(context))),
       );
     }
 
-    return Scaffold(
-      backgroundColor: const Color(0xFFF4FAF4),
+    return ResponsiveScaffold(
       appBar: AppBar(
         title: const Text(
           "My Profile",
-          style: TextStyle(color: Colors.white),
         ),
-        backgroundColor: const Color(0xFF2E7D32),
-        iconTheme: const IconThemeData(color: Colors.white),
-        elevation: 0,
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            // 1. A top header container with a dark green background.
             Container(
               width: double.infinity,
               padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 16),
-              decoration: const BoxDecoration(
-                color: Color(0xFF2E7D32),
-                borderRadius: BorderRadius.only(
+              decoration: BoxDecoration(
+                color: web ? const Color(0xFF2E7D32) : Colors.green.withOpacity(0.25),
+                borderRadius: const BorderRadius.only(
                   bottomLeft: Radius.circular(24),
                   bottomRight: Radius.circular(24),
                 ),
               ),
               child: Column(
                 children: [
-                  // 2. Inside that header, display the profile picture avatar circle
                   CircleAvatar(
                     radius: 65,
                     backgroundColor: Colors.white24,
@@ -160,7 +152,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         : null,
                   ),
                   const SizedBox(height: 12),
-                  // with the "Change Photo" button.
                   TextButton.icon(
                     onPressed: _pickImage,
                     icon: const Icon(Icons.camera_alt, color: Colors.white70),
@@ -173,7 +164,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ),
                   ),
                   const SizedBox(height: 8),
-                  // 3. Below the avatar, display the dynamic username text widget.
                   Text(
                     username,
                     style: const TextStyle(
@@ -186,35 +176,34 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
             ),
 
-            // Padding for the elements below the green header block
             Center(
               child: Container(
-                constraints: kIsWeb ? const BoxConstraints(maxWidth: 600) : null,
+                constraints: web ? const BoxConstraints(maxWidth: 600) : null,
                 padding: const EdgeInsets.all(20),
                 child: Column(
                   children: [
-                    // 4. Below the green header block, display the large stacked input/display panels for:
-                    // - Email (showing the active user's email icon and text field row).
-                    Card(
-                      elevation: kIsWeb ? 4 : 2,
-                      shadowColor: kIsWeb ? Colors.black.withOpacity(0.04) : null,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(kIsWeb ? 16 : 12),
-                      ),
+                    ResponsiveCard(
+                      padding: EdgeInsets.zero,
                       child: ListTile(
-                        leading: const Icon(Icons.email, color: Color(0xFF2E7D32)),
-                        title: const Text("Email"),
-                        subtitle: Text(email),
+                        leading: Icon(Icons.email, color: ResponsiveTheme.getIconColor(context)),
+                        title: Text(
+                          "Email",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: web ? Colors.black87 : Colors.white,
+                          ),
+                        ),
+                        subtitle: Text(
+                          email,
+                          style: TextStyle(
+                            color: web ? Colors.grey[700] : const Color(0xFFE0E0E0),
+                          ),
+                        ),
                       ),
                     ),
                     const SizedBox(height: 12),
-                    // - Settings (with the chevron icon pointing right to "Manage preferences").
-                    Card(
-                      elevation: kIsWeb ? 4 : 2,
-                      shadowColor: kIsWeb ? Colors.black.withOpacity(0.04) : null,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(kIsWeb ? 16 : 12),
-                      ),
+                    ResponsiveCard(
+                      padding: EdgeInsets.zero,
                       child: ListTile(
                         onTap: () {
                           DashboardScreen.navigate(
@@ -223,14 +212,28 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             fallbackWidget: const SettingsScreen(),
                           );
                         },
-                        leading: const Icon(Icons.settings, color: Color(0xFF2E7D32)),
-                        title: const Text("Settings"),
-                        subtitle: const Text("Manage preferences"),
-                        trailing: const Icon(Icons.chevron_right, size: 20, color: Color(0xFF2E7D32)),
+                        leading: Icon(Icons.settings, color: ResponsiveTheme.getIconColor(context)),
+                        title: Text(
+                          "Settings",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: web ? Colors.black87 : Colors.white,
+                          ),
+                        ),
+                        subtitle: Text(
+                          "Manage preferences",
+                          style: TextStyle(
+                            color: web ? Colors.grey[700] : const Color(0xFFE0E0E0),
+                          ),
+                        ),
+                        trailing: Icon(
+                          Icons.chevron_right, 
+                          size: 20, 
+                          color: ResponsiveTheme.getIconColor(context),
+                        ),
                       ),
                     ),
                     const SizedBox(height: 40),
-                    // 5. A wide, full-width Red button at the bottom for "Logout".
                     SizedBox(
                       width: double.infinity,
                       height: 50,
@@ -254,7 +257,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.red[600],
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(kIsWeb ? 16 : 12),
+                            borderRadius: BorderRadius.circular(16),
                           ),
                         ),
                       ),

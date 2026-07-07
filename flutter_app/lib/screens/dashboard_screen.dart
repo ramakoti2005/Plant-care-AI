@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:provider/provider.dart';
 import '../services/auth_service.dart';
+import '../theme/responsive_theme.dart';
 import 'screens.dart';
 
 class DashboardScreen extends StatefulWidget {
@@ -39,9 +40,28 @@ class _DashboardScreenState extends State<DashboardScreen> {
     });
   }
 
+  Widget _getScreenByPage(String page) {
+    switch (page) {
+      case 'scan_plant': return const ScanPlantScreen();
+      case 'history': return const HistoryScreen();
+      case 'treatments': return const TreatmentsScreen();
+      case 'profile': return const ProfileScreen();
+      case 'settings': return const SettingsScreen();
+      case 'change_password': return const ChangePasswordScreen();
+      case 'apple_diseases': return const AppleDiseasesScreen();
+      case 'corn_diseases': return const CornDiseasesScreen();
+      case 'grape_diseases': return const GrapeDiseasesScreen();
+      case 'peach_diseases': return const PeachDiseasesScreen();
+      case 'potato_diseases': return const PotatoDiseasesScreen();
+      case 'rice_diseases': return const RiceDiseasesScreen();
+      case 'tomato_diseases': return const TomatoDiseasesScreen();
+      default: return const SizedBox.shrink();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    final bool isDesktop = kIsWeb || MediaQuery.of(context).size.width >= 900;
+    final bool isDesktop = ResponsiveTheme.isWebLayout(context);
 
     // Resolve current selected page body
     Widget currentSelectedPage;
@@ -114,60 +134,52 @@ class _DashboardScreenState extends State<DashboardScreen> {
     if (isDesktop) {
       // 🖥️ Web / Desktop layout with persistent Left Sidebar
       return Scaffold(
-        backgroundColor: const Color(0xFFF4FAF4),
-        body: Row(
-          children: [
-            // Left Sidebar
-            SizedBox(
-              width: 260,
-              child: Drawer(
-                child: _buildCustomNavigationDrawerContent(context, isMobile: false),
+        backgroundColor: Colors.transparent,
+        body: Container(
+          decoration: ResponsiveTheme.getAppBackgroundDecoration(context),
+          child: Row(
+            children: [
+              // Left Sidebar
+              SizedBox(
+                width: 260,
+                child: Drawer(
+                  child: _buildCustomNavigationDrawerContent(context, isMobile: false),
+                ),
               ),
-            ),
-            // Right Content Area
-            Expanded(
-              child: Scaffold(
-                backgroundColor: const Color(0xFFF4FAF4),
-                appBar: _activePage == 'dashboard'
-                    ? AppBar(
-                        backgroundColor: const Color(0xFF2E7D32),
-                        elevation: 0,
-                        iconTheme: const IconThemeData(color: Colors.white),
-                        title: Text(
-                          pageTitle,
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
+              // Right Content Area
+              Expanded(
+                child: Scaffold(
+                  backgroundColor: Colors.transparent,
+                  appBar: _activePage == 'dashboard'
+                      ? AppBar(
+                          backgroundColor: Colors.transparent,
+                          elevation: 0,
+                          iconTheme: const IconThemeData(color: Color(0xFF1B5E20)),
+                          title: Text(
+                            pageTitle,
+                            style: const TextStyle(
+                              color: Color(0xFF1B5E20),
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
-                        ),
-                        centerTitle: true,
-                      )
-                    : null, // Sub-pages render their own app bar inside the viewport
-                body: currentSelectedPage,
+                          centerTitle: true,
+                        )
+                      : null, // Sub-pages render their own app bar inside the viewport
+                  body: currentSelectedPage,
+                ),
               ),
-),
-          ],
+            ],
+          ),
         ),
       );
     } else {
       // 📱 Mobile layout with hamburger menu and sliding drawer
-      return Scaffold(
-        backgroundColor: const Color(0xFFF4FAF4),
+      return ResponsiveScaffold(
         appBar: _activePage == 'dashboard'
             ? AppBar(
-                backgroundColor: const Color(0xFF2E7D32),
-                elevation: 0,
-                iconTheme: const IconThemeData(color: Colors.white),
-                title: Text(
-                  pageTitle,
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                centerTitle: true,
+                title: Text(pageTitle),
               )
-            : null, // Sub-pages render their own app bar inside the viewport
+            : null,
         drawer: _activePage == 'dashboard'
             ? Drawer(
                 child: _buildCustomNavigationDrawerContent(context, isMobile: true),
@@ -181,7 +193,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
   Widget _buildDashboardBodyContent(BuildContext context) {
     return Center(
       child: Container(
-        constraints: kIsWeb ? const BoxConstraints(maxWidth: 1100) : null,
+        constraints: ResponsiveTheme.isWebLayout(context) ? const BoxConstraints(maxWidth: 1100) : null,
         child: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
           child: Column(
@@ -201,24 +213,17 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
               const SizedBox(height: 20),
 
-              const Text(
+              Text(
                 "Welcome to Plant Care AI",
-                style: TextStyle(
-                  fontSize: 26,
-                  fontWeight: FontWeight.bold,
-                  color: Color(0xFF1B5E20),
-                ),
+                style: ResponsiveTheme.getHeaderStyle(context, fontSize: 26),
               ),
 
               const SizedBox(height: 8),
 
-              const Text(
+              Text(
                 "AI Powered Plant Disease Detection",
                 textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.black54,
-                ),
+                style: ResponsiveTheme.getSubHeaderStyle(context, fontSize: 16),
               ),
 
               const SizedBox(height: 40),
@@ -227,8 +232,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
               GridView.count(
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
-                crossAxisCount: kIsWeb || MediaQuery.of(context).size.width >= 900 ? 2 : 1,
-                childAspectRatio: kIsWeb || MediaQuery.of(context).size.width >= 900 ? 3.0 : 3.5,
+                crossAxisCount: ResponsiveTheme.isWebLayout(context) ? 2 : 1,
+                childAspectRatio: ResponsiveTheme.isWebLayout(context) ? 3.0 : 3.5,
                 mainAxisSpacing: 16,
                 crossAxisSpacing: 16,
                 children: [
@@ -301,92 +306,167 @@ class _DashboardScreenState extends State<DashboardScreen> {
     required String subtitle,
     required VoidCallback onTap,
   }) {
-    final double radius = kIsWeb || MediaQuery.of(context).size.width >= 900 ? 16.0 : 20.0;
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(radius),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.05),
-            blurRadius: 10,
-            offset: const Offset(0, 4),
+    return ResponsiveCard(
+      onTap: onTap,
+      padding: const EdgeInsets.all(20),
+      child: Row(
+        children: [
+          // Leading Icon
+          Container(
+            padding: const EdgeInsets.all(12),
+            decoration: BoxDecoration(
+              color: ResponsiveTheme.getIconColor(context).withOpacity(0.1),
+              borderRadius: BorderRadius.circular(15),
+            ),
+            child: Icon(
+              icon,
+              color: ResponsiveTheme.getIconColor(context),
+              size: 32,
+            ),
           ),
-        ],
-      ),
-      child: Material(
-        color: Colors.transparent,
-        child: InkWell(
-          onTap: onTap,
-          borderRadius: BorderRadius.circular(radius),
-          child: Padding(
-            padding: const EdgeInsets.all(20),
-            child: Row(
+          
+          const SizedBox(width: 20),
+
+          // Text Content
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                // Leading Icon
-                Container(
-                  padding: const EdgeInsets.all(12),
-                  decoration: BoxDecoration(
-                    color: const Color(0xFF2E7D32).withOpacity(0.1),
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  child: Icon(
-                    icon,
-                    color: const Color(0xFF2E7D32),
-                    size: 32,
-                  ),
+                Text(
+                  title,
+                  style: ResponsiveTheme.getHeaderStyle(context, fontSize: 18),
                 ),
-                
-                const SizedBox(width: 20),
-
-                // Text Content
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        title,
-                        style: const TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black87,
-                        ),
-                      ),
-                      const SizedBox(height: 4),
-                      Text(
-                        subtitle,
-                        style: TextStyle(
-                          fontSize: 14,
-                          color: Colors.grey[600],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-
-                // Trailing Arrow
-                const Icon(
-                  Icons.arrow_forward_ios,
-                  color: Colors.grey,
-                  size: 18,
+                const SizedBox(height: 4),
+                Text(
+                  subtitle,
+                  style: ResponsiveTheme.getSubHeaderStyle(context, fontSize: 14),
                 ),
               ],
             ),
           ),
+
+          // Trailing Arrow
+          Icon(
+            Icons.arrow_forward_ios,
+            color: ResponsiveTheme.getIconColor(context).withOpacity(0.7),
+            size: 18,
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildMenuItem(
+    BuildContext context, {
+    required String page,
+    required Widget leading,
+    required String title,
+    required bool isMobile,
+  }) {
+    final bool isActive = _activePage == page;
+    final bool isDesktop = !isMobile;
+
+    Widget listTile = ListTile(
+      leading: leading,
+      title: Text(
+        title,
+        style: TextStyle(
+          color: isActive
+              ? (isDesktop ? const Color(0xFF1B3B22) : Colors.white)
+              : Colors.white70,
+          fontWeight: isActive ? FontWeight.bold : FontWeight.normal,
         ),
       ),
+      onTap: () {
+        if (isMobile) {
+          Navigator.pop(context);
+          if (page != 'dashboard') {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (_) => _getScreenByPage(page)),
+            );
+            return;
+          }
+        }
+        _onPageSelected(page);
+      },
+    );
+
+    if (isActive && isDesktop) {
+      return Container(
+        margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+        decoration: BoxDecoration(
+          color: const Color(0xFFE8F5E9),
+          borderRadius: BorderRadius.circular(24),
+        ),
+        child: listTile,
+      );
+    }
+
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+      child: listTile,
+    );
+  }
+
+  Widget _buildSubMenuItem(
+    BuildContext context, {
+    required String page,
+    Widget? leading,
+    required String title,
+    required bool isMobile,
+    required VoidCallback onTap,
+  }) {
+    final bool isActive = _activePage == page;
+    final bool isDesktop = !isMobile;
+
+    Widget listTile = ListTile(
+      leading: leading,
+      title: Text(
+        title,
+        style: TextStyle(
+          color: isActive
+              ? (isDesktop ? const Color(0xFF1B3B22) : Colors.white)
+              : Colors.white70,
+          fontSize: 14,
+          fontWeight: isActive ? FontWeight.bold : FontWeight.normal,
+        ),
+      ),
+      onTap: () {
+        if (isMobile) {
+          Navigator.pop(context);
+        }
+        onTap();
+      },
+    );
+
+    if (isActive && isDesktop) {
+      return Container(
+        margin: const EdgeInsets.only(left: 12, right: 12, top: 2, bottom: 2),
+        decoration: BoxDecoration(
+          color: const Color(0xFFE8F5E9),
+          borderRadius: BorderRadius.circular(24),
+        ),
+        child: listTile,
+      );
+    }
+
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 2),
+      child: listTile,
     );
   }
 
   Widget _buildCustomNavigationDrawerContent(BuildContext context, {required bool isMobile}) {
     return Container(
-      color: const Color(0xFF0F3A20), // Sleek deep dark-forest matte color layout
+      color: ResponsiveTheme.getSidebarColor(),
       child: Column(
         children: [
           // Drawer Header
           DrawerHeader(
             decoration: const BoxDecoration(
-              color: Color(0xFF2E7D32), // Solid green header
+              color: Color(0xFF2E5A36), // Deep green header background
             ),
             child: Center(
               child: Column(
@@ -395,7 +475,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   const CircleAvatar(
                     radius: 30,
                     backgroundColor: Colors.white,
-                    child: Icon(Icons.eco, color: Color(0xFF2E7D32), size: 40),
+                    child: Icon(Icons.eco, color: Color(0xFF2E5A36), size: 40),
                   ),
                   const SizedBox(height: 10),
                   const Text(
@@ -424,36 +504,24 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 ),
                 child: Column(
                   children: [
-                    // Top Level Actions (Always Visible)
-                    ListTile(
+                    _buildMenuItem(
+                      context,
+                      page: 'dashboard',
                       leading: const Text("🏠", style: TextStyle(fontSize: 20)),
-                      title: const Text("Dashboard", style: TextStyle(color: Colors.white)),
-                      onTap: () {
-                        if (isMobile) {
-                          Navigator.pop(context);
-                        }
-                        _onPageSelected('dashboard');
-                      },
+                      title: "Dashboard",
+                      isMobile: isMobile,
                     ),
-                    ListTile(
+                    _buildMenuItem(
+                      context,
+                      page: 'scan_plant',
                       leading: const Text("📸", style: TextStyle(fontSize: 20)),
-                      title: const Text("Scan Plant", style: TextStyle(color: Colors.white)),
-                      onTap: () {
-                        if (isMobile) {
-                          Navigator.pop(context);
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (_) => const ScanPlantScreen()),
-                          );
-                        } else {
-                          _onPageSelected('scan_plant');
-                        }
-                      },
+                      title: "Scan Plant",
+                      isMobile: isMobile,
                     ),
 
                     const Divider(color: Colors.white24, height: 1),
 
-                    // Section 1: "Subscriptions" Style Dropdown Block
+                    // Section 1: Treatments Style Dropdown Block
                     ExpansionTile(
                       title: const Text(
                         "Treatments",
@@ -465,8 +533,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       children: [
                         _buildSubMenuItem(
                           context,
+                          page: 'apple_diseases',
                           leading: const Text("🍎", style: TextStyle(fontSize: 18)),
                           title: "Apple Diseases",
+                          isMobile: isMobile,
                           onTap: () {
                             if (isMobile) {
                               Navigator.push(context, MaterialPageRoute(builder: (_) => const AppleDiseasesScreen()));
@@ -477,8 +547,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         ),
                         _buildSubMenuItem(
                           context,
+                          page: 'corn_diseases',
                           leading: const Text("🌽", style: TextStyle(fontSize: 18)),
                           title: "Corn Diseases",
+                          isMobile: isMobile,
                           onTap: () {
                             if (isMobile) {
                               Navigator.push(context, MaterialPageRoute(builder: (_) => const CornDiseasesScreen()));
@@ -489,8 +561,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         ),
                         _buildSubMenuItem(
                           context,
+                          page: 'grape_diseases',
                           leading: const Text("🍇", style: TextStyle(fontSize: 18)),
                           title: "Grape Diseases",
+                          isMobile: isMobile,
                           onTap: () {
                             if (isMobile) {
                               Navigator.push(context, MaterialPageRoute(builder: (_) => const GrapeDiseasesScreen()));
@@ -501,8 +575,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         ),
                         _buildSubMenuItem(
                           context,
+                          page: 'peach_diseases',
                           leading: const Text("🍑", style: TextStyle(fontSize: 18)),
                           title: "Peach Diseases",
+                          isMobile: isMobile,
                           onTap: () {
                             if (isMobile) {
                               Navigator.push(context, MaterialPageRoute(builder: (_) => const PeachDiseasesScreen()));
@@ -513,8 +589,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         ),
                         _buildSubMenuItem(
                           context,
+                          page: 'potato_diseases',
                           leading: const Text("🥔", style: TextStyle(fontSize: 18)),
                           title: "Potato Diseases",
+                          isMobile: isMobile,
                           onTap: () {
                             if (isMobile) {
                               Navigator.push(context, MaterialPageRoute(builder: (_) => const PotatoDiseasesScreen()));
@@ -525,8 +603,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         ),
                         _buildSubMenuItem(
                           context,
+                          page: 'rice_diseases',
                           leading: const Text("🌾", style: TextStyle(fontSize: 18)),
                           title: "Rice Diseases",
+                          isMobile: isMobile,
                           onTap: () {
                             if (isMobile) {
                               Navigator.push(context, MaterialPageRoute(builder: (_) => const RiceDiseasesScreen()));
@@ -537,8 +617,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         ),
                         _buildSubMenuItem(
                           context,
+                          page: 'tomato_diseases',
                           leading: const Text("🍅", style: TextStyle(fontSize: 18)),
                           title: "Tomato Diseases",
+                          isMobile: isMobile,
                           onTap: () {
                             if (isMobile) {
                               Navigator.push(context, MaterialPageRoute(builder: (_) => const TomatoDiseasesScreen()));
@@ -552,7 +634,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
                     const Divider(color: Colors.white24, height: 1),
 
-                    // Section 2: "You" Style Dropdown Block
+                    // Section 2: User Space Style Dropdown Block
                     ExpansionTile(
                       title: const Text(
                         "User Space",
@@ -564,8 +646,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       children: [
                         _buildSubMenuItem(
                           context,
+                          page: 'history',
                           leading: const Text("🕒", style: TextStyle(fontSize: 18)),
                           title: "History",
+                          isMobile: isMobile,
                           onTap: () {
                             if (isMobile) {
                               Navigator.push(context, MaterialPageRoute(builder: (_) => const HistoryScreen()));
@@ -576,8 +660,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         ),
                         _buildSubMenuItem(
                           context,
+                          page: 'profile',
                           leading: const Text("👤", style: TextStyle(fontSize: 18)),
                           title: "Profile",
+                          isMobile: isMobile,
                           onTap: () {
                             if (isMobile) {
                               Navigator.push(context, MaterialPageRoute(builder: (_) => const ProfileScreen()));
@@ -661,28 +747,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
           ),
         ],
       ),
-    );
-  }
-
-  Widget _buildSubMenuItem(
-    BuildContext context, {
-    Widget? leading,
-    required String title,
-    required VoidCallback onTap,
-  }) {
-    return ListTile(
-      leading: leading,
-      title: Text(
-        title,
-        style: const TextStyle(color: Colors.white70, fontSize: 14),
-      ),
-      onTap: () {
-        final bool isDesktop = kIsWeb || MediaQuery.of(context).size.width >= 900;
-        if (!isDesktop) {
-          Navigator.pop(context); // Close drawer
-        }
-        onTap();
-      },
     );
   }
 }

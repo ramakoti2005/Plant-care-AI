@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:typed_data';
+import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -8,6 +9,7 @@ import 'package:http/http.dart' as http;
 import 'package:http_parser/http_parser.dart';
 import 'package:flutter/foundation.dart';
 import '../api_config.dart';
+import '../theme/responsive_theme.dart';
 
 class ScanPlantScreen extends StatefulWidget {
   const ScanPlantScreen({super.key});
@@ -108,12 +110,8 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
         setState(() {
           _isAnalyzing = false;
           _result = responseData;
-          
-          // Map directly to the backend keys that work in your history logs
           _plantName = responseData['plant'] ?? 'Crop';
           _diseaseName = responseData['disease'] ?? 'Disease';
-          
-          // Flip the switch to show the results page
           _hasResults = true; 
           _hasError = false;
         });
@@ -157,24 +155,20 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
   @override
   Widget build(BuildContext context) {
     if (_hasResults) {
-      return _buildTreatmentResultsView(); // Displays our treatment cards
+      return _buildTreatmentResultsView(); 
     } else {
-      return _buildUploadAndAnalyzeView(); // Displays your leaf frame and action buttons
+      return _buildUploadAndAnalyzeView(); 
     }
   }
 
   Widget _buildTreatmentResultsView() {
-    return Scaffold(
-      backgroundColor: const Color(0xFFF4FAF4),
+    return ResponsiveScaffold(
       appBar: AppBar(
         title: const Text(
           "Treatment Results",
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
-        backgroundColor: const Color(0xFF2E7D32),
-        centerTitle: true,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.white),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () {
             setState(() {
               _hasResults = false;
@@ -219,15 +213,12 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
   }
 
   Widget _buildUploadAndAnalyzeView() {
-    return Scaffold(
-      backgroundColor: const Color(0xFFF4FAF4),
+    final bool web = ResponsiveTheme.isWebLayout(context);
+    return ResponsiveScaffold(
       appBar: AppBar(
         title: const Text(
           "Plant Carer AI",
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
-        backgroundColor: const Color(0xFF2E7D32),
-        centerTitle: true,
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -268,21 +259,24 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
                       height: 250,
                       width: double.infinity,
                       decoration: BoxDecoration(
-                        color: Colors.green.withOpacity(0.05),
+                        color: web ? Colors.green.withOpacity(0.05) : Colors.white.withOpacity(0.12),
                         borderRadius: BorderRadius.circular(20),
-                        border: Border.all(color: Colors.green.withOpacity(0.2), width: 2),
+                        border: Border.all(
+                          color: web ? Colors.green.withOpacity(0.2) : Colors.white.withOpacity(0.25),
+                          width: 2,
+                        ),
                       ),
-                      child: const Column(
+                      child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Icon(Icons.eco, size: 80, color: Color(0xFF2E7D32)),
-                          SizedBox(height: 10),
+                          Icon(Icons.eco, size: 80, color: ResponsiveTheme.getIconColor(context)),
+                          const SizedBox(height: 10),
                           Text(
                             "Upload Plant Leaf Image",
                             style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
-                              color: Color(0xFF1B5E20),
+                              color: web ? const Color(0xFF1B5E20) : Colors.white,
                             ),
                           ),
                         ],
@@ -364,6 +358,8 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
   }
 
   Widget _buildResultView() {
+    final bool web = ResponsiveTheme.isWebLayout(context);
+
     if (_result!['status'] == "Unrecognized Image") {
       return Center(
         child: Container(
@@ -372,7 +368,6 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              // 1. Maintain the high-clarity 4:3 image preview panel framework
               if (_imageBytes != null)
                 Padding(
                   padding: const EdgeInsets.only(bottom: 20),
@@ -388,28 +383,37 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
                   ),
                 ),
               
-              // 2. Your original premium red warning card container box goes right beneath it
               Container(
                 width: double.infinity,
                 padding: const EdgeInsets.all(24),
                 decoration: BoxDecoration(
-                  color: const Color(0xFFFFEBEE), // Subtle premium soft red background tint
+                  color: web ? const Color(0xFFFFEBEE) : Colors.red.withOpacity(0.2),
                   borderRadius: BorderRadius.circular(16),
-                  border: Border.all(color: const Color(0xFFFFCDD2), width: 1.5),
+                  border: Border.all(
+                    color: web ? const Color(0xFFFFCDD2) : Colors.redAccent.withOpacity(0.4), 
+                    width: 1.5,
+                  ),
                 ),
                 child: Column(
                   children: [
-                    const Icon(Icons.error_outline, color: Colors.red, size: 48),
+                    Icon(Icons.error_outline, color: web ? Colors.red : Colors.redAccent, size: 48),
                     const SizedBox(height: 12),
-                    const Text(
+                    Text(
                       "Unrecognized Image",
-                      style: TextStyle(color: Colors.red, fontSize: 22, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                        color: web ? Colors.red : Colors.redAccent, 
+                        fontSize: 22, 
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                     const SizedBox(height: 8),
                     Text(
                       _result!['message'] ?? "This image is not recognized as a supported plant leaf. Please upload a clear image of a supported plant leaf.",
                       textAlign: TextAlign.center,
-                      style: TextStyle(color: Colors.grey.shade800, fontSize: 16),
+                      style: TextStyle(
+                        color: web ? Colors.grey.shade800 : const Color(0xFFE0E0E0), 
+                        fontSize: 16,
+                      ),
                     ),
                   ],
                 ),
@@ -430,16 +434,16 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
     final String chemicalControl = _result!['chemical_control'] ?? (isHealthy ? 'None required' : 'No chemical control specified.');
 
     // Success Case
-    if (kIsWeb) {
+    if (web) {
       return Container(
         margin: const EdgeInsets.only(top: 20),
         width: double.infinity,
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Left Column: Keep the image container bounded perfectly
+            // Left Column
             Expanded(
-              flex: 4, // Allocates proportional space to the image column
+              flex: 4, 
               child: SingleChildScrollView(
                 child: Column(
                   children: [
@@ -459,20 +463,24 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
                       ),
                     ),
                     const SizedBox(height: 16),
-                    _buildInfoCard("Plant Name", plantName),
+                    _buildInfoCard(context, "Plant Name", plantName),
                     const SizedBox(height: 10),
-                    _buildInfoCard("Disease", diseaseName, 
+                    _buildInfoCard(context, "Disease", diseaseName, 
                       isDisease: true, 
                       isHealthy: isHealthy
                     ),
                     
                     if (_result!['reference_image'] != null) ...[
                       const SizedBox(height: 20),
-                      const Align(
+                      Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
                           "Reference Leaf Image",
-                          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Color(0xFF1B5E20)),
+                          style: TextStyle(
+                            fontSize: 18, 
+                            fontWeight: FontWeight.bold, 
+                            color: ResponsiveTheme.getIconColor(context),
+                          ),
                         ),
                       ),
                       const SizedBox(height: 10),
@@ -497,21 +505,26 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
               ),
             ),
             const SizedBox(width: 24),
-            // Right Column: Let the treatment text scroll independently if long
+            // Right Column
             Expanded(
-              flex: 6, // Gives more room to read the text comfortably
+              flex: 6,
               child: Container(
-                height: MediaQuery.of(context).size.height * 0.75, // Keeps it bounded within view heights
+                height: MediaQuery.of(context).size.height * 0.75,
                 child: SingleChildScrollView(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text(
+                      Text(
                         "Treatment Information",
-                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Color(0xFF1B5E20)),
+                        style: TextStyle(
+                          fontSize: 18, 
+                          fontWeight: FontWeight.bold, 
+                          color: ResponsiveTheme.getIconColor(context),
+                        ),
                       ),
                       const SizedBox(height: 10),
                       _buildSectionCard(
+                        context: context,
                         title: "Overview & Cause",
                         content: cause,
                         icon: Icons.info_outline,
@@ -524,6 +537,7 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
                           organicRemedy.trim().toLowerCase() != "none required" &&
                           organicRemedy.trim().toLowerCase() != "null")
                         _buildSectionCard(
+                          context: context,
                           title: "Organic Remedy",
                           content: organicRemedy,
                           icon: Icons.eco_outlined,
@@ -531,6 +545,7 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
                           bgColor: Colors.white,
                         ),
                       _buildSectionCard(
+                        context: context,
                         title: "Diagnostic Symptoms",
                         content: symptoms,
                         icon: Icons.bug_report_outlined,
@@ -538,6 +553,7 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
                         bgColor: Colors.white,
                       ),
                       _buildSectionCard(
+                        context: context,
                         title: "Targeted Chemical Control",
                         content: chemicalControl,
                         icon: Icons.science_outlined,
@@ -561,18 +577,22 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          _buildInfoCard("Plant Name", plantName),
+          _buildInfoCard(context, "Plant Name", plantName),
           const SizedBox(height: 10),
-          _buildInfoCard("Disease", diseaseName, 
+          _buildInfoCard(context, "Disease", diseaseName, 
             isDisease: true, 
             isHealthy: isHealthy
           ),
           
           if (_result!['reference_image'] != null) ...[
             const SizedBox(height: 20),
-            const Text(
+            Text(
               "Reference Leaf Image",
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Color(0xFF1B5E20)),
+              style: TextStyle(
+                fontSize: 18, 
+                fontWeight: FontWeight.bold, 
+                color: ResponsiveTheme.getIconColor(context),
+              ),
             ),
             const SizedBox(height: 10),
             ClipRRect(
@@ -593,31 +613,53 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
           ],
 
           const SizedBox(height: 20),
-          const Text(
+          Text(
             "Treatment Information",
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Color(0xFF1B5E20)),
+            style: TextStyle(
+              fontSize: 18, 
+              fontWeight: FontWeight.bold, 
+              color: ResponsiveTheme.getIconColor(context),
+            ),
           ),
           const SizedBox(height: 10),
-          Container(
-            padding: const EdgeInsets.all(16),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(15),
-              boxShadow: [
-                BoxShadow(color: Colors.black.withOpacity(0.05), blurRadius: 10, offset: const Offset(0, 4)),
-              ],
-            ),
+          ResponsiveCard(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("• Overview & Cause", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: Colors.green[800])),
+                Text(
+                  "• Overview & Cause", 
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold, 
+                    fontSize: 16, 
+                    color: web ? Colors.green[800] : Colors.white,
+                  ),
+                ),
                 const SizedBox(height: 4),
-                Text(cause, style: const TextStyle(fontSize: 14)),
+                Text(
+                  cause, 
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: web ? Colors.black87 : const Color(0xFFE0E0E0),
+                  ),
+                ),
                 const SizedBox(height: 12),
                 
-                Text("• Diagnostic Symptoms", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: Colors.green[800])),
+                Text(
+                  "• Diagnostic Symptoms", 
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold, 
+                    fontSize: 16, 
+                    color: web ? Colors.green[800] : Colors.white,
+                  ),
+                ),
                 const SizedBox(height: 4),
-                Text(symptoms, style: const TextStyle(fontSize: 14)),
+                Text(
+                  symptoms, 
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: web ? Colors.black87 : const Color(0xFFE0E0E0),
+                  ),
+                ),
                 const SizedBox(height: 12),
 
                 if (organicRemedy != null && 
@@ -625,15 +667,41 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
                     organicRemedy.trim().toLowerCase() != "none" && 
                     organicRemedy.trim().toLowerCase() != "none required" &&
                     organicRemedy.trim().toLowerCase() != "null") ...[
-                  Text("• Organic Remedy", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: Colors.green[800])),
+                  Text(
+                    "• Organic Remedy", 
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold, 
+                      fontSize: 16, 
+                      color: web ? Colors.green[800] : Colors.white,
+                    ),
+                  ),
                   const SizedBox(height: 4),
-                  Text(organicRemedy, style: const TextStyle(fontSize: 14)),
+                  Text(
+                    organicRemedy, 
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: web ? Colors.black87 : const Color(0xFFE0E0E0),
+                    ),
+                  ),
                   const SizedBox(height: 12),
                 ],
                 
-                Text("• Targeted Chemical Control", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: Colors.green[800])),
+                Text(
+                  "• Targeted Chemical Control", 
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold, 
+                    fontSize: 16, 
+                    color: web ? Colors.green[800] : Colors.white,
+                  ),
+                ),
                 const SizedBox(height: 4),
-                Text(chemicalControl, style: const TextStyle(fontSize: 14)),
+                Text(
+                  chemicalControl, 
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: web ? Colors.black87 : const Color(0xFFE0E0E0),
+                  ),
+                ),
               ],
             ),
           ),
@@ -643,43 +711,30 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
   }
 
   Widget _buildSectionCard({
+    required BuildContext context,
     required String title,
     required String content,
     required IconData icon,
     required Color iconColor,
     required Color bgColor,
   }) {
-    return Container(
-      width: double.infinity,
+    final bool web = ResponsiveTheme.isWebLayout(context);
+    return ResponsiveCard(
+      webBgColor: bgColor,
       margin: const EdgeInsets.only(bottom: 15),
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: bgColor,
-        borderRadius: BorderRadius.circular(16),
-        border: kIsWeb
-            ? Border.all(color: Colors.transparent)
-            : Border.all(color: iconColor.withOpacity(0.15), width: 1),
-        boxShadow: [
-          BoxShadow(
-            color: kIsWeb ? Colors.black.withOpacity(0.03) : Colors.black.withOpacity(0.02),
-            blurRadius: kIsWeb ? 16 : 8,
-            offset: kIsWeb ? const Offset(0, 6) : const Offset(0, 4),
-          ),
-        ],
-      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             children: [
-              Icon(icon, color: iconColor, size: 22),
+              Icon(icon, color: web ? iconColor : Colors.white, size: 22),
               const SizedBox(width: 8),
               Text(
                 title,
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
-                  color: iconColor.withOpacity(0.85),
+                  color: web ? iconColor.withOpacity(0.85) : Colors.white,
                 ),
               ),
             ],
@@ -687,10 +742,10 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
           const SizedBox(height: 10),
           Text(
             content,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 14,
               height: 1.5,
-              color: Colors.black87,
+              color: web ? Colors.black87 : const Color(0xFFE0E0E0),
             ),
           ),
         ],
@@ -698,30 +753,35 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
     );
   }
 
-  Widget _buildInfoCard(String label, String value, {bool isDisease = false, bool isHealthy = false}) {
-    Color textColor = Colors.black87;
+  Widget _buildInfoCard(BuildContext context, String label, String value, {bool isDisease = false, bool isHealthy = false}) {
+    final bool web = ResponsiveTheme.isWebLayout(context);
+    Color textColor = web ? Colors.black87 : Colors.white;
     if (isDisease) {
-      textColor = isHealthy ? Colors.green : Colors.red;
+      textColor = isHealthy 
+          ? (web ? Colors.green : Colors.greenAccent) 
+          : (web ? Colors.red : Colors.redAccent);
     }
 
-    return Container(
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(kIsWeb ? 16 : 15),
-        boxShadow: [
-          BoxShadow(
-            color: kIsWeb ? Colors.black.withOpacity(0.03) : Colors.black.withOpacity(0.05), 
-            blurRadius: kIsWeb ? 16 : 10, 
-            offset: kIsWeb ? const Offset(0, 6) : const Offset(0, 4)
-          ),
-        ],
-      ),
+    return ResponsiveCard(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(label, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500, color: Colors.grey)),
-          Text(value, style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: textColor)),
+          Text(
+            label, 
+            style: TextStyle(
+              fontSize: 16, 
+              fontWeight: FontWeight.w500, 
+              color: web ? Colors.grey : const Color(0xFFE0E0E0),
+            ),
+          ),
+          Text(
+            value, 
+            style: TextStyle(
+              fontSize: 18, 
+              fontWeight: FontWeight.bold, 
+              color: textColor,
+            ),
+          ),
         ],
       ),
     );

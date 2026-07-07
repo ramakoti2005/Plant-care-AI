@@ -1,16 +1,15 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import '../theme/responsive_theme.dart';
 
 class CornDiseasesScreen extends StatelessWidget {
   const CornDiseasesScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return ResponsiveScaffold(
       appBar: AppBar(
         title: const Text("Corn Diseases"),
-        backgroundColor: const Color(0xFF2E7D32),
-        iconTheme: const IconThemeData(color: Colors.white),
       ),
       body: Center(
         child: Container(
@@ -18,8 +17,8 @@ class CornDiseasesScreen extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
           child: SingleChildScrollView(
             child: Column(
-              children: [
-                diseaseCard(
+              children: const [
+                DiseaseCard(
                   title: "Common Rust",
                   scientificName: "Puccinia sorghi",
                   overview: "Common rust is a fungal disease that affects corn leaves, producing powdery golden-brown pustules. It thrives in moderate temperatures and high humidity, spreading via windborne spores.",
@@ -51,9 +50,9 @@ class CornDiseasesScreen extends StatelessWidget {
                   tips: "Inspect upper and lower leaf surfaces weekly during humid summer conditions to spot early rust spots.",
                 ),
 
-                const SizedBox(height: 20),
+                SizedBox(height: 20),
 
-                diseaseCard(
+                DiseaseCard(
                   title: "Gray Leaf Spot",
                   scientificName: "Cercospora zeae-maydis",
                   overview: "Gray leaf spot is a persistent fungal disease characterized by rectangular, gray-to-brown spots on corn leaves. It overwinters in crop residues and can cause severe blighting under warm, moist conditions.",
@@ -86,9 +85,9 @@ class CornDiseasesScreen extends StatelessWidget {
                   tips: "Walk fields weekly after silking and check lower leaves for vein-bounded gray rectangular spots.",
                 ),
 
-                const SizedBox(height: 20),
+                SizedBox(height: 20),
 
-                diseaseCard(
+                DiseaseCard(
                   title: "Northern Leaf Blight",
                   scientificName: "Exserohilum turcicum",
                   overview: "Northern leaf blight produces large, cigar-shaped grayish-green lesions on corn leaves. It causes rapid tissue death under moderate, humid conditions and is highly damaging during the grain-fill stage.",
@@ -121,9 +120,9 @@ class CornDiseasesScreen extends StatelessWidget {
                   tips: "Check lower leaves weekly during warm, moist weather. Catching cigar-shaped lesions early protects the ears.",
                 ),
 
-                const SizedBox(height: 20),
+                SizedBox(height: 20),
 
-                diseaseCard(
+                DiseaseCard(
                   title: "Healthy Corn Leaf",
                   scientificName: "Zea mays",
                   overview: "A healthy corn leaf is long, rich green, and erect, maximizing light capture for robust stalk and ear development.",
@@ -161,141 +160,6 @@ class CornDiseasesScreen extends StatelessWidget {
             ),
           ),
         ),
-      ),
-    );
-  }
-
-  Widget diseaseCard({
-    required String title,
-    required String scientificName,
-    required String overview,
-    required List<String> causes,
-    required List<String> symptoms,
-    required List<String> treatment,
-    required List<String> prevention,
-    List<String>? organic,
-    String? recoveryTime,
-    String? tips,
-  }) {
-    return Card(
-      elevation: 4,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-      margin: const EdgeInsets.only(bottom: 20),
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              title,
-              style: const TextStyle(
-                fontSize: 22,
-                fontWeight: FontWeight.bold,
-                color: Color(0xFF2E7D32),
-              ),
-            ),
-            const SizedBox(height: 5),
-            Text(
-              "Scientific Name: $scientificName",
-              style: TextStyle(
-                fontWeight: FontWeight.w600,
-                fontStyle: FontStyle.italic,
-                color: Colors.grey[700],
-              ),
-            ),
-            const Divider(height: 25),
-            
-            const Text(
-              "Overview",
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 5),
-            Text(overview),
-
-            const SizedBox(height: 15),
-            sectionTitle("Causes"),
-            ...causes.map((e) => bulletPoint(e)),
-
-            const SizedBox(height: 15),
-            sectionTitle("Symptoms"),
-            ...symptoms.map((e) => bulletPoint(e)),
-
-            const SizedBox(height: 15),
-            sectionTitle("Treatment"),
-            ...treatment.map((e) => bulletPoint(e)),
-
-            if (organic != null) ...[
-              const SizedBox(height: 15),
-              sectionTitle("Organic Remedies"),
-              ...organic.map((e) => bulletPoint(e)),
-            ],
-
-            const SizedBox(height: 15),
-            sectionTitle("Prevention"),
-            ...prevention.map((e) => bulletPoint(e)),
-
-            if (recoveryTime != null && recoveryTime != "N/A") ...[
-              const SizedBox(height: 15),
-              sectionTitle("Recovery Time"),
-              Text(recoveryTime),
-            ],
-
-            if (tips != null) ...[
-              const SizedBox(height: 15),
-              Container(
-                padding: const EdgeInsets.all(12),
-                decoration: BoxDecoration(
-                  color: Colors.green.withOpacity(0.1),
-                  borderRadius: BorderRadius.circular(10),
-                  border: Border.all(color: Colors.green.withOpacity(0.3)),
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Row(
-                      children: [
-                        Icon(Icons.lightbulb, color: Colors.orange, size: 20),
-                        SizedBox(width: 8),
-                        Text(
-                          "Farmer Tips",
-                          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 5),
-                    Text(tips),
-                  ],
-                ),
-              ),
-            ],
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget sectionTitle(String title) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 5),
-      child: Text(
-        title,
-        style: const TextStyle(
-          fontSize: 18,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-    );
-  }
-
-  Widget bulletPoint(String text) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 3),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Text("• ", style: TextStyle(fontWeight: FontWeight.bold)),
-          Expanded(child: Text(text)),
-        ],
       ),
     );
   }

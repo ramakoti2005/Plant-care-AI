@@ -1,73 +1,74 @@
 import 'package:flutter/material.dart';
+import '../theme/responsive_theme.dart';
 
 class TotalScansScreen extends StatelessWidget {
   const TotalScansScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color(0xFFF4FAF4),
+    final bool web = ResponsiveTheme.isWebLayout(context);
+
+    return ResponsiveScaffold(
       appBar: AppBar(
         title: const Text(
           "Total Scans",
-          style: TextStyle(color: Colors.white),
         ),
-        backgroundColor: const Color(0xFF2E7D32),
-        iconTheme: const IconThemeData(color: Colors.white),
       ),
-      body: ListView(
-        padding: const EdgeInsets.all(20),
-        children: [
-          _buildStatCard(
-            Icons.insert_chart,
-            "Total Scans",
-            "15 Scans Completed",
-            const Color(0xFF4CAF50),
+      body: Center(
+        child: Container(
+          constraints: web ? const BoxConstraints(maxWidth: 800) : null,
+          child: ListView(
+            padding: const EdgeInsets.all(20),
+            children: [
+              _buildStatCard(
+                context,
+                Icons.insert_chart,
+                "Total Scans",
+                "15 Scans Completed",
+                const Color(0xFF4CAF50),
+              ),
+              const SizedBox(height: 15),
+              _buildStatCard(
+                context,
+                Icons.eco,
+                "Healthy Plants",
+                "8 Healthy Detections",
+                Colors.green,
+              ),
+              const SizedBox(height: 15),
+              _buildStatCard(
+                context,
+                Icons.coronavirus,
+                "Diseased Plants",
+                "7 Diseases Found",
+                Colors.redAccent,
+              ),
+              const SizedBox(height: 15),
+              _buildStatCard(
+                context,
+                Icons.track_changes,
+                "Accuracy Rate",
+                "92% AI Confidence",
+                Colors.blueAccent,
+              ),
+            ],
           ),
-          const SizedBox(height: 15),
-          _buildStatCard(
-            Icons.eco,
-            "Healthy Plants",
-            "8 Healthy Detections",
-            Colors.green,
-          ),
-          const SizedBox(height: 15),
-          _buildStatCard(
-            Icons.coronavirus,
-            "Diseased Plants",
-            "7 Diseases Found",
-            Colors.redAccent,
-          ),
-          const SizedBox(height: 15),
-          _buildStatCard(
-            Icons.track_changes,
-            "Accuracy Rate",
-            "92% AI Confidence",
-            Colors.blueAccent,
-          ),
-        ],
+        ),
       ),
     );
   }
 
   Widget _buildStatCard(
+    BuildContext context,
     IconData icon,
     String title,
     String subtitle,
     Color color,
   ) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(15),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.05),
-            blurRadius: 10,
-            offset: const Offset(0, 4),
-          ),
-        ],
-      ),
+    final bool web = ResponsiveTheme.isWebLayout(context);
+
+    return ResponsiveCard(
+      padding: EdgeInsets.zero,
       child: Padding(
         padding: const EdgeInsets.all(20),
         child: Row(
@@ -90,10 +91,10 @@ class TotalScansScreen extends StatelessWidget {
               children: [
                 Text(
                   title,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
-                    color: Colors.black87,
+                    color: web ? Colors.black87 : Colors.white,
                   ),
                 ),
                 const SizedBox(height: 4),
@@ -101,7 +102,7 @@ class TotalScansScreen extends StatelessWidget {
                   subtitle,
                   style: TextStyle(
                     fontSize: 14,
-                    color: Colors.grey[600],
+                    color: web ? Colors.grey[600] : const Color(0xFFE0E0E0),
                   ),
                 ),
               ],
