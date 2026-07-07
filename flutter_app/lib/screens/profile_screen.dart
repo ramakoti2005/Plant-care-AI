@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:geolocator/geolocator.dart';
 import '../api_config.dart';
 import '../theme/responsive_theme.dart';
 import 'dashboard_screen.dart';
@@ -203,82 +204,180 @@ class _ProfileScreenState extends State<ProfileScreen> {
     }
   }
 
+  Future<void> _detectLocation(TextEditingController controller) async {
+    try {
+      bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
+      if (!serviceEnabled) {
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text("Location services are disabled on this device")),
+          );
+        }
+        return;
+      }
+
+      LocationPermission permission = await Geolocator.checkPermission();
+      if (permission == LocationPermission.denied) {
+        permission = await Geolocator.requestPermission();
+        if (permission == LocationPermission.denied) {
+          if (mounted) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(content: Text("Location permissions are denied")),
+            );
+          }
+          return;
+        }
+      }
+
+      if (permission == LocationPermission.deniedForever) {
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text("Location permissions are permanently denied")),
+          );
+        }
+        return;
+      }
+
+      Position position = await Geolocator.getCurrentPosition(
+        locationSettings: const LocationSettings(accuracy: LocationAccuracy.high),
+      );
+
+      // Reverse geocoding using OpenStreetMap Nominatim API
+      final url = Uri.parse('https://nominatim.openstreetmap.org/reverse?format=json&lat=${position.latitude}&lon=${position.longitude}&zoom=10');
+      final geoResponse = await http.get(
+        url,
+        headers: {'User-Agent': 'PlantCareAI/1.0'},
+      );
+
+      if (geoResponse.statusCode == 200) {
+        final data = json.decode(geoResponse.body);
+        final address = data['address'];
+        if (address != null) {
+          final String city = address['city'] ?? address['town'] ?? address['village'] ?? address['county'] ?? address['suburb'] ?? "Unknown City";
+          final String state = address['state'] ?? address['region'] ?? "";
+          final String country = address['country'] ?? "";
+          
+          final String result = state.isNotEmpty ? "$city, $state" : "$city, $country";
+          controller.text = result;
+        } else {
+          controller.text = "${position.latitude.toStringAsFixed(4)}, ${position.longitude.toStringAsFixed(4)}";
+        }
+      } else {
+        controller.text = "${position.latitude.toStringAsFixed(4)}, ${position.longitude.toStringAsFixed(4)}";
+      }
+    } catch (e) {
+      debugPrint("Error detecting location: $e");
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text("Error detecting location")),
+        );
+      }
+    }
+  }
+
   void _showEditProfileDialog() {
     final nameController = TextEditingController(text: _fullName == "Loading..." ? "" : _fullName);
     final phoneController = TextEditingController(text: _phone == "Loading..." || _phone == "Not Provided" ? "" : _phone);
     final locationController = TextEditingController(text: _location == "Loading..." || _location == "Not Provided" ? "" : _location);
+    bool isDetecting = false;
 
     showDialog(
       context: context,
       builder: (BuildContext context) {
-        return AlertDialog(
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-          title: Row(
-            children: const [
-              Icon(Icons.edit, color: Color(0xFF2E7D32)),
-              SizedBox(width: 8),
-              Text("Edit Profile Details", style: TextStyle(fontWeight: FontWeight.bold)),
-            ],
-          ),
-          content: SingleChildScrollView(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                TextField(
-                  controller: nameController,
-                  decoration: const InputDecoration(
-                    labelText: "Full Name",
-                    prefixIcon: Icon(Icons.person_outline),
-                    border: OutlineInputBorder(),
-                  ),
+        return StatefulBuilder(
+          builder: (context, dialogSetState) {
+            return AlertDialog(
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+              title: Row(
+                children: const [
+                  Icon(Icons.edit, color: Color(0xFF2E7D32)),
+                  SizedBox(width: 8),
+                  Text("Edit Profile Details", style: TextStyle(fontWeight: FontWeight.bold)),
+                ],
+              ),
+              content: SingleChildScrollView(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    TextField(
+                      controller: nameController,
+                      decoration: const InputDecoration(
+                        labelText: "Full Name",
+                        prefixIcon: Icon(Icons.person_outline),
+                        border: OutlineInputBorder(),
+                      ),
+                    ),
+                    const SizedBox(height: 16),
+                    TextField(
+                      controller: phoneController,
+                      decoration: const InputDecoration(
+                        labelText: "Phone",
+                        prefixIcon: Icon(Icons.phone_outlined),
+                        border: OutlineInputBorder(),
+                      ),
+                    ),
+                    const SizedBox(height: 16),
+                    TextField(
+                      controller: locationController,
+                      decoration: InputDecoration(
+                        labelText: "Location",
+                        prefixIcon: const Icon(Icons.location_on_outlined),
+                        border: const OutlineInputBorder(),
+                        suffixIcon: isDetecting
+                            ? const Padding(
+                                padding: EdgeInsets.all(12),
+                                child: SizedBox(
+                                  width: 20,
+                                  height: 20,
+                                  child: CircularProgressIndicator(strokeWidth: 2, color: Color(0xFF2E7D32)),
+                                ),
+                              )
+                            : IconButton(
+                                icon: const Icon(Icons.gps_fixed, color: Color(0xFF2E7D32)),
+                                tooltip: "Detect Location",
+                                onPressed: () async {
+                                  dialogSetState(() {
+                                    isDetecting = true;
+                                  });
+                                  await _detectLocation(locationController);
+                                  dialogSetState(() {
+                                    isDetecting = false;
+                                  });
+                                },
+                              ),
+                      ),
+                    ),
+                  ],
                 ),
-                const SizedBox(height: 16),
-                TextField(
-                  controller: phoneController,
-                  decoration: const InputDecoration(
-                    labelText: "Phone",
-                    prefixIcon: Icon(Icons.phone_outlined),
-                    border: OutlineInputBorder(),
-                  ),
+              ),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.of(context).pop(),
+                  child: const Text("Cancel", style: TextStyle(color: Colors.black54)),
                 ),
-                const SizedBox(height: 16),
-                TextField(
-                  controller: locationController,
-                  decoration: const InputDecoration(
-                    labelText: "Location",
-                    prefixIcon: Icon(Icons.location_on_outlined),
-                    border: OutlineInputBorder(),
+                ElevatedButton(
+                  onPressed: () async {
+                    final updatedName = nameController.text.trim();
+                    final updatedPhone = phoneController.text.trim();
+                    final updatedLocation = locationController.text.trim();
+
+                    Navigator.of(context).pop();
+                    
+                    setState(() {
+                      isLoading = true;
+                    });
+
+                    await _updateUserProfile(updatedName, updatedPhone, updatedLocation);
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color(0xFF2E7D32),
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
                   ),
+                  child: const Text("Update", style: TextStyle(color: Colors.white)),
                 ),
               ],
-            ),
-          ),
-          actions: [
-            TextButton(
-              onPressed: () => Navigator.of(context).pop(),
-              child: const Text("Cancel", style: TextStyle(color: Colors.black54)),
-            ),
-            ElevatedButton(
-              onPressed: () async {
-                final updatedName = nameController.text.trim();
-                final updatedPhone = phoneController.text.trim();
-                final updatedLocation = locationController.text.trim();
-
-                Navigator.of(context).pop();
-                
-                setState(() {
-                  isLoading = true;
-                });
-
-                await _updateUserProfile(updatedName, updatedPhone, updatedLocation);
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFF2E7D32),
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-              ),
-              child: const Text("Update", style: TextStyle(color: Colors.white)),
-            ),
-          ],
+            );
+          }
         );
       },
     );
