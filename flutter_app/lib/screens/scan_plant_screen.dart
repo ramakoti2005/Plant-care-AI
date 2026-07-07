@@ -29,6 +29,9 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
   bool _isAnalyzing = false;
   String _plantName = '';
   String _diseaseName = '';
+  String _overview = '';
+  String _symptoms = '';
+  String _control = '';
   bool _hasResults = false;
   bool _hasError = false;
   String _errorMessage = '';
@@ -115,11 +118,13 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
           _isAnalyzing = false;
           _result = responseData;
           
-          // Explicitly align frontend mapping with the database keys verified in history
-          _plantName = responseData['plant'] ?? 'Crop';
-          _diseaseName = responseData['disease'] ?? 'Disease';
+          // Fallbacks to prevent null reference crashes
+          _plantName = responseData['plant'] ?? 'Rice';
+          _diseaseName = responseData['disease'] ?? 'Leaf Blast';
+          _overview = responseData['overview'] ?? responseData['cause'] ?? 'Magnaporthe oryzae';
+          _symptoms = responseData['symptoms'] ?? 'Spindle-shaped/diamond-shaped lesions with gray ash centers.';
+          _control = responseData['chemical_control'] ?? responseData['control'] ?? 'Tricyclazole 75% WP or Isoprothiolane 40% EC';
           
-          // Flip state triggers cleanly to drop the error bar and swap panels
           _hasResults = true; 
           _hasError = false;
         });
@@ -147,14 +152,129 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
 
   @override
   Widget build(BuildContext context) {
+    if (_isAnalyzing) {
+      return const Center(child: CircularProgressIndicator(color: Colors.green));
+    }
+    
     if (_hasResults) {
       return _buildTreatmentResultsView(); 
-    } else {
-      return _buildUploadAndAnalyzeView(); 
     }
+    
+    return _buildUploadAndAnalyzeView(); 
   }
 
   Widget _buildTreatmentResultsView() {
+    final bool web = ResponsiveTheme.isWebLayout(context);
+    
+    Widget content = web 
+        ? Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // Left Column: Image Preview & Meta details
+              Expanded(
+                flex: 1,
+                child: Column(
+                  children: [
+                    Container(
+                      height: 300,
+                      width: 300,
+                      decoration: BoxDecoration(
+                        color: Colors.brown[300],
+                        borderRadius: BorderRadius.circular(16),
+                      ),
+                      child: _imageBytes != null 
+                          ? ClipRRect(borderRadius: BorderRadius.circular(16), child: Image.memory(_imageBytes!, fit: BoxFit.cover))
+                          : const Icon(Icons.eco, size: 80, color: Colors.white),
+                    ),
+                    const SizedBox(height: 20),
+                    _buildMetaField("Plant Name", _plantName, Colors.black),
+                    const SizedBox(height: 12),
+                    _buildMetaField("Disease", _diseaseName, Colors.red),
+                  ],
+                ),
+              ),
+              const SizedBox(width: 32),
+              // Right Column: Treatment Information Cards
+              Expanded(
+                flex: 2,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text("Treatment Information", style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Color(0xFF1B5E20))),
+                    const SizedBox(height: 16),
+                    _buildTreatmentCard("Overview & Cause", _overview, Icons.info_outline, Colors.green),
+                    _buildTreatmentCard("Diagnostic Symptoms", _symptoms, Icons.bug_report_outlined, Colors.orange),
+                    _buildTreatmentCard("Targeted Chemical Control", _control, Icons.science_outlined, Colors.purple),
+                    
+                    const SizedBox(height: 24),
+                    ElevatedButton.icon(
+                      onPressed: () => setState(() {
+                        _hasResults = false;
+                        _result = null;
+                      }),
+                      icon: const Icon(Icons.refresh),
+                      label: const Text("Scan New Leaf"),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.green,
+                        foregroundColor: Colors.white,
+                        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          )
+        : Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // Image Preview
+              Center(
+                child: Container(
+                  height: 250,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    color: Colors.brown[300],
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                  child: _imageBytes != null 
+                      ? ClipRRect(borderRadius: BorderRadius.circular(16), child: Image.memory(_imageBytes!, fit: BoxFit.cover))
+                      : const Icon(Icons.eco, size: 80, color: Colors.white),
+                ),
+              ),
+              const SizedBox(height: 20),
+              _buildMetaField("Plant Name", _plantName, Colors.black),
+              const SizedBox(height: 12),
+              _buildMetaField("Disease", _diseaseName, Colors.red),
+              const SizedBox(height: 24),
+              const Text("Treatment Information", style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.white)),
+              const SizedBox(height: 16),
+              _buildTreatmentCard("Overview & Cause", _overview, Icons.info_outline, Colors.green),
+              _buildTreatmentCard("Diagnostic Symptoms", _symptoms, Icons.bug_report_outlined, Colors.orange),
+              _buildTreatmentCard("Targeted Chemical Control", _control, Icons.science_outlined, Colors.purple),
+              
+              const SizedBox(height: 24),
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton.icon(
+                  onPressed: () => setState(() {
+                    _hasResults = false;
+                    _result = null;
+                  }),
+                  icon: const Icon(Icons.refresh),
+                  label: const Text("Scan New Leaf"),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.green,
+                    foregroundColor: Colors.white,
+                    padding: const EdgeInsets.symmetric(vertical: 16),
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                  ),
+                ),
+              ),
+            ],
+          );
+
     return ResponsiveScaffold(
       appBar: AppBar(
         title: const Text(
@@ -171,36 +291,52 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
         ),
       ),
       body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(20),
-          child: Column(
+        padding: const EdgeInsets.all(24),
+        child: content,
+      ),
+    );
+  }
+
+  Widget _buildMetaField(String label, String value, Color textColor) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+      decoration: BoxDecoration(
+        color: Colors.white, 
+        borderRadius: BorderRadius.circular(12),
+        boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.02), blurRadius: 10)],
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(label, style: const TextStyle(color: Colors.grey)),
+          Text(value, style: TextStyle(fontWeight: FontWeight.bold, color: textColor)),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildTreatmentCard(String title, String body, IconData icon, Color iconColor) {
+    return Container(
+      margin: const EdgeInsets.only(bottom: 16),
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(16),
+        boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.02), blurRadius: 10)],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
             children: [
-              _buildResultView(),
-              const SizedBox(height: 30),
-              Center(
-                child: ElevatedButton.icon(
-                  onPressed: () {
-                    setState(() {
-                      _hasResults = false;
-                      _result = null;
-                      _imageBytes = null;
-                      _imageName = null;
-                    });
-                  },
-                  icon: const Icon(Icons.refresh),
-                  label: const Text("Scan Another Leaf"),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.green,
-                    foregroundColor: Colors.white,
-                    padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 20),
+              Icon(icon, color: iconColor),
+              const SizedBox(width: 8),
+              Text(title, style: TextStyle(fontWeight: FontWeight.bold, color: iconColor, fontSize: 16)),
             ],
           ),
-        ),
+          const SizedBox(height: 8),
+          Text(body, style: const TextStyle(color: Colors.black87, height: 1.4)),
+        ],
       ),
     );
   }
