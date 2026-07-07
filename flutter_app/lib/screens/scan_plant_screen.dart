@@ -153,7 +153,14 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
   @override
   Widget build(BuildContext context) {
     if (_isAnalyzing) {
-      return const Center(child: CircularProgressIndicator(color: Colors.green));
+      return ResponsiveScaffold(
+        appBar: AppBar(
+          title: const Text("Plant Carer AI"),
+        ),
+        body: const Center(
+          child: CircularProgressIndicator(color: Colors.green),
+        ),
+      );
     }
     
     if (_hasResults) {
