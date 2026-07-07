@@ -69,10 +69,11 @@ async def analyze_leaf_image(
             preprocessed_image, 
             db, 
             user_id=current_user.id if current_user else None,
-            image_path=relative_image_path
+            image_path=relative_image_path,
+            image_file=file.file
         )
 
-        response_data["image_path"] = relative_image_path
+        response_data["image_path"] = response_data.get("image_path") or relative_image_path
         return response_data
 
     except Exception as e:

@@ -98,11 +98,34 @@ class _HistoryScreenState extends State<HistoryScreen> {
 
   String getFullImageUrl(String path) {
     if (path.isEmpty) return '';
+    if (path.startsWith('data:')) {
+      return path;
+    }
     if (path.startsWith('http://') || path.startsWith('https://')) {
       return path; 
     }
     final cleanPath = path.startsWith('/') ? path.substring(1) : path;
     return 'https://plant-care-ai-6ng8.onrender.com/$cleanPath';
+  }
+
+  Widget buildHistoryThumbnail(String imageUrl) {
+    if (imageUrl.startsWith('data:image')) {
+      final base64RawString = imageUrl.split(',')[1];
+      return Image.memory(
+        base64Decode(base64RawString),
+        fit: BoxFit.cover,
+        errorBuilder: (context, error, stackTrace) => const Icon(Icons.broken_image, color: Colors.grey),
+      );
+    }
+    return Image.network(
+      imageUrl,
+      fit: BoxFit.cover,
+      errorBuilder: (context, error, stackTrace) => const Icon(Icons.broken_image, color: Colors.grey),
+      loadingBuilder: (context, child, loadingProgress) {
+        if (loadingProgress == null) return child;
+        return const Center(child: CircularProgressIndicator(color: Colors.green));
+      },
+    );
   }
 
   Widget _buildHistoryCard(dynamic item, int index) {
@@ -122,20 +145,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
                 topRight: Radius.circular(16),
               ),
               child: imgPath.isNotEmpty
-                  ? Image.network(
-                      finalImageUrl,
-                      fit: BoxFit.cover,
-                      errorBuilder: (context, error, stackTrace) {
-                        return Container(
-                          color: Colors.grey[200],
-                          child: const Icon(Icons.broken_image, size: 50, color: Colors.grey),
-                        );
-                      },
-                      loadingBuilder: (context, child, loadingProgress) {
-                        if (loadingProgress == null) return child;
-                        return const Center(child: CircularProgressIndicator(color: Colors.green));
-                      },
-                    )
+                  ? buildHistoryThumbnail(finalImageUrl)
                   : Container(
                       color: Colors.grey[200],
                       child: const Icon(Icons.image, size: 50, color: Colors.grey),

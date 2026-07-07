@@ -106,37 +106,25 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
 
       if (response.statusCode == 200) {
         final responseData = json.decode(body);
-        
         setState(() {
           _isAnalyzing = false;
           _result = responseData;
+          
+          // Explicitly align frontend mapping with the database keys verified in history
           _plantName = responseData['plant'] ?? 'Crop';
           _diseaseName = responseData['disease'] ?? 'Disease';
+          
+          // Flip state triggers cleanly to drop the error bar and swap panels
           _hasResults = true; 
           _hasError = false;
         });
-        
-        print("UI state transitioned successfully for: $_plantName - $_diseaseName");
+        print("UI State switched successfully for: $_plantName - $_diseaseName");
       } else {
         setState(() {
           _isAnalyzing = false;
           _hasError = true;
-          _errorMessage = "Failed to parse model results.";
+          _errorMessage = "Analysis failed.";
         });
-
-        String errorMessage = "An error occurred";
-        try {
-          final errorData = jsonDecode(body);
-          if (errorData is Map && errorData.containsKey('detail')) {
-            errorMessage = errorData['detail'];
-          }
-        } catch (_) {}
-        
-        if (mounted) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text(errorMessage)),
-          );
-        }
       }
     } catch (e) {
       setState(() {

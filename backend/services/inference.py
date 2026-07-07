@@ -376,9 +376,17 @@ def run_inference(image):
 # -----------------------------
 # Success Logging Helper (Safely Isolated)
 # -----------------------------
-def process_prediction_and_save(image, db: Session, user_id: int = None, image_path: str = None):
+def process_prediction_and_save(image, db: Session, user_id: int = None, image_path: str = None, image_file=None):
     # 1. Run model inference cleanly first
     response_data = run_inference(image)
+
+    # Convert image byte stream directly into a persistent string
+    if image_file is not None:
+        import base64
+        image_file.seek(0)
+        encoded_bytes = base64.b64encode(image_file.read()).decode('utf-8')
+        base64_uri = f"data:image/jpeg;base64,{encoded_bytes}"
+        image_path = base64_uri
 
     # 2. Isolate the database write inside a dedicated fail-safe try block
     if response_data.get("status") == "Success":
@@ -398,4 +406,5 @@ def process_prediction_and_save(image, db: Session, user_id: int = None, image_p
             print(f"DATABASE WRITE BYPASSED (Column Mismatch): {str(e)}")
 
     # 3. Always return the successful data cleanly to Flutter
+    response_data["image_path"] = image_path
     return response_data

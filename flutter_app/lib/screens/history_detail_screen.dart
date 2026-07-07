@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -38,11 +39,34 @@ class HistoryDetailScreen extends StatelessWidget {
 
   String getFullImageUrl(String path) {
     if (path.isEmpty) return '';
+    if (path.startsWith('data:')) {
+      return path;
+    }
     if (path.startsWith('http://') || path.startsWith('https://')) {
       return path; 
     }
     final cleanPath = path.startsWith('/') ? path.substring(1) : path;
     return 'https://plant-care-ai-6ng8.onrender.com/$cleanPath';
+  }
+
+  Widget buildDetailImage(String imageUrl, {BoxFit fit = BoxFit.cover, Color progressColor = Colors.green, Color iconColor = Colors.grey}) {
+    if (imageUrl.startsWith('data:image')) {
+      final base64RawString = imageUrl.split(',')[1];
+      return Image.memory(
+        base64Decode(base64RawString),
+        fit: fit,
+        errorBuilder: (context, error, stackTrace) => Center(child: Icon(Icons.broken_image, size: 50, color: iconColor)),
+      );
+    }
+    return Image.network(
+      imageUrl,
+      fit: fit,
+      errorBuilder: (context, error, stackTrace) => Center(child: Icon(Icons.broken_image, size: 50, color: iconColor)),
+      loadingBuilder: (context, child, loadingProgress) {
+        if (loadingProgress == null) return child;
+        return Center(child: CircularProgressIndicator(color: progressColor));
+      },
+    );
   }
 
   @override
@@ -78,16 +102,11 @@ class HistoryDetailScreen extends StatelessWidget {
                                   aspectRatio: 4 / 3,
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(16),
-                                    child: Image.network(
+                                    child: buildDetailImage(
                                       finalImageUrl,
                                       fit: BoxFit.contain,
-                                      errorBuilder: (context, error, stackTrace) {
-                                        return const Center(child: Icon(Icons.broken_image, size: 50, color: Colors.grey));
-                                      },
-                                      loadingBuilder: (context, child, loadingProgress) {
-                                        if (loadingProgress == null) return child;
-                                        return const Center(child: CircularProgressIndicator(color: Colors.green));
-                                      },
+                                      progressColor: Colors.green,
+                                      iconColor: Colors.grey,
                                     ),
                                   ),
                                 ),
@@ -214,17 +233,12 @@ class HistoryDetailScreen extends StatelessWidget {
                           ),
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(15),
-                            child: Image.network(
-                              finalImageUrl,
-                              fit: BoxFit.cover,
-                              errorBuilder: (context, error, stackTrace) {
-                                return const Center(child: Icon(Icons.broken_image, size: 50, color: Colors.white70));
-                              },
-                              loadingBuilder: (context, child, loadingProgress) {
-                                if (loadingProgress == null) return child;
-                                return const Center(child: CircularProgressIndicator(color: Colors.white));
-                              },
-                            ),
+                             child: buildDetailImage(
+                               finalImageUrl,
+                               fit: BoxFit.cover,
+                               progressColor: Colors.white,
+                               iconColor: Colors.white70,
+                             ),
                           ),
                         ),
                       const Text(
