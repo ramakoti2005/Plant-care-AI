@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:provider/provider.dart';
 import '../services/settings_service.dart';
+import '../screens/dashboard_screen.dart';
 
 class ResponsiveTheme {
   static bool isWebLayout(BuildContext context) {
@@ -198,8 +199,19 @@ class ResponsiveScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final bool web = ResponsiveTheme.isWebLayout(context);
+    final dashboardState = context.findAncestorStateOfType<DashboardScreenState>();
 
-    return Scaffold(
+    Widget? customLeading;
+    if (dashboardState != null && dashboardState.activePage != 'dashboard') {
+      customLeading = IconButton(
+        icon: const Icon(Icons.arrow_back),
+        onPressed: () {
+          dashboardState.setPage('dashboard');
+        },
+      );
+    }
+
+    final scaffold = Scaffold(
       backgroundColor: Colors.transparent,
       drawer: drawer,
       bottomNavigationBar: bottomNavigationBar,
@@ -222,7 +234,40 @@ class ResponsiveScaffold extends StatelessWidget {
                     ),
                   ),
                 ),
-                child: appBar!,
+                child: appBar is AppBar
+                    ? AppBar(
+                        key: appBar!.key,
+                        leading: (appBar as AppBar).leading ?? customLeading,
+                        automaticallyImplyLeading: customLeading == null ? (appBar as AppBar).automaticallyImplyLeading : false,
+                        title: (appBar as AppBar).title,
+                        actions: (appBar as AppBar).actions,
+                        flexibleSpace: (appBar as AppBar).flexibleSpace,
+                        bottom: (appBar as AppBar).bottom,
+                        elevation: (appBar as AppBar).elevation,
+                        scrolledUnderElevation: (appBar as AppBar).scrolledUnderElevation,
+                        notificationPredicate: (appBar as AppBar).notificationPredicate,
+                        shadowColor: (appBar as AppBar).shadowColor,
+                        surfaceTintColor: (appBar as AppBar).surfaceTintColor,
+                        shape: (appBar as AppBar).shape,
+                        backgroundColor: (appBar as AppBar).backgroundColor,
+                        foregroundColor: (appBar as AppBar).foregroundColor,
+                        iconTheme: (appBar as AppBar).iconTheme,
+                        actionsIconTheme: (appBar as AppBar).actionsIconTheme,
+                        primary: (appBar as AppBar).primary,
+                        centerTitle: (appBar as AppBar).centerTitle,
+                        excludeHeaderSemantics: (appBar as AppBar).excludeHeaderSemantics,
+                        titleSpacing: (appBar as AppBar).titleSpacing,
+                        toolbarOpacity: (appBar as AppBar).toolbarOpacity,
+                        bottomOpacity: (appBar as AppBar).bottomOpacity,
+                        toolbarHeight: (appBar as AppBar).toolbarHeight,
+                        leadingWidth: (appBar as AppBar).leadingWidth,
+                        toolbarTextStyle: (appBar as AppBar).toolbarTextStyle,
+                        titleTextStyle: (appBar as AppBar).titleTextStyle,
+                        systemOverlayStyle: (appBar as AppBar).systemOverlayStyle,
+                        forceMaterialTransparency: (appBar as AppBar).forceMaterialTransparency,
+                        clipBehavior: (appBar as AppBar).clipBehavior,
+                      )
+                    : appBar!,
               ),
             )
           : null,
@@ -236,6 +281,18 @@ class ResponsiveScaffold extends StatelessWidget {
         ),
       ),
     );
+
+    if (dashboardState != null && dashboardState.activePage != 'dashboard') {
+      return WillPopScope(
+        onWillPop: () async {
+          dashboardState.setPage('dashboard');
+          return false;
+        },
+        child: scaffold,
+      );
+    }
+
+    return scaffold;
   }
 }
 

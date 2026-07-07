@@ -10,11 +10,11 @@ class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
 
   @override
-  State<DashboardScreen> createState() => _DashboardScreenState();
+  State<DashboardScreen> createState() => DashboardScreenState();
 
   // Static navigation helper method for embedded view switching
   static void navigate(BuildContext context, String page, {Widget? fallbackWidget, Widget? customWidget}) {
-    final state = context.findAncestorStateOfType<_DashboardScreenState>();
+    final state = context.findAncestorStateOfType<DashboardScreenState>();
     if (state != null) {
       state.setPage(page, customWidget: customWidget);
     } else if (fallbackWidget != null) {
@@ -23,21 +23,21 @@ class DashboardScreen extends StatefulWidget {
   }
 }
 
-class _DashboardScreenState extends State<DashboardScreen> {
-  String _activePage = 'dashboard';
-  Widget? _customWidget;
+class DashboardScreenState extends State<DashboardScreen> {
+  String activePage = 'dashboard';
+  Widget? customWidget;
 
   void setPage(String page, {Widget? customWidget}) {
     setState(() {
-      _activePage = page;
-      _customWidget = customWidget;
+      activePage = page;
+      this.customWidget = customWidget;
     });
   }
 
   void _onPageSelected(String page) {
     setState(() {
-      _activePage = page;
-      _customWidget = null;
+      activePage = page;
+      customWidget = null;
     });
   }
 
@@ -103,7 +103,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
     Widget currentSelectedPage;
     String pageTitle;
 
-    switch (_activePage) {
+    switch (activePage) {
       case 'scan_plant':
         currentSelectedPage = const ScanPlantScreen();
         pageTitle = 'Scan Plant';
@@ -165,7 +165,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
         pageTitle = 'Tomato Diseases';
         break;
       case 'custom':
-        currentSelectedPage = _customWidget ?? const SizedBox.shrink();
+        currentSelectedPage = customWidget ?? const SizedBox.shrink();
         pageTitle = '';
         break;
       case 'dashboard':
@@ -194,7 +194,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
               Expanded(
                 child: Scaffold(
                   backgroundColor: Colors.transparent,
-                  appBar: _activePage == 'dashboard'
+                  appBar: activePage == 'dashboard'
                       ? AppBar(
                           backgroundColor: Colors.transparent,
                           elevation: 0,
@@ -219,12 +219,12 @@ class _DashboardScreenState extends State<DashboardScreen> {
     } else {
       // 📱 Mobile layout with hamburger menu and sliding drawer
       return ResponsiveScaffold(
-        appBar: _activePage == 'dashboard'
+        appBar: activePage == 'dashboard'
             ? AppBar(
                 title: Text(pageTitle),
               )
             : null,
-        drawer: _activePage == 'dashboard'
+        drawer: activePage == 'dashboard'
             ? Drawer(
                 child: _buildCustomNavigationDrawerContent(context, isMobile: true),
               )
@@ -532,7 +532,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
     required String title,
     required bool isMobile,
   }) {
-    final bool isActive = _activePage == page;
+    final bool isActive = activePage == page;
 
     Widget listTile = ListTile(
       leading: Icon(
