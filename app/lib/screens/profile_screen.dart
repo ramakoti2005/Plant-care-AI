@@ -103,7 +103,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
           isLoading = false;
         });
       } else {
-        // Fallback mock calculations if server profile route fails
         _loadFallbackProfileData();
       }
     } catch (e) {
@@ -122,6 +121,148 @@ class _ProfileScreenState extends State<ProfileScreen> {
       _accuracy = "98%";
       isLoading = false;
     });
+  }
+
+  Future<void> _updateUserProfile(String name, String phone, String location) async {
+    try {
+      final authService = Provider.of<AuthService>(context, listen: false);
+      String? token = authService.token;
+      if (token == null || token.isEmpty) {
+        const storage = FlutterSecureStorage();
+        token = await storage.read(key: 'auth_token');
+      }
+
+      final response = await http.put(
+        Uri.parse('${ApiConfig.baseUrl}/auth/profile'),
+        headers: {
+          'Authorization': 'Bearer $token',
+          'Content-Type': 'application/json',
+        },
+        body: jsonEncode({
+          'full_name': name,
+          'phone': phone,
+          'location': location,
+        }),
+      );
+
+      if (response.statusCode == 200) {
+        final data = json.decode(response.body);
+        setState(() {
+          _fullName = data['full_name'] ?? name;
+          _phone = data['phone'] ?? phone;
+          _location = data['location'] ?? location;
+          _totalScans = data['total_scans'] ?? _totalScans;
+          _diseasesDetected = data['diseases_detected'] ?? _diseasesDetected;
+          _accuracy = "${data['accuracy'] ?? 98}%";
+          isLoading = false;
+        });
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text("Profile updated successfully")),
+          );
+        }
+      } else {
+        setState(() {
+          isLoading = false;
+        });
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text("Failed to update profile details")),
+          );
+        }
+      }
+    } catch (e) {
+      debugPrint("Error updating profile: $e");
+      setState(() {
+        isLoading = false;
+      });
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text("Connection error during update")),
+        );
+      }
+    }
+  }
+
+  void _showEditProfileDialog() {
+    final nameController = TextEditingController(text: _fullName == "Loading..." ? "" : _fullName);
+    final phoneController = TextEditingController(text: _phone == "Loading..." || _phone == "Not Provided" ? "" : _phone);
+    final locationController = TextEditingController(text: _location == "Loading..." || _location == "Not Provided" ? "" : _location);
+
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+          title: Row(
+            children: const [
+              Icon(Icons.edit, color: Color(0xFF2E7D32)),
+              SizedBox(width: 8),
+              Text("Edit Profile Details", style: TextStyle(fontWeight: FontWeight.bold)),
+            ],
+          ),
+          content: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                TextField(
+                  controller: nameController,
+                  decoration: const InputDecoration(
+                    labelText: "Full Name",
+                    prefixIcon: Icon(Icons.person_outline),
+                    border: OutlineInputBorder(),
+                  ),
+                ),
+                const SizedBox(height: 16),
+                TextField(
+                  controller: phoneController,
+                  decoration: const InputDecoration(
+                    labelText: "Phone",
+                    prefixIcon: Icon(Icons.phone_outlined),
+                    border: OutlineInputBorder(),
+                  ),
+                ),
+                const SizedBox(height: 16),
+                TextField(
+                  controller: locationController,
+                  decoration: const InputDecoration(
+                    labelText: "Location",
+                    prefixIcon: Icon(Icons.location_on_outlined),
+                    border: OutlineInputBorder(),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(context).pop(),
+              child: const Text("Cancel", style: TextStyle(color: Colors.black54)),
+            ),
+            ElevatedButton(
+              onPressed: () async {
+                final updatedName = nameController.text.trim();
+                final updatedPhone = phoneController.text.trim();
+                final updatedLocation = locationController.text.trim();
+
+                Navigator.of(context).pop();
+                
+                setState(() {
+                  isLoading = true;
+                });
+
+                await _updateUserProfile(updatedName, updatedPhone, updatedLocation);
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color(0xFF2E7D32),
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+              ),
+              child: const Text("Update", style: TextStyle(color: Colors.white)),
+            ),
+          ],
+        );
+      },
+    );
   }
 
   Future<void> _loadImage() async {
@@ -435,9 +576,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
               const Spacer(),
               OutlinedButton(
-                onPressed: () {
-                  DashboardScreen.navigate(context, 'settings');
-                },
+                onPressed: _showEditProfileDialog,
                 style: OutlinedButton.styleFrom(
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   side: const BorderSide(color: Color(0xFF2E7D32)),

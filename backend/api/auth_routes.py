@@ -88,14 +88,79 @@ def get_user_profile(current_user: models.User = Depends(auth.get_current_user),
         if conf_count > 0:
             accuracy_avg = int(conf_sum / conf_count)
 
-    fullName = "Ramu Reddy" if current_user.username.lower() == "ramu123" or current_user.username.lower() == "ramu2005" else current_user.username.capitalize()
+    fullName = current_user.full_name or ("Ramu Reddy" if current_user.username.lower() == "ramu123" or current_user.username.lower() == "ramu2005" else current_user.username.capitalize())
+    phoneVal = current_user.phone or "+91 98765 43210"
+    locationVal = current_user.location or "Chennai, Tamil Nadu"
     
     return {
         "full_name": fullName,
         "username": current_user.username,
         "email": current_user.email,
-        "phone": "+91 98765 43210",
-        "location": "Chennai, Tamil Nadu",
+        "phone": phoneVal,
+        "location": locationVal,
+        "total_scans": total_scans,
+        "diseases_detected": diseases_detected,
+        "accuracy": accuracy_avg
+    }
+
+@router.put("/profile")
+@router.post("/profile")
+def update_user_profile(
+    profile_data: schemas.ProfileUpdate,
+    current_user: models.User = Depends(auth.get_current_user),
+    db: Session = Depends(database.get_db)
+):
+    if profile_data.full_name is not None:
+        current_user.full_name = profile_data.full_name
+    if profile_data.phone is not None:
+        current_user.phone = profile_data.phone
+    if profile_data.location is not None:
+        current_user.location = profile_data.location
+    
+    db.commit()
+    db.refresh(current_user)
+    
+    # Calculate stats dynamically
+    total_scans = db.query(models.ScanHistory).filter(models.ScanHistory.user_id == current_user.id).count()
+    
+    # Unique diseases detected (excluding "healthy")
+    diseases_query = db.query(models.ScanHistory.disease_name).filter(
+        models.ScanHistory.user_id == current_user.id
+    ).distinct().all()
+    
+    diseases_list = [d[0] for d in diseases_query if d[0] and "healthy" not in d[0].lower()]
+    diseases_detected = len(diseases_list)
+    
+    accuracy_avg = 98
+    scans_with_conf = db.query(models.ScanHistory.confidence).filter(
+        models.ScanHistory.user_id == current_user.id,
+        models.ScanHistory.confidence != None,
+        models.ScanHistory.confidence != "N/A"
+    ).all()
+    
+    if scans_with_conf:
+        conf_sum = 0.0
+        conf_count = 0
+        for c in scans_with_conf:
+            try:
+                val = float(c[0].replace("%", "").strip())
+                conf_sum += val
+                conf_count += 1
+            except ValueError:
+                pass
+        if conf_count > 0:
+            accuracy_avg = int(conf_sum / conf_count)
+
+    fullName = current_user.full_name or ("Ramu Reddy" if current_user.username.lower() == "ramu123" or current_user.username.lower() == "ramu2005" else current_user.username.capitalize())
+    phoneVal = current_user.phone or "+91 98765 43210"
+    locationVal = current_user.location or "Chennai, Tamil Nadu"
+    
+    return {
+        "full_name": fullName,
+        "username": current_user.username,
+        "email": current_user.email,
+        "phone": phoneVal,
+        "location": locationVal,
         "total_scans": total_scans,
         "diseases_detected": diseases_detected,
         "accuracy": accuracy_avg
