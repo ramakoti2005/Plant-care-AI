@@ -362,7 +362,7 @@ def run_inference(image):
         "disease_name": disease_name,
         "plant": plant_name,
         "disease": disease_name,
-        "confidence": confidence / 100.0,
+        "confidence": str(confidence / 100.0),
         "reference_image": reference_image_url,
         "treatment": combined_treatment,
         "cure": combined_treatment,
