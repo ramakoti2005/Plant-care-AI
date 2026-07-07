@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:typed_data';
 import 'dart:ui';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -21,6 +22,7 @@ class ScanPlantScreen extends StatefulWidget {
 
 class _ScanPlantScreenState extends State<ScanPlantScreen> {
   Uint8List? _imageBytes;
+  XFile? _imageFile;
   String? _imageName;
   final FlutterSecureStorage _storage = const FlutterSecureStorage();
 
@@ -38,7 +40,7 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
   String _errorMessage = '';
   String _scientificName = '';
 
-  Future<void> _pickGallery() async {
+   Future<void> _pickGallery() async {
     try {
       final XFile? pickedFile = await _picker.pickImage(source: ImageSource.gallery);
 
@@ -46,6 +48,7 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
         final bytes = await pickedFile.readAsBytes();
         setState(() {
           _imageBytes = bytes;
+          _imageFile = pickedFile;
           _imageName = pickedFile.name;
           _result = null; 
         });
@@ -68,6 +71,7 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
         final bytes = await pickedFile.readAsBytes();
         setState(() {
           _imageBytes = bytes;
+          _imageFile = pickedFile;
           _imageName = pickedFile.name;
           _result = null; 
         });
@@ -266,7 +270,7 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
                       ),
                     ),
                     const Divider(height: 30),
-                    if (_imageBytes != null)
+                    if (_imageFile != null)
                       Center(
                         child: Container(
                           constraints: const BoxConstraints(maxHeight: 280),
@@ -274,9 +278,10 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
                             aspectRatio: 4 / 3,
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(15),
-                              child: Image.memory(
-                                _imageBytes!,
-                                fit: BoxFit.contain,
+                              child: Container(
+                                child: kIsWeb
+                                    ? Image.network(_imageFile!.path, fit: BoxFit.cover)
+                                    : Image.file(File(_imageFile!.path), fit: BoxFit.cover),
                               ),
                             ),
                           ),
@@ -492,7 +497,7 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
             children: [
               const SizedBox(height: 10),
 
-              if (_imageBytes != null)
+              if (_imageFile != null)
                 Center(
                   child: Container(
                     constraints: const BoxConstraints(maxWidth: 700),
@@ -508,7 +513,11 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
                             borderRadius: BorderRadius.circular(18),
                             child: Padding(
                               padding: const EdgeInsets.all(16),
-                              child: Image.memory(_imageBytes!, fit: BoxFit.contain),
+                              child: Container(
+                                child: kIsWeb
+                                    ? Image.network(_imageFile!.path, fit: BoxFit.cover)
+                                    : Image.file(File(_imageFile!.path), fit: BoxFit.cover),
+                              ),
                             ),
                           ),
                         ),
@@ -561,37 +570,66 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
               Center(
                 child: Container(
                   constraints: const BoxConstraints(maxWidth: 600),
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: ElevatedButton.icon(
-                          onPressed: _pickGallery,
-                          icon: const Icon(Icons.photo_library),
-                          label: const Text("Gallery"),
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.green,
-                            foregroundColor: Colors.white,
-                            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                          ),
+                  child: MediaQuery.of(context).size.width < 600
+                      ? Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            ElevatedButton.icon(
+                              onPressed: _pickGallery,
+                              icon: const Icon(Icons.photo_library),
+                              label: const Text("Gallery"),
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.green,
+                                foregroundColor: Colors.white,
+                                padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                              ),
+                            ),
+                            const SizedBox(height: 12),
+                            ElevatedButton.icon(
+                              onPressed: _pickCamera,
+                              icon: const Icon(Icons.camera_alt),
+                              label: const Text("Camera"),
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.orange,
+                                foregroundColor: Colors.white,
+                                padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                              ),
+                            ),
+                          ],
+                        )
+                      : Row(
+                          children: [
+                            Expanded(
+                              child: ElevatedButton.icon(
+                                onPressed: _pickGallery,
+                                icon: const Icon(Icons.photo_library),
+                                label: const Text("Gallery"),
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: Colors.green,
+                                  foregroundColor: Colors.white,
+                                  padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                                ),
+                              ),
+                            ),
+                            const SizedBox(width: 10),
+                            Expanded(
+                              child: ElevatedButton.icon(
+                                onPressed: _pickCamera,
+                                icon: const Icon(Icons.camera_alt),
+                                label: const Text("Camera"),
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: Colors.orange,
+                                  foregroundColor: Colors.white,
+                                  padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
-                      ),
-                      const SizedBox(width: 10),
-                      Expanded(
-                        child: ElevatedButton.icon(
-                          onPressed: _pickCamera,
-                          icon: const Icon(Icons.camera_alt),
-                          label: const Text("Camera"),
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.orange,
-                            foregroundColor: Colors.white,
-                            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
                 ),
               ),
 

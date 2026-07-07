@@ -243,57 +243,113 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
     final tempVal = isFahrenheit ? "82°F" : "28°C";
     final isDark = Theme.of(context).brightness == Brightness.dark;
+    final bool isMobile = MediaQuery.of(context).size.width < 600;
 
     return ResponsiveCard(
-      child: Row(
-        children: [
-          Container(
-            padding: const EdgeInsets.all(12),
-            decoration: BoxDecoration(
-              color: isDark ? const Color(0xFF1E3525) : const Color(0xFFE8F5E9),
-              shape: BoxShape.circle,
-            ),
-            child: Icon(Icons.wb_sunny_outlined, color: isDark ? const Color(0xFF81C784) : const Color(0xFF2E7D32), size: 28),
-          ),
-          const SizedBox(width: 16),
-          Expanded(
-            child: Column(
+      child: isMobile
+          ? Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  "Local Garden Climate",
-                  style: ResponsiveTheme.getHeaderStyle(context, fontSize: 16),
-                ),
-                const SizedBox(height: 4),
                 Row(
                   children: [
-                    Text(
-                      "Temperature: $tempVal",
-                      style: ResponsiveTheme.getBodyStyle(context, fontSize: 14).copyWith(fontWeight: FontWeight.bold),
+                    Container(
+                      padding: const EdgeInsets.all(12),
+                      decoration: BoxDecoration(
+                        color: isDark ? const Color(0xFF1E3525) : const Color(0xFFE8F5E9),
+                        shape: BoxShape.circle,
+                      ),
+                      child: Icon(Icons.wb_sunny_outlined, color: isDark ? const Color(0xFF81C784) : const Color(0xFF2E7D32), size: 28),
                     ),
                     const SizedBox(width: 16),
-                    Text(
-                      "Humidity: 65%",
-                      style: ResponsiveTheme.getBodyStyle(context, fontSize: 14),
+                    Expanded(
+                      child: Text(
+                        "Local Garden Climate",
+                        style: ResponsiveTheme.getHeaderStyle(context, fontSize: 16),
+                      ),
+                    ),
+                    const SizedBox(width: 10),
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                      decoration: BoxDecoration(
+                        color: isDark ? const Color(0xFF1E3525) : const Color(0xFFE8F5E9),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: Text(
+                        "Optimal",
+                        style: TextStyle(color: isDark ? const Color(0xFF81C784) : const Color(0xFF2E7D32), fontSize: 12, fontWeight: FontWeight.bold),
+                      ),
                     ),
                   ],
                 ),
+                const SizedBox(height: 16),
+                Padding(
+                  padding: const EdgeInsets.only(left: 8.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Temperature: $tempVal",
+                        style: ResponsiveTheme.getBodyStyle(context, fontSize: 14).copyWith(fontWeight: FontWeight.bold),
+                      ),
+                      const SizedBox(height: 6),
+                      Text(
+                        "Humidity: 65%",
+                        style: ResponsiveTheme.getBodyStyle(context, fontSize: 14),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            )
+          : Row(
+              children: [
+                Container(
+                  padding: const EdgeInsets.all(12),
+                  decoration: BoxDecoration(
+                    color: isDark ? const Color(0xFF1E3525) : const Color(0xFFE8F5E9),
+                    shape: BoxShape.circle,
+                  ),
+                  child: Icon(Icons.wb_sunny_outlined, color: isDark ? const Color(0xFF81C784) : const Color(0xFF2E7D32), size: 28),
+                ),
+                const SizedBox(width: 16),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Local Garden Climate",
+                        style: ResponsiveTheme.getHeaderStyle(context, fontSize: 16),
+                      ),
+                      const SizedBox(height: 4),
+                      Row(
+                        children: [
+                          Text(
+                            "Temperature: $tempVal",
+                            style: ResponsiveTheme.getBodyStyle(context, fontSize: 14).copyWith(fontWeight: FontWeight.bold),
+                          ),
+                          const SizedBox(width: 16),
+                          Text(
+                            "Humidity: 65%",
+                            style: ResponsiveTheme.getBodyStyle(context, fontSize: 14),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                  decoration: BoxDecoration(
+                    color: isDark ? const Color(0xFF1E3525) : const Color(0xFFE8F5E9),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: Text(
+                    "Optimal",
+                    style: TextStyle(color: isDark ? const Color(0xFF81C784) : const Color(0xFF2E7D32), fontSize: 12, fontWeight: FontWeight.bold),
+                  ),
+                ),
               ],
             ),
-          ),
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-            decoration: BoxDecoration(
-              color: isDark ? const Color(0xFF1E3525) : const Color(0xFFE8F5E9),
-              borderRadius: BorderRadius.circular(12),
-            ),
-            child: Text(
-              "Optimal",
-              style: TextStyle(color: isDark ? const Color(0xFF81C784) : const Color(0xFF2E7D32), fontSize: 12, fontWeight: FontWeight.bold),
-            ),
-          ),
-        ],
-      ),
     );
   }
 

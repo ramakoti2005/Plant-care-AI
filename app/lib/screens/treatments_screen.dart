@@ -18,31 +18,31 @@ class TreatmentsScreen extends StatelessWidget {
     final diseases = [
       {
         'name': 'Apple Diseases',
-        'icon': Icons.apple,
+        'emoji': '🍎',
       },
       {
         'name': 'Corn Diseases',
-        'icon': Icons.grain,
+        'emoji': '🌽',
       },
       {
         'name': 'Grape Diseases',
-        'icon': Icons.bubble_chart,
+        'emoji': '🍇',
       },
       {
         'name': 'Peach Diseases',
-        'icon': Icons.spa,
+        'emoji': '🍑',
       },
       {
         'name': 'Potato Diseases',
-        'icon': Icons.circle,
+        'emoji': '🥔',
       },
       {
         'name': 'Rice Diseases',
-        'icon': Icons.rice_bowl,
+        'emoji': '🌾',
       },
       {
         'name': 'Tomato Diseases',
-        'icon': Icons.circle,
+        'emoji': '🍅',
       },
     ];
 
@@ -121,9 +121,9 @@ class TreatmentsScreen extends StatelessWidget {
                   }
                 },
                 child: ListTile(
-                  leading: Icon(
-                    diseases[index]['icon'] as IconData,
-                    size: 35,
+                  leading: Text(
+                    diseases[index]['emoji'] as String,
+                    style: const TextStyle(fontSize: 28),
                   ),
                   title: Text(
                     diseases[index]['name'] as String,
