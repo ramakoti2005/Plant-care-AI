@@ -266,18 +266,18 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
                     ),
                     const Divider(height: 30),
                     if (_imageBytes != null)
-                      Container(
-                        height: 250,
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15),
-                          border: Border.all(color: Colors.green.withOpacity(0.2)),
-                        ),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(15),
-                          child: Image.memory(
-                            _imageBytes!,
-                            fit: BoxFit.cover,
+                      Center(
+                        child: Container(
+                          constraints: const BoxConstraints(maxHeight: 280),
+                          child: AspectRatio(
+                            aspectRatio: 4 / 3,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(15),
+                              child: Image.memory(
+                                _imageBytes!,
+                                fit: BoxFit.contain,
+                              ),
+                            ),
                           ),
                         ),
                       ),
