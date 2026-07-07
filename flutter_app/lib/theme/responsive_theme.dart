@@ -11,7 +11,11 @@ class ResponsiveTheme {
     if (isWebLayout(context)) {
       return const BoxDecoration(
         gradient: LinearGradient(
-          colors: [Color(0xFFE8F5E9), Color(0xFFF1F8E9), Color(0xFFFFFFFF)],
+          colors: [
+            Color(0xFFA5D6A7), // Soft Natural Green
+            Color(0xFFE8F5E9), // Pale Mint
+            Color(0xFFFFFDF0), // Warm Sunny Cream
+          ],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
