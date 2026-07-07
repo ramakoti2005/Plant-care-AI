@@ -41,7 +41,7 @@ def init_db_schema():
                 conn.execute(text("ALTER TABLE users ADD COLUMN location VARCHAR"))
                 modified = True
             if "two_factor_enabled" not in columns:
-                conn.execute(text("ALTER TABLE users ADD COLUMN two_factor_enabled BOOLEAN DEFAULT 0"))
+                conn.execute(text("ALTER TABLE users ADD COLUMN two_factor_enabled BOOLEAN DEFAULT false"))
                 modified = True
             if modified:
                 conn.commit()
