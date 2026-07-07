@@ -79,7 +79,6 @@ def get_user_profile(current_user: models.User = Depends(auth.get_current_user),
         conf_count = 0
         for c in scans_with_conf:
             try:
-                # Remove % sign if any, then convert to float
                 val = float(c[0].replace("%", "").strip())
                 conf_sum += val
                 conf_count += 1
@@ -87,6 +86,27 @@ def get_user_profile(current_user: models.User = Depends(auth.get_current_user),
                 pass
         if conf_count > 0:
             accuracy_avg = int(conf_sum / conf_count)
+
+    # 1. Plants Monitored: count of unique plant names scanned
+    plants_monitored = db.query(models.ScanHistory.plant_name).filter(
+        models.ScanHistory.user_id == current_user.id,
+        models.ScanHistory.plant_name != None,
+        models.ScanHistory.plant_name != ""
+    ).distinct().count()
+
+    # 2. Recent Scans (last 7 days)
+    from datetime import datetime
+    seven_days_ago = datetime.utcnow() - timedelta(days=7)
+    recent_scans = db.query(models.ScanHistory).filter(
+        models.ScanHistory.user_id == current_user.id,
+        models.ScanHistory.timestamp >= seven_days_ago
+    ).count()
+
+    # 3. Healthy Plants: count of scanned plants that were diagnosed as healthy
+    healthy_plants = db.query(models.ScanHistory).filter(
+        models.ScanHistory.user_id == current_user.id,
+        (models.ScanHistory.disease_name.ilike("%healthy%") | models.ScanHistory.plant_name.ilike("%healthy%"))
+    ).count()
 
     fullName = current_user.full_name or ("Ramu Reddy" if current_user.username.lower() == "ramu123" or current_user.username.lower() == "ramu2005" else current_user.username.capitalize())
     phoneVal = current_user.phone or "+91 98765 43210"
@@ -100,7 +120,11 @@ def get_user_profile(current_user: models.User = Depends(auth.get_current_user),
         "location": locationVal,
         "total_scans": total_scans,
         "diseases_detected": diseases_detected,
-        "accuracy": accuracy_avg
+        "accuracy": accuracy_avg,
+        "plants_monitored": plants_monitored,
+        "recent_scans": recent_scans,
+        "healthy_plants": healthy_plants,
+        "two_factor_enabled": bool(current_user.two_factor_enabled)
     }
 
 @router.put("/profile")
@@ -116,6 +140,8 @@ def update_user_profile(
         current_user.phone = profile_data.phone
     if profile_data.location is not None:
         current_user.location = profile_data.location
+    if profile_data.two_factor_enabled is not None:
+        current_user.two_factor_enabled = profile_data.two_factor_enabled
     
     db.commit()
     db.refresh(current_user)
@@ -151,6 +177,27 @@ def update_user_profile(
         if conf_count > 0:
             accuracy_avg = int(conf_sum / conf_count)
 
+    # Plants Monitored
+    plants_monitored = db.query(models.ScanHistory.plant_name).filter(
+        models.ScanHistory.user_id == current_user.id,
+        models.ScanHistory.plant_name != None,
+        models.ScanHistory.plant_name != ""
+    ).distinct().count()
+
+    # Recent Scans
+    from datetime import datetime
+    seven_days_ago = datetime.utcnow() - timedelta(days=7)
+    recent_scans = db.query(models.ScanHistory).filter(
+        models.ScanHistory.user_id == current_user.id,
+        models.ScanHistory.timestamp >= seven_days_ago
+    ).count()
+
+    # Healthy Plants
+    healthy_plants = db.query(models.ScanHistory).filter(
+        models.ScanHistory.user_id == current_user.id,
+        (models.ScanHistory.disease_name.ilike("%healthy%") | models.ScanHistory.plant_name.ilike("%healthy%"))
+    ).count()
+
     fullName = current_user.full_name or ("Ramu Reddy" if current_user.username.lower() == "ramu123" or current_user.username.lower() == "ramu2005" else current_user.username.capitalize())
     phoneVal = current_user.phone or "+91 98765 43210"
     locationVal = current_user.location or "Chennai, Tamil Nadu"
@@ -163,5 +210,22 @@ def update_user_profile(
         "location": locationVal,
         "total_scans": total_scans,
         "diseases_detected": diseases_detected,
-        "accuracy": accuracy_avg
+        "accuracy": accuracy_avg,
+        "plants_monitored": plants_monitored,
+        "recent_scans": recent_scans,
+        "healthy_plants": healthy_plants,
+        "two_factor_enabled": bool(current_user.two_factor_enabled)
     }
+
+@router.post("/change-password")
+def change_password(
+    data: schemas.ChangePasswordRequest,
+    current_user: models.User = Depends(auth.get_current_user),
+    db: Session = Depends(database.get_db)
+):
+    if not auth.verify_password(data.current_password, current_user.hashed_password):
+        raise HTTPException(status_code=400, detail="Incorrect current password")
+    
+    current_user.hashed_password = auth.get_password_hash(data.new_password)
+    db.commit()
+    return {"status": "success", "message": "Password changed successfully"}

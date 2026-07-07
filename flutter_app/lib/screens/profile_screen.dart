@@ -33,6 +33,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
   int _diseasesDetected = 0;
   String _accuracy = "0%";
 
+  // Additional dynamic metrics
+  int _plantsMonitored = 0;
+  int _recentScans = 0;
+  int _healthyPlants = 0;
+  bool _twoFactorEnabled = false;
+
   Uint8List? _profileImageBytes;
   final ImagePicker _picker = ImagePicker();
   static const String _imageKey = 'profile_image_base64';
@@ -100,6 +106,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
           _totalScans = data['total_scans'] ?? 0;
           _diseasesDetected = data['diseases_detected'] ?? 0;
           _accuracy = "${data['accuracy'] ?? 98}%";
+          
+          _plantsMonitored = data['plants_monitored'] ?? 0;
+          _recentScans = data['recent_scans'] ?? 0;
+          _healthyPlants = data['healthy_plants'] ?? 0;
+          _twoFactorEnabled = data['two_factor_enabled'] ?? false;
+
           isLoading = false;
         });
       } else {
@@ -119,6 +131,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
       _totalScans = 128;
       _diseasesDetected = 24;
       _accuracy = "98%";
+      _plantsMonitored = 12;
+      _recentScans = 5;
+      _healthyPlants = 104;
+      _twoFactorEnabled = false;
       isLoading = false;
     });
   }
@@ -154,6 +170,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
           _totalScans = data['total_scans'] ?? _totalScans;
           _diseasesDetected = data['diseases_detected'] ?? _diseasesDetected;
           _accuracy = "${data['accuracy'] ?? 98}%";
+          _plantsMonitored = data['plants_monitored'] ?? _plantsMonitored;
+          _recentScans = data['recent_scans'] ?? _recentScans;
+          _healthyPlants = data['healthy_plants'] ?? _healthyPlants;
           isLoading = false;
         });
         if (mounted) {
@@ -469,7 +488,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   iconBgColor: const Color(0xFFE8F5E9),
                   icon: Icons.eco,
                   iconColor: const Color(0xFF2E7D32),
-                  value: "12",
+                  value: _plantsMonitored.toString(),
                   title: "Plants Monitored",
                   subtitle: "Across your garden",
                   valueColor: const Color(0xFF2E7D32),
@@ -481,7 +500,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   iconBgColor: const Color(0xFFE3F2FD),
                   icon: Icons.camera_alt,
                   iconColor: const Color(0xFF1565C0),
-                  value: "5",
+                  value: _recentScans.toString(),
                   title: "Recent Scans",
                   subtitle: "This Week",
                   valueColor: const Color(0xFF1565C0),
@@ -493,7 +512,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   iconBgColor: const Color(0xFFFFF8E1),
                   icon: Icons.check_circle_outline,
                   iconColor: const Color(0xFFF57F17),
-                  value: "104",
+                  value: _healthyPlants.toString(),
                   title: "Healthy Plants",
                   subtitle: "Keep it up!",
                   valueColor: const Color(0xFFF57F17),
@@ -508,7 +527,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 iconBgColor: const Color(0xFFE8F5E9),
                 icon: Icons.eco,
                 iconColor: const Color(0xFF2E7D32),
-                value: "12",
+                value: _plantsMonitored.toString(),
                 title: "Plants Monitored",
                 subtitle: "Across your garden",
                 valueColor: const Color(0xFF2E7D32),
@@ -518,7 +537,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 iconBgColor: const Color(0xFFE3F2FD),
                 icon: Icons.camera_alt,
                 iconColor: const Color(0xFF1565C0),
-                value: "5",
+                value: _recentScans.toString(),
                 title: "Recent Scans",
                 subtitle: "This Week",
                 valueColor: const Color(0xFF1565C0),
@@ -528,7 +547,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 iconBgColor: const Color(0xFFFFF8E1),
                 icon: Icons.check_circle_outline,
                 iconColor: const Color(0xFFF57F17),
-                value: "104",
+                value: _healthyPlants.toString(),
                 title: "Healthy Plants",
                 subtitle: "Keep it up!",
                 valueColor: const Color(0xFFF57F17),
@@ -688,15 +707,75 @@ class _ProfileScreenState extends State<ProfileScreen> {
             context,
             icon: Icons.shield_outlined,
             label: "Two-Factor Authentication",
+            onTap: () async {
+              setState(() {
+                isLoading = true;
+              });
+              try {
+                final authService = Provider.of<AuthService>(context, listen: false);
+                String? token = authService.token;
+                if (token == null || token.isEmpty) {
+                  const storage = FlutterSecureStorage();
+                  token = await storage.read(key: 'auth_token');
+                }
+
+                final nextVal = !_twoFactorEnabled;
+                final response = await http.put(
+                  Uri.parse('${ApiConfig.baseUrl}/auth/profile'),
+                  headers: {
+                    'Authorization': 'Bearer $token',
+                    'Content-Type': 'application/json',
+                  },
+                  body: jsonEncode({
+                    'two_factor_enabled': nextVal,
+                  }),
+                );
+
+                if (response.statusCode == 200) {
+                  final data = json.decode(response.body);
+                  setState(() {
+                    _twoFactorEnabled = data['two_factor_enabled'] ?? nextVal;
+                    isLoading = false;
+                  });
+                  if (mounted) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text("Two-Factor Authentication ${_twoFactorEnabled ? 'Enabled' : 'Disabled'}")),
+                    );
+                  }
+                } else {
+                  setState(() {
+                    isLoading = false;
+                  });
+                  if (mounted) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(content: Text("Failed to toggle Two-Factor Authentication")),
+                    );
+                  }
+                }
+              } catch (e) {
+                setState(() {
+                  isLoading = false;
+                });
+                if (mounted) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text("Connection error on security toggle")),
+                  );
+                }
+              }
+            },
             trailingBadge: Container(
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
               decoration: BoxDecoration(
-                color: const Color(0xFFE8F5E9),
+                color: _twoFactorEnabled ? const Color(0xFFE8F5E9) : const Color(0xFFFFEBEE),
                 borderRadius: BorderRadius.circular(8),
               ),
-              child: const Text(
-                "Enabled",
-                style: TextStyle(color: Color(0xFF2E7D32), fontSize: 11, fontWeight: FontWeight.bold),
+              child: Text(
+                _twoFactorEnabled ? "Enabled" : "Disabled",
+                style: TextStyle(
+                  color: _twoFactorEnabled ? const Color(0xFF2E7D32) : Colors.red[600],
+                  fontSize: 11,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
           ),

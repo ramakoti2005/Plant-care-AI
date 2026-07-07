@@ -14,6 +14,7 @@ class User(Base):
     full_name = Column(String, nullable=True)
     phone = Column(String, nullable=True)
     location = Column(String, nullable=True)
+    two_factor_enabled = Column(Boolean, default=False)
 
     scans = relationship("ScanHistory", back_populates="user")
 
