@@ -201,19 +201,51 @@ class ResponsiveScaffold extends StatelessWidget {
     final bool web = ResponsiveTheme.isWebLayout(context);
     final dashboardState = context.findAncestorStateOfType<DashboardScreenState>();
 
+    final topLevelPages = {
+      'dashboard',
+      'scan_plant',
+      'treatments',
+      'history',
+      'settings',
+      'profile',
+      'my_plants',
+      'analytics'
+    };
+
+    final bool isTopLevel = dashboardState == null || topLevelPages.contains(dashboardState.activePage);
+
     Widget? customLeading;
-    if (dashboardState != null && dashboardState.activePage != 'dashboard') {
+    if (dashboardState != null && !isTopLevel) {
       customLeading = IconButton(
         icon: const Icon(Icons.arrow_back),
         onPressed: () {
-          dashboardState.setPage('dashboard');
+          final nestedTreatments = {
+            'apple_diseases',
+            'corn_diseases',
+            'grape_diseases',
+            'peach_diseases',
+            'potato_diseases',
+            'rice_diseases',
+            'tomato_diseases'
+          };
+          if (nestedTreatments.contains(dashboardState.activePage)) {
+            dashboardState.setPage('treatments');
+          } else {
+            dashboardState.setPage('dashboard');
+          }
         },
       );
     }
 
+    final drawerWidget = (dashboardState != null && !web)
+        ? Drawer(
+            child: dashboardState.buildCustomNavigationDrawerContent(context, isMobile: true),
+          )
+        : null;
+
     final scaffold = Scaffold(
       backgroundColor: Colors.transparent,
-      drawer: drawer,
+      drawer: drawer ?? drawerWidget,
       bottomNavigationBar: bottomNavigationBar,
       floatingActionButton: floatingActionButton,
       resizeToAvoidBottomInset: resizeToAvoidBottomInset,
@@ -285,7 +317,20 @@ class ResponsiveScaffold extends StatelessWidget {
     if (dashboardState != null && dashboardState.activePage != 'dashboard') {
       return WillPopScope(
         onWillPop: () async {
-          dashboardState.setPage('dashboard');
+          final nestedTreatments = {
+            'apple_diseases',
+            'corn_diseases',
+            'grape_diseases',
+            'peach_diseases',
+            'potato_diseases',
+            'rice_diseases',
+            'tomato_diseases'
+          };
+          if (nestedTreatments.contains(dashboardState.activePage)) {
+            dashboardState.setPage('treatments');
+          } else {
+            dashboardState.setPage('dashboard');
+          }
           return false;
         },
         child: scaffold,

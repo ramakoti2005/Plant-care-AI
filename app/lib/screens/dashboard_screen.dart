@@ -187,7 +187,7 @@ class DashboardScreenState extends State<DashboardScreen> {
               SizedBox(
                 width: 260,
                 child: Drawer(
-                  child: _buildCustomNavigationDrawerContent(context, isMobile: false),
+                  child: buildCustomNavigationDrawerContent(context, isMobile: false),
                 ),
               ),
               // Right Content Area
@@ -226,7 +226,7 @@ class DashboardScreenState extends State<DashboardScreen> {
             : null,
         drawer: activePage == 'dashboard'
             ? Drawer(
-                child: _buildCustomNavigationDrawerContent(context, isMobile: true),
+                child: buildCustomNavigationDrawerContent(context, isMobile: true),
               )
             : null,
         body: currentSelectedPage,
@@ -589,7 +589,7 @@ class DashboardScreenState extends State<DashboardScreen> {
     );
   }
 
-  Widget _buildCustomNavigationDrawerContent(BuildContext context, {required bool isMobile}) {
+  Widget buildCustomNavigationDrawerContent(BuildContext context, {required bool isMobile}) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
     return Container(
       color: ResponsiveTheme.getSidebarColor(context),
