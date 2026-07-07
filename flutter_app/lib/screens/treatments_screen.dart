@@ -15,12 +15,6 @@ class TreatmentsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDark = Theme.of(context).brightness == Brightness.dark;
-    final titleColor = isDark ? const Color(0xFFA5D6A7) : const Color(0xFF1B5E20);
-    final iconColor = isDark ? const Color(0xFFA5D6A7) : const Color(0xFF2E7D32);
-    final textColor = isDark ? Colors.white : Colors.black87;
-    final trailingColor = isDark ? Colors.white70 : Colors.black54;
-
     final diseases = [
       {
         'name': 'Apple Diseases',
@@ -54,12 +48,8 @@ class TreatmentsScreen extends StatelessWidget {
 
     return ResponsiveScaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           "Treatments Library",
-          style: TextStyle(
-            color: titleColor,
-            fontWeight: FontWeight.bold,
-          ),
         ),
       ),
       body: Center(
@@ -133,19 +123,14 @@ class TreatmentsScreen extends StatelessWidget {
                 child: ListTile(
                   leading: Icon(
                     diseases[index]['icon'] as IconData,
-                    color: iconColor,
                     size: 35,
                   ),
                   title: Text(
                     diseases[index]['name'] as String,
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: textColor,
-                    ),
+                    style: const TextStyle(fontWeight: FontWeight.bold),
                   ),
-                  trailing: Icon(
+                  trailing: const Icon(
                     Icons.arrow_forward_ios,
-                    color: trailingColor,
                     size: 16,
                   ),
                 ),

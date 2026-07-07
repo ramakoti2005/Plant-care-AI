@@ -554,72 +554,62 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   // Card builder for Profile Details
   Widget _buildProfileDetailsCard(BuildContext context, String name, String email, String phone, String location) {
-    final isDark = Theme.of(context).brightness == Brightness.dark;
-    final Color textColor = isDark ? Colors.white : Colors.black87;
-
+    final theme = Theme.of(context);
     return ResponsiveCard(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             children: [
-              Icon(Icons.person, color: isDark ? const Color(0xFFA5D6A7) : const Color(0xFF2E7D32)),
+              const Icon(Icons.person, size: 24),
               const SizedBox(width: 8),
               Text(
                 "Profile",
-                style: TextStyle(
-                  fontSize: 22,
-                  fontWeight: FontWeight.bold,
-                  color: isDark ? Colors.white : textColor,
-                ),
+                style: theme.textTheme.titleLarge?.copyWith(fontSize: 22),
               ),
               const Spacer(),
               OutlinedButton(
                 onPressed: _showEditProfileDialog,
                 style: OutlinedButton.styleFrom(
                   padding: const EdgeInsets.symmetric(horizontal: 16),
-                  side: BorderSide(color: isDark ? const Color(0xFFA5D6A7) : const Color(0xFF2E7D32)),
+                  side: BorderSide(color: theme.primaryColor),
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
                 ),
-                child: Text("Edit", style: TextStyle(color: isDark ? const Color(0xFFA5D6A7) : const Color(0xFF2E7D32))),
+                child: Text("Edit", style: TextStyle(color: theme.primaryColor)),
               ),
             ],
           ),
-          Divider(height: 24, color: isDark ? Colors.white24 : Colors.black12),
-          _buildProfileDetailRow(Icons.person_outline, "Full Name", name),
-          Divider(height: 1, color: isDark ? Colors.white10 : Colors.black12),
-          _buildProfileDetailRow(Icons.alternate_email, "Username", "@$_username"),
-          Divider(height: 1, color: isDark ? Colors.white10 : Colors.black12),
-          _buildProfileDetailRow(Icons.mail_outline, "Email", email),
-          Divider(height: 1, color: isDark ? Colors.white10 : Colors.black12),
-          _buildProfileDetailRow(Icons.phone_outlined, "Phone", phone),
-          Divider(height: 1, color: isDark ? Colors.white10 : Colors.black12),
-          _buildProfileDetailRow(Icons.location_on_outlined, "Location", location),
+          Divider(height: 24, color: theme.dividerColor),
+          _buildProfileDetailRow(context, Icons.person_outline, "Full Name", name),
+          Divider(height: 1, color: theme.dividerColor),
+          _buildProfileDetailRow(context, Icons.alternate_email, "Username", "@$_username"),
+          Divider(height: 1, color: theme.dividerColor),
+          _buildProfileDetailRow(context, Icons.mail_outline, "Email", email),
+          Divider(height: 1, color: theme.dividerColor),
+          _buildProfileDetailRow(context, Icons.phone_outlined, "Phone", phone),
+          Divider(height: 1, color: theme.dividerColor),
+          _buildProfileDetailRow(context, Icons.location_on_outlined, "Location", location),
         ],
       ),
     );
   }
 
-  Widget _buildProfileDetailRow(IconData icon, String label, String value) {
-    final isDark = Theme.of(context).brightness == Brightness.dark;
-    final Color iconColor = isDark ? const Color(0xFFA5D6A7) : Colors.black54;
-    final Color labelColor = isDark ? Colors.white70 : Colors.black54;
-    final Color valueColor = isDark ? Colors.white : Colors.black87;
-
+  Widget _buildProfileDetailRow(BuildContext context, IconData icon, String label, String value) {
+    final theme = Theme.of(context);
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 12),
       child: Row(
         children: [
-          Icon(icon, color: iconColor, size: 20),
+          Icon(icon, size: 20),
           const SizedBox(width: 12),
           Text(
             label,
-            style: TextStyle(color: labelColor, fontSize: 14),
+            style: theme.textTheme.bodyMedium,
           ),
           const Spacer(),
           Text(
             value,
-            style: TextStyle(color: valueColor, fontWeight: FontWeight.bold, fontSize: 14),
+            style: theme.textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.bold),
           ),
         ],
       ),
@@ -628,56 +618,52 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   // Card builder for Plant Statistics
   Widget _buildPlantStatisticsCard(BuildContext context) {
-    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final theme = Theme.of(context);
     return ResponsiveCard(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             children: [
-              Icon(Icons.eco, color: isDark ? const Color(0xFFA5D6A7) : const Color(0xFF2E7D32)),
+              const Icon(Icons.eco, size: 24),
               const SizedBox(width: 8),
               Text(
                 "Plant Statistics",
-                style: TextStyle(
-                  fontSize: 22,
-                  fontWeight: FontWeight.bold,
-                  color: isDark ? Colors.white : Colors.black87,
-                ),
+                style: theme.textTheme.titleLarge?.copyWith(fontSize: 22),
               ),
             ],
           ),
-          Divider(height: 24, color: isDark ? Colors.white24 : Colors.black12),
-          _buildStatRow(Icons.camera_alt_outlined, "Total Scans", _totalScans.toString()),
-          Divider(height: 1, color: isDark ? Colors.white10 : Colors.black12),
-          _buildStatRow(Icons.bug_report_outlined, "Diseases Detected", _diseasesDetected.toString()),
-          Divider(height: 1, color: isDark ? Colors.white10 : Colors.black12),
-          _buildStatRow(Icons.track_changes, "Accuracy", _accuracyRate),
+          Divider(height: 24, color: theme.dividerColor),
+          _buildStatRow(context, Icons.camera_alt_outlined, "Total Scans", _totalScans.toString()),
+          Divider(height: 1, color: theme.dividerColor),
+          _buildStatRow(context, Icons.bug_report_outlined, "Diseases Detected", _diseasesDetected.toString()),
+          Divider(height: 1, color: theme.dividerColor),
+          _buildStatRow(context, Icons.track_changes, "Accuracy", _accuracyRate),
         ],
       ),
     );
   }
 
-  Widget _buildStatRow(IconData icon, String label, String value) {
-    final isDark = Theme.of(context).brightness == Brightness.dark;
-    final Color iconColor = isDark ? const Color(0xFFA5D6A7) : const Color(0xFF2E7D32);
-    final Color labelColor = isDark ? Colors.white70 : Colors.black87;
-    final Color valColor = isDark ? const Color(0xFFA5D6A7) : const Color(0xFF2E7D32);
-
+  Widget _buildStatRow(BuildContext context, IconData icon, String label, String value) {
+    final theme = Theme.of(context);
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 12),
       child: Row(
         children: [
-          Icon(icon, color: iconColor, size: 20),
+          Icon(icon, size: 20),
           const SizedBox(width: 12),
           Text(
             label,
-            style: TextStyle(color: labelColor, fontSize: 14),
+            style: theme.textTheme.bodyMedium,
           ),
           const Spacer(),
           Text(
             value,
-            style: TextStyle(color: valColor, fontWeight: FontWeight.bold, fontSize: 16),
+            style: TextStyle(
+              color: theme.primaryColor,
+              fontWeight: FontWeight.bold,
+              fontSize: 16,
+            ),
           ),
         ],
       ),

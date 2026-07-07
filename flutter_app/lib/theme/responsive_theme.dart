@@ -122,6 +122,59 @@ class ResponsiveTheme {
     } catch (_) {}
     return webColor ?? (dark ? const Color(0xFF81C784) : const Color(0xFF2E7D32));
   }
+
+  static ThemeData darkTheme = ThemeData(
+    brightness: Brightness.dark,
+    primaryColor: const Color(0xFFA5D6A7), // Bright Mint Accent
+    scaffoldBackgroundColor: const Color(0xff0d1f14), // Premium Dark Forest Background
+    
+    // 🔘 Global Card Theme (Dashboard Blocks, Treatment Rows)
+    cardTheme: const CardThemeData(
+      color: Color(0xff162e1e), // Slightly lighter forest green for contrast
+      elevation: 2,
+    ),
+
+    // 📝 Global High-Contrast Typography
+    textTheme: const TextTheme(
+      // Main Headers & Screen Titles
+      displayLarge: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+      titleLarge: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+      
+      // Plant Names / Main Row List Items
+      bodyLarge: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
+      
+      // Subtext, Secondary Fields, Labels (e.g., "Full Name", "Email")
+      bodyMedium: TextStyle(color: Colors.white70),
+      bodySmall: TextStyle(color: Colors.white60),
+    ),
+
+    // 🌿 Global Icon Customization
+    iconTheme: const IconThemeData(
+      color: Color(0xFFA5D6A7), // Force all template icons to bright mint green
+    ),
+
+    // 🔽 Global Dropdown & Form Field Theme
+    inputDecorationTheme: InputDecorationTheme(
+      filled: true,
+      fillColor: const Color(0xff162e1e),
+      labelStyle: const TextStyle(color: Colors.white70),
+      border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+    ),
+  );
+
+  static ThemeData lightTheme = ThemeData(
+    brightness: Brightness.light,
+    primarySwatch: Colors.green,
+    primaryColor: const Color(0xFF1B5E20),
+    scaffoldBackgroundColor: Colors.white,
+    cardTheme: const CardThemeData(
+      color: Colors.white,
+      elevation: 2,
+    ),
+    iconTheme: const IconThemeData(
+      color: Color(0xFF2E7D32),
+    ),
+  );
 }
 
 class ResponsiveScaffold extends StatelessWidget {

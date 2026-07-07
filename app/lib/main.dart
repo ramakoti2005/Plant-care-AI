@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'services/auth_service.dart';
 import 'services/settings_service.dart';
 import 'screens/screens.dart';
+import 'theme/responsive_theme.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,11 +24,7 @@ class MyApp extends StatelessWidget {
         builder: (context, settings, _) {
           return MaterialApp(
             title: 'My Flutter App',
-            theme: ThemeData(
-              brightness: settings.isDarkMode ? Brightness.dark : Brightness.light,
-              primarySwatch: Colors.green,
-              visualDensity: VisualDensity.adaptivePlatformDensity,
-            ),
+            theme: settings.isDarkMode ? ResponsiveTheme.darkTheme : ResponsiveTheme.lightTheme,
             initialRoute: '/',
             routes: {
               '/': (context) => const LoginScreen(),
