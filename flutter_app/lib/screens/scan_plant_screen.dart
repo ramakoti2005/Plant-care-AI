@@ -52,7 +52,12 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
 
   Future<void> _pickCamera() async {
     try {
-      final XFile? pickedFile = await _picker.pickImage(source: ImageSource.camera);
+      final XFile? pickedFile = kIsWeb
+          ? await _picker.pickImage(
+              source: ImageSource.camera,
+              preferredCameraDevice: CameraDevice.rear,
+            )
+          : await _picker.pickImage(source: ImageSource.camera);
 
       if (pickedFile != null) {
         final bytes = await pickedFile.readAsBytes();
