@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -117,15 +118,23 @@ class _HistoryScreenState extends State<HistoryScreen> {
         errorBuilder: (context, error, stackTrace) => const Icon(Icons.broken_image, color: Colors.grey),
       );
     }
-    return Image.network(
-      imageUrl,
-      fit: BoxFit.cover,
-      errorBuilder: (context, error, stackTrace) => const Icon(Icons.broken_image, color: Colors.grey),
-      loadingBuilder: (context, child, loadingProgress) {
-        if (loadingProgress == null) return child;
-        return const Center(child: CircularProgressIndicator(color: Colors.green));
-      },
-    );
+    if (imageUrl.startsWith('http') || kIsWeb) {
+      return Image.network(
+        imageUrl,
+        fit: BoxFit.cover,
+        errorBuilder: (context, error, stackTrace) => const Icon(Icons.broken_image, color: Colors.grey),
+        loadingBuilder: (context, child, loadingProgress) {
+          if (loadingProgress == null) return child;
+          return const Center(child: CircularProgressIndicator(color: Colors.green));
+        },
+      );
+    } else {
+      return Image.file(
+        File(imageUrl),
+        fit: BoxFit.cover,
+        errorBuilder: (context, error, stackTrace) => const Icon(Icons.broken_image, color: Colors.grey),
+      );
+    }
   }
 
   Widget _buildHistoryCard(dynamic item, int index) {
@@ -263,6 +272,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
   @override
   Widget build(BuildContext context) {
     final bool web = ResponsiveTheme.isWebLayout(context);
+    final bool isMobile = MediaQuery.of(context).size.width < 600;
 
     return ResponsiveScaffold(
       appBar: AppBar(
@@ -284,72 +294,25 @@ class _HistoryScreenState extends State<HistoryScreen> {
                     ),
                   ),
                 )
-              : web
-                  ? Center(
-                      child: Container(
-                        constraints: const BoxConstraints(maxWidth: 1200),
-                        padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 24),
-                        child: GridView.builder(
-                          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 3, 
-                            crossAxisSpacing: 24,
-                            mainAxisSpacing: 24,
-                            childAspectRatio: 0.85,
-                          ),
-                          itemCount: _history.length,
-                          itemBuilder: (context, index) {
-                            final item = _history[index];
-                            return _buildHistoryCard(item, index);
-                          },
-                        ),
+              : Center(
+                  child: Container(
+                    constraints: BoxConstraints(maxWidth: web ? 1200 : 600),
+                    child: GridView.builder(
+                      padding: const EdgeInsets.all(16),
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: isMobile ? 1 : 3, 
+                        crossAxisSpacing: isMobile ? 16 : 24,
+                        mainAxisSpacing: isMobile ? 16 : 24,
+                        childAspectRatio: isMobile ? 1.05 : 0.85,
                       ),
-                    )
-                  : Center(
-                      child: Container(
-                        constraints: const BoxConstraints(maxWidth: 1000),
-                        child: ListView.builder(
-                          itemCount: _history.length,
-                          itemBuilder: (context, index) {
-                            final item = _history[index];
-
-                            return ResponsiveCard(
-                              margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                              padding: EdgeInsets.zero,
-                              onTap: () {
-                                DashboardScreen.navigate(
-                                  context,
-                                  'custom',
-                                  fallbackWidget: HistoryDetailScreen(scan: item),
-                                  customWidget: HistoryDetailScreen(scan: item),
-                                );
-                              },
-                              child: ListTile(
-                                title: Text(
-                                  item['plant_name'] ?? '',
-                                  style: const TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                                subtitle: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      _formatDate(item['timestamp'] ?? item['created_at'] ?? item['date']),
-                                      style: const TextStyle(
-                                        fontSize: 12,
-                                        color: Color(0xFFE0E0E0),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                trailing: const Icon(Icons.arrow_forward_ios, size: 16, color: Colors.white70),
-                              ),
-                            );
-                          },
-                        ),
-                      ),
+                      itemCount: _history.length,
+                      itemBuilder: (context, index) {
+                        final item = _history[index];
+                        return _buildHistoryCard(item, index);
+                      },
                     ),
+                  ),
+                ),
     );
   }
 }
