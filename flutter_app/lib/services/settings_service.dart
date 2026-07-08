@@ -89,6 +89,17 @@ class SettingsService extends ChangeNotifier {
     }
   }
 
+  Future<void> increaseCacheSize(double value) async {
+    _cacheSizeMB += value;
+    notifyListeners();
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setDouble('cache_size_mb', _cacheSizeMB);
+    } catch (e) {
+      debugPrint("Error updating cache size: $e");
+    }
+  }
+
   // Regex utility to dynamically convert text temperature Celsius degrees into Fahrenheit
   static String convertTemperatureString(String text, bool isFahrenheit) {
     if (!isFahrenheit) return text;

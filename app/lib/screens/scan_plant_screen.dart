@@ -10,9 +10,11 @@ import 'package:http/http.dart' as http;
 import 'package:http_parser/http_parser.dart';
 import 'package:flutter/foundation.dart';
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
 import '../api_config.dart';
 import '../theme/responsive_theme.dart';
 import '../utils/web_camera.dart';
+import '../services/settings_service.dart';
 
 class ScanPlantScreen extends StatefulWidget {
   const ScanPlantScreen({super.key});
@@ -159,6 +161,14 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
           _hasResults = true; 
           _hasError = false;
         });
+
+        try {
+          final sizeMB = _imageBytes!.length / (1024 * 1024);
+          Provider.of<SettingsService>(context, listen: false).increaseCacheSize(sizeMB);
+        } catch (e) {
+          debugPrint("Error updating settings cache size: $e");
+        }
+
         print("UI State switched successfully for: $_plantName - $_diseaseName");
       } else {
         setState(() {

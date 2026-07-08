@@ -15,27 +15,12 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
-  bool _outbreakAlerts = true;
-  bool _careReminders = true;
-  String _selectedTheme = 'Nature Gradient (Light)';
-  String _selectedUnit = 'Celsius (°C)';
-  double _cacheSize = 14.2;
   double _currentTempC = 28.0;
 
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      final settings = Provider.of<SettingsService>(context, listen: false);
-      setState(() {
-        _outbreakAlerts = settings.outbreakAlerts;
-        _careReminders = settings.careReminders;
-        _selectedTheme = settings.selectedTheme;
-        _selectedUnit = settings.selectedUnit;
-        _cacheSize = settings.cacheSizeMB;
-      });
-      _loadCurrentTemperature();
-    });
+    _loadCurrentTemperature();
   }
 
   Future<void> _loadCurrentTemperature() async {
@@ -50,27 +35,24 @@ class _SettingsScreenState extends State<SettingsScreen> {
   }
 
   void _showClearCacheDialog() {
+    final settings = Provider.of<SettingsService>(context, listen: false);
     showDialog(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
           title: const Text("Clear Local App Cache?"),
-          content: Text("Are you sure you want to delete $_cacheSize MB of temporary scanned leaf storage? This action cannot be undone."),
+          content: Text("Are you sure you want to delete ${settings.cacheSizeMB.toStringAsFixed(1)} MB of temporary scanned leaf storage? This action cannot be undone."),
           actions: [
             TextButton(
               child: const Text("Cancel"),
-              onPressed: () => Navigator.of(context).pop(), // Close safely
+              onPressed: () => Navigator.of(context).pop(),
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
               child: const Text("Yes, Clear Data"),
               onPressed: () {
-                setState(() {
-                  _cacheSize = 0.0; // Wipe storage data size state variable
-                });
-                // Update global provider
                 Provider.of<SettingsService>(context, listen: false).clearCache();
-                Navigator.of(context).pop(); // Close permission window
+                Navigator.of(context).pop();
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(content: Text("App cache successfully cleared! 🧹")),
                 );
@@ -84,6 +66,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final settings = Provider.of<SettingsService>(context);
     final bool web = ResponsiveTheme.isWebLayout(context);
     final Color textColor = Theme.of(context).brightness == Brightness.dark ? Colors.white70 : Colors.black87;
     final Color subtitleColor = Theme.of(context).brightness == Brightness.dark ? Colors.white60 : Colors.black54;
@@ -125,12 +108,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         style: TextStyle(color: textColor, fontSize: 14),
                       ),
                       subtitle: const Text("Get notified of local disease spikes", style: TextStyle(fontSize: 11, color: Colors.grey)),
-                      value: _outbreakAlerts,
+                      value: settings.outbreakAlerts,
                       activeColor: const Color(0xFF2E7D32),
                       onChanged: (value) {
-                        setState(() {
-                          _outbreakAlerts = value;
-                        });
                         Provider.of<SettingsService>(context, listen: false).setOutbreakAlerts(value);
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(content: Text("Alert preference updated!")),
@@ -143,12 +123,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         style: TextStyle(color: textColor, fontSize: 14),
                       ),
                       subtitle: const Text("Get updates on plant schedule suggestions", style: TextStyle(fontSize: 11, color: Colors.grey)),
-                      value: _careReminders,
+                      value: settings.careReminders,
                       activeColor: const Color(0xFF2E7D32),
                       onChanged: (value) {
-                        setState(() {
-                          _careReminders = value;
-                        });
                         Provider.of<SettingsService>(context, listen: false).setCareReminders(value);
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(content: Text("Alert preference updated!")),
@@ -168,7 +145,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   children: [
                     // Theme Selector Dropdown
                     DropdownButtonFormField<String>(
-                      value: _selectedTheme,
+                      value: settings.selectedTheme,
                       decoration: InputDecoration(
                         labelText: "App Theme",
                         labelStyle: TextStyle(color: subtitleColor),
@@ -186,12 +163,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       }).toList(),
                       onChanged: (String? newValue) {
                         if (newValue != null) {
-                          setState(() {
-                            _selectedTheme = newValue;
-                          });
                           Provider.of<SettingsService>(context, listen: false).setSelectedTheme(newValue);
                           ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(content: Text("Theme changed to $_selectedTheme!")),
+                            SnackBar(content: Text("Theme changed to $newValue!")),
                           );
                         }
                       },
@@ -199,13 +173,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     const Divider(height: 20, color: Colors.black12),
                     // Measurement Units Selector Dropdown
                     DropdownButtonFormField<String>(
-                      value: _selectedUnit,
+                      value: settings.selectedUnit,
                       decoration: InputDecoration(
                         labelText: "Temperature Units",
                         labelStyle: TextStyle(color: subtitleColor),
                         prefixIcon: Icon(Icons.thermostat_outlined, color: ResponsiveTheme.getIconColor(context)),
                         border: InputBorder.none,
-                        helperText: _selectedUnit == 'Fahrenheit (°F)' 
+                        helperText: settings.selectedUnit == 'Fahrenheit (°F)' 
                             ? "Current Garden Temperature: ${((_currentTempC * 9 / 5) + 32).toStringAsFixed(1)}°F" 
                             : "Current Garden Temperature: ${_currentTempC.toStringAsFixed(1)}°C",
                         helperStyle: TextStyle(color: subtitleColor, fontSize: 12),
@@ -224,9 +198,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       }).toList(),
                       onChanged: (String? newValue) {
                         if (newValue != null) {
-                          setState(() {
-                            _selectedUnit = newValue;
-                          });
                           Provider.of<SettingsService>(context, listen: false).setSelectedUnit(newValue);
                           ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(content: Text('Measurement unit changed to $newValue')),
@@ -252,13 +223,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     ),
                   ),
                   subtitle: Text(
-                    "Local Storage Cache: ${_cacheSize.toStringAsFixed(1)} MB",
+                    "Local Storage Cache: ${settings.cacheSizeMB.toStringAsFixed(1)} MB",
                     style: TextStyle(color: subtitleColor, fontSize: 12),
                   ),
                   trailing: IconButton(
                     icon: Icon(Icons.delete_outline, color: Colors.red[400]),
                     tooltip: "Clear Cache",
-                    onPressed: _cacheSize > 0 ? _showClearCacheDialog : null,
+                    onPressed: settings.cacheSizeMB > 0 ? _showClearCacheDialog : null,
                   ),
                 ),
               ),
