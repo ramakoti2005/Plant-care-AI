@@ -124,12 +124,30 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
           _isAnalyzing = false;
           _result = responseData;
           
-          _plantName = responseData['plant'] ?? 'Rice';
-          _diseaseName = responseData['disease'] ?? 'Leaf Blast';
-          _scientificName = responseData['scientific_name'] ?? 'N/A';
-          _overview = responseData['overview'] ?? responseData['cause'] ?? 'Magnaporthe oryzae';
-          _symptoms = responseData['symptoms'] ?? 'Spindle-shaped/diamond-shaped lesions with gray ash centers.';
-          _control = responseData['chemical_control'] ?? responseData['control'] ?? 'Tricyclazole 75% WP or Isoprothiolane 40% EC';
+          double confidenceVal = 1.0;
+          if (responseData['confidence'] != null) {
+            confidenceVal = double.tryParse(responseData['confidence'].toString()) ?? 1.0;
+          }
+          
+          bool isUnrecognizedResponse = responseData['status'] == 'Unrecognized Image' || 
+              (responseData['plant'] != null && responseData['plant'].toString().toLowerCase() == 'unknown') ||
+              confidenceVal < 0.70;
+
+          if (isUnrecognizedResponse) {
+            _plantName = "Not Recognized";
+            _diseaseName = "Invalid Image Content";
+            _scientificName = "N/A";
+            _overview = "The uploaded image could not be verified as a plant leaf. Please capture a clear, close-up photo of a plant leaf for accurate disease analysis.";
+            _symptoms = "No plant data available.";
+            _control = "Please try again with a valid crop specimen.";
+          } else {
+            _plantName = responseData['plant'] ?? responseData['plant_name'] ?? 'Rice';
+            _diseaseName = responseData['disease'] ?? responseData['disease_name'] ?? 'Leaf Blast';
+            _scientificName = responseData['scientific_name'] ?? 'N/A';
+            _overview = responseData['overview'] ?? responseData['cause'] ?? 'Magnaporthe oryzae';
+            _symptoms = responseData['symptoms'] ?? 'Spindle-shaped/diamond-shaped lesions with gray ash centers.';
+            _control = responseData['chemical_control'] ?? responseData['control'] ?? 'Tricyclazole 75% WP or Isoprothiolane 40% EC';
+          }
           
           _hasResults = true; 
           _hasError = false;
@@ -248,10 +266,19 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
 
     final String plantName = _result?['plant_name'] ?? _result?['plant'] ?? _plantName;
     final String diseaseName = _result?['disease_name'] ?? _result?['disease'] ?? _diseaseName;
-    final bool isUnrecognized = plantName.toLowerCase() == 'unknown' && 
-                                (diseaseName.toLowerCase() == 'no plant detected' || 
-                                 diseaseName.toLowerCase() == 'unrecognized image' || 
-                                 _result?['status'] == 'Unrecognized Image');
+    
+    double confidenceVal = 1.0;
+    if (_result?['confidence'] != null) {
+      confidenceVal = double.tryParse(_result!['confidence'].toString()) ?? 1.0;
+    }
+
+    final bool isUnrecognized = plantName.toLowerCase() == 'unknown' || 
+                                plantName.toLowerCase() == 'not recognized' ||
+                                diseaseName.toLowerCase() == 'no plant detected' || 
+                                diseaseName.toLowerCase() == 'unrecognized image' || 
+                                diseaseName.toLowerCase() == 'invalid image content' ||
+                                _result?['status'] == 'Unrecognized Image' ||
+                                confidenceVal < 0.70;
 
     if (isUnrecognized) {
       return ResponsiveScaffold(

@@ -442,6 +442,26 @@ def process_prediction_and_save(image, db: Session, user_id: int = None, image_p
         base64_uri = f"data:image/jpeg;base64,{encoded_bytes}"
         image_path = base64_uri
 
+    # Check confidence threshold (70%)
+    confidence_val = 1.0
+    if response_data.get("confidence") is not None:
+        try:
+            confidence_val = float(response_data["confidence"])
+        except ValueError:
+            pass
+
+    if response_data.get("status") == "Success" and confidence_val < 0.70:
+        response_data = {
+            "status": "Unrecognized Image",
+            "message": "The uploaded image could not be verified as a plant leaf. Please capture a clear, close-up photo of a plant leaf for accurate disease analysis.",
+            "image_path": image_path,
+            "plant_name": "Unknown",
+            "disease_name": "No Plant Detected",
+            "plant": "Unknown",
+            "disease": "No Plant Detected",
+            "scientific_name": "No Plant Detected"
+        }
+
     # 2. Isolate the database write inside a dedicated fail-safe try block
     if response_data.get("status") == "Success":
         try:
@@ -449,6 +469,8 @@ def process_prediction_and_save(image, db: Session, user_id: int = None, image_p
                 user_id=user_id,
                 plant_name=response_data.get("plant_name"),
                 disease_name=response_data.get("disease_name"),
+                scientific_name=response_data.get("scientific_name"),
+                confidence=response_data.get("confidence"),
                 solution_suggestion=response_data.get("treatment"),
                 image_path=image_path
             )
@@ -456,9 +478,27 @@ def process_prediction_and_save(image, db: Session, user_id: int = None, image_p
             db.commit()
         except Exception as e:
             db.rollback()
-            # This prints the database table issue to your log safely without breaking your API response flow!
             print(f"DATABASE WRITE BYPASSED (Column Mismatch): {str(e)}")
+    elif response_data.get("status") == "Unrecognized Image":
+        try:
+            new_history = ScanHistory(
+                user_id=user_id,
+                plant_name="Unknown",
+                disease_name="No Plant Detected",
+                scientific_name="No Plant Detected",
+                confidence="0.0",
+                image_quality="Poor",
+                possible_matches="[]",
+                issues_detected='["Low confidence or non-leaf content"]',
+                solution_suggestion="The uploaded image could not be verified as a plant leaf. Please capture a clear, close-up photo of a plant leaf for accurate disease analysis.",
+                image_path=image_path
+            )
+            db.add(new_history)
+            db.commit()
+        except Exception as e:
+            db.rollback()
+            print(f"Failed to save low-confidence/unrecognized image to database: {e}")
 
-    # 3. Always return the successful data cleanly to Flutter
+    # 3. Always return the data cleanly to Flutter
     response_data["image_path"] = image_path
     return response_data
