@@ -244,6 +244,13 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
   Widget _buildTreatmentResultsView() {
     final bool web = ResponsiveTheme.isWebLayout(context);
     String formattedDate = DateFormat('yyyy-MM-dd hh:mm a').format(DateTime.now());
+    final bool isDark = Theme.of(context).brightness == Brightness.dark;
+
+    final Color cardColor = isDark ? const Color(0xFF1C2D22) : Colors.white;
+    final Color titleColor = isDark ? const Color(0xFFA5D6A7) : const Color(0xFF1B5E20);
+    final Color labelColor = isDark ? Colors.white70 : Colors.black54;
+    final Color valueColor = isDark ? const Color(0xFFE0E0E0) : Colors.black87;
+    final Color dividerColor = isDark ? Colors.white24 : Colors.grey.shade300;
 
     Widget content = Center(
       child: Container(
@@ -254,7 +261,7 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
             // Card containing Plant Name, Leaf Image, and Metadata
             Card(
               elevation: 4,
-              color: Colors.white,
+              color: cardColor,
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
               child: Padding(
                 padding: const EdgeInsets.all(20),
@@ -263,13 +270,13 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
                   children: [
                     Text(
                       _plantName,
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 26,
                         fontWeight: FontWeight.bold,
-                        color: Colors.green,
+                        color: titleColor,
                       ),
                     ),
-                    const Divider(height: 30),
+                    Divider(height: 30, color: dividerColor),
                     if (_imageFile != null)
                       Center(
                         child: Container(
@@ -288,40 +295,43 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
                         ),
                       ),
                     const SizedBox(height: 20),
-                    const Text(
+                    Text(
                       "Scientific Name",
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 16,
+                        color: labelColor,
                       ),
                     ),
                     Text(
                       _scientificName,
-                      style: const TextStyle(fontSize: 15, color: Colors.black87),
+                      style: TextStyle(fontSize: 15, color: valueColor),
                     ),
                     const SizedBox(height: 15),
-                    const Text(
+                    Text(
                       "Image Quality",
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 16,
+                        color: labelColor,
                       ),
                     ),
-                    const Text(
+                    Text(
                       "Good",
-                      style: TextStyle(fontSize: 15, color: Colors.black87),
+                      style: TextStyle(fontSize: 15, color: valueColor),
                     ),
                     const SizedBox(height: 15),
-                    const Text(
+                    Text(
                       "Scan Date & Time",
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 16,
+                        color: labelColor,
                       ),
                     ),
                     Text(
                       formattedDate,
-                      style: const TextStyle(fontSize: 15, color: Colors.black87),
+                      style: TextStyle(fontSize: 15, color: valueColor),
                     ),
                   ],
                 ),
@@ -330,12 +340,12 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
             const SizedBox(height: 30),
             
             // Section Title
-            const Text(
+            Text(
               "Analysis & Treatment Details",
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
-                color: Color(0xFF1B5E20),
+                color: titleColor,
               ),
             ),
             const SizedBox(height: 15),
@@ -1014,23 +1024,28 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
     required Color iconColor,
     required Color bgColor,
   }) {
-    final bool web = ResponsiveTheme.isWebLayout(context);
+    final bool isDark = Theme.of(context).brightness == Brightness.dark;
+
+    final Color resolvedBgColor = isDark ? const Color(0xFF1E3324) : bgColor;
+    final Color resolvedColor = isDark ? const Color(0xFFA5D6A7) : iconColor;
+    final Color bodyColor = isDark ? const Color(0xFFE0E0E0) : Colors.black87;
+
     return ResponsiveCard(
-      webBgColor: bgColor,
+      webBgColor: resolvedBgColor,
       margin: const EdgeInsets.only(bottom: 15),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             children: [
-              Icon(icon, color: web ? iconColor : Colors.white, size: 22),
+              Icon(icon, color: resolvedColor, size: 22),
               const SizedBox(width: 8),
               Text(
                 title,
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
-                  color: web ? iconColor.withOpacity(0.85) : Colors.white,
+                  color: resolvedColor,
                 ),
               ),
             ],
@@ -1041,7 +1056,7 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
             style: TextStyle(
               fontSize: 14,
               height: 1.5,
-              color: web ? Colors.black87 : const Color(0xFFE0E0E0),
+              color: bodyColor,
             ),
           ),
         ],
@@ -1050,13 +1065,16 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
   }
 
   Widget _buildInfoCard(BuildContext context, String label, String value, {bool isDisease = false, bool isHealthy = false}) {
-    final bool web = ResponsiveTheme.isWebLayout(context);
-    Color textColor = web ? Colors.black87 : Colors.white;
+    final bool isDark = Theme.of(context).brightness == Brightness.dark;
+
+    Color textColor = isDark ? Colors.white : Colors.black87;
     if (isDisease) {
       textColor = isHealthy 
-          ? (web ? Colors.green : Colors.greenAccent) 
-          : (web ? Colors.red : Colors.redAccent);
+          ? (isDark ? Colors.greenAccent : Colors.green) 
+          : (isDark ? Colors.redAccent : Colors.red);
     }
+
+    final Color resolvedLabelColor = isDark ? const Color(0xFFE0E0E0) : Colors.black54;
 
     return ResponsiveCard(
       child: Row(
@@ -1067,7 +1085,7 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
             style: TextStyle(
               fontSize: 16, 
               fontWeight: FontWeight.w500, 
-              color: web ? Colors.grey : const Color(0xFFE0E0E0),
+              color: resolvedLabelColor,
             ),
           ),
           Text(

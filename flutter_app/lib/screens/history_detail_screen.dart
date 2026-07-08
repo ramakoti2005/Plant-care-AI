@@ -74,6 +74,12 @@ class HistoryDetailScreen extends StatelessWidget {
     String imgPath = scan['image_path'] ?? scan['image'] ?? '';
     final String finalImageUrl = getFullImageUrl(imgPath);
     final bool web = ResponsiveTheme.isWebLayout(context);
+    final bool isDark = Theme.of(context).brightness == Brightness.dark;
+
+    final Color titleColor = isDark ? Colors.white : const Color(0xFF1B5E20);
+    final Color labelColor = isDark ? Colors.white70 : Colors.black54;
+    final Color valueColor = isDark ? const Color(0xFFE0E0E0) : Colors.black87;
+    final Color dividerColor = isDark ? Colors.white24 : Colors.grey.shade300;
 
     return ResponsiveScaffold(
       appBar: AppBar(
@@ -112,36 +118,48 @@ class HistoryDetailScreen extends StatelessWidget {
                             const SizedBox(height: 16),
                             Text(
                               scan['plant_name'] ?? '',
-                              style: const TextStyle(
+                              style: TextStyle(
                                 fontSize: 26,
                                 fontWeight: FontWeight.bold,
-                                color: Colors.green,
+                                color: isDark ? const Color(0xFFA5D6A7) : const Color(0xFF1B5E20),
                               ),
                             ),
-                            const Divider(height: 30),
-                            const Text(
+                            Divider(height: 30, color: dividerColor),
+                            Text(
                               "Scientific Name",
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
+                                color: labelColor,
                               ),
                             ),
-                            Text(scan['scientific_name'] ?? ''),
+                            Text(
+                              scan['scientific_name'] ?? '',
+                              style: TextStyle(color: valueColor),
+                            ),
                             const SizedBox(height: 15),
-                            const Text(
+                            Text(
                               "Image Quality",
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
+                                color: labelColor,
                               ),
                             ),
-                            Text(scan['image_quality'].toString()),
+                            Text(
+                              scan['image_quality'].toString(),
+                              style: TextStyle(color: valueColor),
+                            ),
                             const SizedBox(height: 15),
-                            const Text(
+                            Text(
                               "Scan Date & Time",
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
+                                color: labelColor,
                               ),
                             ),
-                            Text(_formatDate(scan['timestamp'] ?? scan['created_at'] ?? scan['date'])),
+                            Text(
+                              _formatDate(scan['timestamp'] ?? scan['created_at'] ?? scan['date']),
+                              style: TextStyle(color: valueColor),
+                            ),
                           ],
                         ),
                       ),
@@ -152,12 +170,12 @@ class HistoryDetailScreen extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Text(
+                            Text(
                               "Analysis & Treatment Details",
                               style: TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,
-                                color: Color(0xFF1B5E20),
+                                color: titleColor,
                               ),
                             ),
                             const SizedBox(height: 15),
@@ -208,13 +226,13 @@ class HistoryDetailScreen extends StatelessWidget {
                     children: [
                       Text(
                         scan['plant_name'] ?? '',
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontSize: 26,
                           fontWeight: FontWeight.bold,
-                          color: Colors.white,
+                          color: titleColor,
                         ),
                       ),
-                      const Divider(height: 30, color: Colors.white24),
+                      Divider(height: 30, color: dividerColor),
                       if (imgPath.isNotEmpty)
                         Container(
                           margin: const EdgeInsets.only(bottom: 20),
@@ -222,61 +240,61 @@ class HistoryDetailScreen extends StatelessWidget {
                           width: double.infinity,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(15),
-                            border: Border.all(color: Colors.white.withOpacity(0.25)),
+                            border: Border.all(color: dividerColor),
                           ),
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(15),
                              child: buildDetailImage(
                                finalImageUrl,
                                fit: BoxFit.cover,
-                               progressColor: Colors.white,
-                               iconColor: Colors.white70,
+                               progressColor: isDark ? Colors.white : const Color(0xFF2E7D32),
+                               iconColor: isDark ? Colors.white70 : Colors.grey,
                              ),
                           ),
                         ),
-                      const Text(
+                      Text(
                         "Scientific Name",
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          color: Colors.white,
+                          color: labelColor,
                         ),
                       ),
                       Text(
                         scan['scientific_name'] ?? '',
-                        style: const TextStyle(color: Color(0xFFE0E0E0)),
+                        style: TextStyle(color: valueColor),
                       ),
                       const SizedBox(height: 15),
-                      const Text(
+                      Text(
                         "Image Quality",
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          color: Colors.white,
+                          color: labelColor,
                         ),
                       ),
                       Text(
                         scan['image_quality'].toString(),
-                        style: const TextStyle(color: Color(0xFFE0E0E0)),
+                        style: TextStyle(color: valueColor),
                       ),
                       const SizedBox(height: 15),
-                      const Text(
+                      Text(
                         "Scan Date & Time",
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          color: Colors.white,
+                          color: labelColor,
                         ),
                       ),
                       Text(
                         _formatDate(scan['timestamp'] ?? scan['created_at'] ?? scan['date']),
-                        style: const TextStyle(color: Color(0xFFE0E0E0)),
+                        style: TextStyle(color: valueColor),
                       ),
                       const SizedBox(height: 20),
-                      const Divider(height: 40, color: Colors.white24),
-                      const Text(
+                      Divider(height: 40, color: dividerColor),
+                      Text(
                         "Analysis & Treatment Details",
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
-                          color: Colors.white,
+                          color: titleColor,
                         ),
                       ),
                       const SizedBox(height: 15),
@@ -333,23 +351,28 @@ class HistoryDetailScreen extends StatelessWidget {
     required Color iconColor,
     required Color bgColor,
   }) {
-    final bool web = ResponsiveTheme.isWebLayout(context);
+    final bool isDark = Theme.of(context).brightness == Brightness.dark;
+
+    final Color resolvedBgColor = isDark ? const Color(0xFF1E3324) : bgColor;
+    final Color resolvedColor = isDark ? const Color(0xFFA5D6A7) : iconColor;
+    final Color bodyColor = isDark ? const Color(0xFFE0E0E0) : Colors.black87;
+
     return ResponsiveCard(
-      webBgColor: bgColor,
+      webBgColor: resolvedBgColor,
       margin: const EdgeInsets.only(bottom: 15),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             children: [
-              Icon(icon, color: web ? iconColor : Colors.white, size: 22),
+              Icon(icon, color: resolvedColor, size: 22),
               const SizedBox(width: 8),
               Text(
                 title,
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
-                  color: web ? iconColor.withOpacity(0.85) : Colors.white,
+                  color: resolvedColor,
                 ),
               ),
             ],
@@ -360,7 +383,7 @@ class HistoryDetailScreen extends StatelessWidget {
             style: TextStyle(
               fontSize: 14,
               height: 1.5,
-              color: web ? Colors.black87 : const Color(0xFFE0E0E0),
+              color: bodyColor,
             ),
           ),
         ],
