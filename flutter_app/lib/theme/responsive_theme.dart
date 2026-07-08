@@ -45,14 +45,13 @@ class ResponsiveTheme {
 
   static Decoration getCardDecoration(BuildContext context, {Color? webBgColor}) {
     final bool dark = Theme.of(context).brightness == Brightness.dark;
-    final bool web = isWebLayout(context);
 
     final cardBg = webBgColor ?? (dark ? const Color(0xFF1C2D22) : Colors.white);
     final borderCol = dark ? const Color(0xFF2E4233) : const Color(0xFFE2EBE3);
 
     return BoxDecoration(
       color: cardBg, // Solid pure white card background or dark green
-      borderRadius: web ? BorderRadius.circular(16) : BorderRadius.zero,
+      borderRadius: BorderRadius.circular(16),
       border: Border.all(
         color: borderCol, // Soft matching green border line
         width: 1.0,

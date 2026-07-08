@@ -256,8 +256,7 @@ class DashboardScreenState extends State<DashboardScreen> {
                       padding: const EdgeInsets.all(12),
                       decoration: BoxDecoration(
                         color: isDark ? const Color(0xFF1E3525) : const Color(0xFFE8F5E9),
-                        shape: BoxShape.rectangle,
-                        borderRadius: BorderRadius.zero,
+                        shape: BoxShape.circle,
                       ),
                       child: Icon(Icons.wb_sunny_outlined, color: isDark ? const Color(0xFF81C784) : const Color(0xFF2E7D32), size: 28),
                     ),
@@ -273,7 +272,7 @@ class DashboardScreenState extends State<DashboardScreen> {
                       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                       decoration: BoxDecoration(
                         color: isDark ? const Color(0xFF1E3525) : const Color(0xFFE8F5E9),
-                        borderRadius: BorderRadius.zero,
+                        borderRadius: BorderRadius.circular(12),
                       ),
                       child: Text(
                         "Optimal",
@@ -488,7 +487,7 @@ class DashboardScreenState extends State<DashboardScreen> {
             padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
               color: ResponsiveTheme.getIconColor(context).withOpacity(0.1),
-              borderRadius: web ? BorderRadius.circular(15) : BorderRadius.zero,
+              borderRadius: BorderRadius.circular(15),
             ),
             child: Icon(
               icon,

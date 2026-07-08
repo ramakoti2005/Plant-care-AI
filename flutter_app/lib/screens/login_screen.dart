@@ -133,11 +133,11 @@ class _LoginScreenState extends State<LoginScreen> {
                               labelStyle: TextStyle(color: labelColor),
                               prefixIcon: Icon(Icons.person, color: iconColor),
                               enabledBorder: OutlineInputBorder(
-                                borderRadius: web ? BorderRadius.circular(12) : BorderRadius.zero,
+                                borderRadius: BorderRadius.circular(12),
                                 borderSide: BorderSide(color: borderColor),
                               ),
                               focusedBorder: OutlineInputBorder(
-                                borderRadius: web ? BorderRadius.circular(12) : BorderRadius.zero,
+                                borderRadius: BorderRadius.circular(12),
                                 borderSide: BorderSide(color: ResponsiveTheme.getIconColor(context)),
                               ),
                             ),
@@ -161,11 +161,11 @@ class _LoginScreenState extends State<LoginScreen> {
                                 onPressed: () => setState(() => _obscurePassword = !_obscurePassword),
                               ),
                               enabledBorder: OutlineInputBorder(
-                                borderRadius: web ? BorderRadius.circular(12) : BorderRadius.zero,
+                                borderRadius: BorderRadius.circular(12),
                                 borderSide: BorderSide(color: borderColor),
                               ),
                               focusedBorder: OutlineInputBorder(
-                                borderRadius: web ? BorderRadius.circular(12) : BorderRadius.zero,
+                                borderRadius: BorderRadius.circular(12),
                                 borderSide: BorderSide(color: ResponsiveTheme.getIconColor(context)),
                               ),
                             ),
@@ -205,7 +205,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             child: ElevatedButton(
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: const Color(0xFF2E7D32),
-                                shape: RoundedRectangleBorder(borderRadius: web ? BorderRadius.circular(12) : BorderRadius.zero),
+                                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                               ),
                               onPressed: _isLoading ? null : _submit,
                               child: const Text(
