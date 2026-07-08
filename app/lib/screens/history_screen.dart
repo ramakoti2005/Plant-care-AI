@@ -63,14 +63,62 @@ class _HistoryScreenState extends State<HistoryScreen> {
     if (scanId == null) return;
     try {
       String? token = await _storage.read(key: 'auth_token');
-      await http.delete(
+      final response = await http.delete(
         Uri.parse('$_baseUrl/plants/history/$scanId'),
         headers: {
           'Authorization': 'Bearer $token',
         },
       );
+      print("Delete Scan response: ${response.statusCode} - ${response.body}");
     } catch (e) {
       print("Error deleting from backend: $e");
+    }
+  }
+
+  Future<void> _confirmDelete(dynamic item, int index) async {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
+    final bool? confirm = await showDialog<bool>(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+          title: Row(
+            children: const [
+              Icon(Icons.warning_amber_rounded, color: Colors.red),
+              SizedBox(width: 8),
+              Text("Delete History", style: TextStyle(fontWeight: FontWeight.bold)),
+            ],
+          ),
+          content: Text(
+            "Are you sure you want to permanently delete the scan history of ${item['plant_name'] ?? 'this plant'}?",
+            style: TextStyle(color: isDark ? Colors.white70 : Colors.black87),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(context).pop(false),
+              child: Text("Cancel", style: TextStyle(color: isDark ? Colors.white70 : Colors.black54)),
+            ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.red,
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+              ),
+              onPressed: () => Navigator.of(context).pop(true),
+              child: const Text("Delete", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+            ),
+          ],
+        );
+      },
+    );
+
+    if (confirm == true) {
+      // 1. Remove from local list immediately
+      setState(() {
+        _history.removeAt(index);
+      });
+      // 2. Call backend immediately
+      await _deleteScanFromBackend(item['id']);
     }
   }
 
@@ -233,35 +281,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
                       ),
                       child: IconButton(
                         icon: Icon(Icons.delete_outline, color: web ? Colors.redAccent : Colors.redAccent.shade100),
-                        onPressed: () {
-                          final deletedItem = item;
-                          final originalIndex = index;
-
-                          setState(() {
-                            _history.removeAt(originalIndex);
-                          });
-
-                          ScaffoldMessenger.of(context).clearSnackBars();
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content: const Text('Scan history deleted successfully'),
-                              duration: const Duration(seconds: 4),
-                              action: SnackBarAction(
-                                label: 'UNDO',
-                                textColor: Colors.yellow,
-                                onPressed: () {
-                                  setState(() {
-                                    _history.insert(originalIndex, deletedItem);
-                                  });
-                                },
-                              ),
-                            ),
-                          ).closed.then((reason) {
-                            if (reason != SnackBarClosedReason.action) {
-                              _deleteScanFromBackend(deletedItem['id']);
-                            }
-                          });
-                        },
+                        onPressed: () => _confirmDelete(item, index),
                       ),
                     ),
                   ],
