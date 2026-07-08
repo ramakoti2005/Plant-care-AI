@@ -33,13 +33,19 @@ except Exception as e:
     class_names = []
 
 # -----------------------------
-# Load ONNX model session
+# Load ONNX model session with strict memory optimization
 # -----------------------------
 try:
-    session = ort.InferenceSession(MODEL_PATH)
+    opts = ort.SessionOptions()
+    opts.intra_op_num_threads = 1
+    opts.inter_op_num_threads = 1
+    opts.execution_mode = ort.ExecutionMode.ORT_SEQUENTIAL
+    opts.enable_cpu_mem_arena = False
+    
+    session = ort.InferenceSession(MODEL_PATH, sess_options=opts)
     input_name = session.get_inputs()[0].name
     output_name = session.get_outputs()[0].name
-    print("ONNX MODEL LOADED SUCCESSFULLY")
+    print("ONNX MODEL LOADED SUCCESSFULLY WITH MEMORY OPTIMIZATION")
 except Exception as e:
     print("MODEL LOAD ERROR:", e)
     session = None
