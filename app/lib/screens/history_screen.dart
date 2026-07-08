@@ -141,6 +141,11 @@ class _HistoryScreenState extends State<HistoryScreen> {
     String imgPath = item['image_path'] ?? item['image'] ?? '';
     final String finalImageUrl = getFullImageUrl(imgPath);
     final bool web = ResponsiveTheme.isWebLayout(context);
+    final bool isDark = Theme.of(context).brightness == Brightness.dark;
+
+    final Color titleColor = isDark ? const Color(0xFFA5D6A7) : const Color(0xFF1B5E20);
+    final Color diagnosisColor = isDark ? const Color(0xFFE0E0E0) : Colors.black87;
+    final Color dateColor = isDark ? const Color(0xFFB0BEC5) : Colors.black54;
 
     return ResponsiveCard(
       padding: EdgeInsets.zero,
@@ -173,7 +178,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
-                    color: web ? const Color(0xFF2E7D32) : Colors.white,
+                    color: titleColor,
                   ),
                 ),
                 const SizedBox(height: 4),
@@ -184,7 +189,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
                   style: TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.w600,
-                    color: web ? Colors.grey[700] : const Color(0xFFE0E0E0),
+                    color: diagnosisColor,
                   ),
                 ),
                 Text(
@@ -193,7 +198,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     fontSize: 12,
-                    color: web ? Colors.grey[600] : const Color(0xFFB0BEC5),
+                    color: dateColor,
                   ),
                 ),
                 const SizedBox(height: 12),
