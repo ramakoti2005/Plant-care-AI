@@ -205,7 +205,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
       Position position = await Geolocator.getCurrentPosition();
       final geoResponse = await http.get(
-        Uri.parse('https://nominatim.openstreetmap.org/reverse?format=json&lat=${position.latitude}&lon=${position.longitude}&zoom=10&addressdetails=1'),
+        Uri.parse('https://nominatim.openstreetmap.org/reverse?format=json&lat=${position.latitude}&lon=${position.longitude}&zoom=18&addressdetails=1'),
         headers: {
           'User-Agent': 'PlantCareAI/1.0',
         },
@@ -471,30 +471,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-                    const SizedBox(height: 8),
-                    Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-                      decoration: BoxDecoration(
-                        color: badgeBg,
-                        borderRadius: BorderRadius.circular(16),
-                        border: Border.all(color: Colors.green.withOpacity(0.3), width: 1),
-                      ),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Icon(Icons.check_circle, color: isDark ? const Color(0xFFA5D6A7) : const Color(0xFF2E7D32), size: 14),
-                          const SizedBox(width: 6),
-                          Text(
-                            _gardenerRank,
-                            style: TextStyle(
-                              color: isDark ? const Color(0xFFA5D6A7) : const Color(0xFF2E7D32),
-                              fontSize: 12,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+
                   ],
                 ),
               ),
