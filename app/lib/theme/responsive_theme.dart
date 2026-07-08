@@ -11,11 +11,7 @@ class ResponsiveTheme {
   }
 
   static Decoration getAppBackgroundDecoration(BuildContext context) {
-    bool dark = false;
-    try {
-      final settings = Provider.of<SettingsService>(context, listen: true);
-      dark = settings.isDarkMode;
-    } catch (_) {}
+    final bool dark = Theme.of(context).brightness == Brightness.dark;
 
     if (dark) {
       return const BoxDecoration(
@@ -43,20 +39,12 @@ class ResponsiveTheme {
   }
 
   static Color getSidebarColor(BuildContext context) {
-    bool dark = false;
-    try {
-      final settings = Provider.of<SettingsService>(context, listen: false);
-      dark = settings.isDarkMode;
-    } catch (_) {}
+    final bool dark = Theme.of(context).brightness == Brightness.dark;
     return dark ? const Color(0xFF0C160E) : const Color(0xFF1B3B22); // Deep forest green solid color
   }
 
   static Decoration getCardDecoration(BuildContext context, {Color? webBgColor}) {
-    bool dark = false;
-    try {
-      final settings = Provider.of<SettingsService>(context, listen: false);
-      dark = settings.isDarkMode;
-    } catch (_) {}
+    final bool dark = Theme.of(context).brightness == Brightness.dark;
 
     final cardBg = webBgColor ?? (dark ? const Color(0xFF1C2D22) : Colors.white);
     final borderCol = dark ? const Color(0xFF2E4233) : const Color(0xFFE2EBE3);
@@ -79,11 +67,7 @@ class ResponsiveTheme {
   }
 
   static TextStyle getHeaderStyle(BuildContext context, {double fontSize = 22, FontWeight fontWeight = FontWeight.bold}) {
-    bool dark = false;
-    try {
-      final settings = Provider.of<SettingsService>(context, listen: false);
-      dark = settings.isDarkMode;
-    } catch (_) {}
+    final bool dark = Theme.of(context).brightness == Brightness.dark;
     return TextStyle(
       fontSize: fontSize,
       fontWeight: fontWeight,
@@ -92,11 +76,7 @@ class ResponsiveTheme {
   }
 
   static TextStyle getSubHeaderStyle(BuildContext context, {double fontSize = 16}) {
-    bool dark = false;
-    try {
-      final settings = Provider.of<SettingsService>(context, listen: false);
-      dark = settings.isDarkMode;
-    } catch (_) {}
+    final bool dark = Theme.of(context).brightness == Brightness.dark;
     return TextStyle(
       fontSize: fontSize,
       color: dark ? Colors.white70 : Colors.black54,
@@ -104,11 +84,7 @@ class ResponsiveTheme {
   }
 
   static TextStyle getBodyStyle(BuildContext context, {double fontSize = 14}) {
-    bool dark = false;
-    try {
-      final settings = Provider.of<SettingsService>(context, listen: false);
-      dark = settings.isDarkMode;
-    } catch (_) {}
+    final bool dark = Theme.of(context).brightness == Brightness.dark;
     return TextStyle(
       fontSize: fontSize,
       color: dark ? Colors.white.withOpacity(0.87) : Colors.black87,
@@ -116,11 +92,7 @@ class ResponsiveTheme {
   }
 
   static Color getIconColor(BuildContext context, {Color? webColor}) {
-    bool dark = false;
-    try {
-      final settings = Provider.of<SettingsService>(context, listen: false);
-      dark = settings.isDarkMode;
-    } catch (_) {}
+    final bool dark = Theme.of(context).brightness == Brightness.dark;
     return webColor ?? (dark ? const Color(0xFF81C784) : const Color(0xFF2E7D32));
   }
 
