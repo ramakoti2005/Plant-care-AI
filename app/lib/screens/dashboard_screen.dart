@@ -1,6 +1,10 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:provider/provider.dart';
+import 'package:http/http.dart' as http;
+import 'package:geolocator/geolocator.dart';
+import '../api_config.dart';
 import '../services/auth_service.dart';
 import '../services/settings_service.dart';
 import '../theme/responsive_theme.dart';
@@ -26,6 +30,103 @@ class DashboardScreen extends StatefulWidget {
 class DashboardScreenState extends State<DashboardScreen> {
   String activePage = 'dashboard';
   Widget? customWidget;
+
+  String _locationName = "Thandalam, Tamil Nadu";
+  double _temperatureC = 28.0;
+  int _humidity = 65;
+  bool _isClimateLoaded = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _fetchLocationAndWeather();
+  }
+
+  Future<void> _fetchLocationAndWeather() async {
+    try {
+      LocationPermission permission = await Geolocator.checkPermission();
+      if (permission == LocationPermission.denied) {
+        permission = await Geolocator.requestPermission();
+      }
+      
+      if (permission == LocationPermission.denied || permission == LocationPermission.deniedForever) {
+        _loadFallbackProfileLocation();
+        return;
+      }
+
+      Position position = await Geolocator.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.low,
+      );
+
+      final geoResponse = await http.get(
+        Uri.parse('https://nominatim.openstreetmap.org/reverse?format=json&lat=${position.latitude}&lon=${position.longitude}&zoom=18&addressdetails=1'),
+        headers: {'User-Agent': 'PlantCareAI/1.0'},
+      );
+
+      String resolvedLocation = _locationName;
+      if (geoResponse.statusCode == 200) {
+        final data = json.decode(geoResponse.body);
+        final address = data['address'];
+        if (address != null) {
+          final String city = address['city'] ?? address['town'] ?? address['village'] ?? address['county'] ?? address['suburb'] ?? "Unknown City";
+          final String state = address['state'] ?? address['region'] ?? "";
+          final String country = address['country'] ?? "";
+          resolvedLocation = state.isNotEmpty ? "$city, $state" : "$city, $country";
+        }
+      }
+
+      final weatherResponse = await http.get(
+        Uri.parse('https://api.open-meteo.com/v1/forecast?latitude=${position.latitude}&longitude=${position.longitude}&current=temperature_2m,relative_humidity_2m'),
+      );
+
+      double resolvedTemp = _temperatureC;
+      int resolvedHumidity = _humidity;
+      if (weatherResponse.statusCode == 200) {
+        final weatherData = json.decode(weatherResponse.body);
+        final current = weatherData['current'];
+        if (current != null) {
+          resolvedTemp = (current['temperature_2m'] as num).toDouble();
+          resolvedHumidity = (current['relative_humidity_2m'] as num).toInt();
+        }
+      }
+
+      if (mounted) {
+        setState(() {
+          _locationName = resolvedLocation;
+          _temperatureC = resolvedTemp;
+          _humidity = resolvedHumidity;
+          _isClimateLoaded = true;
+        });
+      }
+    } catch (e) {
+      debugPrint("Error fetching location/weather: $e");
+      _loadFallbackProfileLocation();
+    }
+  }
+
+  Future<void> _loadFallbackProfileLocation() async {
+    try {
+      final authService = Provider.of<AuthService>(context, listen: false);
+      String? token = authService.token;
+      if (token != null && token.isNotEmpty) {
+        final response = await http.get(
+          Uri.parse('${ApiConfig.baseUrl}/auth/profile'),
+          headers: {
+            'Authorization': 'Bearer $token',
+            'Content-Type': 'application/json',
+          },
+        );
+        if (response.statusCode == 200) {
+          final data = json.decode(response.body);
+          if (data['location'] != null && data['location'].toString().isNotEmpty) {
+            setState(() {
+              _locationName = data['location'];
+            });
+          }
+        }
+      }
+    } catch (_) {}
+  }
 
   void setPage(String page, {Widget? customWidget}) {
     setState(() {
@@ -241,7 +342,14 @@ class DashboardScreenState extends State<DashboardScreen> {
       isFahrenheit = settings.selectedUnit == 'Fahrenheit (°F)';
     } catch (_) {}
 
-    final tempVal = isFahrenheit ? "82°F" : "28°C";
+    double tempValNum = _temperatureC;
+    if (isFahrenheit) {
+      tempValNum = (_temperatureC * 9 / 5) + 32;
+    }
+    final tempVal = isFahrenheit 
+        ? "${tempValNum.toStringAsFixed(1)}°F" 
+        : "${tempValNum.toStringAsFixed(1)}°C";
+
     final isDark = Theme.of(context).brightness == Brightness.dark;
     final bool isMobile = MediaQuery.of(context).size.width < 600;
 
@@ -262,9 +370,32 @@ class DashboardScreenState extends State<DashboardScreen> {
                     ),
                     const SizedBox(width: 16),
                     Expanded(
-                      child: Text(
-                        "Local Garden Climate",
-                        style: ResponsiveTheme.getHeaderStyle(context, fontSize: 16),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Local Garden Climate",
+                            style: ResponsiveTheme.getHeaderStyle(context, fontSize: 16),
+                          ),
+                          const SizedBox(height: 2),
+                          Row(
+                            children: [
+                              Icon(Icons.location_on, size: 14, color: isDark ? Colors.white60 : Colors.black54),
+                              const SizedBox(width: 4),
+                              Expanded(
+                                child: Text(
+                                  _locationName,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    color: isDark ? Colors.white60 : Colors.black54,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
                     ),
                     const SizedBox(width: 10),
@@ -293,7 +424,7 @@ class DashboardScreenState extends State<DashboardScreen> {
                       ),
                       const SizedBox(height: 6),
                       Text(
-                        "Humidity: 65%",
+                        "Humidity: $_humidity%",
                         style: ResponsiveTheme.getBodyStyle(context, fontSize: 14),
                       ),
                     ],
@@ -316,9 +447,27 @@ class DashboardScreenState extends State<DashboardScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        "Local Garden Climate",
-                        style: ResponsiveTheme.getHeaderStyle(context, fontSize: 16),
+                      Row(
+                        children: [
+                          Text(
+                            "Local Garden Climate",
+                            style: ResponsiveTheme.getHeaderStyle(context, fontSize: 16),
+                          ),
+                          const SizedBox(width: 12),
+                          Icon(Icons.location_on, size: 14, color: isDark ? Colors.white60 : Colors.black54),
+                          const SizedBox(width: 4),
+                          Expanded(
+                            child: Text(
+                              _locationName,
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(
+                                fontSize: 13,
+                                color: isDark ? Colors.white60 : Colors.black54,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                       const SizedBox(height: 4),
                       Row(
@@ -329,7 +478,7 @@ class DashboardScreenState extends State<DashboardScreen> {
                           ),
                           const SizedBox(width: 16),
                           Text(
-                            "Humidity: 65%",
+                            "Humidity: $_humidity%",
                             style: ResponsiveTheme.getBodyStyle(context, fontSize: 14),
                           ),
                         ],
