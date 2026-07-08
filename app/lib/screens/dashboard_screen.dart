@@ -256,7 +256,8 @@ class DashboardScreenState extends State<DashboardScreen> {
                       padding: const EdgeInsets.all(12),
                       decoration: BoxDecoration(
                         color: isDark ? const Color(0xFF1E3525) : const Color(0xFFE8F5E9),
-                        shape: BoxShape.circle,
+                        shape: BoxShape.rectangle,
+                        borderRadius: BorderRadius.zero,
                       ),
                       child: Icon(Icons.wb_sunny_outlined, color: isDark ? const Color(0xFF81C784) : const Color(0xFF2E7D32), size: 28),
                     ),
@@ -272,7 +273,7 @@ class DashboardScreenState extends State<DashboardScreen> {
                       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                       decoration: BoxDecoration(
                         color: isDark ? const Color(0xFF1E3525) : const Color(0xFFE8F5E9),
-                        borderRadius: BorderRadius.circular(12),
+                        borderRadius: BorderRadius.zero,
                       ),
                       child: Text(
                         "Optimal",
@@ -400,7 +401,7 @@ class DashboardScreenState extends State<DashboardScreen> {
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
                 crossAxisCount: ResponsiveTheme.isWebLayout(context) ? 2 : 1,
-                childAspectRatio: ResponsiveTheme.isWebLayout(context) ? 3.0 : 3.5,
+                childAspectRatio: ResponsiveTheme.isWebLayout(context) ? 3.0 : 2.7,
                 mainAxisSpacing: 16,
                 crossAxisSpacing: 16,
                 children: [
@@ -473,10 +474,13 @@ class DashboardScreenState extends State<DashboardScreen> {
     required String subtitle,
     required VoidCallback onTap,
   }) {
-    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final bool web = ResponsiveTheme.isWebLayout(context);
     return ResponsiveCard(
       onTap: onTap,
-      padding: const EdgeInsets.all(20),
+      padding: EdgeInsets.symmetric(
+        horizontal: 20,
+        vertical: web ? 20 : 12,
+      ),
       child: Row(
         children: [
           // Leading Icon
@@ -484,7 +488,7 @@ class DashboardScreenState extends State<DashboardScreen> {
             padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
               color: ResponsiveTheme.getIconColor(context).withOpacity(0.1),
-              borderRadius: BorderRadius.circular(15),
+              borderRadius: web ? BorderRadius.circular(15) : BorderRadius.zero,
             ),
             child: Icon(
               icon,

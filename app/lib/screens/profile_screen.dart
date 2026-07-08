@@ -238,6 +238,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   }
 
   void _showEditProfileDialog() {
+    final bool web = ResponsiveTheme.isWebLayout(context);
     final nameController = TextEditingController(text: _fullName);
     final phoneController = TextEditingController(text: _phone);
     final locationController = TextEditingController(text: _location);
@@ -249,7 +250,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         return StatefulBuilder(
           builder: (context, dialogSetState) {
             return AlertDialog(
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+              shape: RoundedRectangleBorder(borderRadius: web ? BorderRadius.circular(16) : BorderRadius.zero),
               title: Row(
                 children: const [
                   Icon(Icons.edit, color: Color(0xFF2E7D32)),
@@ -328,7 +329,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFF2E7D32),
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                    shape: RoundedRectangleBorder(borderRadius: web ? BorderRadius.circular(8) : BorderRadius.zero),
                   ),
                   child: const Text("Update", style: TextStyle(color: Colors.white)),
                 ),
@@ -423,28 +424,57 @@ class _ProfileScreenState extends State<ProfileScreen> {
             children: [
               Stack(
                 children: [
-                  CircleAvatar(
-                    radius: 45,
-                    backgroundColor: isDark ? const Color(0xFF1E3525) : Colors.green[50],
-                    backgroundImage: _profileImageBytes != null
-                        ? MemoryImage(_profileImageBytes!)
-                        : null,
-                    child: _profileImageBytes == null
-                        ? Icon(Icons.person, size: 50, color: isDark ? const Color(0xFFA5D6A7) : const Color(0xFF2E7D32))
-                        : null,
-                  ),
+                  web
+                      ? CircleAvatar(
+                          radius: 45,
+                          backgroundColor: isDark ? const Color(0xFF1E3525) : Colors.green[50],
+                          backgroundImage: _profileImageBytes != null
+                              ? MemoryImage(_profileImageBytes!)
+                              : null,
+                          child: _profileImageBytes == null
+                              ? Icon(Icons.person, size: 50, color: isDark ? const Color(0xFFA5D6A7) : const Color(0xFF2E7D32))
+                              : null,
+                        )
+                      : Container(
+                          width: 90,
+                          height: 90,
+                          decoration: BoxDecoration(
+                            color: isDark ? const Color(0xFF1E3525) : Colors.green[50],
+                            border: Border.all(color: isDark ? const Color(0xFF2E4233) : const Color(0xFFE2EBE3)),
+                            image: _profileImageBytes != null
+                                ? DecorationImage(image: MemoryImage(_profileImageBytes!), fit: BoxFit.cover)
+                                : null,
+                          ),
+                          child: _profileImageBytes == null
+                              ? Icon(Icons.person, size: 50, color: isDark ? const Color(0xFFA5D6A7) : const Color(0xFF2E7D32))
+                              : null,
+                        ),
                   Positioned(
                     bottom: 0,
                     right: 0,
-                    child: CircleAvatar(
-                      radius: 15,
-                      backgroundColor: isDark ? const Color(0xFF2A3A2E) : Colors.white,
-                      child: IconButton(
-                        padding: EdgeInsets.zero,
-                        icon: Icon(Icons.camera_alt, size: 16, color: isDark ? Colors.white70 : Colors.black54),
-                        onPressed: _pickImage,
-                      ),
-                    ),
+                    child: web
+                        ? CircleAvatar(
+                            radius: 15,
+                            backgroundColor: isDark ? const Color(0xFF2A3A2E) : Colors.white,
+                            child: IconButton(
+                              padding: EdgeInsets.zero,
+                              icon: Icon(Icons.camera_alt, size: 16, color: isDark ? Colors.white70 : Colors.black54),
+                              onPressed: _pickImage,
+                            ),
+                          )
+                        : Container(
+                            width: 30,
+                            height: 30,
+                            decoration: BoxDecoration(
+                              color: isDark ? const Color(0xFF2A3A2E) : Colors.white,
+                              border: Border.all(color: isDark ? const Color(0xFF2E4233) : const Color(0xFFE2EBE3)),
+                            ),
+                            child: IconButton(
+                              padding: EdgeInsets.zero,
+                              icon: Icon(Icons.camera_alt, size: 16, color: isDark ? Colors.white70 : Colors.black54),
+                              onPressed: _pickImage,
+                            ),
+                          ),
                   ),
                 ],
               ),
@@ -475,7 +505,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                       decoration: BoxDecoration(
                         color: badgeBg,
-                        borderRadius: BorderRadius.circular(16),
+                        borderRadius: web ? BorderRadius.circular(16) : BorderRadius.zero,
                         border: Border.all(color: Colors.green.withOpacity(0.3), width: 1),
                       ),
                       child: Row(
@@ -606,10 +636,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
             label,
             style: theme.textTheme.bodyMedium,
           ),
-          const Spacer(),
-          Text(
-            value,
-            style: theme.textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.bold),
+          const SizedBox(width: 16),
+          Expanded(
+            child: Text(
+              value,
+              textAlign: TextAlign.end,
+              overflow: TextOverflow.ellipsis,
+              maxLines: 1,
+              style: theme.textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.bold),
+            ),
           ),
         ],
       ),
@@ -656,13 +691,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
             label,
             style: theme.textTheme.bodyMedium,
           ),
-          const Spacer(),
-          Text(
-            value,
-            style: TextStyle(
-              color: theme.primaryColor,
-              fontWeight: FontWeight.bold,
-              fontSize: 16,
+          const SizedBox(width: 16),
+          Expanded(
+            child: Text(
+              value,
+              textAlign: TextAlign.end,
+              overflow: TextOverflow.ellipsis,
+              maxLines: 1,
+              style: TextStyle(
+                color: theme.primaryColor,
+                fontWeight: FontWeight.bold,
+                fontSize: 16,
+              ),
             ),
           ),
         ],

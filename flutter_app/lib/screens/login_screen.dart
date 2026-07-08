@@ -88,6 +88,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     final bool isDark = Theme.of(context).brightness == Brightness.dark;
+    final bool web = ResponsiveTheme.isWebLayout(context);
     final Color textColor = isDark ? Colors.white : Colors.black87;
     final Color labelColor = isDark ? Colors.white70 : Colors.black54;
     final Color iconColor = isDark ? Colors.white70 : Colors.grey;
@@ -132,11 +133,11 @@ class _LoginScreenState extends State<LoginScreen> {
                               labelStyle: TextStyle(color: labelColor),
                               prefixIcon: Icon(Icons.person, color: iconColor),
                               enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(12),
+                                borderRadius: web ? BorderRadius.circular(12) : BorderRadius.zero,
                                 borderSide: BorderSide(color: borderColor),
                               ),
                               focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(12),
+                                borderRadius: web ? BorderRadius.circular(12) : BorderRadius.zero,
                                 borderSide: BorderSide(color: ResponsiveTheme.getIconColor(context)),
                               ),
                             ),
@@ -160,11 +161,11 @@ class _LoginScreenState extends State<LoginScreen> {
                                 onPressed: () => setState(() => _obscurePassword = !_obscurePassword),
                               ),
                               enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(12),
+                                borderRadius: web ? BorderRadius.circular(12) : BorderRadius.zero,
                                 borderSide: BorderSide(color: borderColor),
                               ),
                               focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(12),
+                                borderRadius: web ? BorderRadius.circular(12) : BorderRadius.zero,
                                 borderSide: BorderSide(color: ResponsiveTheme.getIconColor(context)),
                               ),
                             ),
@@ -204,7 +205,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             child: ElevatedButton(
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: const Color(0xFF2E7D32),
-                                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                                shape: RoundedRectangleBorder(borderRadius: web ? BorderRadius.circular(12) : BorderRadius.zero),
                               ),
                               onPressed: _isLoading ? null : _submit,
                               child: const Text(
