@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:provider/provider.dart';
 import 'package:http/http.dart' as http;
 import 'package:geolocator/geolocator.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../api_config.dart';
 import '../services/auth_service.dart';
 import '../services/settings_service.dart';
@@ -97,6 +98,13 @@ class DashboardScreenState extends State<DashboardScreen> {
           _humidity = resolvedHumidity;
           _isClimateLoaded = true;
         });
+      }
+
+      try {
+        final prefs = await SharedPreferences.getInstance();
+        await prefs.setDouble('current_temperature_c', resolvedTemp);
+      } catch (e) {
+        debugPrint("Error saving current temperature to prefs: $e");
       }
     } catch (e) {
       debugPrint("Error fetching location/weather: $e");

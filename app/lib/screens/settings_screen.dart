@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../services/settings_service.dart';
 import '../theme/responsive_theme.dart';
 import 'dashboard_screen.dart';
@@ -19,6 +20,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   String _selectedTheme = 'Nature Gradient (Light)';
   String _selectedUnit = 'Celsius (°C)';
   double _cacheSize = 14.2;
+  double _currentTempC = 28.0;
 
   @override
   void initState() {
@@ -32,7 +34,19 @@ class _SettingsScreenState extends State<SettingsScreen> {
         _selectedUnit = settings.selectedUnit;
         _cacheSize = settings.cacheSizeMB;
       });
+      _loadCurrentTemperature();
     });
+  }
+
+  Future<void> _loadCurrentTemperature() async {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      if (mounted) {
+        setState(() {
+          _currentTempC = prefs.getDouble('current_temperature_c') ?? 28.0;
+        });
+      }
+    } catch (_) {}
   }
 
   void _showClearCacheDialog() {
@@ -191,14 +205,18 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         labelStyle: TextStyle(color: subtitleColor),
                         prefixIcon: Icon(Icons.thermostat_outlined, color: ResponsiveTheme.getIconColor(context)),
                         border: InputBorder.none,
-                        helperText: _selectedUnit == 'Fahrenheit (°F)' ? "Current Garden Temperature: 82°F" : "Current Garden Temperature: 28°C",
+                        helperText: _selectedUnit == 'Fahrenheit (°F)' 
+                            ? "Current Garden Temperature: ${((_currentTempC * 9 / 5) + 32).toStringAsFixed(1)}°F" 
+                            : "Current Garden Temperature: ${_currentTempC.toStringAsFixed(1)}°C",
                         helperStyle: TextStyle(color: subtitleColor, fontSize: 12),
                       ),
                       dropdownColor: Theme.of(context).brightness == Brightness.dark ? const Color(0xFF1C2D22) : Colors.white,
                       style: TextStyle(color: textColor, fontSize: 15, fontWeight: FontWeight.w600),
                       items: <String>['Celsius (°C)', 'Fahrenheit (°F)']
                           .map<DropdownMenuItem<String>>((String value) {
-                        final displayVal = value == 'Celsius (°C)' ? 'Celsius (°C) [28°C]' : 'Fahrenheit (°F) [82°F]';
+                        final displayVal = value == 'Celsius (°C)' 
+                            ? 'Celsius (°C) [${_currentTempC.toStringAsFixed(1)}°C]' 
+                            : 'Fahrenheit (°F) [${((_currentTempC * 9 / 5) + 32).toStringAsFixed(1)}°F]';
                         return DropdownMenuItem<String>(
                           value: value,
                           child: Text(displayVal),
