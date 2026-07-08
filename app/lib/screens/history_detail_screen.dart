@@ -76,6 +76,84 @@ class HistoryDetailScreen extends StatelessWidget {
     final bool web = ResponsiveTheme.isWebLayout(context);
     final bool isDark = Theme.of(context).brightness == Brightness.dark;
 
+    final String plantName = scan['plant_name'] ?? '';
+    final String diseaseName = scan['disease_name'] ?? scan['scientific_name'] ?? '';
+    final bool isUnrecognized = plantName.toLowerCase() == 'unknown' && 
+                                (diseaseName.toLowerCase() == 'no plant detected' || 
+                                 diseaseName.toLowerCase() == 'unrecognized image');
+
+    if (isUnrecognized) {
+      return ResponsiveScaffold(
+        appBar: AppBar(
+          title: const Text("Scan Details"),
+        ),
+        body: SingleChildScrollView(
+          padding: const EdgeInsets.all(20),
+          child: Center(
+            child: Container(
+              constraints: const BoxConstraints(maxWidth: 700),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  if (imgPath.isNotEmpty)
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 20),
+                      child: AspectRatio(
+                        aspectRatio: 4 / 3,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(16),
+                          child: buildDetailImage(
+                            finalImageUrl,
+                            fit: BoxFit.contain,
+                            progressColor: isDark ? Colors.white : const Color(0xFF2E7D32),
+                            iconColor: isDark ? Colors.white70 : Colors.grey,
+                          ),
+                        ),
+                      ),
+                    ),
+                  Container(
+                    width: double.infinity,
+                    padding: const EdgeInsets.all(24),
+                    decoration: BoxDecoration(
+                      color: isDark ? Colors.red.withOpacity(0.15) : const Color(0xFFFFEBEE),
+                      borderRadius: BorderRadius.circular(16),
+                      border: Border.all(
+                        color: isDark ? Colors.redAccent.withOpacity(0.3) : const Color(0xFFFFCDD2),
+                        width: 1.5,
+                      ),
+                    ),
+                    child: Column(
+                      children: [
+                        Icon(Icons.error_outline, color: isDark ? Colors.redAccent.shade200 : Colors.red, size: 48),
+                        const SizedBox(height: 12),
+                        Text(
+                          "Unrecognized Image",
+                          style: TextStyle(
+                            color: isDark ? Colors.redAccent.shade200 : Colors.red,
+                            fontSize: 22,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const SizedBox(height: 8),
+                        Text(
+                          scan['solution_suggestion'] ?? "This image is not recognized as a supported plant leaf. Please upload a clear image of a supported plant leaf.",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: isDark ? const Color(0xFFE0E0E0) : Colors.grey.shade800,
+                            fontSize: 16,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      );
+    }
+
     final Color titleColor = isDark ? Colors.white : const Color(0xFF1B5E20);
     final Color labelColor = isDark ? Colors.white70 : Colors.black54;
     final Color valueColor = isDark ? const Color(0xFFE0E0E0) : Colors.black87;

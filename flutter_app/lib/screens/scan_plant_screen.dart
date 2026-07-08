@@ -246,6 +246,130 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
     String formattedDate = DateFormat('yyyy-MM-dd hh:mm a').format(DateTime.now());
     final bool isDark = Theme.of(context).brightness == Brightness.dark;
 
+    final String plantName = _result?['plant_name'] ?? _result?['plant'] ?? _plantName;
+    final String diseaseName = _result?['disease_name'] ?? _result?['disease'] ?? _diseaseName;
+    final bool isUnrecognized = plantName.toLowerCase() == 'unknown' && 
+                                (diseaseName.toLowerCase() == 'no plant detected' || 
+                                 diseaseName.toLowerCase() == 'unrecognized image' || 
+                                 _result?['status'] == 'Unrecognized Image');
+
+    if (isUnrecognized) {
+      return ResponsiveScaffold(
+        appBar: AppBar(
+          title: const Text("Scan Details"),
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () {
+              setState(() {
+                _hasResults = false;
+                _result = null;
+                _imageBytes = null;
+                _imageName = null;
+                _imageFile = null;
+              });
+            },
+          ),
+        ),
+        body: SingleChildScrollView(
+          padding: const EdgeInsets.all(20),
+          child: Center(
+            child: Container(
+              constraints: const BoxConstraints(maxWidth: 700),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  if (_imageFile != null)
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 20),
+                      child: AspectRatio(
+                        aspectRatio: 4 / 3,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(16),
+                          child: Container(
+                            child: kIsWeb
+                                ? Image.network(_imageFile!.path, fit: BoxFit.contain)
+                                : Image.file(File(_imageFile!.path), fit: BoxFit.contain),
+                          ),
+                        ),
+                      ),
+                    )
+                  else if (_imageBytes != null)
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 20),
+                      child: AspectRatio(
+                        aspectRatio: 4 / 3,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(16),
+                          child: Image.memory(_imageBytes!, fit: BoxFit.contain),
+                        ),
+                      ),
+                    ),
+                  Container(
+                    width: double.infinity,
+                    padding: const EdgeInsets.all(24),
+                    decoration: BoxDecoration(
+                      color: isDark ? Colors.red.withOpacity(0.15) : const Color(0xFFFFEBEE),
+                      borderRadius: BorderRadius.circular(16),
+                      border: Border.all(
+                        color: isDark ? Colors.redAccent.withOpacity(0.3) : const Color(0xFFFFCDD2),
+                        width: 1.5,
+                      ),
+                    ),
+                    child: Column(
+                      children: [
+                        Icon(Icons.error_outline, color: isDark ? Colors.redAccent.shade200 : Colors.red, size: 48),
+                        const SizedBox(height: 12),
+                        Text(
+                          "Unrecognized Image",
+                          style: TextStyle(
+                            color: isDark ? Colors.redAccent.shade200 : Colors.red,
+                            fontSize: 22,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const SizedBox(height: 8),
+                        Text(
+                          _result?['message'] ?? "This image is not recognized as a supported plant leaf. Please upload a clear image of a supported plant leaf.",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: isDark ? const Color(0xFFE0E0E0) : Colors.grey.shade800,
+                            fontSize: 16,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 30),
+                  SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton.icon(
+                      onPressed: () {
+                        setState(() {
+                          _hasResults = false;
+                          _result = null;
+                          _imageBytes = null;
+                          _imageName = null;
+                          _imageFile = null;
+                        });
+                      },
+                      icon: const Icon(Icons.refresh),
+                      label: const Text("Scan Another Leaf"),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.green,
+                        foregroundColor: Colors.white,
+                        padding: const EdgeInsets.symmetric(vertical: 16),
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      );
+    }
+
     final Color cardColor = isDark ? const Color(0xFF1C2D22) : Colors.white;
     final Color titleColor = isDark ? const Color(0xFFA5D6A7) : const Color(0xFF1B5E20);
     final Color labelColor = isDark ? Colors.white70 : Colors.black54;

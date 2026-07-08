@@ -195,6 +195,12 @@ class _HistoryScreenState extends State<HistoryScreen> {
     final Color diagnosisColor = isDark ? const Color(0xFFE0E0E0) : Colors.black87;
     final Color dateColor = isDark ? const Color(0xFFB0BEC5) : Colors.black54;
 
+    final String pName = item['plant_name'] ?? '';
+    final String dName = item['disease_name'] ?? item['scientific_name'] ?? '';
+    final bool isUnrecognizedItem = pName.toLowerCase() == 'unknown' && 
+                                    (dName.toLowerCase() == 'no plant detected' || 
+                                     dName.toLowerCase() == 'unrecognized image');
+
     return ResponsiveCard(
       padding: EdgeInsets.zero,
       child: Column(
@@ -220,24 +226,24 @@ class _HistoryScreenState extends State<HistoryScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  item['plant_name'] ?? 'Unknown Plant',
+                  isUnrecognizedItem ? "Unrecognized Scan" : (item['plant_name'] ?? 'Unknown Plant'),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
-                    color: titleColor,
+                    color: isUnrecognizedItem ? Colors.redAccent : titleColor,
                   ),
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  item['scientific_name'] ?? item['disease_name'] ?? 'Healthy',
+                  isUnrecognizedItem ? "No plant leaf detected" : (item['scientific_name'] ?? item['disease_name'] ?? 'Healthy'),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.w600,
-                    color: diagnosisColor,
+                    color: isUnrecognizedItem ? (isDark ? Colors.redAccent.shade100 : Colors.red) : diagnosisColor,
                   ),
                 ),
                 Text(

@@ -40,9 +40,40 @@ async def analyze_leaf_image(
 
         # 2. VALIDATION STEP: Check if it's actually a plant leaf
         if not is_leaf_image(image_bytes):
+            import base64
+            encoded_bytes = base64.b64encode(image_bytes).decode('utf-8')
+            base64_uri = f"data:image/jpeg;base64,{encoded_bytes}"
+            
+            # Save to database history if user is logged in
+            if current_user:
+                try:
+                    new_history = ScanHistory(
+                        user_id=current_user.id,
+                        plant_name="Unknown",
+                        disease_name="No Plant Detected",
+                        scientific_name="No Plant Detected",
+                        confidence="0.0",
+                        image_quality="Poor",
+                        possible_matches="[]",
+                        issues_detected='["Not a supported plant leaf"]',
+                        solution_suggestion="This image is not recognized as a supported plant leaf. Please upload a clear image of a supported plant leaf.",
+                        image_path=base64_uri
+                    )
+                    db.add(new_history)
+                    db.commit()
+                except Exception as db_err:
+                    db.rollback()
+                    print(f"Failed to save unrecognized image to database: {db_err}")
+            
             return {
                 "status": "Unrecognized Image",
-                "message": "This image is not recognized as a supported plant leaf. Please upload a clear image of a supported plant leaf."
+                "message": "This image is not recognized as a supported plant leaf. Please upload a clear image of a supported plant leaf.",
+                "image_path": base64_uri,
+                "plant_name": "Unknown",
+                "disease_name": "No Plant Detected",
+                "plant": "Unknown",
+                "disease": "No Plant Detected",
+                "scientific_name": "No Plant Detected"
             }
 
         # Create uploads directory if it doesn't exist
