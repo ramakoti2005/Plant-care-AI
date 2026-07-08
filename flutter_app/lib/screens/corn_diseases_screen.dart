@@ -1,56 +1,12 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import '../theme/responsive_theme.dart';
-import 'treatment_detail_screen.dart';
 
 class CornDiseasesScreen extends StatelessWidget {
   const CornDiseasesScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final bool web = ResponsiveTheme.isWebLayout(context);
-
-    if (!web) {
-      final diseases = [
-        'Common Rust',
-        'Gray Leaf Spot',
-        'Northern Leaf Blight',
-        'Healthy Corn Leaf',
-      ];
-
-      return ResponsiveScaffold(
-        appBar: AppBar(
-          title: const Text("Corn Diseases"),
-        ),
-        body: ListView.builder(
-          padding: const EdgeInsets.all(16),
-          itemCount: diseases.length,
-          itemBuilder: (context, index) {
-            final name = diseases[index];
-            return Card(
-              margin: const EdgeInsets.only(bottom: 12),
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-              child: ListTile(
-                leading: const Icon(Icons.eco, color: Colors.green),
-                title: Text(
-                  name,
-                  style: const TextStyle(fontWeight: FontWeight.bold),
-                ),
-                trailing: const Icon(Icons.chevron_right),
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => TreatmentDetailScreen(diseaseName: name),
-                    ),
-                  );
-                },
-              ),
-            );
-          },
-        ),
-      );
-    }
-
     return ResponsiveScaffold(
       appBar: AppBar(
         title: const Text("Corn Diseases"),

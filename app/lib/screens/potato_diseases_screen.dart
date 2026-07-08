@@ -1,58 +1,16 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import '../theme/responsive_theme.dart';
-import 'treatment_detail_screen.dart';
 
 class PotatoDiseasesScreen extends StatelessWidget {
   const PotatoDiseasesScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final bool web = ResponsiveTheme.isWebLayout(context);
-
-    if (!web) {
-      final diseases = [
-        'Early Blight',
-        'Late Blight',
-        'Healthy Potato Leaf',
-      ];
-
-      return ResponsiveScaffold(
-        appBar: AppBar(
-          title: const Text("Potato Diseases"),
-        ),
-        body: ListView.builder(
-          padding: const EdgeInsets.all(16),
-          itemCount: diseases.length,
-          itemBuilder: (context, index) {
-            final name = diseases[index];
-            return Card(
-              margin: const EdgeInsets.only(bottom: 12),
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-              child: ListTile(
-                leading: const Icon(Icons.eco, color: Colors.green),
-                title: Text(
-                  name,
-                  style: const TextStyle(fontWeight: FontWeight.bold),
-                ),
-                trailing: const Icon(Icons.chevron_right),
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => TreatmentDetailScreen(diseaseName: name),
-                    ),
-                  );
-                },
-              ),
-            );
-          },
-        ),
-      );
-    }
-
-    return ResponsiveScaffold(
+    return Scaffold(
       appBar: AppBar(
         title: const Text("Potato Diseases"),
+        backgroundColor: const Color(0xFF2E7D32),
+        iconTheme: const IconThemeData(color: Colors.white),
       ),
       body: Center(
         child: Container(
@@ -60,8 +18,8 @@ class PotatoDiseasesScreen extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
           child: SingleChildScrollView(
             child: Column(
-              children: const [
-                DiseaseCard(
+              children: [
+                diseaseCard(
                   title: "Early Blight",
                   scientificName: "Alternaria solani",
                   overview: "Early blight is a fungal disease that targets leaves, creating concentric dark brown circular targets ('bullseye' pattern). It spreads rapidly in alternating wet and dry conditions in summer.",
@@ -94,9 +52,9 @@ class PotatoDiseasesScreen extends StatelessWidget {
                   tips: "Inspect lower leaves weekly for brown targets with concentric rings. Early control protects tuber sizing.",
                 ),
 
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
 
-                DiseaseCard(
+                diseaseCard(
                   title: "Late Blight",
                   scientificName: "Phytophthora infestans",
                   overview: "Late blight is a highly destructive oomycete disease that destroys potato leaves and rots tubers. It spreads extremely rapidly in cool, wet weather and is infamous for causing the Irish Potato Famine.",
@@ -129,9 +87,9 @@ class PotatoDiseasesScreen extends StatelessWidget {
                   tips: "Inspect fields daily during cool, rainy summer spells. Remove and bury single infected plants immediately to prevent field-wide devastation.",
                 ),
 
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
 
-                DiseaseCard(
+                diseaseCard(
                   title: "Healthy Potato Leaf",
                   scientificName: "Solanum tuberosum",
                   overview: "A healthy potato leaf is wide, compound, and lush green, providing the energetic resources to form starch-filled tubers underground.",
@@ -168,6 +126,141 @@ class PotatoDiseasesScreen extends StatelessWidget {
             ),
           ),
         ),
+      ),
+    );
+  }
+
+  Widget diseaseCard({
+    required String title,
+    required String scientificName,
+    required String overview,
+    required List<String> causes,
+    required List<String> symptoms,
+    required List<String> treatment,
+    required List<String> prevention,
+    List<String>? organic,
+    String? recoveryTime,
+    String? tips,
+  }) {
+    return Card(
+      elevation: 4,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      margin: const EdgeInsets.only(bottom: 20),
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              title,
+              style: const TextStyle(
+                fontSize: 22,
+                fontWeight: FontWeight.bold,
+                color: Color(0xFF2E7D32),
+              ),
+            ),
+            const SizedBox(height: 5),
+            Text(
+              "Scientific Name: $scientificName",
+              style: TextStyle(
+                fontWeight: FontWeight.w600,
+                fontStyle: FontStyle.italic,
+                color: Colors.grey[700],
+              ),
+            ),
+            const Divider(height: 25),
+            
+            const Text(
+              "Overview",
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 5),
+            Text(overview),
+
+            const SizedBox(height: 15),
+            sectionTitle("Causes"),
+            ...causes.map((e) => bulletPoint(e)),
+
+            const SizedBox(height: 15),
+            sectionTitle("Symptoms"),
+            ...symptoms.map((e) => bulletPoint(e)),
+
+            const SizedBox(height: 15),
+            sectionTitle("Treatment"),
+            ...treatment.map((e) => bulletPoint(e)),
+
+            if (organic != null) ...[
+              const SizedBox(height: 15),
+              sectionTitle("Organic Remedies"),
+              ...organic.map((e) => bulletPoint(e)),
+            ],
+
+            const SizedBox(height: 15),
+            sectionTitle("Prevention"),
+            ...prevention.map((e) => bulletPoint(e)),
+
+            if (recoveryTime != null && recoveryTime != "N/A") ...[
+              const SizedBox(height: 15),
+              sectionTitle("Recovery Time"),
+              Text(recoveryTime),
+            ],
+
+            if (tips != null) ...[
+              const SizedBox(height: 15),
+              Container(
+                padding: const EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  color: Colors.green.withOpacity(0.1),
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(color: Colors.green.withOpacity(0.3)),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Row(
+                      children: [
+                        Icon(Icons.lightbulb, color: Colors.orange, size: 20),
+                        SizedBox(width: 8),
+                        Text(
+                          "Farmer Tips",
+                          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 5),
+                    Text(tips),
+                  ],
+                ),
+              ),
+            ],
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget sectionTitle(String title) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 5),
+      child: Text(
+        title,
+        style: const TextStyle(
+          fontSize: 18,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+    );
+  }
+
+  Widget bulletPoint(String text) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 3),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text("• ", style: TextStyle(fontWeight: FontWeight.bold)),
+          Expanded(child: Text(text)),
+        ],
       ),
     );
   }

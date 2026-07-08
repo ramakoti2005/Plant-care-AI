@@ -1,59 +1,16 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import '../theme/responsive_theme.dart';
-import 'treatment_detail_screen.dart';
 
 class AppleDiseasesScreen extends StatelessWidget {
   const AppleDiseasesScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final bool web = ResponsiveTheme.isWebLayout(context);
-
-    if (!web) {
-      final diseases = [
-        'Apple Scab',
-        'Black Rot',
-        'Cedar Apple Rust',
-        'Healthy Apple Leaf',
-      ];
-
-      return ResponsiveScaffold(
-        appBar: AppBar(
-          title: const Text("Apple Diseases"),
-        ),
-        body: ListView.builder(
-          padding: const EdgeInsets.all(16),
-          itemCount: diseases.length,
-          itemBuilder: (context, index) {
-            final name = diseases[index];
-            return Card(
-              margin: const EdgeInsets.only(bottom: 12),
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-              child: ListTile(
-                leading: const Icon(Icons.eco, color: Colors.green),
-                title: Text(
-                  name,
-                  style: const TextStyle(fontWeight: FontWeight.bold),
-                ),
-                trailing: const Icon(Icons.chevron_right),
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => TreatmentDetailScreen(diseaseName: name),
-                    ),
-                  );
-                },
-              ),
-            );
-          },
-        ),
-      );
-    }
-
-    return ResponsiveScaffold(
+    return Scaffold(
       appBar: AppBar(
         title: const Text("Apple Diseases"),
+        backgroundColor: const Color(0xFF2E7D32),
+        iconTheme: const IconThemeData(color: Colors.white),
       ),
       body: Center(
         child: Container(
@@ -61,8 +18,8 @@ class AppleDiseasesScreen extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
           child: SingleChildScrollView(
             child: Column(
-              children: const [
-                DiseaseCard(
+              children: [
+                diseaseCard(
                   title: "Apple Scab",
                   scientificName: "Venturia inaequalis",
                   overview: "Apple scab is a major fungal disease affecting apple trees, causing scabby lesions on leaves and fruit. It thrives in cool, wet spring weather and can cause severe defoliation and yield loss.",
@@ -97,9 +54,9 @@ class AppleDiseasesScreen extends StatelessWidget {
                   tips: "Inspect leaves weekly during cool, damp spring weather. Fast action prevents early spore dissemination.",
                 ),
 
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
 
-                DiseaseCard(
+                diseaseCard(
                   title: "Black Rot",
                   scientificName: "Botryosphaeria obtusa",
                   overview: "Caused by Botryosphaeria obtusa. Spores overwinter in dead wood and old mummified fruit, attacking leaves, twigs, and developing fruit cores during warm, damp spring weather.",
@@ -123,13 +80,13 @@ class AppleDiseasesScreen extends StatelessWidget {
                     "Burn infected debris",
                     "Choose resistant varieties",
                   ],
-                  recoveryTime: "Approximately 4 to 8 weeks for branch can canker healing; fruit rot is irreversible.",
+                  recoveryTime: "Approximately 4 to 8 weeks for branch canker healing; fruit rot is irreversible.",
                   tips: "Check branches for dark, sunken cankers during winter pruning. Early removal prevents spring spore release.",
                 ),
 
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
 
-                DiseaseCard(
+                diseaseCard(
                   title: "Cedar Apple Rust",
                   scientificName: "Gymnosporangium juniperi-virginianae",
                   overview: "Cedar apple rust is a dual-host fungal disease requiring both apple trees and red cedars to complete its life cycle. It causes bright orange spots on leaves and distorts developing fruit.",
@@ -163,9 +120,9 @@ class AppleDiseasesScreen extends StatelessWidget {
                   tips: "Inspect apple trees weekly in late spring for small yellow dots on leaves, especially if red cedars are within 100 meters.",
                 ),
 
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
 
-                DiseaseCard(
+                diseaseCard(
                   title: "Healthy Apple Leaf",
                   scientificName: "Malus domestica",
                   overview: "A healthy apple leaf is vibrant green, firm, and fully functional, supporting fruit production and photosynthesis.",
@@ -203,6 +160,141 @@ class AppleDiseasesScreen extends StatelessWidget {
             ),
           ),
         ),
+      ),
+    );
+  }
+
+  Widget diseaseCard({
+    required String title,
+    required String scientificName,
+    required String overview,
+    required List<String> causes,
+    required List<String> symptoms,
+    required List<String> treatment,
+    required List<String> prevention,
+    List<String>? organic,
+    String? recoveryTime,
+    String? tips,
+  }) {
+    return Card(
+      elevation: 4,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      margin: const EdgeInsets.only(bottom: 20),
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              title,
+              style: const TextStyle(
+                fontSize: 22,
+                fontWeight: FontWeight.bold,
+                color: Color(0xFF2E7D32),
+              ),
+            ),
+            const SizedBox(height: 5),
+            Text(
+              "Scientific Name: $scientificName",
+              style: TextStyle(
+                fontWeight: FontWeight.w600,
+                fontStyle: FontStyle.italic,
+                color: Colors.grey[700],
+              ),
+            ),
+            const Divider(height: 25),
+            
+            const Text(
+              "Overview",
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 5),
+            Text(overview),
+
+            const SizedBox(height: 15),
+            sectionTitle("Causes"),
+            ...causes.map((e) => bulletPoint(e)),
+
+            const SizedBox(height: 15),
+            sectionTitle("Symptoms"),
+            ...symptoms.map((e) => bulletPoint(e)),
+
+            const SizedBox(height: 15),
+            sectionTitle("Treatment"),
+            ...treatment.map((e) => bulletPoint(e)),
+
+            if (organic != null) ...[
+              const SizedBox(height: 15),
+              sectionTitle("Organic Remedies"),
+              ...organic.map((e) => bulletPoint(e)),
+            ],
+
+            const SizedBox(height: 15),
+            sectionTitle("Prevention"),
+            ...prevention.map((e) => bulletPoint(e)),
+
+            if (recoveryTime != null && recoveryTime != "N/A") ...[
+              const SizedBox(height: 15),
+              sectionTitle("Recovery Time"),
+              Text(recoveryTime),
+            ],
+
+            if (tips != null) ...[
+              const SizedBox(height: 15),
+              Container(
+                padding: const EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  color: Colors.green.withOpacity(0.1),
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(color: Colors.green.withOpacity(0.3)),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Row(
+                      children: [
+                        Icon(Icons.lightbulb, color: Colors.orange, size: 20),
+                        SizedBox(width: 8),
+                        Text(
+                          "Farmer Tips",
+                          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 5),
+                    Text(tips),
+                  ],
+                ),
+              ),
+            ],
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget sectionTitle(String title) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 5),
+      child: Text(
+        title,
+        style: const TextStyle(
+          fontSize: 18,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+    );
+  }
+
+  Widget bulletPoint(String text) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 3),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text("• ", style: TextStyle(fontWeight: FontWeight.bold)),
+          Expanded(child: Text(text)),
+        ],
       ),
     );
   }
