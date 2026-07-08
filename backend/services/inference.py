@@ -1,9 +1,32 @@
 import os
 import json
 import numpy as np
+import cv2
+import base64
 import onnxruntime as ort
 from sqlalchemy.orm import Session
 from models import ScanHistory
+
+def create_base64_thumbnail(image_bytes: bytes, max_dim: int = 400, quality: int = 65) -> str:
+    try:
+        nparr = np.frombuffer(image_bytes, np.uint8)
+        img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
+        if img is None:
+            return f"data:image/jpeg;base64,{base64.b64encode(image_bytes).decode('utf-8')}"
+        
+        h, w = img.shape[:2]
+        if max(h, w) > max_dim:
+            scale = max_dim / max(h, w)
+            img = cv2.resize(img, (int(w * scale), int(h * scale)), interpolation=cv2.INTER_AREA)
+        
+        success, encoded_img = cv2.imencode('.jpg', img, [int(cv2.IMWRITE_JPEG_QUALITY), quality])
+        if success:
+            encoded_bytes = base64.b64encode(encoded_img.tobytes()).decode('utf-8')
+            return f"data:image/jpeg;base64,{encoded_bytes}"
+    except Exception as e:
+        print(f"Thumbnail creation error: {e}")
+    
+    return f"data:image/jpeg;base64,{base64.b64encode(image_bytes).decode('utf-8')}"
 
 print("STEP 1: inference.py started with ONNX")
 
@@ -441,11 +464,9 @@ def process_prediction_and_save(image, db: Session, user_id: int = None, image_p
     # 1. Run model inference cleanly first
     response_data = run_inference(image)
 
-    # Convert image byte stream directly into a persistent string
+    # Convert image byte stream directly into a persistent lightweight thumbnail string
     if raw_image_bytes is not None:
-        import base64
-        encoded_bytes = base64.b64encode(raw_image_bytes).decode('utf-8')
-        base64_uri = f"data:image/jpeg;base64,{encoded_bytes}"
+        base64_uri = create_base64_thumbnail(raw_image_bytes)
         image_path = base64_uri
 
     # Check confidence threshold (70%)

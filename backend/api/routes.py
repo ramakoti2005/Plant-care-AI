@@ -8,7 +8,7 @@ import uuid
 
 from schemas import AnalysisResponse, ScanHistorySchema
 from services.preprocessing import preprocess_image
-from services.inference import process_prediction_and_save, TREATMENT_BY_NAME
+from services.inference import process_prediction_and_save, TREATMENT_BY_NAME, create_base64_thumbnail
 from services.leaf_validator import is_leaf_image
 from services.auth import get_current_user, get_optional_current_user
 from models import User, ScanHistory
@@ -40,9 +40,7 @@ async def analyze_leaf_image(
 
         # 2. VALIDATION STEP: Check if it's actually a plant leaf
         if not is_leaf_image(image_bytes):
-            import base64
-            encoded_bytes = base64.b64encode(image_bytes).decode('utf-8')
-            base64_uri = f"data:image/jpeg;base64,{encoded_bytes}"
+            base64_uri = create_base64_thumbnail(image_bytes)
             
             # Save to database history if user is logged in
             if current_user:
