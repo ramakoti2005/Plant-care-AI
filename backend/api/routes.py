@@ -108,10 +108,21 @@ async def analyze_leaf_image(
         return response_data
 
     except Exception as e:
-        raise HTTPException(
-            status_code=500,
-            detail=f"An error occurred during analysis: {str(e)}"
-        )
+        print(f"Backend Exception Logged: {str(e)}")
+        return {
+            "status": "Unrecognized Image",
+            "message": f"An unexpected error occurred while parsing the photo: {str(e)}",
+            "is_plant": False,
+            "confidence": "0.0",
+            "crop": "Not Recognized",
+            "plant_name": "Unknown",
+            "disease_name": "No Plant Detected",
+            "scientific_name": "N/A",
+            "condition": "Error Processing Image",
+            "overview": "An unexpected error occurred while parsing the photo metadata. Please re-take a clear photo of a leaf.",
+            "symptoms": "N/A",
+            "treatment": "N/A"
+        }
 
 
 @router.get("/plants/history", response_model=List[ScanHistorySchema])

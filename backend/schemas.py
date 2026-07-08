@@ -48,6 +48,10 @@ class AnalysisResponse(BaseModel):
     symptoms: Optional[str] = None
     organic_remedy: Optional[str] = None
     chemical_control: Optional[str] = None
+    is_plant: Optional[bool] = None
+    crop: Optional[str] = None
+    condition: Optional[str] = None
+    overview: Optional[str] = None
 
 # Simulator Schemas
 class ProgressionStage(BaseModel):
