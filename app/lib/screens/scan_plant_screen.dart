@@ -12,6 +12,7 @@ import 'package:flutter/foundation.dart';
 import 'package:intl/intl.dart';
 import '../api_config.dart';
 import '../theme/responsive_theme.dart';
+import '../utils/web_camera.dart';
 
 class ScanPlantScreen extends StatefulWidget {
   const ScanPlantScreen({super.key});
@@ -60,21 +61,27 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
 
   Future<void> _pickCamera() async {
     try {
-      final XFile? pickedFile = kIsWeb
-          ? await _picker.pickImage(
-              source: ImageSource.camera,
-              preferredCameraDevice: CameraDevice.rear,
-            )
-          : await _picker.pickImage(source: ImageSource.camera);
-
-      if (pickedFile != null) {
-        final bytes = await pickedFile.readAsBytes();
-        setState(() {
-          _imageBytes = bytes;
-          _imageFile = pickedFile;
-          _imageName = pickedFile.name;
-          _result = null; 
-        });
+      if (kIsWeb) {
+        final Uint8List? bytes = await getWebCameraImage(context);
+        if (bytes != null) {
+          setState(() {
+            _imageBytes = bytes;
+            _imageFile = XFile.fromData(bytes, name: 'web_camera_${DateTime.now().millisecondsSinceEpoch}.jpg');
+            _imageName = 'web_camera_${DateTime.now().millisecondsSinceEpoch}.jpg';
+            _result = null;
+          });
+        }
+      } else {
+        final XFile? pickedFile = await _picker.pickImage(source: ImageSource.camera);
+        if (pickedFile != null) {
+          final bytes = await pickedFile.readAsBytes();
+          setState(() {
+            _imageBytes = bytes;
+            _imageFile = pickedFile;
+            _imageName = pickedFile.name;
+            _result = null; 
+          });
+        }
       }
     } catch (e) {
       debugPrint("Camera Error: $e");
