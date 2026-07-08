@@ -1,12 +1,67 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import '../theme/responsive_theme.dart';
+import 'treatment_detail_screen.dart';
 
 class TomatoDiseasesScreen extends StatelessWidget {
   const TomatoDiseasesScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final bool web = ResponsiveTheme.isWebLayout(context);
+
+    if (!web) {
+      final diseases = [
+        'Tomato Bacterial Spot',
+        'Tomato Early Blight',
+        'Tomato Late Blight',
+        'Leaf Mold',
+        'Septoria Leaf Spot',
+        'Spider Mites (Two-spotted spider mite)',
+        'Target Spot',
+        'Tomato Yellow Leaf Curl Virus',
+        'Tomato Mosaic Virus',
+        'Healthy Tomato Leaf',
+      ];
+
+      return ResponsiveScaffold(
+        appBar: AppBar(
+          title: const Text("Tomato Diseases"),
+        ),
+        body: ListView.builder(
+          padding: const EdgeInsets.all(16),
+          itemCount: diseases.length,
+          itemBuilder: (context, index) {
+            final name = diseases[index];
+            String display = name;
+            if (name == 'Tomato Bacterial Spot') display = 'Bacterial Spot';
+            if (name == 'Tomato Early Blight') display = 'Early Blight';
+            if (name == 'Tomato Late Blight') display = 'Late Blight';
+            
+            return Card(
+              margin: const EdgeInsets.only(bottom: 12),
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+              child: ListTile(
+                leading: const Icon(Icons.eco, color: Colors.green),
+                title: Text(
+                  display,
+                  style: const TextStyle(fontWeight: FontWeight.bold),
+                ),
+                trailing: const Icon(Icons.chevron_right),
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => TreatmentDetailScreen(diseaseName: name),
+                    ),
+                  );
+                },
+              ),
+            );
+          },
+        ),
+      );
+    }
+
     return ResponsiveScaffold(
       appBar: AppBar(
         title: const Text("Tomato Diseases"),

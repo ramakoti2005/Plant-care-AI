@@ -19,3 +19,5 @@ export 'edit_profile_screen.dart';
 export 'about_app_screen.dart';
 export 'language_screen.dart';
 export 'change_password_screen.dart';
+export 'treatment_detail_screen.dart';
+

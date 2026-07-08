@@ -9,13 +9,15 @@ export 'profile_screen.dart';
 export 'apple_diseases_screen.dart';
 export 'corn_diseases_screen.dart';
 export 'grape_diseases_screen.dart';
-export 'peach_diseases_screen.dart';
 export 'potato_diseases_screen.dart';
 export 'rice_diseases_screen.dart';
 export 'tomato_diseases_screen.dart';
+export 'peach_diseases_screen.dart';
 export 'total_scans_screen.dart';
 export 'settings_screen.dart';
 export 'edit_profile_screen.dart';
 export 'about_app_screen.dart';
 export 'language_screen.dart';
 export 'change_password_screen.dart';
+export 'treatment_detail_screen.dart';
+

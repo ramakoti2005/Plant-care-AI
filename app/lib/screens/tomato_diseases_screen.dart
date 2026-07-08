@@ -1,16 +1,70 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import '../theme/responsive_theme.dart';
+import 'treatment_detail_screen.dart';
 
 class TomatoDiseasesScreen extends StatelessWidget {
   const TomatoDiseasesScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    final bool web = ResponsiveTheme.isWebLayout(context);
+
+    if (!web) {
+      final diseases = [
+        'Tomato Bacterial Spot',
+        'Tomato Early Blight',
+        'Tomato Late Blight',
+        'Leaf Mold',
+        'Septoria Leaf Spot',
+        'Spider Mites (Two-spotted spider mite)',
+        'Target Spot',
+        'Tomato Yellow Leaf Curl Virus',
+        'Tomato Mosaic Virus',
+        'Healthy Tomato Leaf',
+      ];
+
+      return ResponsiveScaffold(
+        appBar: AppBar(
+          title: const Text("Tomato Diseases"),
+        ),
+        body: ListView.builder(
+          padding: const EdgeInsets.all(16),
+          itemCount: diseases.length,
+          itemBuilder: (context, index) {
+            final name = diseases[index];
+            String display = name;
+            if (name == 'Tomato Bacterial Spot') display = 'Bacterial Spot';
+            if (name == 'Tomato Early Blight') display = 'Early Blight';
+            if (name == 'Tomato Late Blight') display = 'Late Blight';
+            
+            return Card(
+              margin: const EdgeInsets.only(bottom: 12),
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+              child: ListTile(
+                leading: const Icon(Icons.eco, color: Colors.green),
+                title: Text(
+                  display,
+                  style: const TextStyle(fontWeight: FontWeight.bold),
+                ),
+                trailing: const Icon(Icons.chevron_right),
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => TreatmentDetailScreen(diseaseName: name),
+                    ),
+                  );
+                },
+              ),
+            );
+          },
+        ),
+      );
+    }
+
+    return ResponsiveScaffold(
       appBar: AppBar(
         title: const Text("Tomato Diseases"),
-        backgroundColor: const Color(0xFF2E7D32),
-        iconTheme: const IconThemeData(color: Colors.white),
       ),
       body: Center(
         child: Container(
@@ -18,8 +72,8 @@ class TomatoDiseasesScreen extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
           child: SingleChildScrollView(
             child: Column(
-              children: [
-                diseaseCard(
+              children: const [
+                DiseaseCard(
                   title: "Bacterial Spot",
                   scientificName: "Xanthomonas campestris pv. vesicatoria",
                   overview: "Bacterial spot causes dark, water-soaked circular lesions on tomato leaves and scab-like spots on developing fruit. It spreads extremely rapidly in warm, rainy conditions via splash vectors.",
@@ -53,9 +107,9 @@ class TomatoDiseasesScreen extends StatelessWidget {
                   tips: "Inspect inner leaves weekly during wet spells. Pruning branches within 12 inches of the ground prevents splash inoculations.",
                 ),
 
-                const SizedBox(height: 20),
+                SizedBox(height: 20),
 
-                diseaseCard(
+                DiseaseCard(
                   title: "Early Blight",
                   scientificName: "Alternaria solani",
                   overview: "Early blight is a common fungal disease forming dark target-like concentric ring spots on tomato leaves, progressing from bottom foliage upward. It thrives in humid summer climates.",
@@ -89,9 +143,9 @@ class TomatoDiseasesScreen extends StatelessWidget {
                   tips: "Check lower leaves weekly for brown target circles. Heavy mulching at planting is the best barrier against early blight.",
                 ),
 
-                const SizedBox(height: 20),
+                SizedBox(height: 20),
 
-                diseaseCard(
+                DiseaseCard(
                   title: "Late Blight",
                   scientificName: "Phytophthora infestans",
                   overview: "Late blight is a highly destructive oomycete disease that collapses tomato leaves, blackens stems, and rots fruit in cool, wet summer weather. It can destroy whole fields in days.",
@@ -123,9 +177,9 @@ class TomatoDiseasesScreen extends StatelessWidget {
                   tips: "Inspect fields daily during cool, rainy summer spells. Early destruction of infected vines is crucial to save the rest of the patch.",
                 ),
 
-                const SizedBox(height: 20),
+                SizedBox(height: 20),
 
-                diseaseCard(
+                DiseaseCard(
                   title: "Leaf Mold",
                   scientificName: "Passalora fulva",
                   overview: "Leaf mold is a greenhouse-associated fungal disease that produces pale-green spots on upper leaf surfaces and olive-green velvety mold underneath. It thrives in high humidity and stagnant air.",
@@ -160,9 +214,9 @@ class TomatoDiseasesScreen extends StatelessWidget {
                   tips: "Inspect the undersides of leaves weekly, especially in dense greenhouse stands. Good exhaust fans prevent mold.",
                 ),
 
-                const SizedBox(height: 20),
+                SizedBox(height: 20),
 
-                diseaseCard(
+                DiseaseCard(
                   title: "Septoria Leaf Spot",
                   scientificName: "Septoria lycopersici",
                   overview: "Septoria leaf spot is a very common fungal disease producing numerous small brown spots with grey centers and dark borders on tomato foliage, starting from the lower leaves.",
@@ -197,9 +251,9 @@ class TomatoDiseasesScreen extends StatelessWidget {
                   tips: "Inspect lower leaves weekly. Pruning the lowest leaves as the plant grows prevents soil-dwelling spores from splashing up.",
                 ),
 
-                const SizedBox(height: 20),
+                SizedBox(height: 20),
 
-                diseaseCard(
+                DiseaseCard(
                   title: "Spider Mites (Two-spotted Spider Mite)",
                   scientificName: "Tetranychus urticae",
                   overview: "Two-spotted spider mites are tiny arachnids that suck cell sap from tomato leaves, causing yellow stippling and fine webbing. They thrive and multiply exponentially in hot, dry weather.",
@@ -234,9 +288,9 @@ class TomatoDiseasesScreen extends StatelessWidget {
                   tips: "Inspect leaf undersides weekly for tiny moving dots during hot, dry spells. A magnifying glass helps detect early webbing.",
                 ),
 
-                const SizedBox(height: 20),
+                SizedBox(height: 20),
 
-                diseaseCard(
+                DiseaseCard(
                   title: "Target Spot",
                   scientificName: "Corynespora cassiicola",
                   overview: "Target spot is a fungal disease that causes circular spots with distinct concentric rings on leaves, stems, and fruit. It is favored by warm, humid weather and wet leaves.",
@@ -267,12 +321,12 @@ class TomatoDiseasesScreen extends StatelessWidget {
                     "Ensure wide spacing",
                   ],
                   recoveryTime: "Approximately 3 to 5 weeks.",
-                  tips: "Check lower leaves weekly during hot, humid summer spells. Fast drying leaves are key to control.",
+                  tips: "Check lower leaves weekly during hot, humid summer spells. Leaf drying is key to control.",
                 ),
 
-                const SizedBox(height: 20),
+                SizedBox(height: 20),
 
-                diseaseCard(
+                DiseaseCard(
                   title: "Tomato Yellow Leaf Curl Virus",
                   scientificName: "Tomato yellow leaf curl virus (TYLCV)",
                   overview: "Tomato yellow leaf curl virus is a destructive virus transmitted by silverleaf whiteflies, causing severe stunting, leaf cupping, and yellowing. It severely limits fruit setting if infected early.",
@@ -306,9 +360,9 @@ class TomatoDiseasesScreen extends StatelessWidget {
                   tips: "Monitor fields weekly for tiny whiteflies. Using yellow sticky cards helps catch vector activity early.",
                 ),
 
-                const SizedBox(height: 20),
+                SizedBox(height: 20),
 
-                diseaseCard(
+                DiseaseCard(
                   title: "Tomato Mosaic Virus",
                   scientificName: "Tomato mosaic virus (ToMV)",
                   overview: "Mosaic virus is a highly stable, infectious virus causing mottled green-and-yellow mosaic patterns on tomato leaves and distorted fruit. It is easily spread by mechanical contact and contaminated tools.",
@@ -339,9 +393,9 @@ class TomatoDiseasesScreen extends StatelessWidget {
                   tips: "Dip hands and tools in a dry milk solution weekly during pruning. Cleanliness is the only wall against mosaic virus.",
                 ),
 
-                const SizedBox(height: 20),
+                SizedBox(height: 20),
 
-                diseaseCard(
+                DiseaseCard(
                   title: "Healthy Tomato Leaf",
                   scientificName: "Solanum lycopersicum",
                   overview: "A healthy tomato leaf is compound, deep green, and slightly fuzzy, optimizing gas exchange and sunlight absorption to feed ripening tomatoes.",
@@ -379,141 +433,6 @@ class TomatoDiseasesScreen extends StatelessWidget {
             ),
           ),
         ),
-      ),
-    );
-  }
-
-  Widget diseaseCard({
-    required String title,
-    required String scientificName,
-    required String overview,
-    required List<String> causes,
-    required List<String> symptoms,
-    required List<String> treatment,
-    required List<String> prevention,
-    List<String>? organic,
-    String? recoveryTime,
-    String? tips,
-  }) {
-    return Card(
-      elevation: 4,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-      margin: const EdgeInsets.only(bottom: 20),
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              title,
-              style: const TextStyle(
-                fontSize: 22,
-                fontWeight: FontWeight.bold,
-                color: Color(0xFF2E7D32),
-              ),
-            ),
-            const SizedBox(height: 5),
-            Text(
-              "Scientific Name: $scientificName",
-              style: TextStyle(
-                fontWeight: FontWeight.w600,
-                fontStyle: FontStyle.italic,
-                color: Colors.grey[700],
-              ),
-            ),
-            const Divider(height: 25),
-            
-            const Text(
-              "Overview",
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 5),
-            Text(overview),
-
-            const SizedBox(height: 15),
-            sectionTitle("Causes"),
-            ...causes.map((e) => bulletPoint(e)),
-
-            const SizedBox(height: 15),
-            sectionTitle("Symptoms"),
-            ...symptoms.map((e) => bulletPoint(e)),
-
-            const SizedBox(height: 15),
-            sectionTitle("Treatment"),
-            ...treatment.map((e) => bulletPoint(e)),
-
-            if (organic != null) ...[
-              const SizedBox(height: 15),
-              sectionTitle("Organic Remedies"),
-              ...organic.map((e) => bulletPoint(e)),
-            ],
-
-            const SizedBox(height: 15),
-            sectionTitle("Prevention"),
-            ...prevention.map((e) => bulletPoint(e)),
-
-            if (recoveryTime != null && recoveryTime != "N/A") ...[
-              const SizedBox(height: 15),
-              sectionTitle("Recovery Time"),
-              Text(recoveryTime),
-            ],
-
-            if (tips != null) ...[
-              const SizedBox(height: 15),
-              Container(
-                padding: const EdgeInsets.all(12),
-                decoration: BoxDecoration(
-                  color: Colors.green.withOpacity(0.1),
-                  borderRadius: BorderRadius.circular(10),
-                  border: Border.all(color: Colors.green.withOpacity(0.3)),
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Row(
-                      children: [
-                        Icon(Icons.lightbulb, color: Colors.orange, size: 20),
-                        SizedBox(width: 8),
-                        Text(
-                          "Farmer Tips",
-                          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 5),
-                    Text(tips),
-                  ],
-                ),
-              ),
-            ],
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget sectionTitle(String title) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 5),
-      child: Text(
-        title,
-        style: const TextStyle(
-          fontSize: 18,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-    );
-  }
-
-  Widget bulletPoint(String text) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 3),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Text("• ", style: TextStyle(fontWeight: FontWeight.bold)),
-          Expanded(child: Text(text)),
-        ],
       ),
     );
   }
