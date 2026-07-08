@@ -22,29 +22,29 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-  bool _isLoading = false;
-  String _fullName = 'Harshitha Karumudi'; 
-  String _username = 'harshitha_k';
-  String _email = 'karmudiharshitha@gmail.com';
-  String _phone = '+91 98765 43210';
-  String _location = 'Chennai, Tamil Nadu';
+  bool _isLoading = true;
+  String _fullName = ''; 
+  String _username = '';
+  String _email = '';
+  String _phone = '';
+  String _location = '';
 
   // Real-time Statistics Binders
-  int _totalScans = 128;
-  int _diseasesDetected = 24;
-  String _accuracyRate = '98%';
+  int _totalScans = 0;
+  int _diseasesDetected = 0;
+  String _accuracyRate = '0%';
 
   String get _gardenerRank => 'Master Botanist 👑';
 
   Uint8List? _profileImageBytes;
   final ImagePicker _picker = ImagePicker();
-  static const String _imageKey = 'profile_image_base64';
+  
+  String get _userImageKey => 'profile_image_base64_$_username';
 
   @override
   void initState() {
     super.initState();
     _loadUserData();
-    _loadImage();
   }
 
   Future<void> _loadUserData() async {
@@ -54,7 +54,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       String? storedEmail = prefs.getString('email');
 
       setState(() {
-        if (storedUsername != null && storedUsername.isNotEmpty && storedUsername.toLowerCase() != "ramu123" && storedUsername.toLowerCase() != "ramu2005") {
+        if (storedUsername != null && storedUsername.isNotEmpty) {
           _username = storedUsername;
           _email = storedEmail ?? _email;
         }
@@ -88,19 +88,27 @@ class _ProfileScreenState extends State<ProfileScreen> {
       if (response.statusCode == 200) {
         final data = json.decode(response.body);
         setState(() {
-          _fullName = data['full_name'] ?? _fullName;
+          _fullName = data['full_name'] ?? '';
           _username = data['username'] ?? _username;
           _email = data['email'] ?? _email;
-          _phone = data['phone'] ?? _phone;
-          _location = data['location'] ?? _location;
+          _phone = data['phone'] ?? '';
+          _location = data['location'] ?? '';
           
-          _totalScans = data['total_scans'] ?? _totalScans;
-          _diseasesDetected = data['diseases_detected'] ?? _diseasesDetected;
-          _accuracyRate = "${data['accuracy'] ?? 98}%";
+          _totalScans = data['total_scans'] ?? 0;
+          _diseasesDetected = data['diseases_detected'] ?? 0;
+          _accuracyRate = "${data['accuracy'] ?? 0}%";
         });
       }
     } catch (e) {
       debugPrint("Error loading profile from API: $e");
+    } finally {
+      // Once data loading is done, load the user-specific image and end loading
+      await _loadImage();
+      if (mounted) {
+        setState(() {
+          _isLoading = false;
+        });
+      }
     }
   }
 
@@ -344,10 +352,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Future<void> _loadImage() async {
     try {
       final SharedPreferences prefs = await SharedPreferences.getInstance();
-      final String? base64Str = prefs.getString(_imageKey);
+      final String? base64Str = prefs.getString(_userImageKey);
       if (base64Str != null && base64Str.isNotEmpty) {
         setState(() {
           _profileImageBytes = base64Decode(base64Str);
+        });
+      } else {
+        setState(() {
+          _profileImageBytes = null;
         });
       }
     } catch (e) {
@@ -359,7 +371,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     try {
       final SharedPreferences prefs = await SharedPreferences.getInstance();
       final String base64Str = base64Encode(bytes);
-      await prefs.setString(_imageKey, base64Str);
+      await prefs.setString(_userImageKey, base64Str);
     } catch (e) {
       debugPrint("Error saving profile image: $e");
     }
