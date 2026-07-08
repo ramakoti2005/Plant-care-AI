@@ -229,10 +229,10 @@ class ResponsiveScaffold extends StatelessWidget {
                   appBarTheme: AppBarTheme(
                     backgroundColor: Colors.transparent,
                     elevation: 0,
-                    iconTheme: const IconThemeData(color: Color(0xFF1B5E20)),
-                    actionsIconTheme: const IconThemeData(color: Color(0xFF1B5E20)),
+                    iconTheme: IconThemeData(color: web ? const Color(0xFF1B5E20) : Colors.white),
+                    actionsIconTheme: IconThemeData(color: web ? const Color(0xFF1B5E20) : Colors.white),
                     titleTextStyle: TextStyle(
-                      color: const Color(0xFF1B5E20),
+                      color: web ? const Color(0xFF1B5E20) : Colors.white,
                       fontSize: web ? 22 : 20,
                       fontWeight: FontWeight.bold,
                     ),

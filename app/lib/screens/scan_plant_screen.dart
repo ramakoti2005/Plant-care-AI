@@ -543,10 +543,18 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
                       height: 250,
                       width: double.infinity,
                       decoration: BoxDecoration(
-                        color: web ? Colors.green.withOpacity(0.05) : Colors.white.withOpacity(0.12),
+                        color: web
+                            ? Colors.green.withOpacity(0.05)
+                            : (Theme.of(context).brightness == Brightness.dark
+                                ? Colors.white.withOpacity(0.12)
+                                : Colors.green.withOpacity(0.05)),
                         borderRadius: BorderRadius.circular(20),
                         border: Border.all(
-                          color: web ? Colors.green.withOpacity(0.2) : Colors.white.withOpacity(0.25),
+                          color: web
+                              ? Colors.green.withOpacity(0.2)
+                              : (Theme.of(context).brightness == Brightness.dark
+                                  ? Colors.white.withOpacity(0.25)
+                                  : Colors.green.withOpacity(0.2)),
                           width: 2,
                         ),
                       ),
@@ -560,7 +568,9 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
                             style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
-                              color: web ? const Color(0xFF1B5E20) : Colors.white,
+                              color: Theme.of(context).brightness == Brightness.dark
+                                  ? Colors.white
+                                  : const Color(0xFF1B5E20),
                             ),
                           ),
                         ],
