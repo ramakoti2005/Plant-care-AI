@@ -73,7 +73,12 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final bool web = ResponsiveTheme.isWebLayout(context);
+    final bool isDark = Theme.of(context).brightness == Brightness.dark;
+    final Color textColor = isDark ? Colors.white : Colors.black87;
+    final Color labelColor = isDark ? Colors.white70 : Colors.black54;
+    final Color iconColor = isDark ? Colors.white70 : Colors.grey;
+    final Color borderColor = isDark ? Colors.white30 : Colors.grey;
+    final Color textButtonColor = isDark ? const Color(0xFFA5D6A7) : const Color(0xFF2E7D32);
 
     return ResponsiveScaffold(
       body: Stack(
@@ -105,14 +110,14 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                         // Username Field
                         TextFormField(
                           controller: _usernameController,
-                          style: TextStyle(color: web ? Colors.black87 : Colors.white),
+                          style: TextStyle(color: textColor),
                           decoration: InputDecoration(
                             labelText: 'Username',
-                            labelStyle: TextStyle(color: web ? Colors.black54 : const Color(0xFFE0E0E0)),
-                            prefixIcon: Icon(Icons.person, color: web ? Colors.grey : Colors.white70),
+                            labelStyle: TextStyle(color: labelColor),
+                            prefixIcon: Icon(Icons.person, color: iconColor),
                             enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
-                              borderSide: BorderSide(color: web ? Colors.grey : Colors.white30),
+                              borderSide: BorderSide(color: borderColor),
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
@@ -128,14 +133,14 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                         TextFormField(
                           controller: _emailController,
                           keyboardType: TextInputType.emailAddress,
-                          style: TextStyle(color: web ? Colors.black87 : Colors.white),
+                          style: TextStyle(color: textColor),
                           decoration: InputDecoration(
                             labelText: 'Email Address',
-                            labelStyle: TextStyle(color: web ? Colors.black54 : const Color(0xFFE0E0E0)),
-                            prefixIcon: Icon(Icons.email, color: web ? Colors.grey : Colors.white70),
+                            labelStyle: TextStyle(color: labelColor),
+                            prefixIcon: Icon(Icons.email, color: iconColor),
                             enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
-                              borderSide: BorderSide(color: web ? Colors.grey : Colors.white30),
+                              borderSide: BorderSide(color: borderColor),
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
@@ -154,18 +159,18 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                         TextFormField(
                           controller: _passwordController,
                           obscureText: _obscurePassword,
-                          style: TextStyle(color: web ? Colors.black87 : Colors.white),
+                          style: TextStyle(color: textColor),
                           decoration: InputDecoration(
                             labelText: 'Password',
-                            labelStyle: TextStyle(color: web ? Colors.black54 : const Color(0xFFE0E0E0)),
-                            prefixIcon: Icon(Icons.lock, color: web ? Colors.grey : Colors.white70),
+                            labelStyle: TextStyle(color: labelColor),
+                            prefixIcon: Icon(Icons.lock, color: iconColor),
                             suffixIcon: IconButton(
-                              icon: Icon(_obscurePassword ? Icons.visibility_off : Icons.visibility, color: web ? Colors.grey : Colors.white70),
+                              icon: Icon(_obscurePassword ? Icons.visibility_off : Icons.visibility, color: iconColor),
                               onPressed: () => setState(() => _obscurePassword = !_obscurePassword),
                             ),
                             enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
-                              borderSide: BorderSide(color: web ? Colors.grey : Colors.white30),
+                              borderSide: BorderSide(color: borderColor),
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
@@ -181,18 +186,18 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                         TextFormField(
                           controller: _confirmPasswordController,
                           obscureText: _obscureConfirmPassword,
-                          style: TextStyle(color: web ? Colors.black87 : Colors.white),
+                          style: TextStyle(color: textColor),
                           decoration: InputDecoration(
                             labelText: 'Confirm Password',
-                            labelStyle: TextStyle(color: web ? Colors.black54 : const Color(0xFFE0E0E0)),
-                            prefixIcon: Icon(Icons.lock_clock, color: web ? Colors.grey : Colors.white70),
+                            labelStyle: TextStyle(color: labelColor),
+                            prefixIcon: Icon(Icons.lock_clock, color: iconColor),
                             suffixIcon: IconButton(
-                              icon: Icon(_obscureConfirmPassword ? Icons.visibility_off : Icons.visibility, color: web ? Colors.grey : Colors.white70),
+                              icon: Icon(_obscureConfirmPassword ? Icons.visibility_off : Icons.visibility, color: iconColor),
                               onPressed: () => setState(() => _obscureConfirmPassword = !_obscureConfirmPassword),
                             ),
                             enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
-                              borderSide: BorderSide(color: web ? Colors.grey : Colors.white30),
+                              borderSide: BorderSide(color: borderColor),
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
@@ -228,7 +233,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                           child: Text(
                             "Already have an account? Login",
                             style: TextStyle(
-                              color: web ? const Color(0xFF2E7D32) : Colors.white, 
+                              color: textButtonColor, 
                               fontWeight: FontWeight.bold,
                             ),
                           ),

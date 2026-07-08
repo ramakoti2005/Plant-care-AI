@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../services/auth_service.dart';
+import '../theme/responsive_theme.dart';
 import '../widgets/loading_indicator.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -64,11 +65,7 @@ class _LoginScreenState extends State<LoginScreen> {
       final auth = Provider.of<AuthService>(context, listen: false);
       
       await auth.login(_emailController.text.trim(), _passwordController.text.trim());
-
-      // Save credentials if Remember Me is checked
       await _saveCredentials();
-      
-      // Tell the system autofill is finished
       TextInput.finishAutofillContext();
 
       if (!mounted) return;
@@ -90,126 +87,145 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        width: double.infinity,
-        height: double.infinity,
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [Color(0xFFE8F5E9), Color(0xFFFFFFFF)],
-          ),
-        ),
-        child: Stack(
-          children: [
-            Center(
-              child: SingleChildScrollView(
-                padding: const EdgeInsets.all(20),
-                child: Container(
-                  constraints: kIsWeb ? const BoxConstraints(maxWidth: 500) : null,
-                  child: AutofillGroup(
-                    child: Card(
-                    elevation: 10,
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-                    child: Padding(
-                      padding: const EdgeInsets.all(24),
-                      child: Form(
-                        key: _formKey,
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            const Icon(Icons.eco, size: 80, color: Color(0xFF2E7D32)),
-                            const SizedBox(height: 10),
-                            const Text(
-                              "Plant Care AI",
-                              style: TextStyle(
-                                fontSize: 28,
-                                fontWeight: FontWeight.bold,
-                                color: Color(0xFF1B5E20),
+    final bool isDark = Theme.of(context).brightness == Brightness.dark;
+    final Color textColor = isDark ? Colors.white : Colors.black87;
+    final Color labelColor = isDark ? Colors.white70 : Colors.black54;
+    final Color iconColor = isDark ? Colors.white70 : Colors.grey;
+    final Color borderColor = isDark ? Colors.white30 : Colors.grey;
+    final Color textButtonColor = isDark ? const Color(0xFFA5D6A7) : const Color(0xFF2E7D32);
+
+    return ResponsiveScaffold(
+      body: Stack(
+        children: [
+          Center(
+            child: SingleChildScrollView(
+              padding: const EdgeInsets.all(20),
+              child: Container(
+                constraints: const BoxConstraints(maxWidth: 500),
+                child: AutofillGroup(
+                  child: ResponsiveCard(
+                    child: Form(
+                      key: _formKey,
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(Icons.eco, size: 80, color: ResponsiveTheme.getIconColor(context)),
+                          const SizedBox(height: 10),
+                          Text(
+                            "Plant Care AI",
+                            style: ResponsiveTheme.getHeaderStyle(context, fontSize: 28),
+                          ),
+                          Text(
+                            "AI Powered Plant Disease Detection",
+                            textAlign: TextAlign.center,
+                            style: ResponsiveTheme.getSubHeaderStyle(context, fontSize: 14),
+                          ),
+                          const SizedBox(height: 30),
+                          
+                          // Username / Email Field
+                          TextFormField(
+                            controller: _emailController,
+                            autofillHints: const [AutofillHints.username, AutofillHints.email],
+                            style: TextStyle(color: textColor),
+                            decoration: InputDecoration(
+                              labelText: 'Username or Email',
+                              labelStyle: TextStyle(color: labelColor),
+                              prefixIcon: Icon(Icons.person, color: iconColor),
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(12),
+                                borderSide: BorderSide(color: borderColor),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(12),
+                                borderSide: BorderSide(color: ResponsiveTheme.getIconColor(context)),
                               ),
                             ),
-                            const Text(
-                              "AI Powered Plant Disease Detection",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(color: Colors.grey, fontSize: 14),
-                            ),
-                            const SizedBox(height: 30),
-                            
-                            // Username / Email Field
-                            TextFormField(
-                              controller: _emailController,
-                              autofillHints: const [AutofillHints.username, AutofillHints.email],
-                              decoration: InputDecoration(
-                                labelText: 'Username or Email',
-                                prefixIcon: const Icon(Icons.person),
-                                border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+                            validator: (value) => (value == null || value.isEmpty) 
+                              ? 'Please enter your username or email' : null,
+                          ),
+                          const SizedBox(height: 15),
+                          
+                          // Password Field
+                          TextFormField(
+                            controller: _passwordController,
+                            autofillHints: const [AutofillHints.password],
+                            obscureText: _obscurePassword,
+                            style: TextStyle(color: textColor),
+                            decoration: InputDecoration(
+                              labelText: 'Password',
+                              labelStyle: TextStyle(color: labelColor),
+                              prefixIcon: Icon(Icons.lock, color: iconColor),
+                              suffixIcon: IconButton(
+                                icon: Icon(_obscurePassword ? Icons.visibility_off : Icons.visibility, color: iconColor),
+                                onPressed: () => setState(() => _obscurePassword = !_obscurePassword),
                               ),
-                              validator: (value) => (value == null || value.isEmpty) 
-                                ? 'Please enter your username or email' : null,
-                            ),
-                            const SizedBox(height: 15),
-                            
-                            // Password Field
-                            TextFormField(
-                              controller: _passwordController,
-                              autofillHints: const [AutofillHints.password],
-                              obscureText: _obscurePassword,
-                              decoration: InputDecoration(
-                                labelText: 'Password',
-                                prefixIcon: const Icon(Icons.lock),
-                                suffixIcon: IconButton(
-                                  icon: Icon(_obscurePassword ? Icons.visibility_off : Icons.visibility),
-                                  onPressed: () => setState(() => _obscurePassword = !_obscurePassword),
-                                ),
-                                border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(12),
+                                borderSide: BorderSide(color: borderColor),
                               ),
-                              validator: (value) => (value == null || value.isEmpty) 
-                                ? 'Please enter your password' : null,
-                              onFieldSubmitted: (_) => _submit(),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(12),
+                                borderSide: BorderSide(color: ResponsiveTheme.getIconColor(context)),
+                              ),
                             ),
-                            
-                            // Remember Me Checkbox
-                            Row(
+                            validator: (value) => (value == null || value.isEmpty) 
+                              ? 'Please enter your password' : null,
+                            onFieldSubmitted: (_) => _submit(),
+                          ),
+                          
+                          // Remember Me Checkbox
+                          const SizedBox(height: 10),
+                          Theme(
+                            data: Theme.of(context).copyWith(
+                              unselectedWidgetColor: labelColor,
+                            ),
+                            child: Row(
                               children: [
                                 Checkbox(
                                   value: _rememberMe,
-                                  activeColor: const Color(0xFF2E7D32),
+                                  activeColor: ResponsiveTheme.getIconColor(context),
+                                  checkColor: Colors.white,
                                   onChanged: (value) => setState(() => _rememberMe = value ?? false),
                                 ),
-                                const Text("Remember Me"),
+                                Text(
+                                  "Remember Me",
+                                  style: TextStyle(color: textColor),
+                                ),
                               ],
                             ),
-                            
-                            const SizedBox(height: 15),
-                            
-                            // Login Button
-                            SizedBox(
-                              width: double.infinity,
-                              height: 55,
-                              child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor: const Color(0xFF2E7D32),
-                                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                                ),
-                                onPressed: _isLoading ? null : _submit,
-                                child: const Text(
-                                  'LOGIN',
-                                  style: TextStyle(fontSize: 18, color: Colors.white, fontWeight: FontWeight.bold),
-                                ),
+                          ),
+                          
+                          const SizedBox(height: 15),
+                          
+                          // Login Button
+                          SizedBox(
+                            width: double.infinity,
+                            height: 55,
+                            child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: const Color(0xFF2E7D32),
+                                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                               ),
-                            ),
-                            
-                            const SizedBox(height: 15),
-                            TextButton(
-                              onPressed: () => Navigator.of(context).pushNamed('/register'),
+                              onPressed: _isLoading ? null : _submit,
                               child: const Text(
-                                "Don't have an account? Register",
-                                style: TextStyle(color: Color(0xFF2E7D32), fontWeight: FontWeight.bold),
+                                'LOGIN',
+                                style: TextStyle(fontSize: 18, color: Colors.white, fontWeight: FontWeight.bold),
                               ),
                             ),
-                          ],
-                        ),
+                          ),
+                          
+                          const SizedBox(height: 15),
+                          TextButton(
+                            onPressed: () => Navigator.of(context).pushNamed('/register'),
+                            child: Text(
+                              "Don't have an account? Register",
+                              style: TextStyle(
+                                color: textButtonColor, 
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ),
@@ -217,9 +233,8 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),
           ),
-            if (_isLoading) const LoadingIndicator(),
-          ],
-        ),
+          if (_isLoading) const LoadingIndicator(),
+        ],
       ),
     );
   }
