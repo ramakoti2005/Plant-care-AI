@@ -18,12 +18,12 @@ def is_leaf_image(image_bytes: bytes) -> bool:
     hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
 
     # Define color ranges for plant leaves (Green, Yellow, Brown/Dried)
-    # Green range - refined to require clear leaf saturation and value
-    lower_green = np.array([25, 35, 35])
+    # Green range - refined to require high saturation (>= 50) to filter out desaturated backgrounds
+    lower_green = np.array([25, 50, 45])
     upper_green = np.array([90, 255, 255])
     
-    # Yellow/Brown range (for diseased or dried leaves)
-    lower_brown = np.array([9, 40, 40])
+    # Yellow/Brown range - refined to require high saturation (>= 65) to filter out desaturated beige/tan surfaces
+    lower_brown = np.array([9, 65, 50])
     upper_brown = np.array([25, 255, 255])
 
     mask_green = cv2.inRange(hsv, lower_green, upper_green)
@@ -53,10 +53,10 @@ def is_leaf_image(image_bytes: bytes) -> bool:
     blur_score = cv2.Laplacian(gray, cv2.CV_64F).var()
 
     # Stricter Heuristic Thresholds:
-    # - At least 15% of the image should be leaf-colored
+    # - At least 20% of the image should be leaf-colored
     # - Image shouldn't be blurry (blur_score >= 10)
     # - Non-leaf colors (red, blue, magenta, purple) must be <= 10%
-    if leaf_density < 15 or blur_score < 10 or non_leaf_density > 10:
+    if leaf_density < 20 or blur_score < 10 or non_leaf_density > 10:
         return False
         
     return True
