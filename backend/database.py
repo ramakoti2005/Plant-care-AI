@@ -2,6 +2,22 @@ import os
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
 
+# Load environment variables from .env file locally
+try:
+    from dotenv import load_dotenv
+    load_dotenv(os.path.join(os.path.dirname(__file__), ".env"))
+except ImportError:
+    # Safe manual parsing fallback if python-dotenv is not installed yet
+    env_path = os.path.join(os.path.dirname(__file__), ".env")
+    if os.path.exists(env_path):
+        with open(env_path, "r") as f:
+            for line in f:
+                line = line.strip()
+                if line and not line.startswith("#") and "=" in line:
+                    k, v = line.split("=", 1)
+                    val = v.strip().strip("'").strip('"')
+                    os.environ[k.strip()] = val
+
 DATABASE_URL = os.getenv("DATABASE_URL")
 
 if DATABASE_URL:

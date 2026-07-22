@@ -31,3 +31,8 @@ objects.txt
 pack.txt
 flutter_app_old/
 .venv/
+
+# Environment and Local DB
+.env
+.env.*
+*.db
