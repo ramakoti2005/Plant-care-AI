@@ -96975,7 +96975,7 @@ return s},
 $S:589}
 A.ahi.prototype={
 $3(a,b,c){var s=b.c==="Midnight Forest (Dark)"?$.aRB():$.aRC()
-return new A.r0(A.ah(["/",new A.ahf(),"/register",new A.ahg(),"/dashboard",new A.ahh()],t.N,t.Ab),"/","My Flutter App",s,!1,null)},
+return new A.r0(A.ah(["/",new A.ahf(),"/register",new A.ahg(),"/dashboard",new A.ahh()],t.N,t.Ab),"/","PLANT CARE-AI",s,!1,null)},
 $S:590}
 A.ahf.prototype={
 $1(a){return B.Sn},

@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
       child: Consumer<SettingsService>(
         builder: (context, settings, _) {
           return MaterialApp(
-            title: 'My Flutter App',
+            title: 'PLANT CARE-AI',
             theme: settings.isDarkMode ? ResponsiveTheme.darkTheme : ResponsiveTheme.lightTheme,
             initialRoute: '/',
             routes: {
