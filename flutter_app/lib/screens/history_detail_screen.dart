@@ -82,6 +82,27 @@ class HistoryDetailScreen extends StatelessWidget {
                                 (diseaseName.toLowerCase() == 'no plant detected' || 
                                  diseaseName.toLowerCase() == 'unrecognized image');
 
+    const Map<String, String> plantScientificNames = {
+      'apple': 'Malus domestica',
+      'corn': 'Zea mays',
+      'grape': 'Vitis vinifera',
+      'peach': 'Prunus persica',
+      'potato': 'Solanum tuberosum',
+      'rice': 'Oryza sativa',
+      'tomato': 'Solanum lycopersicum',
+    };
+
+    String displaySciName = scan['scientific_name'] ?? '';
+    if (displaySciName == 'N/A' || displaySciName.isEmpty || displaySciName.toLowerCase() == 'no plant detected') {
+      final pLower = plantName.toLowerCase();
+      displaySciName = plantScientificNames[pLower] ?? 'N/A';
+    }
+
+    String conditionVal = scan['disease_name'] ?? 'Healthy';
+    if (conditionVal == 'N/A' || conditionVal.isEmpty || conditionVal.toLowerCase() == 'no plant detected') {
+      conditionVal = 'Healthy';
+    }
+
     if (isUnrecognized) {
       return ResponsiveScaffold(
         appBar: AppBar(
@@ -211,7 +232,7 @@ class HistoryDetailScreen extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              scan['scientific_name'] ?? '',
+                              displaySciName,
                               style: TextStyle(color: valueColor),
                             ),
                             const SizedBox(height: 15),
@@ -260,7 +281,7 @@ class HistoryDetailScreen extends StatelessWidget {
                             _buildSectionCard(
                               context: context,
                               title: "Overview & Causes",
-                              content: "Crop: ${scan['plant_name'] ?? 'Unknown'}\nCondition: ${scan['scientific_name'] ?? scan['disease_name'] ?? 'Unknown'}\n\nPathogen/Cause: ${scan['cause'] ?? ( (scan['disease_name']?.toString().toLowerCase().contains('healthy') ?? false) ? 'No disease symptoms' : 'N/A' )}",
+                              content: "Crop: ${scan['plant_name'] ?? 'Unknown'}\nCondition: $conditionVal\n\nPathogen/Cause: ${scan['cause'] ?? ( conditionVal.toLowerCase().contains('healthy') ? 'No disease symptoms' : 'N/A' )}",
                               icon: Icons.info_outline,
                               iconColor: const Color(0xFF2E7D32),
                               bgColor: const Color(0xFFF1F8E9),
@@ -338,7 +359,7 @@ class HistoryDetailScreen extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        scan['scientific_name'] ?? '',
+                        displaySciName,
                         style: TextStyle(color: valueColor),
                       ),
                       const SizedBox(height: 15),
@@ -379,7 +400,7 @@ class HistoryDetailScreen extends StatelessWidget {
                       _buildSectionCard(
                         context: context,
                         title: "Overview & Causes",
-                        content: "Crop: ${scan['plant_name'] ?? 'Unknown'}\nCondition: ${scan['scientific_name'] ?? scan['disease_name'] ?? 'Unknown'}\n\nPathogen/Cause: ${scan['cause'] ?? ( (scan['disease_name']?.toString().toLowerCase().contains('healthy') ?? false) ? 'No disease symptoms' : 'N/A' )}",
+                        content: "Crop: ${scan['plant_name'] ?? 'Unknown'}\nCondition: $conditionVal\n\nPathogen/Cause: ${scan['cause'] ?? ( conditionVal.toLowerCase().contains('healthy') ? 'No disease symptoms' : 'N/A' )}",
                         icon: Icons.info_outline,
                         iconColor: const Color(0xFF2E7D32),
                         bgColor: const Color(0xFFF1F8E9),

@@ -162,7 +162,23 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
           } else {
             _plantName = responseData['plant'] ?? responseData['plant_name'] ?? 'Rice';
             _diseaseName = responseData['disease'] ?? responseData['disease_name'] ?? 'Leaf Blast';
-            _scientificName = responseData['scientific_name'] ?? 'N/A';
+            
+            final String sci = responseData['scientific_name'] ?? 'N/A';
+            if (sci == 'N/A' || sci.isEmpty || sci.toLowerCase() == 'no plant detected') {
+              const Map<String, String> plantScientificNames = {
+                'apple': 'Malus domestica',
+                'corn': 'Zea mays',
+                'grape': 'Vitis vinifera',
+                'peach': 'Prunus persica',
+                'potato': 'Solanum tuberosum',
+                'rice': 'Oryza sativa',
+                'tomato': 'Solanum lycopersicum',
+              };
+              _scientificName = plantScientificNames[_plantName.toLowerCase()] ?? 'N/A';
+            } else {
+              _scientificName = sci;
+            }
+
             _overview = responseData['overview'] ?? responseData['cause'] ?? 'Magnaporthe oryzae';
             _symptoms = responseData['symptoms'] ?? 'Spindle-shaped/diamond-shaped lesions with gray ash centers.';
             _control = responseData['chemical_control'] ?? responseData['control'] ?? 'Tricyclazole 75% WP or Isoprothiolane 40% EC';

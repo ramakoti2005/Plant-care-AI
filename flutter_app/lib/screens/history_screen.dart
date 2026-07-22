@@ -237,7 +237,13 @@ class _HistoryScreenState extends State<HistoryScreen> {
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  isUnrecognizedItem ? "No plant leaf detected" : (item['scientific_name'] ?? item['disease_name'] ?? 'Healthy'),
+                  isUnrecognizedItem
+                      ? "No plant leaf detected"
+                      : ((item['scientific_name'] != null &&
+                              item['scientific_name'].toString() != 'N/A' &&
+                              item['scientific_name'].toString() != 'No Plant Detected')
+                          ? item['scientific_name'].toString()
+                          : (item['disease_name'] ?? 'Healthy')),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
