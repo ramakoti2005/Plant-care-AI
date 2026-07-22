@@ -45,7 +45,12 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
 
    Future<void> _pickGallery() async {
     try {
-      final XFile? pickedFile = await _picker.pickImage(source: ImageSource.gallery);
+      final XFile? pickedFile = await _picker.pickImage(
+        source: ImageSource.gallery,
+        maxWidth: 1024,
+        maxHeight: 1024,
+        imageQuality: 80,
+      );
 
       if (pickedFile != null) {
         final bytes = await pickedFile.readAsBytes();
@@ -74,7 +79,12 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
           });
         }
       } else {
-        final XFile? pickedFile = await _picker.pickImage(source: ImageSource.camera);
+        final XFile? pickedFile = await _picker.pickImage(
+          source: ImageSource.camera,
+          maxWidth: 1024,
+          maxHeight: 1024,
+          imageQuality: 80,
+        );
         if (pickedFile != null) {
           final bytes = await pickedFile.readAsBytes();
           setState(() {
