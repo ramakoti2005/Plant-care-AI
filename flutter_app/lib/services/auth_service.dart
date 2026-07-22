@@ -22,14 +22,17 @@ class AuthService extends ChangeNotifier {
           'username': email, 
           'password': password,
         },
-      ).timeout(const Duration(seconds: 45));
+      ).timeout(const Duration(seconds: 60));
     } on TimeoutException catch (_) {
-      throw Exception("Connection timeout. Please check your internet or try again.");
+      throw Exception("Connection timeout. The server is waking up or starting, please try again in a few moments.");
     } catch (e) {
       throw Exception("Connection error: $e");
     }
 
     if (response.statusCode == 200) {
+      if (response.body.trim().startsWith('<!DOCTYPE') || response.body.trim().startsWith('<html')) {
+        throw Exception("Server is currently waking up from sleep. Please wait a few seconds and try again.");
+      }
       final data = jsonDecode(response.body);
       _token = data['access_token'];
 
@@ -38,7 +41,6 @@ class AuthService extends ChangeNotifier {
       // Store user info for Profile Screen
       final prefs = await SharedPreferences.getInstance();
       await prefs.setString('email', data['email'] ?? email);
-      // If your backend returns username, use it. Otherwise, use email prefix.
       await prefs.setString('username', data['username'] ?? email.split('@')[0]);
 
       notifyListeners();
@@ -50,15 +52,16 @@ class AuthService extends ChangeNotifier {
           message = errorJson['detail'];
         }
       } catch (_) {
-        message = "Server waking up or temporary connection error. Please try again.";
+        message = "Server is waking up or starting. Please wait a few moments and try again.";
       }
       throw Exception(message);
     }
   }
 
   Future<void> register(String username, String email, String password) async {
+    final http.Response response;
     try {
-      final response = await http.post(
+      response = await http.post(
         Uri.parse('${ApiConfig.baseUrl}/auth/register'),
         headers: {'Content-Type': 'application/json'},
         body: jsonEncode({
@@ -66,20 +69,30 @@ class AuthService extends ChangeNotifier {
           'email': email,
           'password': password,
         }),
-      );
-
-      if (response.statusCode == 200 || response.statusCode == 201) {
-        await login(email, password);
-      } else {
-        final errorBody = jsonDecode(response.body);
-        var detail = errorBody['detail'] ?? 'Registration failed';
-        if (detail is List) {
-          detail = detail.map((e) => e['msg']).join(', ');
-        }
-        throw Exception(detail.toString());
-      }
+      ).timeout(const Duration(seconds: 60));
+    } on TimeoutException catch (_) {
+      throw Exception("Connection timeout. The server is waking up or starting, please try again in a few moments.");
     } catch (e) {
-      throw Exception('Connection error: $e');
+      throw Exception("Connection error: $e");
+    }
+
+    if (response.statusCode == 200 || response.statusCode == 201) {
+      if (response.body.trim().startsWith('<!DOCTYPE') || response.body.trim().startsWith('<html')) {
+        throw Exception("Server is currently waking up from sleep. Please wait a few seconds and try again.");
+      }
+      await login(email, password);
+    } else {
+      var detail = 'Registration failed';
+      try {
+        final errorBody = jsonDecode(response.body);
+        detail = errorBody['detail'] ?? 'Registration failed';
+        if (detail is List) {
+          detail = (detail as List).map((e) => e['msg']).join(', ');
+        }
+      } catch (_) {
+        detail = 'Server is waking up or starting. Please wait a few moments and try again.';
+      }
+      throw Exception(detail.toString());
     }
   }
 

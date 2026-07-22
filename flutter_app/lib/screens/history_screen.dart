@@ -38,9 +38,12 @@ class _HistoryScreenState extends State<HistoryScreen> {
         headers: {
           'Authorization': 'Bearer $token',
         },
-      );
+      ).timeout(const Duration(seconds: 60));
 
       if (response.statusCode == 200) {
+        if (response.body.trim().startsWith('<!DOCTYPE') || response.body.trim().startsWith('<html')) {
+          throw const FormatException("Server is currently waking up from sleep. Please wait a few moments and refresh.");
+        }
         setState(() {
           _history = jsonDecode(response.body);
           _loading = false;
@@ -55,6 +58,14 @@ class _HistoryScreenState extends State<HistoryScreen> {
       setState(() {
         _loading = false;
       });
+      if (mounted) {
+        String msg = e.toString().contains("FormatException") 
+            ? "Server is currently waking up. Please wait 1 minute and try again." 
+            : "Connection error: $e";
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(msg)),
+        );
+      }
       print(e);
     }
   }
