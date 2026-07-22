@@ -151,6 +151,7 @@ def get_user_scan_history(
             results.append({
                 "id": s.id,
                 "plant_name": s.plant_name,
+                "disease_name": s.disease_name,
                 "scientific_name": s.scientific_name or s.disease_name or "N/A",
                 "confidence": s.confidence or "N/A",
                 "possible_matches": [],

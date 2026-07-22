@@ -342,6 +342,17 @@ SCIENTIFIC_NAMES = {
     "Tomato_Healthy": "N/A"
 }
 
+# Create normalized dictionary lookups for robust case/spacing/underscore matching
+NORM_TREATMENT_METADATA = {
+    k.replace("_", "").replace(" ", "").lower(): v 
+    for k, v in TREATMENT_METADATA_DATABASE.items()
+}
+
+NORM_SCIENTIFIC_NAMES = {
+    k.replace("_", "").replace(" ", "").lower(): v 
+    for k, v in SCIENTIFIC_NAMES.items()
+}
+
 def run_inference(image):
     if session is None:
         raise Exception("Model session failed to load.")
@@ -401,7 +412,7 @@ def run_inference(image):
     if plant_name == "Pepperbell":
         plant_name = "Pepper Bell"
 
-    detail = TREATMENT_METADATA_DATABASE.get(raw_label, {
+    detail = NORM_TREATMENT_METADATA.get(raw_label.replace("___", "").replace("_", "").replace(" ", "").lower(), {
         "cause": "Unknown",
         "symptoms": "No detailed symptoms available.",
         "organic_remedy": None,
@@ -434,7 +445,7 @@ def run_inference(image):
     except Exception as e:
         print(f"Error finding reference image: {e}")
 
-    scientific_name = SCIENTIFIC_NAMES.get(raw_label, "N/A")
+    scientific_name = NORM_SCIENTIFIC_NAMES.get(raw_label.replace("___", "").replace("_", "").replace(" ", "").lower(), "N/A")
 
     # 🚀 MULTI-KEY PAYLOAD: Sends every possible variant so Flutter never reads a null field!
     return {
