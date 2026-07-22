@@ -59,9 +59,14 @@ class DashboardScreenState extends State<DashboardScreen> {
         desiredAccuracy: LocationAccuracy.low,
       );
 
+      final Map<String, String> headers = {};
+      if (!kIsWeb) {
+        headers['User-Agent'] = 'PlantCareAI/1.0';
+      }
+
       final geoResponse = await http.get(
         Uri.parse('https://nominatim.openstreetmap.org/reverse?format=json&lat=${position.latitude}&lon=${position.longitude}&zoom=18&addressdetails=1'),
-        headers: {'User-Agent': 'PlantCareAI/1.0'},
+        headers: headers,
       );
 
       String resolvedLocation = _locationName;
