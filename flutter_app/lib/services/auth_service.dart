@@ -1,8 +1,7 @@
-import 'dart:io';
 import 'dart:convert';
+import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -14,35 +13,46 @@ class AuthService extends ChangeNotifier {
   String? get token => _token;
 
   Future<void> login(String email, String password) async {
+    final http.Response response;
     try {
-      final response = await http.post(
+      response = await http.post(
         Uri.parse('${ApiConfig.baseUrl}/auth/token'),
         headers: {'Content-Type': 'application/x-www-form-urlencoded'},
         body: {
           'username': email, 
           'password': password,
         },
-      );
-
-      if (response.statusCode == 200) {
-        final data = jsonDecode(response.body);
-        _token = data['access_token'];
-
-        await _storage.write(key: 'auth_token', value: _token);
-
-        // Store user info for Profile Screen
-        final prefs = await SharedPreferences.getInstance();
-        await prefs.setString('email', data['email'] ?? email);
-        // If your backend returns username, use it. Otherwise, use email prefix.
-        await prefs.setString('username', data['username'] ?? email.split('@')[0]);
-
-        notifyListeners();
-      } else {
-        final errorBody = jsonDecode(response.body);
-        throw Exception(errorBody['detail'] ?? 'Login failed');
-      }
+      ).timeout(const Duration(seconds: 45));
+    } on TimeoutException catch (_) {
+      throw Exception("Connection timeout. Please check your internet or try again.");
     } catch (e) {
-      throw Exception('Connection error: $e');
+      throw Exception("Connection error: $e");
+    }
+
+    if (response.statusCode == 200) {
+      final data = jsonDecode(response.body);
+      _token = data['access_token'];
+
+      await _storage.write(key: 'auth_token', value: _token);
+
+      // Store user info for Profile Screen
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setString('email', data['email'] ?? email);
+      // If your backend returns username, use it. Otherwise, use email prefix.
+      await prefs.setString('username', data['username'] ?? email.split('@')[0]);
+
+      notifyListeners();
+    } else {
+      String message = "Login failed (${response.statusCode})";
+      try {
+        final errorJson = jsonDecode(response.body);
+        if (errorJson['detail'] != null) {
+          message = errorJson['detail'];
+        }
+      } catch (_) {
+        message = "Server waking up or temporary connection error. Please try again.";
+      }
+      throw Exception(message);
     }
   }
 

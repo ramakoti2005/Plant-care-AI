@@ -1,7 +1,10 @@
 from datetime import timedelta
+import logging
+import time
 from fastapi import APIRouter, Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordRequestForm
 from sqlalchemy.orm import Session
+from sqlalchemy.exc import DBAPIError, OperationalError
 
 import models
 import schemas
@@ -34,24 +37,59 @@ def register_user(user: schemas.UserCreate, db: Session = Depends(database.get_d
         raise HTTPException(status_code=500, detail=f"Internal Server Error: {str(e)}")
 
 @router.post("/token", response_model=schemas.Token)
-def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(database.get_db)):
-    user = auth.get_user(db, username=form_data.username)
-    if not user or not auth.verify_password(form_data.password, user.hashed_password):
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Incorrect username or password",
-            headers={"WWW-Authenticate": "Bearer"},
+async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(database.get_db)):
+    try:
+        # 1. Fetch user from database with reconnection retries
+        user = None
+        for attempt in range(3):
+            try:
+                user = auth.get_user(db, username=form_data.username)
+                break
+            except (OperationalError, DBAPIError) as db_err:
+                logging.warning(f"Database connection error on login (attempt {attempt + 1}/3): {db_err}")
+                if attempt == 2:
+                    raise db_err
+                db.rollback()
+                time.sleep(1)
+
+        # 2. Check if user exists
+        if not user:
+            raise HTTPException(
+                status_code=status.HTTP_401_UNAUTHORIZED,
+                detail="Account not found. If your database recently reset, please register a new account.",
+                headers={"WWW-Authenticate": "Bearer"},
+            )
+
+        # 3. Verify password safely
+        if not auth.verify_password(form_data.password, user.hashed_password):
+            raise HTTPException(
+                status_code=status.HTTP_401_UNAUTHORIZED,
+                detail="Incorrect password. Please try again.",
+                headers={"WWW-Authenticate": "Bearer"},
+            )
+
+        # 4. Generate Access Token
+        access_token_expires = timedelta(minutes=auth.ACCESS_TOKEN_EXPIRE_MINUTES)
+        access_token = auth.create_access_token(
+            data={"sub": user.username}, expires_delta=access_token_expires
         )
-    access_token_expires = timedelta(minutes=auth.ACCESS_TOKEN_EXPIRE_MINUTES)
-    access_token = auth.create_access_token(
-        data={"sub": user.username}, expires_delta=access_token_expires
-    )
-    return {
-        "access_token": access_token,
-        "token_type": "bearer",
-        "username": user.username,
-        "email": user.email
-    }
+        return {
+            "access_token": access_token,
+            "token_type": "bearer",
+            "username": user.username,
+            "email": user.email
+        }
+
+    except HTTPException as http_ex:
+        # Re-raise explicit HTTP exceptions cleanly
+        raise http_ex
+    except Exception as e:
+        logging.error(f"Login failure: {str(e)}")
+        # Prevent 500 HTML crash page by returning a structured JSON HTTP exception
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail="Server or database connection issue. Please try again in a few moments."
+        )
 
 @router.get("/profile")
 def get_user_profile(current_user: models.User = Depends(auth.get_current_user), db: Session = Depends(database.get_db)):
