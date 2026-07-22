@@ -84,36 +84,6 @@ if not os.path.exists(uploads_dir):
 app.mount("/uploads", StaticFiles(directory=uploads_dir), name="uploads")
 logger.info(f"Serving uploaded images from {uploads_dir}")
 
-# Direct aliases for /api endpoints
-from fastapi import BackgroundTasks, UploadFile, File, Depends
-from sqlalchemy.orm import Session
-from database import get_db
-from models import User
-from services.auth import get_optional_current_user
-from typing import Optional
-from pydantic import BaseModel
-
-class WeatherAlertRequestMain(BaseModel):
-    latitude: float
-    longitude: float
-
-@app.post("/api/scan")
-async def scan_alias_main(
-    background_tasks: BackgroundTasks,
-    file: UploadFile = File(...),
-    background: bool = True,
-    db: Session = Depends(get_db),
-    current_user: Optional[User] = Depends(get_optional_current_user)
-):
-    from api.routes import scan_leaf_image
-    return await scan_leaf_image(background_tasks, file, background, db, current_user)
-
-@app.post("/api/weather-alert")
-async def weather_alert_alias_main(req: WeatherAlertRequestMain):
-    from api.routes import get_weather_risk_alerts, WeatherAlertRequest
-    route_req = WeatherAlertRequest(latitude=req.latitude, longitude=req.longitude)
-    return await get_weather_risk_alerts(route_req)
-
 # Serve frontend static files
 # Make sure this is AFTER router inclusions
 # Check for 'web' first (common for Flutter Web builds), then fallback to 'frontend'

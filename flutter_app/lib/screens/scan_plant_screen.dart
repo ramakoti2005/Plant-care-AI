@@ -15,7 +15,6 @@ import '../api_config.dart';
 import '../theme/responsive_theme.dart';
 import '../utils/web_camera.dart';
 import '../services/settings_service.dart';
-import '../utils/notification_helper.dart';
 
 class ScanPlantScreen extends StatefulWidget {
   const ScanPlantScreen({super.key});
@@ -34,7 +33,6 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
   final ImagePicker _picker = ImagePicker();
 
   bool _isAnalyzing = false;
-  bool _scanInBackground = true;
   String _plantName = '';
   String _diseaseName = '';
   String _overview = '';
@@ -102,84 +100,6 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
     }
   }
 
-  Future<void> _startBackgroundScanning(int scanId, String? token) async {
-    int attempts = 0;
-    while (attempts < 60) {
-      await Future.delayed(const Duration(seconds: 2));
-      try {
-        final response = await http.get(
-          Uri.parse('${ApiConfig.baseUrl}/scan/$scanId'),
-          headers: token != null ? {'Authorization': 'Bearer $token'} : {},
-        );
-        if (response.statusCode == 200) {
-          final responseData = json.decode(response.body);
-          final String status = responseData['status'] ?? 'processing';
-          
-          if (status == 'completed') {
-            final String pName = responseData['plant_name'] ?? 'Unknown';
-            final String dName = responseData['disease_name'] ?? 'No Plant Detected';
-            double confidenceVal = 0.0;
-            if (responseData['confidence'] != null) {
-              confidenceVal = (double.tryParse(responseData['confidence'].toString()) ?? 0.0) * 100.0;
-            }
-            
-            await NotificationHelper.showNotification(
-              "Diagnosis Ready! 🌿",
-              "Scanned $pName: Detected $dName (${confidenceVal.toStringAsFixed(0)}% match). Tap to view treatment steps."
-            );
-            
-            if (mounted) {
-              setState(() {
-                _result = responseData;
-                _plantName = pName;
-                _diseaseName = dName;
-                
-                final String sci = responseData['scientific_name'] ?? 'N/A';
-                if (sci == 'N/A' || sci.isEmpty || sci.toLowerCase() == 'no plant detected') {
-                  const Map<String, String> plantScientificNames = {
-                    'apple': 'Malus domestica',
-                    'corn': 'Zea mays',
-                    'grape': 'Vitis vinifera',
-                    'peach': 'Prunus persica',
-                    'potato': 'Solanum tuberosum',
-                    'rice': 'Oryza sativa',
-                    'tomato': 'Solanum lycopersicum',
-                  };
-                  _scientificName = plantScientificNames[_plantName.toLowerCase()] ?? 'N/A';
-                } else {
-                  _scientificName = sci;
-                }
-                
-                _overview = responseData['treatment'] ?? responseData['solution_suggestion'] ?? 'No overview available.';
-                _symptoms = 'Analysis complete.';
-                _control = responseData['treatment'] ?? responseData['solution_suggestion'] ?? '';
-                _hasResults = true;
-                _isAnalyzing = false;
-              });
-            }
-            break;
-          } else if (status == 'failed') {
-            await NotificationHelper.showNotification(
-              "Diagnosis Failed ⚠️",
-              "We encountered an error analyzing your leaf. Please try again."
-            );
-            if (mounted) {
-              setState(() {
-                _isAnalyzing = false;
-                _hasError = true;
-                _errorMessage = "Background analysis failed.";
-              });
-            }
-            break;
-          }
-        }
-      } catch (e) {
-        debugPrint("Polling error: $e");
-      }
-      attempts++;
-    }
-  }
-
   Future<void> _analyzeDisease() async {
     if (_imageBytes == null) return;
 
@@ -195,7 +115,7 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
 
       var request = http.MultipartRequest(
         'POST',
-        Uri.parse('${ApiConfig.baseUrl}/scan?background=$_scanInBackground'),
+        Uri.parse('${ApiConfig.baseUrl}/analyze'),
       );
 
       if (token != null) {
@@ -219,87 +139,63 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
 
       if (response.statusCode == 200) {
         final responseData = json.decode(body);
-        
-        if (_scanInBackground) {
-          final int scanId = responseData['scan_id'];
-          setState(() {
-            _isAnalyzing = false;
-            // Clear selection so user can scan another or navigate away
-            _imageBytes = null;
-            _imageFile = null;
-            _imageName = null;
-          });
+        setState(() {
+          _isAnalyzing = false;
+          _result = responseData;
           
-          if (mounted) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(
-                content: Text("Leaf analysis started in the background. We will notify you when results are ready! 🌿"),
-                backgroundColor: Colors.green,
-                duration: Duration(seconds: 4),
-              ),
-            );
+          double confidenceVal = 1.0;
+          if (responseData['confidence'] != null) {
+            confidenceVal = double.tryParse(responseData['confidence'].toString()) ?? 1.0;
           }
           
-          // Trigger asynchronous background polling loop
-          _startBackgroundScanning(scanId, token);
-        } else {
-          // Synchronous response
-          setState(() {
-            _isAnalyzing = false;
-            _result = responseData;
-            
-            double confidenceVal = 1.0;
-            if (responseData['confidence'] != null) {
-              confidenceVal = double.tryParse(responseData['confidence'].toString()) ?? 1.0;
-            }
-            
-            bool isUnrecognizedResponse = responseData['status'] == 'Unrecognized Image' || 
-                (responseData['plant'] != null && responseData['plant'].toString().toLowerCase() == 'unknown') ||
-                confidenceVal < 0.70;
+          bool isUnrecognizedResponse = responseData['status'] == 'Unrecognized Image' || 
+              (responseData['plant'] != null && responseData['plant'].toString().toLowerCase() == 'unknown') ||
+              confidenceVal < 0.70;
 
-            if (isUnrecognizedResponse) {
-              _plantName = "Not Recognized";
-              _diseaseName = "Invalid Image Content";
-              _scientificName = "N/A";
-              _overview = "The uploaded image could not be verified as a plant leaf. Please capture a clear, close-up photo of a plant leaf for accurate disease analysis.";
-              _symptoms = "No plant data available.";
-              _control = "Please try again with a valid crop specimen.";
+          if (isUnrecognizedResponse) {
+            _plantName = "Not Recognized";
+            _diseaseName = "Invalid Image Content";
+            _scientificName = "N/A";
+            _overview = "The uploaded image could not be verified as a plant leaf. Please capture a clear, close-up photo of a plant leaf for accurate disease analysis.";
+            _symptoms = "No plant data available.";
+            _control = "Please try again with a valid crop specimen.";
+          } else {
+            _plantName = responseData['plant'] ?? responseData['plant_name'] ?? 'Rice';
+            _diseaseName = responseData['disease'] ?? responseData['disease_name'] ?? 'Leaf Blast';
+            
+            final String sci = responseData['scientific_name'] ?? 'N/A';
+            if (sci == 'N/A' || sci.isEmpty || sci.toLowerCase() == 'no plant detected') {
+              const Map<String, String> plantScientificNames = {
+                'apple': 'Malus domestica',
+                'corn': 'Zea mays',
+                'grape': 'Vitis vinifera',
+                'peach': 'Prunus persica',
+                'potato': 'Solanum tuberosum',
+                'rice': 'Oryza sativa',
+                'tomato': 'Solanum lycopersicum',
+              };
+              _scientificName = plantScientificNames[_plantName.toLowerCase()] ?? 'N/A';
             } else {
-              _plantName = responseData['plant'] ?? responseData['plant_name'] ?? 'Rice';
-              _diseaseName = responseData['disease'] ?? responseData['disease_name'] ?? 'Leaf Blast';
-              
-              final String sci = responseData['scientific_name'] ?? 'N/A';
-              if (sci == 'N/A' || sci.isEmpty || sci.toLowerCase() == 'no plant detected') {
-                const Map<String, String> plantScientificNames = {
-                  'apple': 'Malus domestica',
-                  'corn': 'Zea mays',
-                  'grape': 'Vitis vinifera',
-                  'peach': 'Prunus persica',
-                  'potato': 'Solanum tuberosum',
-                  'rice': 'Oryza sativa',
-                  'tomato': 'Solanum lycopersicum',
-                };
-                _scientificName = plantScientificNames[_plantName.toLowerCase()] ?? 'N/A';
-              } else {
-                _scientificName = sci;
-              }
-
-              _overview = responseData['overview'] ?? responseData['treatment'] ?? responseData['cause'] ?? 'No overview available';
-              _symptoms = responseData['symptoms'] ?? 'No symptoms detail recorded.';
-              _control = responseData['treatment'] ?? responseData['chemical_control'] ?? '';
+              _scientificName = sci;
             }
-            
-            _hasResults = true; 
-            _hasError = false;
-          });
 
-          try {
-            final sizeMB = _imageBytes!.length / (1024 * 1024);
-            Provider.of<SettingsService>(context, listen: false).increaseCacheSize(sizeMB);
-          } catch (e) {
-            debugPrint("Error updating settings cache size: $e");
+            _overview = responseData['overview'] ?? responseData['cause'] ?? 'Magnaporthe oryzae';
+            _symptoms = responseData['symptoms'] ?? 'Spindle-shaped/diamond-shaped lesions with gray ash centers.';
+            _control = responseData['chemical_control'] ?? responseData['control'] ?? 'Tricyclazole 75% WP or Isoprothiolane 40% EC';
           }
+          
+          _hasResults = true; 
+          _hasError = false;
+        });
+
+        try {
+          final sizeMB = _imageBytes!.length / (1024 * 1024);
+          Provider.of<SettingsService>(context, listen: false).increaseCacheSize(sizeMB);
+        } catch (e) {
+          debugPrint("Error updating settings cache size: $e");
         }
+
+        print("UI State switched successfully for: $_plantName - $_diseaseName");
       } else {
         setState(() {
           _isAnalyzing = false;
@@ -952,33 +848,6 @@ class _ScanPlantScreenState extends State<ScanPlantScreen> {
               ),
 
               const SizedBox(height: 20),
-
-              if (_imageBytes != null && !_isAnalyzing) ...[
-                Center(
-                  child: Container(
-                    constraints: const BoxConstraints(maxWidth: 600),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Checkbox(
-                          value: _scanInBackground,
-                          activeColor: Colors.deepPurple,
-                          onChanged: (val) {
-                            setState(() {
-                              _scanInBackground = val ?? true;
-                            });
-                          },
-                        ),
-                        const Text(
-                          "Scan in Background (Receive Notification)",
-                          style: TextStyle(fontWeight: FontWeight.w500),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 10),
-              ],
 
               if (_imageBytes != null && !_isAnalyzing)
                 Center(

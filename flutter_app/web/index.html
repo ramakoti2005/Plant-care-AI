@@ -31,29 +31,6 @@
 
   <title>PLANT CARE-AI</title>
   <link rel="manifest" href="manifest.json">
-  <script>
-    window.showBrowserNotification = function(title, body) {
-      if (!("Notification" in window)) {
-        console.log("This browser does not support desktop notifications.");
-        return;
-      }
-      if (Notification.permission === "granted") {
-        new Notification(title, { body: body, icon: "favicon.png" });
-      } else if (Notification.permission !== "denied") {
-        Notification.requestPermission().then(function (permission) {
-          if (permission === "granted") {
-            new Notification(title, { body: body, icon: "favicon.png" });
-          }
-        });
-      }
-    };
-    
-    window.requestNotificationPermission = function() {
-      if ("Notification" in window && Notification.permission !== "granted" && Notification.permission !== "denied") {
-        Notification.requestPermission();
-      }
-    };
-  </script>
 </head>
 <body>
   <!--

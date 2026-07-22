@@ -6,11 +6,7 @@ import 'services/settings_service.dart';
 import 'screens/screens.dart';
 import 'theme/responsive_theme.dart';
 
-import 'utils/notification_helper.dart';
-
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await NotificationHelper.initialize();
+void main() {
   runApp(const MyApp());
 }
 

@@ -10,7 +10,6 @@ import '../services/auth_service.dart';
 import '../services/settings_service.dart';
 import '../theme/responsive_theme.dart';
 import 'screens.dart';
-import '../utils/notification_helper.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
@@ -59,28 +58,6 @@ class DashboardScreenState extends State<DashboardScreen> {
       Position position = await Geolocator.getCurrentPosition(
         desiredAccuracy: LocationAccuracy.low,
       );
-
-      // Fetch climate alerts from backend
-      try {
-        final weatherAlertResponse = await http.post(
-          Uri.parse('${ApiConfig.baseUrl}/weather-alert'),
-          headers: {'Content-Type': 'application/json'},
-          body: json.encode({
-            'latitude': position.latitude,
-            'longitude': position.longitude,
-          }),
-        );
-        if (weatherAlertResponse.statusCode == 200) {
-          final alertData = json.decode(weatherAlertResponse.body);
-          for (var alert in alertData['alerts'] ?? []) {
-            final String title = alert['title'] ?? 'Weather Alert';
-            final String body = alert['body'] ?? '';
-            await NotificationHelper.showNotification(title, body);
-          }
-        }
-      } catch (e) {
-        debugPrint("Error fetching weather alerts: $e");
-      }
 
       final Map<String, String> headers = {};
       if (!kIsWeb) {

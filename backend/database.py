@@ -80,13 +80,6 @@ def init_db_schema():
             if modified:
                 conn.commit()
 
-    if "scan_histories" in inspector.get_table_names():
-        scan_cols = [c["name"] for c in inspector.get_columns("scan_histories")]
-        if "status" not in scan_cols:
-            with engine.connect() as conn:
-                conn.execute(text("ALTER TABLE scan_histories ADD COLUMN status VARCHAR DEFAULT 'completed'"))
-                conn.commit()
-
 try:
     init_db_schema()
 except Exception as e:
