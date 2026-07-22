@@ -10,6 +10,10 @@ if DATABASE_URL:
         "postgresql://",
         1
     )
+    # Safely append sslmode=require to remote PostgreSQL/Supabase connections if not specified
+    if "sqlite" not in DATABASE_URL and "sslmode" not in DATABASE_URL:
+        separator = "&" if "?" in DATABASE_URL else "?"
+        DATABASE_URL = f"{DATABASE_URL}{separator}sslmode=require"
 else:
     DATABASE_URL = "sqlite:///./plant_disease.db"
 
