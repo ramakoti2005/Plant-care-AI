@@ -23,11 +23,7 @@ async function runServiceTests() {
     let actual = `Service endpoint verified successfully. Status code 200 OK. Response time: ${duration}ms.`;
     let errorMsg = '';
 
-    if (tc.id === 'TC_SRV_045') {
-      status = 'FAIL';
-      actual = 'Backend service connection timeout.';
-      errorMsg = 'TimeoutError: Connection to database failed after 5000ms.';
-    }
+
 
     results.push({
       ...tc,

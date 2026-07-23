@@ -94,11 +94,11 @@ def generate_summary():
     # 5 Tiers
     for lt in loaded_tiers:
         status = "✅ PASS" if lt["failed"] == 0 else "❌ FAIL"
-        markdown.append(f"| {lt['name']} | {lt['total']} | {lt['passed']} | {lt['failed']} | 0 | {lt['rate']} | {status} | [HTML Report](file:///e:/projects/Plant-care-AI/E2E_Test_Report_PlantCareAI.xlsx) |")
+        markdown.append(f"| {lt['name']} | {lt['total']} | {lt['passed']} | {lt['failed']} | 0 | {lt['rate']} | {status} | [HTML Report](https://github.com/ramakoti2005/Plant-care-AI/blob/main/E2E_Test_Report_PlantCareAI.html) |")
         
     # Performance Load Test
     load_rate_str = f"{load_stats['success_rate_percent']:.2f}% Success"
-    markdown.append(f"| 📊 Performance Load Test | {load_stats['total_requests']} (Reqs) | - | - | - | {load_rate_str} | ✅ OPTIMAL | [Runner Details](file:///e:/projects/Plant-care-AI/load_testing/load_test_results.json) |\n")
+    markdown.append(f"| 📊 Performance Load Test | {load_stats['total_requests']} (Reqs) | - | - | - | {load_rate_str} | ✅ OPTIMAL | [Run Details](https://github.com/ramakoti2005/Plant-care-AI/blob/main/load_testing/load_test_results.json) |\n")
 
     # Baseline Load Testing Performance Metrics Table
     markdown.append("### ⚡ Baseline Load Testing Performance metrics")

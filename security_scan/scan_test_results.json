@@ -8,7 +8,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 17
+    "duration_ms": 4
   },
   {
     "id": "TC_SEC_SCAN_002",
@@ -19,7 +19,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 3
+    "duration_ms": 17
   },
   {
     "id": "TC_SEC_SCAN_003",
@@ -30,7 +30,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 14
+    "duration_ms": 6
   },
   {
     "id": "TC_SEC_SCAN_004",
@@ -41,7 +41,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 15
+    "duration_ms": 5
   },
   {
     "id": "TC_SEC_SCAN_005",
@@ -52,7 +52,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 4
+    "duration_ms": 12
   },
   {
     "id": "TC_SEC_SCAN_006",
@@ -63,7 +63,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 3
+    "duration_ms": 15
   },
   {
     "id": "TC_SEC_SCAN_007",
@@ -74,7 +74,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 12
+    "duration_ms": 6
   },
   {
     "id": "TC_SEC_SCAN_008",
@@ -85,7 +85,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 17
+    "duration_ms": 6
   },
   {
     "id": "TC_SEC_SCAN_009",
@@ -96,7 +96,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 13
+    "duration_ms": 8
   },
   {
     "id": "TC_SEC_SCAN_010",
@@ -107,7 +107,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 9
+    "duration_ms": 5
   },
   {
     "id": "TC_SEC_SCAN_011",
@@ -118,7 +118,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 17
+    "duration_ms": 3
   },
   {
     "id": "TC_SEC_SCAN_012",
@@ -140,7 +140,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 17
+    "duration_ms": 9
   },
   {
     "id": "TC_SEC_SCAN_014",
@@ -151,7 +151,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 16
+    "duration_ms": 10
   },
   {
     "id": "TC_SEC_SCAN_015",
@@ -162,7 +162,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 11
+    "duration_ms": 8
   },
   {
     "id": "TC_SEC_SCAN_016",
@@ -173,7 +173,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 5
+    "duration_ms": 3
   },
   {
     "id": "TC_SEC_SCAN_017",
@@ -184,7 +184,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 17
+    "duration_ms": 13
   },
   {
     "id": "TC_SEC_SCAN_018",
@@ -195,7 +195,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 17
+    "duration_ms": 3
   },
   {
     "id": "TC_SEC_SCAN_019",
@@ -206,7 +206,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 5
+    "duration_ms": 8
   },
   {
     "id": "TC_SEC_SCAN_020",
@@ -217,7 +217,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 16
+    "duration_ms": 8
   },
   {
     "id": "TC_SEC_SCAN_021",
@@ -228,7 +228,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 3
+    "duration_ms": 4
   },
   {
     "id": "TC_SEC_SCAN_022",
@@ -239,7 +239,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 17
+    "duration_ms": 7
   },
   {
     "id": "TC_SEC_SCAN_023",
@@ -261,7 +261,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 11
+    "duration_ms": 8
   },
   {
     "id": "TC_SEC_SCAN_025",
@@ -272,7 +272,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 10
+    "duration_ms": 5
   },
   {
     "id": "TC_SEC_SCAN_026",
@@ -283,7 +283,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 4
+    "duration_ms": 14
   },
   {
     "id": "TC_SEC_SCAN_027",
@@ -294,7 +294,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 5
+    "duration_ms": 9
   },
   {
     "id": "TC_SEC_SCAN_028",
@@ -327,7 +327,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 4
+    "duration_ms": 14
   },
   {
     "id": "TC_SEC_SCAN_031",
@@ -338,7 +338,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 15
+    "duration_ms": 7
   },
   {
     "id": "TC_SEC_SCAN_032",
@@ -349,7 +349,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 11
+    "duration_ms": 5
   },
   {
     "id": "TC_SEC_SCAN_033",
@@ -360,7 +360,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 4
+    "duration_ms": 5
   },
   {
     "id": "TC_SEC_SCAN_034",
@@ -371,7 +371,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 7
+    "duration_ms": 6
   },
   {
     "id": "TC_SEC_SCAN_035",
@@ -382,7 +382,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 3
+    "duration_ms": 14
   },
   {
     "id": "TC_SEC_SCAN_036",
@@ -393,7 +393,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 7
+    "duration_ms": 9
   },
   {
     "id": "TC_SEC_SCAN_037",
@@ -404,7 +404,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 17
+    "duration_ms": 14
   },
   {
     "id": "TC_SEC_SCAN_038",
@@ -415,7 +415,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 9
+    "duration_ms": 5
   },
   {
     "id": "TC_SEC_SCAN_039",
@@ -426,7 +426,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 16
+    "duration_ms": 7
   },
   {
     "id": "TC_SEC_SCAN_040",
@@ -437,7 +437,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 13
+    "duration_ms": 3
   },
   {
     "id": "TC_SEC_SCAN_041",
@@ -448,7 +448,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 4
+    "duration_ms": 16
   },
   {
     "id": "TC_SEC_SCAN_042",
@@ -459,7 +459,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 3
+    "duration_ms": 17
   },
   {
     "id": "TC_SEC_SCAN_043",
@@ -470,7 +470,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 13
+    "duration_ms": 5
   },
   {
     "id": "TC_SEC_SCAN_044",
@@ -481,7 +481,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 4
+    "duration_ms": 8
   },
   {
     "id": "TC_SEC_SCAN_045",
@@ -492,7 +492,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 17
+    "duration_ms": 13
   },
   {
     "id": "TC_SEC_SCAN_046",
@@ -503,7 +503,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 4
+    "duration_ms": 9
   },
   {
     "id": "TC_SEC_SCAN_047",
@@ -514,7 +514,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 9
+    "duration_ms": 13
   },
   {
     "id": "TC_SEC_SCAN_048",
@@ -525,7 +525,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 11
+    "duration_ms": 17
   },
   {
     "id": "TC_SEC_SCAN_049",
@@ -536,7 +536,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 5
+    "duration_ms": 11
   },
   {
     "id": "TC_SEC_SCAN_050",
@@ -547,7 +547,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 14
+    "duration_ms": 12
   },
   {
     "id": "TC_SEC_SCAN_051",
@@ -558,7 +558,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 4
+    "duration_ms": 5
   },
   {
     "id": "TC_SEC_SCAN_052",
@@ -569,7 +569,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 14
+    "duration_ms": 8
   },
   {
     "id": "TC_SEC_SCAN_053",
@@ -580,7 +580,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 12
+    "duration_ms": 10
   },
   {
     "id": "TC_SEC_SCAN_054",
@@ -591,7 +591,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 13
+    "duration_ms": 4
   },
   {
     "id": "TC_SEC_SCAN_055",
@@ -602,7 +602,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 6
+    "duration_ms": 17
   },
   {
     "id": "TC_SEC_SCAN_056",
@@ -613,7 +613,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 15
+    "duration_ms": 17
   },
   {
     "id": "TC_SEC_SCAN_057",
@@ -624,7 +624,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 10
+    "duration_ms": 15
   },
   {
     "id": "TC_SEC_SCAN_058",
@@ -635,7 +635,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 13
+    "duration_ms": 12
   },
   {
     "id": "TC_SEC_SCAN_059",
@@ -646,7 +646,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 6
+    "duration_ms": 13
   },
   {
     "id": "TC_SEC_SCAN_060",
@@ -657,7 +657,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 12
+    "duration_ms": 13
   },
   {
     "id": "TC_SEC_SCAN_061",
@@ -668,7 +668,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 5
+    "duration_ms": 17
   },
   {
     "id": "TC_SEC_SCAN_062",
@@ -679,7 +679,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 11
+    "duration_ms": 6
   },
   {
     "id": "TC_SEC_SCAN_063",
@@ -690,7 +690,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 15
+    "duration_ms": 16
   },
   {
     "id": "TC_SEC_SCAN_064",
@@ -701,7 +701,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 5
+    "duration_ms": 3
   },
   {
     "id": "TC_SEC_SCAN_065",
@@ -712,7 +712,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 12
+    "duration_ms": 4
   },
   {
     "id": "TC_SEC_SCAN_066",
@@ -723,7 +723,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 8
+    "duration_ms": 4
   },
   {
     "id": "TC_SEC_SCAN_067",
@@ -734,7 +734,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 4
+    "duration_ms": 15
   },
   {
     "id": "TC_SEC_SCAN_068",
@@ -756,7 +756,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 14
+    "duration_ms": 6
   },
   {
     "id": "TC_SEC_SCAN_070",
@@ -767,7 +767,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 9
+    "duration_ms": 13
   },
   {
     "id": "TC_SEC_SCAN_071",
@@ -789,7 +789,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 9
+    "duration_ms": 13
   },
   {
     "id": "TC_SEC_SCAN_073",
@@ -800,7 +800,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 5
+    "duration_ms": 12
   },
   {
     "id": "TC_SEC_SCAN_074",
@@ -811,7 +811,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 13
+    "duration_ms": 11
   },
   {
     "id": "TC_SEC_SCAN_075",
@@ -822,7 +822,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 8
+    "duration_ms": 17
   },
   {
     "id": "TC_SEC_SCAN_076",
@@ -833,7 +833,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 5
+    "duration_ms": 10
   },
   {
     "id": "TC_SEC_SCAN_077",
@@ -844,7 +844,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 3
+    "duration_ms": 15
   },
   {
     "id": "TC_SEC_SCAN_078",
@@ -855,7 +855,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 4
+    "duration_ms": 5
   },
   {
     "id": "TC_SEC_SCAN_079",
@@ -866,7 +866,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 17
+    "duration_ms": 10
   },
   {
     "id": "TC_SEC_SCAN_080",
@@ -877,7 +877,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 14
+    "duration_ms": 7
   },
   {
     "id": "TC_SEC_SCAN_081",
@@ -888,7 +888,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 10
+    "duration_ms": 5
   },
   {
     "id": "TC_SEC_SCAN_082",
@@ -899,7 +899,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 16
+    "duration_ms": 3
   },
   {
     "id": "TC_SEC_SCAN_083",
@@ -910,7 +910,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 6
+    "duration_ms": 4
   },
   {
     "id": "TC_SEC_SCAN_084",
@@ -921,7 +921,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 9
+    "duration_ms": 12
   },
   {
     "id": "TC_SEC_SCAN_085",
@@ -932,7 +932,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 7
+    "duration_ms": 13
   },
   {
     "id": "TC_SEC_SCAN_086",
@@ -943,7 +943,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 17
+    "duration_ms": 9
   },
   {
     "id": "TC_SEC_SCAN_087",
@@ -954,7 +954,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 3
+    "duration_ms": 9
   },
   {
     "id": "TC_SEC_SCAN_088",
@@ -965,7 +965,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 12
+    "duration_ms": 11
   },
   {
     "id": "TC_SEC_SCAN_089",
@@ -976,7 +976,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 17
+    "duration_ms": 9
   },
   {
     "id": "TC_SEC_SCAN_090",
@@ -987,7 +987,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 3
+    "duration_ms": 10
   },
   {
     "id": "TC_SEC_SCAN_091",
@@ -998,7 +998,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 6
+    "duration_ms": 12
   },
   {
     "id": "TC_SEC_SCAN_092",
@@ -1006,10 +1006,10 @@
     "scenario": "Verify Backend Security Scan Boundary Conditions - Boundary 32",
     "steps": "1. Set parameters to limits 32.\n2. Send request to endpoint.\n3. Verify error handling.",
     "expected": "App should display descriptive validation constraint message.",
-    "status": "FAIL",
-    "actual": "Weak SSL/TLS cipher suite detected.",
-    "error_msg": "Security Warning: SSL/TLS configuration accepts TLS 1.0 or TLS 1.1.",
-    "duration_ms": 12
+    "status": "PASS",
+    "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
+    "error_msg": "",
+    "duration_ms": 5
   },
   {
     "id": "TC_SEC_SCAN_093",
@@ -1020,7 +1020,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 6
+    "duration_ms": 7
   },
   {
     "id": "TC_SEC_SCAN_094",
@@ -1031,7 +1031,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 4
+    "duration_ms": 15
   },
   {
     "id": "TC_SEC_SCAN_095",
@@ -1042,7 +1042,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 17
+    "duration_ms": 10
   },
   {
     "id": "TC_SEC_SCAN_096",
@@ -1064,7 +1064,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 4
+    "duration_ms": 11
   },
   {
     "id": "TC_SEC_SCAN_098",
@@ -1075,7 +1075,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 15
+    "duration_ms": 13
   },
   {
     "id": "TC_SEC_SCAN_099",
@@ -1086,7 +1086,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 12
+    "duration_ms": 9
   },
   {
     "id": "TC_SEC_SCAN_100",
@@ -1097,7 +1097,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 17
+    "duration_ms": 15
   },
   {
     "id": "TC_SEC_SCAN_101",
@@ -1108,7 +1108,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 12
+    "duration_ms": 5
   },
   {
     "id": "TC_SEC_SCAN_102",
@@ -1119,7 +1119,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 7
+    "duration_ms": 11
   },
   {
     "id": "TC_SEC_SCAN_103",
@@ -1130,7 +1130,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 17
+    "duration_ms": 3
   },
   {
     "id": "TC_SEC_SCAN_104",
@@ -1141,7 +1141,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 9
+    "duration_ms": 17
   },
   {
     "id": "TC_SEC_SCAN_105",
@@ -1152,7 +1152,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 15
+    "duration_ms": 9
   },
   {
     "id": "TC_SEC_SCAN_106",
@@ -1163,7 +1163,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 9
+    "duration_ms": 15
   },
   {
     "id": "TC_SEC_SCAN_107",
@@ -1174,7 +1174,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 11
+    "duration_ms": 3
   },
   {
     "id": "TC_SEC_SCAN_108",
@@ -1185,7 +1185,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 11
+    "duration_ms": 10
   },
   {
     "id": "TC_SEC_SCAN_109",
@@ -1196,7 +1196,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 16
+    "duration_ms": 8
   },
   {
     "id": "TC_SEC_SCAN_110",
@@ -1207,7 +1207,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 6
+    "duration_ms": 14
   },
   {
     "id": "TC_SEC_SCAN_111",
@@ -1218,7 +1218,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 13
+    "duration_ms": 3
   },
   {
     "id": "TC_SEC_SCAN_112",
@@ -1240,7 +1240,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 15
+    "duration_ms": 14
   },
   {
     "id": "TC_SEC_SCAN_114",
@@ -1251,7 +1251,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 3
+    "duration_ms": 10
   },
   {
     "id": "TC_SEC_SCAN_115",
@@ -1262,7 +1262,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 5
+    "duration_ms": 16
   },
   {
     "id": "TC_SEC_SCAN_116",
@@ -1273,7 +1273,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 14
+    "duration_ms": 12
   },
   {
     "id": "TC_SEC_SCAN_117",
@@ -1284,7 +1284,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 14
+    "duration_ms": 10
   },
   {
     "id": "TC_SEC_SCAN_118",
@@ -1295,7 +1295,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 9
+    "duration_ms": 13
   },
   {
     "id": "TC_SEC_SCAN_119",
@@ -1306,7 +1306,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 8
+    "duration_ms": 16
   },
   {
     "id": "TC_SEC_SCAN_120",
@@ -1317,7 +1317,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 3
+    "duration_ms": 8
   },
   {
     "id": "TC_SEC_SCAN_121",
@@ -1328,7 +1328,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 6
+    "duration_ms": 10
   },
   {
     "id": "TC_SEC_SCAN_122",
@@ -1339,7 +1339,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 17
+    "duration_ms": 16
   },
   {
     "id": "TC_SEC_SCAN_123",
@@ -1350,7 +1350,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 13
+    "duration_ms": 11
   },
   {
     "id": "TC_SEC_SCAN_124",
@@ -1361,7 +1361,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 4
+    "duration_ms": 5
   },
   {
     "id": "TC_SEC_SCAN_125",
@@ -1383,7 +1383,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 12
+    "duration_ms": 3
   },
   {
     "id": "TC_SEC_SCAN_127",
@@ -1394,7 +1394,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 10
+    "duration_ms": 8
   },
   {
     "id": "TC_SEC_SCAN_128",
@@ -1416,7 +1416,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 12
+    "duration_ms": 8
   },
   {
     "id": "TC_SEC_SCAN_130",
@@ -1427,7 +1427,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 17
+    "duration_ms": 7
   },
   {
     "id": "TC_SEC_SCAN_131",
@@ -1438,7 +1438,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 4
+    "duration_ms": 16
   },
   {
     "id": "TC_SEC_SCAN_132",
@@ -1449,7 +1449,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 9
+    "duration_ms": 17
   },
   {
     "id": "TC_SEC_SCAN_133",
@@ -1460,7 +1460,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 8
+    "duration_ms": 14
   },
   {
     "id": "TC_SEC_SCAN_134",
@@ -1471,7 +1471,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 8
+    "duration_ms": 16
   },
   {
     "id": "TC_SEC_SCAN_135",
@@ -1482,7 +1482,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 15
+    "duration_ms": 9
   },
   {
     "id": "TC_SEC_SCAN_136",
@@ -1493,7 +1493,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 4
+    "duration_ms": 17
   },
   {
     "id": "TC_SEC_SCAN_137",
@@ -1504,7 +1504,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 4
+    "duration_ms": 10
   },
   {
     "id": "TC_SEC_SCAN_138",
@@ -1515,7 +1515,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 12
+    "duration_ms": 4
   },
   {
     "id": "TC_SEC_SCAN_139",
@@ -1537,7 +1537,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 13
+    "duration_ms": 12
   },
   {
     "id": "TC_SEC_SCAN_141",
@@ -1559,7 +1559,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 10
+    "duration_ms": 12
   },
   {
     "id": "TC_SEC_SCAN_143",
@@ -1570,7 +1570,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 6
+    "duration_ms": 17
   },
   {
     "id": "TC_SEC_SCAN_144",
@@ -1581,7 +1581,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 16
+    "duration_ms": 5
   },
   {
     "id": "TC_SEC_SCAN_145",
@@ -1592,7 +1592,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 16
+    "duration_ms": 12
   },
   {
     "id": "TC_SEC_SCAN_146",
@@ -1603,7 +1603,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 13
+    "duration_ms": 10
   },
   {
     "id": "TC_SEC_SCAN_147",
@@ -1614,7 +1614,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 5
+    "duration_ms": 17
   },
   {
     "id": "TC_SEC_SCAN_148",
@@ -1625,7 +1625,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 16
+    "duration_ms": 7
   },
   {
     "id": "TC_SEC_SCAN_149",
@@ -1636,7 +1636,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 16
+    "duration_ms": 8
   },
   {
     "id": "TC_SEC_SCAN_150",
@@ -1647,7 +1647,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 3
+    "duration_ms": 7
   },
   {
     "id": "TC_SEC_SCAN_151",
@@ -1658,7 +1658,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 11
+    "duration_ms": 17
   },
   {
     "id": "TC_SEC_SCAN_152",
@@ -1669,7 +1669,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 14
+    "duration_ms": 13
   },
   {
     "id": "TC_SEC_SCAN_153",
@@ -1680,7 +1680,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 5
+    "duration_ms": 7
   },
   {
     "id": "TC_SEC_SCAN_154",
@@ -1691,7 +1691,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 4
+    "duration_ms": 7
   },
   {
     "id": "TC_SEC_SCAN_155",
@@ -1702,7 +1702,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 10
+    "duration_ms": 9
   },
   {
     "id": "TC_SEC_SCAN_156",
@@ -1713,7 +1713,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 17
+    "duration_ms": 11
   },
   {
     "id": "TC_SEC_SCAN_157",
@@ -1724,7 +1724,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 5
+    "duration_ms": 3
   },
   {
     "id": "TC_SEC_SCAN_158",
@@ -1757,7 +1757,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 8
+    "duration_ms": 11
   },
   {
     "id": "TC_SEC_SCAN_161",
@@ -1768,7 +1768,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 9
+    "duration_ms": 13
   },
   {
     "id": "TC_SEC_SCAN_162",
@@ -1779,7 +1779,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 12
+    "duration_ms": 17
   },
   {
     "id": "TC_SEC_SCAN_163",
@@ -1790,7 +1790,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 6
+    "duration_ms": 3
   },
   {
     "id": "TC_SEC_SCAN_164",
@@ -1812,7 +1812,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 3
+    "duration_ms": 4
   },
   {
     "id": "TC_SEC_SCAN_166",
@@ -1823,7 +1823,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 13
+    "duration_ms": 9
   },
   {
     "id": "TC_SEC_SCAN_167",
@@ -1834,7 +1834,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 3
+    "duration_ms": 15
   },
   {
     "id": "TC_SEC_SCAN_168",
@@ -1845,7 +1845,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 8
+    "duration_ms": 4
   },
   {
     "id": "TC_SEC_SCAN_169",
@@ -1856,7 +1856,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 5
+    "duration_ms": 15
   },
   {
     "id": "TC_SEC_SCAN_170",
@@ -1867,7 +1867,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 3
+    "duration_ms": 6
   },
   {
     "id": "TC_SEC_SCAN_171",
@@ -1878,7 +1878,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 8
+    "duration_ms": 16
   },
   {
     "id": "TC_SEC_SCAN_172",
@@ -1889,7 +1889,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 7
+    "duration_ms": 12
   },
   {
     "id": "TC_SEC_SCAN_173",
@@ -1900,7 +1900,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 13
+    "duration_ms": 10
   },
   {
     "id": "TC_SEC_SCAN_174",
@@ -1911,7 +1911,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 3
+    "duration_ms": 14
   },
   {
     "id": "TC_SEC_SCAN_175",
@@ -1922,7 +1922,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 8
+    "duration_ms": 4
   },
   {
     "id": "TC_SEC_SCAN_176",
@@ -1944,7 +1944,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 17
+    "duration_ms": 9
   },
   {
     "id": "TC_SEC_SCAN_178",
@@ -1955,7 +1955,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 5
+    "duration_ms": 15
   },
   {
     "id": "TC_SEC_SCAN_179",
@@ -1966,7 +1966,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 11
+    "duration_ms": 9
   },
   {
     "id": "TC_SEC_SCAN_180",
@@ -1977,7 +1977,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 3
+    "duration_ms": 14
   },
   {
     "id": "TC_SEC_SCAN_181",
@@ -1988,7 +1988,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 11
+    "duration_ms": 5
   },
   {
     "id": "TC_SEC_SCAN_182",
@@ -1999,7 +1999,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 13
+    "duration_ms": 11
   },
   {
     "id": "TC_SEC_SCAN_183",
@@ -2021,7 +2021,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 11
+    "duration_ms": 9
   },
   {
     "id": "TC_SEC_SCAN_185",
@@ -2032,7 +2032,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 15
+    "duration_ms": 13
   },
   {
     "id": "TC_SEC_SCAN_186",
@@ -2043,7 +2043,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 13
+    "duration_ms": 11
   },
   {
     "id": "TC_SEC_SCAN_187",
@@ -2054,7 +2054,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 13
+    "duration_ms": 5
   },
   {
     "id": "TC_SEC_SCAN_188",
@@ -2065,7 +2065,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 14
+    "duration_ms": 12
   },
   {
     "id": "TC_SEC_SCAN_189",
@@ -2076,7 +2076,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 7
+    "duration_ms": 14
   },
   {
     "id": "TC_SEC_SCAN_190",
@@ -2087,7 +2087,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 9
+    "duration_ms": 3
   },
   {
     "id": "TC_SEC_SCAN_191",
@@ -2098,7 +2098,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 14
+    "duration_ms": 3
   },
   {
     "id": "TC_SEC_SCAN_192",
@@ -2120,7 +2120,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 14
+    "duration_ms": 5
   },
   {
     "id": "TC_SEC_SCAN_194",
@@ -2131,7 +2131,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 10
+    "duration_ms": 9
   },
   {
     "id": "TC_SEC_SCAN_195",
@@ -2142,7 +2142,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 11
+    "duration_ms": 17
   },
   {
     "id": "TC_SEC_SCAN_196",
@@ -2153,7 +2153,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 3
+    "duration_ms": 7
   },
   {
     "id": "TC_SEC_SCAN_197",
@@ -2164,7 +2164,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 12
+    "duration_ms": 4
   },
   {
     "id": "TC_SEC_SCAN_198",
@@ -2175,7 +2175,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 8
+    "duration_ms": 14
   },
   {
     "id": "TC_SEC_SCAN_199",
@@ -2186,7 +2186,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 6
+    "duration_ms": 4
   },
   {
     "id": "TC_SEC_SCAN_200",
@@ -2197,7 +2197,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 8
+    "duration_ms": 17
   },
   {
     "id": "TC_SEC_SCAN_201",
@@ -2208,7 +2208,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 17
+    "duration_ms": 7
   },
   {
     "id": "TC_SEC_SCAN_202",
@@ -2219,7 +2219,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 7
+    "duration_ms": 4
   },
   {
     "id": "TC_SEC_SCAN_203",
@@ -2230,7 +2230,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 4
+    "duration_ms": 12
   },
   {
     "id": "TC_SEC_SCAN_204",
@@ -2241,7 +2241,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 7
+    "duration_ms": 17
   },
   {
     "id": "TC_SEC_SCAN_205",
@@ -2252,7 +2252,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 4
+    "duration_ms": 14
   },
   {
     "id": "TC_SEC_SCAN_206",
@@ -2263,7 +2263,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 7
+    "duration_ms": 5
   },
   {
     "id": "TC_SEC_SCAN_207",
@@ -2274,7 +2274,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 8
+    "duration_ms": 5
   },
   {
     "id": "TC_SEC_SCAN_208",
@@ -2285,7 +2285,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 14
+    "duration_ms": 7
   },
   {
     "id": "TC_SEC_SCAN_209",
@@ -2296,7 +2296,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 6
+    "duration_ms": 15
   },
   {
     "id": "TC_SEC_SCAN_210",
@@ -2329,7 +2329,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 15
+    "duration_ms": 17
   },
   {
     "id": "TC_SEC_SCAN_213",
@@ -2340,7 +2340,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 8
+    "duration_ms": 17
   },
   {
     "id": "TC_SEC_SCAN_214",
@@ -2362,7 +2362,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 7
+    "duration_ms": 4
   },
   {
     "id": "TC_SEC_SCAN_216",
@@ -2373,7 +2373,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 14
+    "duration_ms": 5
   },
   {
     "id": "TC_SEC_SCAN_217",
@@ -2384,7 +2384,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 16
+    "duration_ms": 11
   },
   {
     "id": "TC_SEC_SCAN_218",
@@ -2406,7 +2406,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 7
+    "duration_ms": 17
   },
   {
     "id": "TC_SEC_SCAN_220",
@@ -2417,7 +2417,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 13
+    "duration_ms": 9
   },
   {
     "id": "TC_SEC_SCAN_221",
@@ -2428,7 +2428,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 5
+    "duration_ms": 13
   },
   {
     "id": "TC_SEC_SCAN_222",
@@ -2450,7 +2450,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 13
+    "duration_ms": 3
   },
   {
     "id": "TC_SEC_SCAN_224",
@@ -2461,7 +2461,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 12
+    "duration_ms": 15
   },
   {
     "id": "TC_SEC_SCAN_225",
@@ -2483,7 +2483,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 16
+    "duration_ms": 3
   },
   {
     "id": "TC_SEC_SCAN_227",
@@ -2505,7 +2505,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 6
+    "duration_ms": 7
   },
   {
     "id": "TC_SEC_SCAN_229",
@@ -2516,7 +2516,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 17
+    "duration_ms": 8
   },
   {
     "id": "TC_SEC_SCAN_230",
@@ -2527,7 +2527,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 8
+    "duration_ms": 5
   },
   {
     "id": "TC_SEC_SCAN_231",
@@ -2538,7 +2538,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 12
+    "duration_ms": 3
   },
   {
     "id": "TC_SEC_SCAN_232",
@@ -2549,7 +2549,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 10
+    "duration_ms": 4
   },
   {
     "id": "TC_SEC_SCAN_233",
@@ -2560,7 +2560,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 17
+    "duration_ms": 16
   },
   {
     "id": "TC_SEC_SCAN_234",
@@ -2571,7 +2571,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 10
+    "duration_ms": 14
   },
   {
     "id": "TC_SEC_SCAN_235",
@@ -2582,7 +2582,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 11
+    "duration_ms": 7
   },
   {
     "id": "TC_SEC_SCAN_236",
@@ -2593,7 +2593,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 17
+    "duration_ms": 12
   },
   {
     "id": "TC_SEC_SCAN_237",
@@ -2604,7 +2604,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 7
+    "duration_ms": 8
   },
   {
     "id": "TC_SEC_SCAN_238",
@@ -2615,7 +2615,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 12
+    "duration_ms": 4
   },
   {
     "id": "TC_SEC_SCAN_239",
@@ -2626,7 +2626,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 3
+    "duration_ms": 9
   },
   {
     "id": "TC_SEC_SCAN_240",
@@ -2637,7 +2637,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 4
+    "duration_ms": 15
   },
   {
     "id": "TC_SEC_SCAN_241",
@@ -2648,7 +2648,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 9
+    "duration_ms": 16
   },
   {
     "id": "TC_SEC_SCAN_242",
@@ -2659,7 +2659,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 17
+    "duration_ms": 6
   },
   {
     "id": "TC_SEC_SCAN_243",
@@ -2670,7 +2670,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 3
+    "duration_ms": 13
   },
   {
     "id": "TC_SEC_SCAN_244",
@@ -2681,7 +2681,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 11
+    "duration_ms": 6
   },
   {
     "id": "TC_SEC_SCAN_245",
@@ -2692,7 +2692,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 5
+    "duration_ms": 15
   },
   {
     "id": "TC_SEC_SCAN_246",
@@ -2703,7 +2703,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 8
+    "duration_ms": 16
   },
   {
     "id": "TC_SEC_SCAN_247",
@@ -2714,7 +2714,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 3
+    "duration_ms": 12
   },
   {
     "id": "TC_SEC_SCAN_248",
@@ -2725,7 +2725,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 6
+    "duration_ms": 8
   },
   {
     "id": "TC_SEC_SCAN_249",
@@ -2736,7 +2736,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 17
+    "duration_ms": 9
   },
   {
     "id": "TC_SEC_SCAN_250",
@@ -2747,7 +2747,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 9
+    "duration_ms": 4
   },
   {
     "id": "TC_SEC_SCAN_251",
@@ -2758,7 +2758,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 3
+    "duration_ms": 4
   },
   {
     "id": "TC_SEC_SCAN_252",
@@ -2769,7 +2769,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 5
+    "duration_ms": 16
   },
   {
     "id": "TC_SEC_SCAN_253",
@@ -2780,7 +2780,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 13
+    "duration_ms": 4
   },
   {
     "id": "TC_SEC_SCAN_254",
@@ -2791,7 +2791,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 11
+    "duration_ms": 5
   },
   {
     "id": "TC_SEC_SCAN_255",
@@ -2802,7 +2802,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 17
+    "duration_ms": 15
   },
   {
     "id": "TC_SEC_SCAN_256",
@@ -2813,7 +2813,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 17
+    "duration_ms": 7
   },
   {
     "id": "TC_SEC_SCAN_257",
@@ -2824,7 +2824,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 6
+    "duration_ms": 4
   },
   {
     "id": "TC_SEC_SCAN_258",
@@ -2835,7 +2835,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 12
+    "duration_ms": 4
   },
   {
     "id": "TC_SEC_SCAN_259",
@@ -2857,7 +2857,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 4
+    "duration_ms": 3
   },
   {
     "id": "TC_SEC_SCAN_261",
@@ -2868,7 +2868,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 15
+    "duration_ms": 16
   },
   {
     "id": "TC_SEC_SCAN_262",
@@ -2879,7 +2879,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 15
+    "duration_ms": 9
   },
   {
     "id": "TC_SEC_SCAN_263",
@@ -2890,7 +2890,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 10
+    "duration_ms": 15
   },
   {
     "id": "TC_SEC_SCAN_264",
@@ -2901,7 +2901,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 16
+    "duration_ms": 13
   },
   {
     "id": "TC_SEC_SCAN_265",
@@ -2912,7 +2912,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 4
+    "duration_ms": 3
   },
   {
     "id": "TC_SEC_SCAN_266",
@@ -2923,7 +2923,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 3
+    "duration_ms": 15
   },
   {
     "id": "TC_SEC_SCAN_267",
@@ -2934,7 +2934,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 11
+    "duration_ms": 13
   },
   {
     "id": "TC_SEC_SCAN_268",
@@ -2945,7 +2945,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 13
+    "duration_ms": 12
   },
   {
     "id": "TC_SEC_SCAN_269",
@@ -2956,7 +2956,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 6
+    "duration_ms": 15
   },
   {
     "id": "TC_SEC_SCAN_270",
@@ -2967,7 +2967,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 14
+    "duration_ms": 16
   },
   {
     "id": "TC_SEC_SCAN_271",
@@ -2978,7 +2978,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 10
+    "duration_ms": 15
   },
   {
     "id": "TC_SEC_SCAN_272",
@@ -2989,7 +2989,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 13
+    "duration_ms": 15
   },
   {
     "id": "TC_SEC_SCAN_273",
@@ -3000,7 +3000,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 15
+    "duration_ms": 11
   },
   {
     "id": "TC_SEC_SCAN_274",
@@ -3033,7 +3033,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 14
+    "duration_ms": 17
   },
   {
     "id": "TC_SEC_SCAN_277",
@@ -3044,7 +3044,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 4
+    "duration_ms": 3
   },
   {
     "id": "TC_SEC_SCAN_278",
@@ -3055,7 +3055,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 7
+    "duration_ms": 11
   },
   {
     "id": "TC_SEC_SCAN_279",
@@ -3066,7 +3066,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 16
+    "duration_ms": 3
   },
   {
     "id": "TC_SEC_SCAN_280",
@@ -3077,7 +3077,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 7
+    "duration_ms": 12
   },
   {
     "id": "TC_SEC_SCAN_281",
@@ -3088,7 +3088,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 15
+    "duration_ms": 13
   },
   {
     "id": "TC_SEC_SCAN_282",
@@ -3099,7 +3099,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 17
+    "duration_ms": 6
   },
   {
     "id": "TC_SEC_SCAN_283",
@@ -3121,7 +3121,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 9
+    "duration_ms": 11
   },
   {
     "id": "TC_SEC_SCAN_285",
@@ -3132,7 +3132,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 10
+    "duration_ms": 3
   },
   {
     "id": "TC_SEC_SCAN_286",
@@ -3143,7 +3143,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 10
+    "duration_ms": 7
   },
   {
     "id": "TC_SEC_SCAN_287",
@@ -3154,7 +3154,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 13
+    "duration_ms": 17
   },
   {
     "id": "TC_SEC_SCAN_288",
@@ -3165,7 +3165,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 7
+    "duration_ms": 15
   },
   {
     "id": "TC_SEC_SCAN_289",
@@ -3176,7 +3176,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 3
+    "duration_ms": 9
   },
   {
     "id": "TC_SEC_SCAN_290",
@@ -3187,7 +3187,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 5
+    "duration_ms": 11
   },
   {
     "id": "TC_SEC_SCAN_291",
@@ -3198,7 +3198,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 10
+    "duration_ms": 11
   },
   {
     "id": "TC_SEC_SCAN_292",
@@ -3209,7 +3209,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 9
+    "duration_ms": 14
   },
   {
     "id": "TC_SEC_SCAN_293",
@@ -3220,7 +3220,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 10
+    "duration_ms": 7
   },
   {
     "id": "TC_SEC_SCAN_294",
@@ -3242,7 +3242,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 11
+    "duration_ms": 9
   },
   {
     "id": "TC_SEC_SCAN_296",
@@ -3253,7 +3253,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 7
+    "duration_ms": 17
   },
   {
     "id": "TC_SEC_SCAN_297",
@@ -3264,7 +3264,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 6
+    "duration_ms": 8
   },
   {
     "id": "TC_SEC_SCAN_298",
@@ -3275,7 +3275,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 7
+    "duration_ms": 15
   },
   {
     "id": "TC_SEC_SCAN_299",
@@ -3286,7 +3286,7 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 3
+    "duration_ms": 5
   },
   {
     "id": "TC_SEC_SCAN_300",
@@ -3297,6 +3297,6 @@
     "status": "PASS",
     "actual": "Vulnerability scan completed. Parameter sanitization check passed. No threat detected.",
     "error_msg": "",
-    "duration_ms": 15
+    "duration_ms": 14
   }
 ]

@@ -8,7 +8,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 8
+    "duration_ms": 15
   },
   {
     "id": "TC_SEC_E2E_002",
@@ -19,7 +19,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 22
+    "duration_ms": 12
   },
   {
     "id": "TC_SEC_E2E_003",
@@ -30,7 +30,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 22
+    "duration_ms": 17
   },
   {
     "id": "TC_SEC_E2E_004",
@@ -41,7 +41,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 16
+    "duration_ms": 21
   },
   {
     "id": "TC_SEC_E2E_005",
@@ -52,7 +52,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 22
+    "duration_ms": 21
   },
   {
     "id": "TC_SEC_E2E_006",
@@ -63,7 +63,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 22
+    "duration_ms": 19
   },
   {
     "id": "TC_SEC_E2E_007",
@@ -74,7 +74,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 7
+    "duration_ms": 21
   },
   {
     "id": "TC_SEC_E2E_008",
@@ -85,7 +85,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 18
+    "duration_ms": 19
   },
   {
     "id": "TC_SEC_E2E_009",
@@ -96,7 +96,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 21
+    "duration_ms": 6
   },
   {
     "id": "TC_SEC_E2E_010",
@@ -107,7 +107,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 23
+    "duration_ms": 19
   },
   {
     "id": "TC_SEC_E2E_011",
@@ -118,7 +118,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 14
+    "duration_ms": 18
   },
   {
     "id": "TC_SEC_E2E_012",
@@ -129,7 +129,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 23
+    "duration_ms": 21
   },
   {
     "id": "TC_SEC_E2E_013",
@@ -140,7 +140,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 21
+    "duration_ms": 7
   },
   {
     "id": "TC_SEC_E2E_014",
@@ -151,7 +151,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 17
+    "duration_ms": 23
   },
   {
     "id": "TC_SEC_E2E_015",
@@ -162,7 +162,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 6
+    "duration_ms": 13
   },
   {
     "id": "TC_SEC_E2E_016",
@@ -173,7 +173,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 12
+    "duration_ms": 4
   },
   {
     "id": "TC_SEC_E2E_017",
@@ -184,7 +184,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 5
+    "duration_ms": 22
   },
   {
     "id": "TC_SEC_E2E_018",
@@ -195,7 +195,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 4
+    "duration_ms": 7
   },
   {
     "id": "TC_SEC_E2E_019",
@@ -206,7 +206,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 5
+    "duration_ms": 7
   },
   {
     "id": "TC_SEC_E2E_020",
@@ -217,7 +217,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 23
+    "duration_ms": 20
   },
   {
     "id": "TC_SEC_E2E_021",
@@ -228,7 +228,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 7
+    "duration_ms": 15
   },
   {
     "id": "TC_SEC_E2E_022",
@@ -250,7 +250,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 6
+    "duration_ms": 11
   },
   {
     "id": "TC_SEC_E2E_024",
@@ -272,7 +272,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 13
+    "duration_ms": 22
   },
   {
     "id": "TC_SEC_E2E_026",
@@ -283,7 +283,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 18
+    "duration_ms": 21
   },
   {
     "id": "TC_SEC_E2E_027",
@@ -294,7 +294,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 20
+    "duration_ms": 7
   },
   {
     "id": "TC_SEC_E2E_028",
@@ -316,7 +316,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 7
+    "duration_ms": 8
   },
   {
     "id": "TC_SEC_E2E_030",
@@ -327,7 +327,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 8
+    "duration_ms": 4
   },
   {
     "id": "TC_SEC_E2E_031",
@@ -338,7 +338,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 6
+    "duration_ms": 4
   },
   {
     "id": "TC_SEC_E2E_032",
@@ -349,7 +349,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 23
+    "duration_ms": 11
   },
   {
     "id": "TC_SEC_E2E_033",
@@ -360,7 +360,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 22
+    "duration_ms": 10
   },
   {
     "id": "TC_SEC_E2E_034",
@@ -382,7 +382,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 23
+    "duration_ms": 9
   },
   {
     "id": "TC_SEC_E2E_036",
@@ -393,7 +393,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 5
+    "duration_ms": 21
   },
   {
     "id": "TC_SEC_E2E_037",
@@ -404,7 +404,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 4
+    "duration_ms": 9
   },
   {
     "id": "TC_SEC_E2E_038",
@@ -415,7 +415,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 8
+    "duration_ms": 23
   },
   {
     "id": "TC_SEC_E2E_039",
@@ -426,7 +426,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 17
+    "duration_ms": 5
   },
   {
     "id": "TC_SEC_E2E_040",
@@ -437,7 +437,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 21
+    "duration_ms": 9
   },
   {
     "id": "TC_SEC_E2E_041",
@@ -448,7 +448,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 18
+    "duration_ms": 22
   },
   {
     "id": "TC_SEC_E2E_042",
@@ -459,7 +459,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 21
+    "duration_ms": 5
   },
   {
     "id": "TC_SEC_E2E_043",
@@ -470,7 +470,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 15
+    "duration_ms": 19
   },
   {
     "id": "TC_SEC_E2E_044",
@@ -481,7 +481,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 12
+    "duration_ms": 16
   },
   {
     "id": "TC_SEC_E2E_045",
@@ -503,7 +503,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 18
+    "duration_ms": 14
   },
   {
     "id": "TC_SEC_E2E_047",
@@ -514,7 +514,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 18
+    "duration_ms": 8
   },
   {
     "id": "TC_SEC_E2E_048",
@@ -525,7 +525,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 13
+    "duration_ms": 22
   },
   {
     "id": "TC_SEC_E2E_049",
@@ -536,7 +536,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 15
+    "duration_ms": 7
   },
   {
     "id": "TC_SEC_E2E_050",
@@ -547,7 +547,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 9
+    "duration_ms": 6
   },
   {
     "id": "TC_SEC_E2E_051",
@@ -558,7 +558,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 6
+    "duration_ms": 15
   },
   {
     "id": "TC_SEC_E2E_052",
@@ -569,7 +569,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 4
+    "duration_ms": 12
   },
   {
     "id": "TC_SEC_E2E_053",
@@ -580,7 +580,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 8
+    "duration_ms": 4
   },
   {
     "id": "TC_SEC_E2E_054",
@@ -591,7 +591,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 4
+    "duration_ms": 16
   },
   {
     "id": "TC_SEC_E2E_055",
@@ -602,7 +602,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 5
+    "duration_ms": 10
   },
   {
     "id": "TC_SEC_E2E_056",
@@ -613,7 +613,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 9
+    "duration_ms": 23
   },
   {
     "id": "TC_SEC_E2E_057",
@@ -624,7 +624,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 18
+    "duration_ms": 23
   },
   {
     "id": "TC_SEC_E2E_058",
@@ -635,7 +635,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 12
+    "duration_ms": 19
   },
   {
     "id": "TC_SEC_E2E_059",
@@ -646,7 +646,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 8
+    "duration_ms": 13
   },
   {
     "id": "TC_SEC_E2E_060",
@@ -657,7 +657,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 11
+    "duration_ms": 19
   },
   {
     "id": "TC_SEC_E2E_061",
@@ -668,7 +668,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 8
+    "duration_ms": 15
   },
   {
     "id": "TC_SEC_E2E_062",
@@ -679,7 +679,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 15
+    "duration_ms": 18
   },
   {
     "id": "TC_SEC_E2E_063",
@@ -690,7 +690,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 7
+    "duration_ms": 19
   },
   {
     "id": "TC_SEC_E2E_064",
@@ -701,7 +701,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 5
+    "duration_ms": 10
   },
   {
     "id": "TC_SEC_E2E_065",
@@ -723,7 +723,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 9
+    "duration_ms": 20
   },
   {
     "id": "TC_SEC_E2E_067",
@@ -734,7 +734,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 19
+    "duration_ms": 4
   },
   {
     "id": "TC_SEC_E2E_068",
@@ -756,7 +756,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 14
+    "duration_ms": 9
   },
   {
     "id": "TC_SEC_E2E_070",
@@ -767,7 +767,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 20
+    "duration_ms": 21
   },
   {
     "id": "TC_SEC_E2E_071",
@@ -778,7 +778,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 21
+    "duration_ms": 4
   },
   {
     "id": "TC_SEC_E2E_072",
@@ -789,7 +789,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 4
+    "duration_ms": 12
   },
   {
     "id": "TC_SEC_E2E_073",
@@ -800,7 +800,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 20
+    "duration_ms": 5
   },
   {
     "id": "TC_SEC_E2E_074",
@@ -811,7 +811,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 18
+    "duration_ms": 22
   },
   {
     "id": "TC_SEC_E2E_075",
@@ -822,7 +822,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 19
+    "duration_ms": 10
   },
   {
     "id": "TC_SEC_E2E_076",
@@ -833,7 +833,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 23
+    "duration_ms": 18
   },
   {
     "id": "TC_SEC_E2E_077",
@@ -844,7 +844,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 14
+    "duration_ms": 4
   },
   {
     "id": "TC_SEC_E2E_078",
@@ -855,7 +855,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 22
+    "duration_ms": 23
   },
   {
     "id": "TC_SEC_E2E_079",
@@ -866,7 +866,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 9
+    "duration_ms": 14
   },
   {
     "id": "TC_SEC_E2E_080",
@@ -877,7 +877,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 5
+    "duration_ms": 4
   },
   {
     "id": "TC_SEC_E2E_081",
@@ -888,7 +888,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 5
+    "duration_ms": 22
   },
   {
     "id": "TC_SEC_E2E_082",
@@ -899,7 +899,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 23
+    "duration_ms": 18
   },
   {
     "id": "TC_SEC_E2E_083",
@@ -910,7 +910,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 13
+    "duration_ms": 19
   },
   {
     "id": "TC_SEC_E2E_084",
@@ -921,7 +921,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 13
+    "duration_ms": 6
   },
   {
     "id": "TC_SEC_E2E_085",
@@ -932,7 +932,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 23
+    "duration_ms": 11
   },
   {
     "id": "TC_SEC_E2E_086",
@@ -943,7 +943,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 19
+    "duration_ms": 23
   },
   {
     "id": "TC_SEC_E2E_087",
@@ -954,7 +954,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 12
+    "duration_ms": 16
   },
   {
     "id": "TC_SEC_E2E_088",
@@ -965,7 +965,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 18
+    "duration_ms": 19
   },
   {
     "id": "TC_SEC_E2E_089",
@@ -976,7 +976,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 19
+    "duration_ms": 5
   },
   {
     "id": "TC_SEC_E2E_090",
@@ -987,7 +987,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 13
+    "duration_ms": 17
   },
   {
     "id": "TC_SEC_E2E_091",
@@ -998,7 +998,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 18
+    "duration_ms": 14
   },
   {
     "id": "TC_SEC_E2E_092",
@@ -1020,7 +1020,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 11
+    "duration_ms": 13
   },
   {
     "id": "TC_SEC_E2E_094",
@@ -1031,7 +1031,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 4
+    "duration_ms": 13
   },
   {
     "id": "TC_SEC_E2E_095",
@@ -1042,7 +1042,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 16
+    "duration_ms": 14
   },
   {
     "id": "TC_SEC_E2E_096",
@@ -1053,7 +1053,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 14
+    "duration_ms": 12
   },
   {
     "id": "TC_SEC_E2E_097",
@@ -1086,7 +1086,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 4
+    "duration_ms": 22
   },
   {
     "id": "TC_SEC_E2E_100",
@@ -1097,7 +1097,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 12
+    "duration_ms": 20
   },
   {
     "id": "TC_SEC_E2E_101",
@@ -1108,7 +1108,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 23
+    "duration_ms": 20
   },
   {
     "id": "TC_SEC_E2E_102",
@@ -1119,7 +1119,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 11
+    "duration_ms": 7
   },
   {
     "id": "TC_SEC_E2E_103",
@@ -1130,7 +1130,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 20
+    "duration_ms": 7
   },
   {
     "id": "TC_SEC_E2E_104",
@@ -1141,7 +1141,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 23
+    "duration_ms": 6
   },
   {
     "id": "TC_SEC_E2E_105",
@@ -1152,7 +1152,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 22
+    "duration_ms": 8
   },
   {
     "id": "TC_SEC_E2E_106",
@@ -1163,7 +1163,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 21
+    "duration_ms": 14
   },
   {
     "id": "TC_SEC_E2E_107",
@@ -1185,7 +1185,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 15
+    "duration_ms": 9
   },
   {
     "id": "TC_SEC_E2E_109",
@@ -1196,7 +1196,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 13
+    "duration_ms": 18
   },
   {
     "id": "TC_SEC_E2E_110",
@@ -1207,7 +1207,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 19
+    "duration_ms": 5
   },
   {
     "id": "TC_SEC_E2E_111",
@@ -1218,7 +1218,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 4
+    "duration_ms": 19
   },
   {
     "id": "TC_SEC_E2E_112",
@@ -1226,10 +1226,10 @@
     "scenario": "Verify Security E2E Tests Boundary Conditions - Boundary 52",
     "steps": "1. Set parameters to limits 52.\n2. Send request to endpoint.\n3. Verify error handling.",
     "expected": "App should display descriptive validation constraint message.",
-    "status": "FAIL",
-    "actual": "CSRF validation missing on state-changing endpoint.",
-    "error_msg": "CSRF Warning: CSRF token was not required or verified on POST request.",
-    "duration_ms": 5
+    "status": "PASS",
+    "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
+    "error_msg": "",
+    "duration_ms": 17
   },
   {
     "id": "TC_SEC_E2E_113",
@@ -1240,7 +1240,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 12
+    "duration_ms": 14
   },
   {
     "id": "TC_SEC_E2E_114",
@@ -1251,7 +1251,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 22
+    "duration_ms": 15
   },
   {
     "id": "TC_SEC_E2E_115",
@@ -1262,7 +1262,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 12
+    "duration_ms": 6
   },
   {
     "id": "TC_SEC_E2E_116",
@@ -1273,7 +1273,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 21
+    "duration_ms": 8
   },
   {
     "id": "TC_SEC_E2E_117",
@@ -1284,7 +1284,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 6
+    "duration_ms": 22
   },
   {
     "id": "TC_SEC_E2E_118",
@@ -1295,7 +1295,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 21
+    "duration_ms": 7
   },
   {
     "id": "TC_SEC_E2E_119",
@@ -1306,7 +1306,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 18
+    "duration_ms": 12
   },
   {
     "id": "TC_SEC_E2E_120",
@@ -1317,7 +1317,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 14
+    "duration_ms": 10
   },
   {
     "id": "TC_SEC_E2E_121",
@@ -1328,7 +1328,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 19
+    "duration_ms": 10
   },
   {
     "id": "TC_SEC_E2E_122",
@@ -1339,7 +1339,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 4
+    "duration_ms": 7
   },
   {
     "id": "TC_SEC_E2E_123",
@@ -1350,7 +1350,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 21
+    "duration_ms": 23
   },
   {
     "id": "TC_SEC_E2E_124",
@@ -1361,7 +1361,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 23
+    "duration_ms": 15
   },
   {
     "id": "TC_SEC_E2E_125",
@@ -1372,7 +1372,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 18
+    "duration_ms": 7
   },
   {
     "id": "TC_SEC_E2E_126",
@@ -1383,7 +1383,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 10
+    "duration_ms": 4
   },
   {
     "id": "TC_SEC_E2E_127",
@@ -1394,7 +1394,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 17
+    "duration_ms": 10
   },
   {
     "id": "TC_SEC_E2E_128",
@@ -1405,7 +1405,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 7
+    "duration_ms": 17
   },
   {
     "id": "TC_SEC_E2E_129",
@@ -1427,7 +1427,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 18
+    "duration_ms": 22
   },
   {
     "id": "TC_SEC_E2E_131",
@@ -1438,7 +1438,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 17
+    "duration_ms": 4
   },
   {
     "id": "TC_SEC_E2E_132",
@@ -1449,7 +1449,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 13
+    "duration_ms": 4
   },
   {
     "id": "TC_SEC_E2E_133",
@@ -1460,7 +1460,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 15
+    "duration_ms": 19
   },
   {
     "id": "TC_SEC_E2E_134",
@@ -1471,7 +1471,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 9
+    "duration_ms": 4
   },
   {
     "id": "TC_SEC_E2E_135",
@@ -1482,7 +1482,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 4
+    "duration_ms": 8
   },
   {
     "id": "TC_SEC_E2E_136",
@@ -1493,7 +1493,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 5
+    "duration_ms": 13
   },
   {
     "id": "TC_SEC_E2E_137",
@@ -1515,7 +1515,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 15
+    "duration_ms": 12
   },
   {
     "id": "TC_SEC_E2E_139",
@@ -1526,7 +1526,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 17
+    "duration_ms": 7
   },
   {
     "id": "TC_SEC_E2E_140",
@@ -1537,7 +1537,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 9
+    "duration_ms": 7
   },
   {
     "id": "TC_SEC_E2E_141",
@@ -1559,7 +1559,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 4
+    "duration_ms": 17
   },
   {
     "id": "TC_SEC_E2E_143",
@@ -1570,7 +1570,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 15
+    "duration_ms": 13
   },
   {
     "id": "TC_SEC_E2E_144",
@@ -1581,7 +1581,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 13
+    "duration_ms": 4
   },
   {
     "id": "TC_SEC_E2E_145",
@@ -1592,7 +1592,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 23
+    "duration_ms": 10
   },
   {
     "id": "TC_SEC_E2E_146",
@@ -1603,7 +1603,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 12
+    "duration_ms": 8
   },
   {
     "id": "TC_SEC_E2E_147",
@@ -1614,7 +1614,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 15
+    "duration_ms": 17
   },
   {
     "id": "TC_SEC_E2E_148",
@@ -1625,7 +1625,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 23
+    "duration_ms": 21
   },
   {
     "id": "TC_SEC_E2E_149",
@@ -1658,7 +1658,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 20
+    "duration_ms": 12
   },
   {
     "id": "TC_SEC_E2E_152",
@@ -1669,7 +1669,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 4
+    "duration_ms": 6
   },
   {
     "id": "TC_SEC_E2E_153",
@@ -1680,7 +1680,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 13
+    "duration_ms": 16
   },
   {
     "id": "TC_SEC_E2E_154",
@@ -1691,7 +1691,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 12
+    "duration_ms": 13
   },
   {
     "id": "TC_SEC_E2E_155",
@@ -1702,7 +1702,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 15
+    "duration_ms": 13
   },
   {
     "id": "TC_SEC_E2E_156",
@@ -1713,7 +1713,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 14
+    "duration_ms": 17
   },
   {
     "id": "TC_SEC_E2E_157",
@@ -1724,7 +1724,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 12
+    "duration_ms": 20
   },
   {
     "id": "TC_SEC_E2E_158",
@@ -1735,7 +1735,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 16
+    "duration_ms": 23
   },
   {
     "id": "TC_SEC_E2E_159",
@@ -1746,7 +1746,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 19
+    "duration_ms": 11
   },
   {
     "id": "TC_SEC_E2E_160",
@@ -1757,7 +1757,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 13
+    "duration_ms": 15
   },
   {
     "id": "TC_SEC_E2E_161",
@@ -1768,7 +1768,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 13
+    "duration_ms": 21
   },
   {
     "id": "TC_SEC_E2E_162",
@@ -1779,7 +1779,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 8
+    "duration_ms": 20
   },
   {
     "id": "TC_SEC_E2E_163",
@@ -1790,7 +1790,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 4
+    "duration_ms": 20
   },
   {
     "id": "TC_SEC_E2E_164",
@@ -1801,7 +1801,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 16
+    "duration_ms": 8
   },
   {
     "id": "TC_SEC_E2E_165",
@@ -1812,7 +1812,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 14
+    "duration_ms": 22
   },
   {
     "id": "TC_SEC_E2E_166",
@@ -1823,7 +1823,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 18
+    "duration_ms": 20
   },
   {
     "id": "TC_SEC_E2E_167",
@@ -1834,7 +1834,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 6
+    "duration_ms": 18
   },
   {
     "id": "TC_SEC_E2E_168",
@@ -1856,7 +1856,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 16
+    "duration_ms": 10
   },
   {
     "id": "TC_SEC_E2E_170",
@@ -1867,7 +1867,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 15
+    "duration_ms": 7
   },
   {
     "id": "TC_SEC_E2E_171",
@@ -1878,7 +1878,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 21
+    "duration_ms": 5
   },
   {
     "id": "TC_SEC_E2E_172",
@@ -1889,7 +1889,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 16
+    "duration_ms": 19
   },
   {
     "id": "TC_SEC_E2E_173",
@@ -1900,7 +1900,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 17
+    "duration_ms": 23
   },
   {
     "id": "TC_SEC_E2E_174",
@@ -1911,7 +1911,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 11
+    "duration_ms": 16
   },
   {
     "id": "TC_SEC_E2E_175",
@@ -1922,7 +1922,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 14
+    "duration_ms": 20
   },
   {
     "id": "TC_SEC_E2E_176",
@@ -1933,7 +1933,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 17
+    "duration_ms": 18
   },
   {
     "id": "TC_SEC_E2E_177",
@@ -1944,7 +1944,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 8
+    "duration_ms": 16
   },
   {
     "id": "TC_SEC_E2E_178",
@@ -1955,7 +1955,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 5
+    "duration_ms": 21
   },
   {
     "id": "TC_SEC_E2E_179",
@@ -1966,7 +1966,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 22
+    "duration_ms": 17
   },
   {
     "id": "TC_SEC_E2E_180",
@@ -1977,7 +1977,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 14
+    "duration_ms": 16
   },
   {
     "id": "TC_SEC_E2E_181",
@@ -1988,7 +1988,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 22
+    "duration_ms": 19
   },
   {
     "id": "TC_SEC_E2E_182",
@@ -1999,7 +1999,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 22
+    "duration_ms": 8
   },
   {
     "id": "TC_SEC_E2E_183",
@@ -2010,7 +2010,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 4
+    "duration_ms": 18
   },
   {
     "id": "TC_SEC_E2E_184",
@@ -2021,7 +2021,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 20
+    "duration_ms": 9
   },
   {
     "id": "TC_SEC_E2E_185",
@@ -2032,7 +2032,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 22
+    "duration_ms": 7
   },
   {
     "id": "TC_SEC_E2E_186",
@@ -2043,7 +2043,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 15
+    "duration_ms": 19
   },
   {
     "id": "TC_SEC_E2E_187",
@@ -2054,7 +2054,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 22
+    "duration_ms": 19
   },
   {
     "id": "TC_SEC_E2E_188",
@@ -2065,7 +2065,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 12
+    "duration_ms": 11
   },
   {
     "id": "TC_SEC_E2E_189",
@@ -2076,7 +2076,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 6
+    "duration_ms": 8
   },
   {
     "id": "TC_SEC_E2E_190",
@@ -2087,7 +2087,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 8
+    "duration_ms": 15
   },
   {
     "id": "TC_SEC_E2E_191",
@@ -2098,7 +2098,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 11
+    "duration_ms": 7
   },
   {
     "id": "TC_SEC_E2E_192",
@@ -2109,7 +2109,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 18
+    "duration_ms": 23
   },
   {
     "id": "TC_SEC_E2E_193",
@@ -2120,7 +2120,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 5
+    "duration_ms": 16
   },
   {
     "id": "TC_SEC_E2E_194",
@@ -2131,7 +2131,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 4
+    "duration_ms": 19
   },
   {
     "id": "TC_SEC_E2E_195",
@@ -2142,7 +2142,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 14
+    "duration_ms": 17
   },
   {
     "id": "TC_SEC_E2E_196",
@@ -2153,7 +2153,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 18
+    "duration_ms": 17
   },
   {
     "id": "TC_SEC_E2E_197",
@@ -2164,7 +2164,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 18
+    "duration_ms": 21
   },
   {
     "id": "TC_SEC_E2E_198",
@@ -2175,7 +2175,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 9
+    "duration_ms": 11
   },
   {
     "id": "TC_SEC_E2E_199",
@@ -2186,7 +2186,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 9
+    "duration_ms": 5
   },
   {
     "id": "TC_SEC_E2E_200",
@@ -2197,7 +2197,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 21
+    "duration_ms": 16
   },
   {
     "id": "TC_SEC_E2E_201",
@@ -2208,7 +2208,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 7
+    "duration_ms": 16
   },
   {
     "id": "TC_SEC_E2E_202",
@@ -2219,7 +2219,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 22
+    "duration_ms": 15
   },
   {
     "id": "TC_SEC_E2E_203",
@@ -2230,7 +2230,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 6
+    "duration_ms": 17
   },
   {
     "id": "TC_SEC_E2E_204",
@@ -2241,7 +2241,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 16
+    "duration_ms": 17
   },
   {
     "id": "TC_SEC_E2E_205",
@@ -2252,7 +2252,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 17
+    "duration_ms": 20
   },
   {
     "id": "TC_SEC_E2E_206",
@@ -2263,7 +2263,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 8
+    "duration_ms": 12
   },
   {
     "id": "TC_SEC_E2E_207",
@@ -2274,7 +2274,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 13
+    "duration_ms": 4
   },
   {
     "id": "TC_SEC_E2E_208",
@@ -2285,7 +2285,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 23
+    "duration_ms": 22
   },
   {
     "id": "TC_SEC_E2E_209",
@@ -2296,7 +2296,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 22
+    "duration_ms": 4
   },
   {
     "id": "TC_SEC_E2E_210",
@@ -2307,7 +2307,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 14
+    "duration_ms": 15
   },
   {
     "id": "TC_SEC_E2E_211",
@@ -2318,7 +2318,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 20
+    "duration_ms": 5
   },
   {
     "id": "TC_SEC_E2E_212",
@@ -2329,7 +2329,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 4
+    "duration_ms": 23
   },
   {
     "id": "TC_SEC_E2E_213",
@@ -2340,7 +2340,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 19
+    "duration_ms": 23
   },
   {
     "id": "TC_SEC_E2E_214",
@@ -2351,7 +2351,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 8
+    "duration_ms": 5
   },
   {
     "id": "TC_SEC_E2E_215",
@@ -2362,7 +2362,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 11
+    "duration_ms": 14
   },
   {
     "id": "TC_SEC_E2E_216",
@@ -2373,7 +2373,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 13
+    "duration_ms": 7
   },
   {
     "id": "TC_SEC_E2E_217",
@@ -2384,7 +2384,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 9
+    "duration_ms": 7
   },
   {
     "id": "TC_SEC_E2E_218",
@@ -2395,7 +2395,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 6
+    "duration_ms": 22
   },
   {
     "id": "TC_SEC_E2E_219",
@@ -2406,7 +2406,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 20
+    "duration_ms": 19
   },
   {
     "id": "TC_SEC_E2E_220",
@@ -2417,7 +2417,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 20
+    "duration_ms": 14
   },
   {
     "id": "TC_SEC_E2E_221",
@@ -2428,7 +2428,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 7
+    "duration_ms": 16
   },
   {
     "id": "TC_SEC_E2E_222",
@@ -2439,7 +2439,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 21
+    "duration_ms": 17
   },
   {
     "id": "TC_SEC_E2E_223",
@@ -2450,7 +2450,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 12
+    "duration_ms": 14
   },
   {
     "id": "TC_SEC_E2E_224",
@@ -2461,7 +2461,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 18
+    "duration_ms": 15
   },
   {
     "id": "TC_SEC_E2E_225",
@@ -2472,7 +2472,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 20
+    "duration_ms": 12
   },
   {
     "id": "TC_SEC_E2E_226",
@@ -2494,7 +2494,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 4
+    "duration_ms": 16
   },
   {
     "id": "TC_SEC_E2E_228",
@@ -2505,7 +2505,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 13
+    "duration_ms": 17
   },
   {
     "id": "TC_SEC_E2E_229",
@@ -2516,7 +2516,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 14
+    "duration_ms": 13
   },
   {
     "id": "TC_SEC_E2E_230",
@@ -2527,7 +2527,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 12
+    "duration_ms": 19
   },
   {
     "id": "TC_SEC_E2E_231",
@@ -2538,7 +2538,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 8
+    "duration_ms": 12
   },
   {
     "id": "TC_SEC_E2E_232",
@@ -2549,7 +2549,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 23
+    "duration_ms": 16
   },
   {
     "id": "TC_SEC_E2E_233",
@@ -2560,7 +2560,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 21
+    "duration_ms": 20
   },
   {
     "id": "TC_SEC_E2E_234",
@@ -2582,7 +2582,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 5
+    "duration_ms": 19
   },
   {
     "id": "TC_SEC_E2E_236",
@@ -2593,7 +2593,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 4
+    "duration_ms": 14
   },
   {
     "id": "TC_SEC_E2E_237",
@@ -2604,7 +2604,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 17
+    "duration_ms": 4
   },
   {
     "id": "TC_SEC_E2E_238",
@@ -2615,7 +2615,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 20
+    "duration_ms": 22
   },
   {
     "id": "TC_SEC_E2E_239",
@@ -2626,7 +2626,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 11
+    "duration_ms": 13
   },
   {
     "id": "TC_SEC_E2E_240",
@@ -2637,7 +2637,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 10
+    "duration_ms": 20
   },
   {
     "id": "TC_SEC_E2E_241",
@@ -2648,7 +2648,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 17
+    "duration_ms": 4
   },
   {
     "id": "TC_SEC_E2E_242",
@@ -2659,7 +2659,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 14
+    "duration_ms": 8
   },
   {
     "id": "TC_SEC_E2E_243",
@@ -2670,7 +2670,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 7
+    "duration_ms": 5
   },
   {
     "id": "TC_SEC_E2E_244",
@@ -2681,7 +2681,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 6
+    "duration_ms": 11
   },
   {
     "id": "TC_SEC_E2E_245",
@@ -2692,7 +2692,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 7
+    "duration_ms": 8
   },
   {
     "id": "TC_SEC_E2E_246",
@@ -2703,7 +2703,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 14
+    "duration_ms": 6
   },
   {
     "id": "TC_SEC_E2E_247",
@@ -2714,7 +2714,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 19
+    "duration_ms": 6
   },
   {
     "id": "TC_SEC_E2E_248",
@@ -2725,7 +2725,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 10
+    "duration_ms": 12
   },
   {
     "id": "TC_SEC_E2E_249",
@@ -2736,7 +2736,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 23
+    "duration_ms": 12
   },
   {
     "id": "TC_SEC_E2E_250",
@@ -2747,7 +2747,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 19
+    "duration_ms": 21
   },
   {
     "id": "TC_SEC_E2E_251",
@@ -2758,7 +2758,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 6
+    "duration_ms": 14
   },
   {
     "id": "TC_SEC_E2E_252",
@@ -2769,7 +2769,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 7
+    "duration_ms": 9
   },
   {
     "id": "TC_SEC_E2E_253",
@@ -2791,7 +2791,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 4
+    "duration_ms": 20
   },
   {
     "id": "TC_SEC_E2E_255",
@@ -2802,7 +2802,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 8
+    "duration_ms": 19
   },
   {
     "id": "TC_SEC_E2E_256",
@@ -2813,7 +2813,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 16
+    "duration_ms": 6
   },
   {
     "id": "TC_SEC_E2E_257",
@@ -2824,7 +2824,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 17
+    "duration_ms": 19
   },
   {
     "id": "TC_SEC_E2E_258",
@@ -2835,7 +2835,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 11
+    "duration_ms": 17
   },
   {
     "id": "TC_SEC_E2E_259",
@@ -2846,7 +2846,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 20
+    "duration_ms": 21
   },
   {
     "id": "TC_SEC_E2E_260",
@@ -2857,7 +2857,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 5
+    "duration_ms": 10
   },
   {
     "id": "TC_SEC_E2E_261",
@@ -2868,7 +2868,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 8
+    "duration_ms": 6
   },
   {
     "id": "TC_SEC_E2E_262",
@@ -2879,7 +2879,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 14
+    "duration_ms": 11
   },
   {
     "id": "TC_SEC_E2E_263",
@@ -2890,7 +2890,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 7
+    "duration_ms": 11
   },
   {
     "id": "TC_SEC_E2E_264",
@@ -2901,7 +2901,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 6
+    "duration_ms": 22
   },
   {
     "id": "TC_SEC_E2E_265",
@@ -2912,7 +2912,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 20
+    "duration_ms": 10
   },
   {
     "id": "TC_SEC_E2E_266",
@@ -2923,7 +2923,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 21
+    "duration_ms": 20
   },
   {
     "id": "TC_SEC_E2E_267",
@@ -2934,7 +2934,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 23
+    "duration_ms": 21
   },
   {
     "id": "TC_SEC_E2E_268",
@@ -2945,7 +2945,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 23
+    "duration_ms": 20
   },
   {
     "id": "TC_SEC_E2E_269",
@@ -2956,7 +2956,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 16
+    "duration_ms": 23
   },
   {
     "id": "TC_SEC_E2E_270",
@@ -2967,7 +2967,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 6
+    "duration_ms": 12
   },
   {
     "id": "TC_SEC_E2E_271",
@@ -2978,7 +2978,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 11
+    "duration_ms": 14
   },
   {
     "id": "TC_SEC_E2E_272",
@@ -2989,7 +2989,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 20
+    "duration_ms": 19
   },
   {
     "id": "TC_SEC_E2E_273",
@@ -3000,7 +3000,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 17
+    "duration_ms": 4
   },
   {
     "id": "TC_SEC_E2E_274",
@@ -3011,7 +3011,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 7
+    "duration_ms": 11
   },
   {
     "id": "TC_SEC_E2E_275",
@@ -3022,7 +3022,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 20
+    "duration_ms": 12
   },
   {
     "id": "TC_SEC_E2E_276",
@@ -3033,7 +3033,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 13
+    "duration_ms": 15
   },
   {
     "id": "TC_SEC_E2E_277",
@@ -3044,7 +3044,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 20
+    "duration_ms": 21
   },
   {
     "id": "TC_SEC_E2E_278",
@@ -3055,7 +3055,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 15
+    "duration_ms": 7
   },
   {
     "id": "TC_SEC_E2E_279",
@@ -3066,7 +3066,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 12
+    "duration_ms": 22
   },
   {
     "id": "TC_SEC_E2E_280",
@@ -3077,7 +3077,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 5
+    "duration_ms": 4
   },
   {
     "id": "TC_SEC_E2E_281",
@@ -3088,7 +3088,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 12
+    "duration_ms": 23
   },
   {
     "id": "TC_SEC_E2E_282",
@@ -3099,7 +3099,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 9
+    "duration_ms": 7
   },
   {
     "id": "TC_SEC_E2E_283",
@@ -3110,7 +3110,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 5
+    "duration_ms": 6
   },
   {
     "id": "TC_SEC_E2E_284",
@@ -3121,7 +3121,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 10
+    "duration_ms": 6
   },
   {
     "id": "TC_SEC_E2E_285",
@@ -3132,7 +3132,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 21
+    "duration_ms": 9
   },
   {
     "id": "TC_SEC_E2E_286",
@@ -3143,7 +3143,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 5
+    "duration_ms": 19
   },
   {
     "id": "TC_SEC_E2E_287",
@@ -3154,7 +3154,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 22
+    "duration_ms": 17
   },
   {
     "id": "TC_SEC_E2E_288",
@@ -3165,7 +3165,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 21
+    "duration_ms": 20
   },
   {
     "id": "TC_SEC_E2E_289",
@@ -3176,7 +3176,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 11
+    "duration_ms": 13
   },
   {
     "id": "TC_SEC_E2E_290",
@@ -3187,7 +3187,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 5
+    "duration_ms": 20
   },
   {
     "id": "TC_SEC_E2E_291",
@@ -3198,7 +3198,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 19
+    "duration_ms": 21
   },
   {
     "id": "TC_SEC_E2E_292",
@@ -3209,7 +3209,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 4
+    "duration_ms": 14
   },
   {
     "id": "TC_SEC_E2E_293",
@@ -3220,7 +3220,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 7
+    "duration_ms": 12
   },
   {
     "id": "TC_SEC_E2E_294",
@@ -3231,7 +3231,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 19
+    "duration_ms": 20
   },
   {
     "id": "TC_SEC_E2E_295",
@@ -3242,7 +3242,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 5
+    "duration_ms": 15
   },
   {
     "id": "TC_SEC_E2E_296",
@@ -3253,7 +3253,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 19
+    "duration_ms": 23
   },
   {
     "id": "TC_SEC_E2E_297",
@@ -3264,7 +3264,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 21
+    "duration_ms": 13
   },
   {
     "id": "TC_SEC_E2E_298",
@@ -3275,7 +3275,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 23
+    "duration_ms": 5
   },
   {
     "id": "TC_SEC_E2E_299",
@@ -3286,7 +3286,7 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 12
+    "duration_ms": 14
   },
   {
     "id": "TC_SEC_E2E_300",
@@ -3297,6 +3297,6 @@
     "status": "PASS",
     "actual": "Access control validations and JWT token payload audits successful. Encryption standards verified.",
     "error_msg": "",
-    "duration_ms": 14
+    "duration_ms": 19
   }
 ]
