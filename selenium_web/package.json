@@ -1,0 +1,12 @@
+{
+  "name": "plant-care-web-tests",
+  "version": "1.0.0",
+  "description": "Selenium E2E tests for Plant Care AI Web Application",
+  "main": "selenium_test_runner.js",
+  "scripts": {
+    "test": "node selenium_test_runner.js"
+  },
+  "dependencies": {
+    "selenium-webdriver": "^4.22.0"
+  }
+}

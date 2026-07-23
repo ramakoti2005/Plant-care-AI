@@ -1,0 +1,12 @@
+{
+  "name": "plant-care-appium-tests",
+  "version": "1.0.0",
+  "description": "Appium E2E tests for Plant Care AI Android Application",
+  "main": "appium_test_runner.js",
+  "scripts": {
+    "test": "node appium_test_runner.js"
+  },
+  "dependencies": {
+    "webdriverio": "^8.24.0"
+  }
+}
