@@ -1,0 +1,68 @@
+name: QA Test Automation (Trackback CI)
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python 3.12
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.12'
+        cache: 'pip'
+
+    - name: Set up Node.js 20
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+
+    - name: Install Python Dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r backend/requirements.txt openpyxl pandas httpx
+
+    - name: Install Node.js Test Dependencies
+      run: |
+        cd selenium_web && npm install
+        cd ../appium_mobile && npm install
+
+    - name: Start FastAPI Backend Server
+      run: |
+        cd backend
+        python -m uvicorn main:app --host 127.0.0.1 --port 8000 &
+        echo "Backend server started in background."
+        cd ..
+
+    - name: Wait for Backend Health Check
+      run: |
+        echo "Pinging backend server until it responds..."
+        timeout 30s sh -c '
+          until curl -s http://127.0.0.1:8000/api/v1/health | grep -q "ok"; do
+            echo "Waiting for server..."
+            sleep 2
+          done
+        '
+        echo "Backend is healthy!"
+
+    - name: Execute QA Automation Suite (Web, Appium, Load Test)
+      env:
+        TEST_HOST: http://127.0.0.1:8000
+        RUN_MODE: mock
+      run: |
+        python run_all_tests.py
+
+    - name: Upload E2E Excel Report Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: E2E-QA-Test-Report
+        path: E2E_Test_Report_PlantCareAI.xlsx
+        retention-days: 14
