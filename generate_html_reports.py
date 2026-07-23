@@ -27,6 +27,7 @@ def generate_reports():
     os.makedirs("reports", exist_ok=True)
     
     # 5 Tiers configuration
+    # 5 Tiers configuration + Load Test E2E Report
     tiers = [
         {
             "title": "TrackBack Web – Selenium E2E Report",
@@ -57,6 +58,12 @@ def generate_reports():
             "json_path": "security_e2e/security_test_results.json",
             "html_path": "reports/security e2e report.html",
             "test_prefix": "TrackBack Security — E2E"
+        },
+        {
+            "title": "TrackBack Performance – Load Test E2E Report",
+            "json_path": "load_testing/load_test_results.json",
+            "html_path": "reports/load test report.html",
+            "test_prefix": "TrackBack Performance — Load Test"
         }
     ]
     

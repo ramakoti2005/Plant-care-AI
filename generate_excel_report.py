@@ -13,7 +13,8 @@ def generate_excel():
         {"name": "Android Mobile E2E", "results_path": "appium_mobile/app_test_results.json", "sheet_name": "Mobile Appium E2E", "prefix": "TC_APP"},
         {"name": "Backend Service Tests", "results_path": "backend_service/service_test_results.json", "sheet_name": "Backend Service Tests", "prefix": "TC_SRV"},
         {"name": "Backend Security Scan", "results_path": "security_scan/scan_test_results.json", "sheet_name": "Security Scan Tests", "prefix": "TC_SEC_SCAN"},
-        {"name": "Security E2E Tests", "results_path": "security_e2e/security_test_results.json", "sheet_name": "Security E2E Tests", "prefix": "TC_SEC_E2E"}
+        {"name": "Security E2E Tests", "results_path": "security_e2e/security_test_results.json", "sheet_name": "Security E2E Tests", "prefix": "TC_SEC_E2E"},
+        {"name": "Performance Load Test", "results_path": "load_testing/load_test_results.json", "sheet_name": "Load Performance Tests", "prefix": "TC_LOAD"}
     ]
     
     loaded_tiers = []
@@ -58,7 +59,7 @@ def generate_excel():
         "latency_90th_ms": 0.0,
         "latency_95th_ms": 0.0
     }
-    load_results_path = "load_testing/load_test_results.json"
+    load_results_path = "load_testing/load_test_stats.json"
     if os.path.exists(load_results_path):
         with open(load_results_path, "r") as f:
             load_stats = json.load(f)
@@ -182,25 +183,7 @@ def generate_excel():
                     cell.font = font_fail
         r_idx += 1
 
-    # Load test row in status board
-    load_rate = f"{load_stats['success_rate_percent']:.2f}% Success"
-    load_status = "OPTIMAL" if load_stats['success_rate_percent'] >= 99 else "STABLE"
-    load_vals = [f"📊 Performance Load Test", f"{load_stats['total_requests']} (Reqs)", "-", "-", "-", load_rate, load_status]
-    for c_idx, val in enumerate(load_vals):
-        cell = ws_dash.cell(row=r_idx, column=c_idx+1, value=val)
-        cell.font = font_normal
-        cell.border = border_all
-        if c_idx == 0:
-            cell.alignment = Alignment(horizontal="left")
-        elif c_idx == 1:
-            cell.alignment = Alignment(horizontal="right")
-        else:
-            cell.alignment = Alignment(horizontal="center")
-            
-        if c_idx == 6:
-            cell.fill = fill_pass
-            cell.font = font_pass
-    r_idx += 2
+
 
     # 2. Baseline Load Testing Performance metrics Table
     ws_dash.cell(row=r_idx, column=1, value="⚡ Baseline Load Testing Performance metrics").font = font_section

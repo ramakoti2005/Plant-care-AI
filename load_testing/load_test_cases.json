@@ -1,0 +1,2102 @@
+[
+  {
+    "id": "TC_LOAD_001",
+    "module": "Concurrency Benchmarks",
+    "scenario": "Verify API response time under 13 concurrent virtual users",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /analyze.\n3. Ramp up to 13 Virtual Users in 10s.\n4. Maintain load for 7 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_002",
+    "module": "Endpoint Throughput",
+    "scenario": "Benchmark /plants/history endpoint throughput under target load of 60 RPS",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /plants/history.\n3. Ramp up to 16 Virtual Users in 10s.\n4. Maintain load for 9 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_003",
+    "module": "Latency Constraints",
+    "scenario": "Check average latency on /auth/token is below 130ms with 19 VUs",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/token.\n3. Ramp up to 19 Virtual Users in 10s.\n4. Maintain load for 11 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_004",
+    "module": "Spike Testing",
+    "scenario": "Simulate traffic spike of 166 VUs on /auth/register and check auto-recovery",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/register.\n3. Ramp up to 22 Virtual Users in 10s.\n4. Maintain load for 13 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_005",
+    "module": "Stress Testing",
+    "scenario": "Perform stress test by scaling VUs to 350 on /health until degradation",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /health.\n3. Ramp up to 25 Virtual Users in 10s.\n4. Maintain load for 15 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_006",
+    "module": "Endurance & Soak",
+    "scenario": "Run soak test of 28 VUs for 17 min on /simulator to monitor memory leaks",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /simulator.\n3. Ramp up to 28 Virtual Users in 10s.\n4. Maintain load for 17 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_007",
+    "module": "Volume Testing",
+    "scenario": "Assess response payload compression efficiency under 31 concurrent requests",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /analyze.\n3. Ramp up to 31 Virtual Users in 10s.\n4. Maintain load for 19 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_008",
+    "module": "Resource Throttling",
+    "scenario": "Evaluate CPU usage throttling with 34 active requests on /plants/history",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /plants/history.\n3. Ramp up to 34 Virtual Users in 10s.\n4. Maintain load for 21 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_009",
+    "module": "Network Packet Audits",
+    "scenario": "Audit packet drop rates under simulated packet corruption at 37 VUs",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/token.\n3. Ramp up to 37 Virtual Users in 10s.\n4. Maintain load for 23 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_010",
+    "module": "API Connection Pooling",
+    "scenario": "Validate database connection pool availability under 40 concurrent queries",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/register.\n3. Ramp up to 40 Virtual Users in 10s.\n4. Maintain load for 25 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_011",
+    "module": "Concurrency Benchmarks",
+    "scenario": "Verify API response time under 43 concurrent virtual users",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /health.\n3. Ramp up to 43 Virtual Users in 10s.\n4. Maintain load for 27 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_012",
+    "module": "Endpoint Throughput",
+    "scenario": "Benchmark /simulator endpoint throughput under target load of 110 RPS",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /simulator.\n3. Ramp up to 46 Virtual Users in 10s.\n4. Maintain load for 29 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_013",
+    "module": "Latency Constraints",
+    "scenario": "Check average latency on /analyze is below 230ms with 49 VUs",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /analyze.\n3. Ramp up to 49 Virtual Users in 10s.\n4. Maintain load for 31 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_014",
+    "module": "Spike Testing",
+    "scenario": "Simulate traffic spike of 206 VUs on /plants/history and check auto-recovery",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /plants/history.\n3. Ramp up to 52 Virtual Users in 10s.\n4. Maintain load for 33 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_015",
+    "module": "Stress Testing",
+    "scenario": "Perform stress test by scaling VUs to 450 on /auth/token until degradation",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/token.\n3. Ramp up to 55 Virtual Users in 10s.\n4. Maintain load for 35 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_016",
+    "module": "Endurance & Soak",
+    "scenario": "Run soak test of 58 VUs for 37 min on /auth/register to monitor memory leaks",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/register.\n3. Ramp up to 58 Virtual Users in 10s.\n4. Maintain load for 37 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_017",
+    "module": "Volume Testing",
+    "scenario": "Assess response payload compression efficiency under 61 concurrent requests",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /health.\n3. Ramp up to 61 Virtual Users in 10s.\n4. Maintain load for 39 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_018",
+    "module": "Resource Throttling",
+    "scenario": "Evaluate CPU usage throttling with 64 active requests on /simulator",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /simulator.\n3. Ramp up to 64 Virtual Users in 10s.\n4. Maintain load for 41 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_019",
+    "module": "Network Packet Audits",
+    "scenario": "Audit packet drop rates under simulated packet corruption at 67 VUs",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /analyze.\n3. Ramp up to 67 Virtual Users in 10s.\n4. Maintain load for 43 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_020",
+    "module": "API Connection Pooling",
+    "scenario": "Validate database connection pool availability under 70 concurrent queries",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /plants/history.\n3. Ramp up to 70 Virtual Users in 10s.\n4. Maintain load for 45 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_021",
+    "module": "Concurrency Benchmarks",
+    "scenario": "Verify API response time under 73 concurrent virtual users",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/token.\n3. Ramp up to 73 Virtual Users in 10s.\n4. Maintain load for 47 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_022",
+    "module": "Endpoint Throughput",
+    "scenario": "Benchmark /auth/register endpoint throughput under target load of 160 RPS",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/register.\n3. Ramp up to 76 Virtual Users in 10s.\n4. Maintain load for 49 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_023",
+    "module": "Latency Constraints",
+    "scenario": "Check average latency on /health is below 330ms with 79 VUs",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /health.\n3. Ramp up to 79 Virtual Users in 10s.\n4. Maintain load for 51 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_024",
+    "module": "Spike Testing",
+    "scenario": "Simulate traffic spike of 246 VUs on /simulator and check auto-recovery",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /simulator.\n3. Ramp up to 82 Virtual Users in 10s.\n4. Maintain load for 53 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_025",
+    "module": "Stress Testing",
+    "scenario": "Perform stress test by scaling VUs to 550 on /analyze until degradation",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /analyze.\n3. Ramp up to 85 Virtual Users in 10s.\n4. Maintain load for 55 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_026",
+    "module": "Endurance & Soak",
+    "scenario": "Run soak test of 88 VUs for 57 min on /plants/history to monitor memory leaks",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /plants/history.\n3. Ramp up to 88 Virtual Users in 10s.\n4. Maintain load for 57 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_027",
+    "module": "Volume Testing",
+    "scenario": "Assess response payload compression efficiency under 91 concurrent requests",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/token.\n3. Ramp up to 91 Virtual Users in 10s.\n4. Maintain load for 59 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_028",
+    "module": "Resource Throttling",
+    "scenario": "Evaluate CPU usage throttling with 94 active requests on /auth/register",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/register.\n3. Ramp up to 94 Virtual Users in 10s.\n4. Maintain load for 61 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_029",
+    "module": "Network Packet Audits",
+    "scenario": "Audit packet drop rates under simulated packet corruption at 97 VUs",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /health.\n3. Ramp up to 97 Virtual Users in 10s.\n4. Maintain load for 63 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_030",
+    "module": "API Connection Pooling",
+    "scenario": "Validate database connection pool availability under 100 concurrent queries",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /simulator.\n3. Ramp up to 100 Virtual Users in 10s.\n4. Maintain load for 5 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_031",
+    "module": "Concurrency Benchmarks",
+    "scenario": "Verify API response time under 103 concurrent virtual users",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /analyze.\n3. Ramp up to 103 Virtual Users in 10s.\n4. Maintain load for 7 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_032",
+    "module": "Endpoint Throughput",
+    "scenario": "Benchmark /plants/history endpoint throughput under target load of 210 RPS",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /plants/history.\n3. Ramp up to 106 Virtual Users in 10s.\n4. Maintain load for 9 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_033",
+    "module": "Latency Constraints",
+    "scenario": "Check average latency on /auth/token is below 430ms with 109 VUs",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/token.\n3. Ramp up to 109 Virtual Users in 10s.\n4. Maintain load for 11 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_034",
+    "module": "Spike Testing",
+    "scenario": "Simulate traffic spike of 286 VUs on /auth/register and check auto-recovery",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/register.\n3. Ramp up to 112 Virtual Users in 10s.\n4. Maintain load for 13 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_035",
+    "module": "Stress Testing",
+    "scenario": "Perform stress test by scaling VUs to 650 on /health until degradation",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /health.\n3. Ramp up to 115 Virtual Users in 10s.\n4. Maintain load for 15 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_036",
+    "module": "Endurance & Soak",
+    "scenario": "Run soak test of 118 VUs for 17 min on /simulator to monitor memory leaks",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /simulator.\n3. Ramp up to 118 Virtual Users in 10s.\n4. Maintain load for 17 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_037",
+    "module": "Volume Testing",
+    "scenario": "Assess response payload compression efficiency under 121 concurrent requests",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /analyze.\n3. Ramp up to 121 Virtual Users in 10s.\n4. Maintain load for 19 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_038",
+    "module": "Resource Throttling",
+    "scenario": "Evaluate CPU usage throttling with 124 active requests on /plants/history",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /plants/history.\n3. Ramp up to 124 Virtual Users in 10s.\n4. Maintain load for 21 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_039",
+    "module": "Network Packet Audits",
+    "scenario": "Audit packet drop rates under simulated packet corruption at 127 VUs",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/token.\n3. Ramp up to 127 Virtual Users in 10s.\n4. Maintain load for 23 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_040",
+    "module": "API Connection Pooling",
+    "scenario": "Validate database connection pool availability under 130 concurrent queries",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/register.\n3. Ramp up to 130 Virtual Users in 10s.\n4. Maintain load for 25 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_041",
+    "module": "Concurrency Benchmarks",
+    "scenario": "Verify API response time under 133 concurrent virtual users",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /health.\n3. Ramp up to 133 Virtual Users in 10s.\n4. Maintain load for 27 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_042",
+    "module": "Endpoint Throughput",
+    "scenario": "Benchmark /simulator endpoint throughput under target load of 260 RPS",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /simulator.\n3. Ramp up to 136 Virtual Users in 10s.\n4. Maintain load for 29 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_043",
+    "module": "Latency Constraints",
+    "scenario": "Check average latency on /analyze is below 530ms with 139 VUs",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /analyze.\n3. Ramp up to 139 Virtual Users in 10s.\n4. Maintain load for 31 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_044",
+    "module": "Spike Testing",
+    "scenario": "Simulate traffic spike of 326 VUs on /plants/history and check auto-recovery",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /plants/history.\n3. Ramp up to 142 Virtual Users in 10s.\n4. Maintain load for 33 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_045",
+    "module": "Stress Testing",
+    "scenario": "Perform stress test by scaling VUs to 750 on /auth/token until degradation",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/token.\n3. Ramp up to 145 Virtual Users in 10s.\n4. Maintain load for 35 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_046",
+    "module": "Endurance & Soak",
+    "scenario": "Run soak test of 148 VUs for 37 min on /auth/register to monitor memory leaks",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/register.\n3. Ramp up to 148 Virtual Users in 10s.\n4. Maintain load for 37 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_047",
+    "module": "Volume Testing",
+    "scenario": "Assess response payload compression efficiency under 151 concurrent requests",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /health.\n3. Ramp up to 151 Virtual Users in 10s.\n4. Maintain load for 39 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_048",
+    "module": "Resource Throttling",
+    "scenario": "Evaluate CPU usage throttling with 154 active requests on /simulator",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /simulator.\n3. Ramp up to 154 Virtual Users in 10s.\n4. Maintain load for 41 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_049",
+    "module": "Network Packet Audits",
+    "scenario": "Audit packet drop rates under simulated packet corruption at 157 VUs",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /analyze.\n3. Ramp up to 157 Virtual Users in 10s.\n4. Maintain load for 43 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_050",
+    "module": "API Connection Pooling",
+    "scenario": "Validate database connection pool availability under 160 concurrent queries",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /plants/history.\n3. Ramp up to 160 Virtual Users in 10s.\n4. Maintain load for 45 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_051",
+    "module": "Concurrency Benchmarks",
+    "scenario": "Verify API response time under 163 concurrent virtual users",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/token.\n3. Ramp up to 163 Virtual Users in 10s.\n4. Maintain load for 47 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_052",
+    "module": "Endpoint Throughput",
+    "scenario": "Benchmark /auth/register endpoint throughput under target load of 310 RPS",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/register.\n3. Ramp up to 166 Virtual Users in 10s.\n4. Maintain load for 49 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_053",
+    "module": "Latency Constraints",
+    "scenario": "Check average latency on /health is below 630ms with 169 VUs",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /health.\n3. Ramp up to 169 Virtual Users in 10s.\n4. Maintain load for 51 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_054",
+    "module": "Spike Testing",
+    "scenario": "Simulate traffic spike of 366 VUs on /simulator and check auto-recovery",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /simulator.\n3. Ramp up to 172 Virtual Users in 10s.\n4. Maintain load for 53 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_055",
+    "module": "Stress Testing",
+    "scenario": "Perform stress test by scaling VUs to 850 on /analyze until degradation",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /analyze.\n3. Ramp up to 175 Virtual Users in 10s.\n4. Maintain load for 55 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_056",
+    "module": "Endurance & Soak",
+    "scenario": "Run soak test of 178 VUs for 57 min on /plants/history to monitor memory leaks",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /plants/history.\n3. Ramp up to 178 Virtual Users in 10s.\n4. Maintain load for 57 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_057",
+    "module": "Volume Testing",
+    "scenario": "Assess response payload compression efficiency under 181 concurrent requests",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/token.\n3. Ramp up to 181 Virtual Users in 10s.\n4. Maintain load for 59 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_058",
+    "module": "Resource Throttling",
+    "scenario": "Evaluate CPU usage throttling with 184 active requests on /auth/register",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/register.\n3. Ramp up to 184 Virtual Users in 10s.\n4. Maintain load for 61 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_059",
+    "module": "Network Packet Audits",
+    "scenario": "Audit packet drop rates under simulated packet corruption at 187 VUs",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /health.\n3. Ramp up to 187 Virtual Users in 10s.\n4. Maintain load for 63 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_060",
+    "module": "API Connection Pooling",
+    "scenario": "Validate database connection pool availability under 190 concurrent queries",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /simulator.\n3. Ramp up to 190 Virtual Users in 10s.\n4. Maintain load for 5 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_061",
+    "module": "Concurrency Benchmarks",
+    "scenario": "Verify API response time under 193 concurrent virtual users",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /analyze.\n3. Ramp up to 193 Virtual Users in 10s.\n4. Maintain load for 7 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_062",
+    "module": "Endpoint Throughput",
+    "scenario": "Benchmark /plants/history endpoint throughput under target load of 60 RPS",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /plants/history.\n3. Ramp up to 196 Virtual Users in 10s.\n4. Maintain load for 9 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_063",
+    "module": "Latency Constraints",
+    "scenario": "Check average latency on /auth/token is below 730ms with 199 VUs",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/token.\n3. Ramp up to 199 Virtual Users in 10s.\n4. Maintain load for 11 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_064",
+    "module": "Spike Testing",
+    "scenario": "Simulate traffic spike of 406 VUs on /auth/register and check auto-recovery",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/register.\n3. Ramp up to 202 Virtual Users in 10s.\n4. Maintain load for 13 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_065",
+    "module": "Stress Testing",
+    "scenario": "Perform stress test by scaling VUs to 950 on /health until degradation",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /health.\n3. Ramp up to 205 Virtual Users in 10s.\n4. Maintain load for 15 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_066",
+    "module": "Endurance & Soak",
+    "scenario": "Run soak test of 208 VUs for 17 min on /simulator to monitor memory leaks",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /simulator.\n3. Ramp up to 208 Virtual Users in 10s.\n4. Maintain load for 17 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_067",
+    "module": "Volume Testing",
+    "scenario": "Assess response payload compression efficiency under 11 concurrent requests",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /analyze.\n3. Ramp up to 11 Virtual Users in 10s.\n4. Maintain load for 19 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_068",
+    "module": "Resource Throttling",
+    "scenario": "Evaluate CPU usage throttling with 14 active requests on /plants/history",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /plants/history.\n3. Ramp up to 14 Virtual Users in 10s.\n4. Maintain load for 21 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_069",
+    "module": "Network Packet Audits",
+    "scenario": "Audit packet drop rates under simulated packet corruption at 17 VUs",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/token.\n3. Ramp up to 17 Virtual Users in 10s.\n4. Maintain load for 23 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_070",
+    "module": "API Connection Pooling",
+    "scenario": "Validate database connection pool availability under 20 concurrent queries",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/register.\n3. Ramp up to 20 Virtual Users in 10s.\n4. Maintain load for 25 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_071",
+    "module": "Concurrency Benchmarks",
+    "scenario": "Verify API response time under 23 concurrent virtual users",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /health.\n3. Ramp up to 23 Virtual Users in 10s.\n4. Maintain load for 27 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_072",
+    "module": "Endpoint Throughput",
+    "scenario": "Benchmark /simulator endpoint throughput under target load of 110 RPS",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /simulator.\n3. Ramp up to 26 Virtual Users in 10s.\n4. Maintain load for 29 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_073",
+    "module": "Latency Constraints",
+    "scenario": "Check average latency on /analyze is below 830ms with 29 VUs",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /analyze.\n3. Ramp up to 29 Virtual Users in 10s.\n4. Maintain load for 31 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_074",
+    "module": "Spike Testing",
+    "scenario": "Simulate traffic spike of 446 VUs on /plants/history and check auto-recovery",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /plants/history.\n3. Ramp up to 32 Virtual Users in 10s.\n4. Maintain load for 33 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_075",
+    "module": "Stress Testing",
+    "scenario": "Perform stress test by scaling VUs to 1050 on /auth/token until degradation",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/token.\n3. Ramp up to 35 Virtual Users in 10s.\n4. Maintain load for 35 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_076",
+    "module": "Endurance & Soak",
+    "scenario": "Run soak test of 38 VUs for 37 min on /auth/register to monitor memory leaks",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/register.\n3. Ramp up to 38 Virtual Users in 10s.\n4. Maintain load for 37 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_077",
+    "module": "Volume Testing",
+    "scenario": "Assess response payload compression efficiency under 41 concurrent requests",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /health.\n3. Ramp up to 41 Virtual Users in 10s.\n4. Maintain load for 39 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_078",
+    "module": "Resource Throttling",
+    "scenario": "Evaluate CPU usage throttling with 44 active requests on /simulator",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /simulator.\n3. Ramp up to 44 Virtual Users in 10s.\n4. Maintain load for 41 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_079",
+    "module": "Network Packet Audits",
+    "scenario": "Audit packet drop rates under simulated packet corruption at 47 VUs",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /analyze.\n3. Ramp up to 47 Virtual Users in 10s.\n4. Maintain load for 43 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_080",
+    "module": "API Connection Pooling",
+    "scenario": "Validate database connection pool availability under 50 concurrent queries",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /plants/history.\n3. Ramp up to 50 Virtual Users in 10s.\n4. Maintain load for 45 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_081",
+    "module": "Concurrency Benchmarks",
+    "scenario": "Verify API response time under 53 concurrent virtual users",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/token.\n3. Ramp up to 53 Virtual Users in 10s.\n4. Maintain load for 47 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_082",
+    "module": "Endpoint Throughput",
+    "scenario": "Benchmark /auth/register endpoint throughput under target load of 160 RPS",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/register.\n3. Ramp up to 56 Virtual Users in 10s.\n4. Maintain load for 49 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_083",
+    "module": "Latency Constraints",
+    "scenario": "Check average latency on /health is below 130ms with 59 VUs",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /health.\n3. Ramp up to 59 Virtual Users in 10s.\n4. Maintain load for 51 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_084",
+    "module": "Spike Testing",
+    "scenario": "Simulate traffic spike of 486 VUs on /simulator and check auto-recovery",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /simulator.\n3. Ramp up to 62 Virtual Users in 10s.\n4. Maintain load for 53 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_085",
+    "module": "Stress Testing",
+    "scenario": "Perform stress test by scaling VUs to 1150 on /analyze until degradation",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /analyze.\n3. Ramp up to 65 Virtual Users in 10s.\n4. Maintain load for 55 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_086",
+    "module": "Endurance & Soak",
+    "scenario": "Run soak test of 68 VUs for 57 min on /plants/history to monitor memory leaks",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /plants/history.\n3. Ramp up to 68 Virtual Users in 10s.\n4. Maintain load for 57 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_087",
+    "module": "Volume Testing",
+    "scenario": "Assess response payload compression efficiency under 71 concurrent requests",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/token.\n3. Ramp up to 71 Virtual Users in 10s.\n4. Maintain load for 59 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_088",
+    "module": "Resource Throttling",
+    "scenario": "Evaluate CPU usage throttling with 74 active requests on /auth/register",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/register.\n3. Ramp up to 74 Virtual Users in 10s.\n4. Maintain load for 61 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_089",
+    "module": "Network Packet Audits",
+    "scenario": "Audit packet drop rates under simulated packet corruption at 77 VUs",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /health.\n3. Ramp up to 77 Virtual Users in 10s.\n4. Maintain load for 63 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_090",
+    "module": "API Connection Pooling",
+    "scenario": "Validate database connection pool availability under 80 concurrent queries",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /simulator.\n3. Ramp up to 80 Virtual Users in 10s.\n4. Maintain load for 5 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_091",
+    "module": "Concurrency Benchmarks",
+    "scenario": "Verify API response time under 83 concurrent virtual users",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /analyze.\n3. Ramp up to 83 Virtual Users in 10s.\n4. Maintain load for 7 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_092",
+    "module": "Endpoint Throughput",
+    "scenario": "Benchmark /plants/history endpoint throughput under target load of 210 RPS",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /plants/history.\n3. Ramp up to 86 Virtual Users in 10s.\n4. Maintain load for 9 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_093",
+    "module": "Latency Constraints",
+    "scenario": "Check average latency on /auth/token is below 230ms with 89 VUs",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/token.\n3. Ramp up to 89 Virtual Users in 10s.\n4. Maintain load for 11 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_094",
+    "module": "Spike Testing",
+    "scenario": "Simulate traffic spike of 526 VUs on /auth/register and check auto-recovery",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/register.\n3. Ramp up to 92 Virtual Users in 10s.\n4. Maintain load for 13 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_095",
+    "module": "Stress Testing",
+    "scenario": "Perform stress test by scaling VUs to 1250 on /health until degradation",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /health.\n3. Ramp up to 95 Virtual Users in 10s.\n4. Maintain load for 15 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_096",
+    "module": "Endurance & Soak",
+    "scenario": "Run soak test of 98 VUs for 17 min on /simulator to monitor memory leaks",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /simulator.\n3. Ramp up to 98 Virtual Users in 10s.\n4. Maintain load for 17 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_097",
+    "module": "Volume Testing",
+    "scenario": "Assess response payload compression efficiency under 101 concurrent requests",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /analyze.\n3. Ramp up to 101 Virtual Users in 10s.\n4. Maintain load for 19 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_098",
+    "module": "Resource Throttling",
+    "scenario": "Evaluate CPU usage throttling with 104 active requests on /plants/history",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /plants/history.\n3. Ramp up to 104 Virtual Users in 10s.\n4. Maintain load for 21 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_099",
+    "module": "Network Packet Audits",
+    "scenario": "Audit packet drop rates under simulated packet corruption at 107 VUs",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/token.\n3. Ramp up to 107 Virtual Users in 10s.\n4. Maintain load for 23 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_100",
+    "module": "API Connection Pooling",
+    "scenario": "Validate database connection pool availability under 110 concurrent queries",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/register.\n3. Ramp up to 110 Virtual Users in 10s.\n4. Maintain load for 25 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_101",
+    "module": "Concurrency Benchmarks",
+    "scenario": "Verify API response time under 113 concurrent virtual users",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /health.\n3. Ramp up to 113 Virtual Users in 10s.\n4. Maintain load for 27 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_102",
+    "module": "Endpoint Throughput",
+    "scenario": "Benchmark /simulator endpoint throughput under target load of 260 RPS",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /simulator.\n3. Ramp up to 116 Virtual Users in 10s.\n4. Maintain load for 29 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_103",
+    "module": "Latency Constraints",
+    "scenario": "Check average latency on /analyze is below 330ms with 119 VUs",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /analyze.\n3. Ramp up to 119 Virtual Users in 10s.\n4. Maintain load for 31 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_104",
+    "module": "Spike Testing",
+    "scenario": "Simulate traffic spike of 166 VUs on /plants/history and check auto-recovery",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /plants/history.\n3. Ramp up to 122 Virtual Users in 10s.\n4. Maintain load for 33 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_105",
+    "module": "Stress Testing",
+    "scenario": "Perform stress test by scaling VUs to 350 on /auth/token until degradation",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/token.\n3. Ramp up to 125 Virtual Users in 10s.\n4. Maintain load for 35 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_106",
+    "module": "Endurance & Soak",
+    "scenario": "Run soak test of 128 VUs for 37 min on /auth/register to monitor memory leaks",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/register.\n3. Ramp up to 128 Virtual Users in 10s.\n4. Maintain load for 37 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_107",
+    "module": "Volume Testing",
+    "scenario": "Assess response payload compression efficiency under 131 concurrent requests",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /health.\n3. Ramp up to 131 Virtual Users in 10s.\n4. Maintain load for 39 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_108",
+    "module": "Resource Throttling",
+    "scenario": "Evaluate CPU usage throttling with 134 active requests on /simulator",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /simulator.\n3. Ramp up to 134 Virtual Users in 10s.\n4. Maintain load for 41 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_109",
+    "module": "Network Packet Audits",
+    "scenario": "Audit packet drop rates under simulated packet corruption at 137 VUs",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /analyze.\n3. Ramp up to 137 Virtual Users in 10s.\n4. Maintain load for 43 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_110",
+    "module": "API Connection Pooling",
+    "scenario": "Validate database connection pool availability under 140 concurrent queries",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /plants/history.\n3. Ramp up to 140 Virtual Users in 10s.\n4. Maintain load for 45 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_111",
+    "module": "Concurrency Benchmarks",
+    "scenario": "Verify API response time under 143 concurrent virtual users",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/token.\n3. Ramp up to 143 Virtual Users in 10s.\n4. Maintain load for 47 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_112",
+    "module": "Endpoint Throughput",
+    "scenario": "Benchmark /auth/register endpoint throughput under target load of 310 RPS",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/register.\n3. Ramp up to 146 Virtual Users in 10s.\n4. Maintain load for 49 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_113",
+    "module": "Latency Constraints",
+    "scenario": "Check average latency on /health is below 430ms with 149 VUs",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /health.\n3. Ramp up to 149 Virtual Users in 10s.\n4. Maintain load for 51 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_114",
+    "module": "Spike Testing",
+    "scenario": "Simulate traffic spike of 206 VUs on /simulator and check auto-recovery",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /simulator.\n3. Ramp up to 152 Virtual Users in 10s.\n4. Maintain load for 53 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_115",
+    "module": "Stress Testing",
+    "scenario": "Perform stress test by scaling VUs to 450 on /analyze until degradation",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /analyze.\n3. Ramp up to 155 Virtual Users in 10s.\n4. Maintain load for 55 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_116",
+    "module": "Endurance & Soak",
+    "scenario": "Run soak test of 158 VUs for 57 min on /plants/history to monitor memory leaks",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /plants/history.\n3. Ramp up to 158 Virtual Users in 10s.\n4. Maintain load for 57 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_117",
+    "module": "Volume Testing",
+    "scenario": "Assess response payload compression efficiency under 161 concurrent requests",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/token.\n3. Ramp up to 161 Virtual Users in 10s.\n4. Maintain load for 59 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_118",
+    "module": "Resource Throttling",
+    "scenario": "Evaluate CPU usage throttling with 164 active requests on /auth/register",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/register.\n3. Ramp up to 164 Virtual Users in 10s.\n4. Maintain load for 61 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_119",
+    "module": "Network Packet Audits",
+    "scenario": "Audit packet drop rates under simulated packet corruption at 167 VUs",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /health.\n3. Ramp up to 167 Virtual Users in 10s.\n4. Maintain load for 63 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_120",
+    "module": "API Connection Pooling",
+    "scenario": "Validate database connection pool availability under 170 concurrent queries",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /simulator.\n3. Ramp up to 170 Virtual Users in 10s.\n4. Maintain load for 5 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_121",
+    "module": "Concurrency Benchmarks",
+    "scenario": "Verify API response time under 173 concurrent virtual users",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /analyze.\n3. Ramp up to 173 Virtual Users in 10s.\n4. Maintain load for 7 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_122",
+    "module": "Endpoint Throughput",
+    "scenario": "Benchmark /plants/history endpoint throughput under target load of 60 RPS",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /plants/history.\n3. Ramp up to 176 Virtual Users in 10s.\n4. Maintain load for 9 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_123",
+    "module": "Latency Constraints",
+    "scenario": "Check average latency on /auth/token is below 530ms with 179 VUs",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/token.\n3. Ramp up to 179 Virtual Users in 10s.\n4. Maintain load for 11 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_124",
+    "module": "Spike Testing",
+    "scenario": "Simulate traffic spike of 246 VUs on /auth/register and check auto-recovery",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/register.\n3. Ramp up to 182 Virtual Users in 10s.\n4. Maintain load for 13 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_125",
+    "module": "Stress Testing",
+    "scenario": "Perform stress test by scaling VUs to 550 on /health until degradation",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /health.\n3. Ramp up to 185 Virtual Users in 10s.\n4. Maintain load for 15 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_126",
+    "module": "Endurance & Soak",
+    "scenario": "Run soak test of 188 VUs for 17 min on /simulator to monitor memory leaks",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /simulator.\n3. Ramp up to 188 Virtual Users in 10s.\n4. Maintain load for 17 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_127",
+    "module": "Volume Testing",
+    "scenario": "Assess response payload compression efficiency under 191 concurrent requests",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /analyze.\n3. Ramp up to 191 Virtual Users in 10s.\n4. Maintain load for 19 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_128",
+    "module": "Resource Throttling",
+    "scenario": "Evaluate CPU usage throttling with 194 active requests on /plants/history",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /plants/history.\n3. Ramp up to 194 Virtual Users in 10s.\n4. Maintain load for 21 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_129",
+    "module": "Network Packet Audits",
+    "scenario": "Audit packet drop rates under simulated packet corruption at 197 VUs",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/token.\n3. Ramp up to 197 Virtual Users in 10s.\n4. Maintain load for 23 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_130",
+    "module": "API Connection Pooling",
+    "scenario": "Validate database connection pool availability under 200 concurrent queries",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/register.\n3. Ramp up to 200 Virtual Users in 10s.\n4. Maintain load for 25 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_131",
+    "module": "Concurrency Benchmarks",
+    "scenario": "Verify API response time under 203 concurrent virtual users",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /health.\n3. Ramp up to 203 Virtual Users in 10s.\n4. Maintain load for 27 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_132",
+    "module": "Endpoint Throughput",
+    "scenario": "Benchmark /simulator endpoint throughput under target load of 110 RPS",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /simulator.\n3. Ramp up to 206 Virtual Users in 10s.\n4. Maintain load for 29 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_133",
+    "module": "Latency Constraints",
+    "scenario": "Check average latency on /analyze is below 630ms with 209 VUs",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /analyze.\n3. Ramp up to 209 Virtual Users in 10s.\n4. Maintain load for 31 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_134",
+    "module": "Spike Testing",
+    "scenario": "Simulate traffic spike of 286 VUs on /plants/history and check auto-recovery",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /plants/history.\n3. Ramp up to 12 Virtual Users in 10s.\n4. Maintain load for 33 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_135",
+    "module": "Stress Testing",
+    "scenario": "Perform stress test by scaling VUs to 650 on /auth/token until degradation",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/token.\n3. Ramp up to 15 Virtual Users in 10s.\n4. Maintain load for 35 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_136",
+    "module": "Endurance & Soak",
+    "scenario": "Run soak test of 18 VUs for 37 min on /auth/register to monitor memory leaks",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/register.\n3. Ramp up to 18 Virtual Users in 10s.\n4. Maintain load for 37 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_137",
+    "module": "Volume Testing",
+    "scenario": "Assess response payload compression efficiency under 21 concurrent requests",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /health.\n3. Ramp up to 21 Virtual Users in 10s.\n4. Maintain load for 39 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_138",
+    "module": "Resource Throttling",
+    "scenario": "Evaluate CPU usage throttling with 24 active requests on /simulator",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /simulator.\n3. Ramp up to 24 Virtual Users in 10s.\n4. Maintain load for 41 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_139",
+    "module": "Network Packet Audits",
+    "scenario": "Audit packet drop rates under simulated packet corruption at 27 VUs",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /analyze.\n3. Ramp up to 27 Virtual Users in 10s.\n4. Maintain load for 43 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_140",
+    "module": "API Connection Pooling",
+    "scenario": "Validate database connection pool availability under 30 concurrent queries",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /plants/history.\n3. Ramp up to 30 Virtual Users in 10s.\n4. Maintain load for 45 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_141",
+    "module": "Concurrency Benchmarks",
+    "scenario": "Verify API response time under 33 concurrent virtual users",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/token.\n3. Ramp up to 33 Virtual Users in 10s.\n4. Maintain load for 47 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_142",
+    "module": "Endpoint Throughput",
+    "scenario": "Benchmark /auth/register endpoint throughput under target load of 160 RPS",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/register.\n3. Ramp up to 36 Virtual Users in 10s.\n4. Maintain load for 49 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_143",
+    "module": "Latency Constraints",
+    "scenario": "Check average latency on /health is below 730ms with 39 VUs",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /health.\n3. Ramp up to 39 Virtual Users in 10s.\n4. Maintain load for 51 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_144",
+    "module": "Spike Testing",
+    "scenario": "Simulate traffic spike of 326 VUs on /simulator and check auto-recovery",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /simulator.\n3. Ramp up to 42 Virtual Users in 10s.\n4. Maintain load for 53 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_145",
+    "module": "Stress Testing",
+    "scenario": "Perform stress test by scaling VUs to 750 on /analyze until degradation",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /analyze.\n3. Ramp up to 45 Virtual Users in 10s.\n4. Maintain load for 55 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_146",
+    "module": "Endurance & Soak",
+    "scenario": "Run soak test of 48 VUs for 57 min on /plants/history to monitor memory leaks",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /plants/history.\n3. Ramp up to 48 Virtual Users in 10s.\n4. Maintain load for 57 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_147",
+    "module": "Volume Testing",
+    "scenario": "Assess response payload compression efficiency under 51 concurrent requests",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/token.\n3. Ramp up to 51 Virtual Users in 10s.\n4. Maintain load for 59 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_148",
+    "module": "Resource Throttling",
+    "scenario": "Evaluate CPU usage throttling with 54 active requests on /auth/register",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/register.\n3. Ramp up to 54 Virtual Users in 10s.\n4. Maintain load for 61 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_149",
+    "module": "Network Packet Audits",
+    "scenario": "Audit packet drop rates under simulated packet corruption at 57 VUs",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /health.\n3. Ramp up to 57 Virtual Users in 10s.\n4. Maintain load for 63 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_150",
+    "module": "API Connection Pooling",
+    "scenario": "Validate database connection pool availability under 60 concurrent queries",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /simulator.\n3. Ramp up to 60 Virtual Users in 10s.\n4. Maintain load for 5 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_151",
+    "module": "Concurrency Benchmarks",
+    "scenario": "Verify API response time under 63 concurrent virtual users",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /analyze.\n3. Ramp up to 63 Virtual Users in 10s.\n4. Maintain load for 7 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_152",
+    "module": "Endpoint Throughput",
+    "scenario": "Benchmark /plants/history endpoint throughput under target load of 210 RPS",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /plants/history.\n3. Ramp up to 66 Virtual Users in 10s.\n4. Maintain load for 9 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_153",
+    "module": "Latency Constraints",
+    "scenario": "Check average latency on /auth/token is below 830ms with 69 VUs",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/token.\n3. Ramp up to 69 Virtual Users in 10s.\n4. Maintain load for 11 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_154",
+    "module": "Spike Testing",
+    "scenario": "Simulate traffic spike of 366 VUs on /auth/register and check auto-recovery",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/register.\n3. Ramp up to 72 Virtual Users in 10s.\n4. Maintain load for 13 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_155",
+    "module": "Stress Testing",
+    "scenario": "Perform stress test by scaling VUs to 850 on /health until degradation",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /health.\n3. Ramp up to 75 Virtual Users in 10s.\n4. Maintain load for 15 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_156",
+    "module": "Endurance & Soak",
+    "scenario": "Run soak test of 78 VUs for 17 min on /simulator to monitor memory leaks",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /simulator.\n3. Ramp up to 78 Virtual Users in 10s.\n4. Maintain load for 17 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_157",
+    "module": "Volume Testing",
+    "scenario": "Assess response payload compression efficiency under 81 concurrent requests",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /analyze.\n3. Ramp up to 81 Virtual Users in 10s.\n4. Maintain load for 19 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_158",
+    "module": "Resource Throttling",
+    "scenario": "Evaluate CPU usage throttling with 84 active requests on /plants/history",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /plants/history.\n3. Ramp up to 84 Virtual Users in 10s.\n4. Maintain load for 21 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_159",
+    "module": "Network Packet Audits",
+    "scenario": "Audit packet drop rates under simulated packet corruption at 87 VUs",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/token.\n3. Ramp up to 87 Virtual Users in 10s.\n4. Maintain load for 23 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_160",
+    "module": "API Connection Pooling",
+    "scenario": "Validate database connection pool availability under 90 concurrent queries",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/register.\n3. Ramp up to 90 Virtual Users in 10s.\n4. Maintain load for 25 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_161",
+    "module": "Concurrency Benchmarks",
+    "scenario": "Verify API response time under 93 concurrent virtual users",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /health.\n3. Ramp up to 93 Virtual Users in 10s.\n4. Maintain load for 27 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_162",
+    "module": "Endpoint Throughput",
+    "scenario": "Benchmark /simulator endpoint throughput under target load of 260 RPS",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /simulator.\n3. Ramp up to 96 Virtual Users in 10s.\n4. Maintain load for 29 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_163",
+    "module": "Latency Constraints",
+    "scenario": "Check average latency on /analyze is below 130ms with 99 VUs",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /analyze.\n3. Ramp up to 99 Virtual Users in 10s.\n4. Maintain load for 31 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_164",
+    "module": "Spike Testing",
+    "scenario": "Simulate traffic spike of 406 VUs on /plants/history and check auto-recovery",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /plants/history.\n3. Ramp up to 102 Virtual Users in 10s.\n4. Maintain load for 33 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_165",
+    "module": "Stress Testing",
+    "scenario": "Perform stress test by scaling VUs to 950 on /auth/token until degradation",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/token.\n3. Ramp up to 105 Virtual Users in 10s.\n4. Maintain load for 35 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_166",
+    "module": "Endurance & Soak",
+    "scenario": "Run soak test of 108 VUs for 37 min on /auth/register to monitor memory leaks",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/register.\n3. Ramp up to 108 Virtual Users in 10s.\n4. Maintain load for 37 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_167",
+    "module": "Volume Testing",
+    "scenario": "Assess response payload compression efficiency under 111 concurrent requests",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /health.\n3. Ramp up to 111 Virtual Users in 10s.\n4. Maintain load for 39 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_168",
+    "module": "Resource Throttling",
+    "scenario": "Evaluate CPU usage throttling with 114 active requests on /simulator",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /simulator.\n3. Ramp up to 114 Virtual Users in 10s.\n4. Maintain load for 41 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_169",
+    "module": "Network Packet Audits",
+    "scenario": "Audit packet drop rates under simulated packet corruption at 117 VUs",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /analyze.\n3. Ramp up to 117 Virtual Users in 10s.\n4. Maintain load for 43 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_170",
+    "module": "API Connection Pooling",
+    "scenario": "Validate database connection pool availability under 120 concurrent queries",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /plants/history.\n3. Ramp up to 120 Virtual Users in 10s.\n4. Maintain load for 45 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_171",
+    "module": "Concurrency Benchmarks",
+    "scenario": "Verify API response time under 123 concurrent virtual users",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/token.\n3. Ramp up to 123 Virtual Users in 10s.\n4. Maintain load for 47 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_172",
+    "module": "Endpoint Throughput",
+    "scenario": "Benchmark /auth/register endpoint throughput under target load of 310 RPS",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/register.\n3. Ramp up to 126 Virtual Users in 10s.\n4. Maintain load for 49 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_173",
+    "module": "Latency Constraints",
+    "scenario": "Check average latency on /health is below 230ms with 129 VUs",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /health.\n3. Ramp up to 129 Virtual Users in 10s.\n4. Maintain load for 51 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_174",
+    "module": "Spike Testing",
+    "scenario": "Simulate traffic spike of 446 VUs on /simulator and check auto-recovery",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /simulator.\n3. Ramp up to 132 Virtual Users in 10s.\n4. Maintain load for 53 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_175",
+    "module": "Stress Testing",
+    "scenario": "Perform stress test by scaling VUs to 1050 on /analyze until degradation",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /analyze.\n3. Ramp up to 135 Virtual Users in 10s.\n4. Maintain load for 55 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_176",
+    "module": "Endurance & Soak",
+    "scenario": "Run soak test of 138 VUs for 57 min on /plants/history to monitor memory leaks",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /plants/history.\n3. Ramp up to 138 Virtual Users in 10s.\n4. Maintain load for 57 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_177",
+    "module": "Volume Testing",
+    "scenario": "Assess response payload compression efficiency under 141 concurrent requests",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/token.\n3. Ramp up to 141 Virtual Users in 10s.\n4. Maintain load for 59 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_178",
+    "module": "Resource Throttling",
+    "scenario": "Evaluate CPU usage throttling with 144 active requests on /auth/register",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/register.\n3. Ramp up to 144 Virtual Users in 10s.\n4. Maintain load for 61 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_179",
+    "module": "Network Packet Audits",
+    "scenario": "Audit packet drop rates under simulated packet corruption at 147 VUs",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /health.\n3. Ramp up to 147 Virtual Users in 10s.\n4. Maintain load for 63 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_180",
+    "module": "API Connection Pooling",
+    "scenario": "Validate database connection pool availability under 150 concurrent queries",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /simulator.\n3. Ramp up to 150 Virtual Users in 10s.\n4. Maintain load for 5 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_181",
+    "module": "Concurrency Benchmarks",
+    "scenario": "Verify API response time under 153 concurrent virtual users",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /analyze.\n3. Ramp up to 153 Virtual Users in 10s.\n4. Maintain load for 7 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_182",
+    "module": "Endpoint Throughput",
+    "scenario": "Benchmark /plants/history endpoint throughput under target load of 60 RPS",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /plants/history.\n3. Ramp up to 156 Virtual Users in 10s.\n4. Maintain load for 9 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_183",
+    "module": "Latency Constraints",
+    "scenario": "Check average latency on /auth/token is below 330ms with 159 VUs",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/token.\n3. Ramp up to 159 Virtual Users in 10s.\n4. Maintain load for 11 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_184",
+    "module": "Spike Testing",
+    "scenario": "Simulate traffic spike of 486 VUs on /auth/register and check auto-recovery",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/register.\n3. Ramp up to 162 Virtual Users in 10s.\n4. Maintain load for 13 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_185",
+    "module": "Stress Testing",
+    "scenario": "Perform stress test by scaling VUs to 1150 on /health until degradation",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /health.\n3. Ramp up to 165 Virtual Users in 10s.\n4. Maintain load for 15 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_186",
+    "module": "Endurance & Soak",
+    "scenario": "Run soak test of 168 VUs for 17 min on /simulator to monitor memory leaks",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /simulator.\n3. Ramp up to 168 Virtual Users in 10s.\n4. Maintain load for 17 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_187",
+    "module": "Volume Testing",
+    "scenario": "Assess response payload compression efficiency under 171 concurrent requests",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /analyze.\n3. Ramp up to 171 Virtual Users in 10s.\n4. Maintain load for 19 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_188",
+    "module": "Resource Throttling",
+    "scenario": "Evaluate CPU usage throttling with 174 active requests on /plants/history",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /plants/history.\n3. Ramp up to 174 Virtual Users in 10s.\n4. Maintain load for 21 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_189",
+    "module": "Network Packet Audits",
+    "scenario": "Audit packet drop rates under simulated packet corruption at 177 VUs",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/token.\n3. Ramp up to 177 Virtual Users in 10s.\n4. Maintain load for 23 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_190",
+    "module": "API Connection Pooling",
+    "scenario": "Validate database connection pool availability under 180 concurrent queries",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/register.\n3. Ramp up to 180 Virtual Users in 10s.\n4. Maintain load for 25 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_191",
+    "module": "Concurrency Benchmarks",
+    "scenario": "Verify API response time under 183 concurrent virtual users",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /health.\n3. Ramp up to 183 Virtual Users in 10s.\n4. Maintain load for 27 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_192",
+    "module": "Endpoint Throughput",
+    "scenario": "Benchmark /simulator endpoint throughput under target load of 110 RPS",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /simulator.\n3. Ramp up to 186 Virtual Users in 10s.\n4. Maintain load for 29 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_193",
+    "module": "Latency Constraints",
+    "scenario": "Check average latency on /analyze is below 430ms with 189 VUs",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /analyze.\n3. Ramp up to 189 Virtual Users in 10s.\n4. Maintain load for 31 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_194",
+    "module": "Spike Testing",
+    "scenario": "Simulate traffic spike of 526 VUs on /plants/history and check auto-recovery",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /plants/history.\n3. Ramp up to 192 Virtual Users in 10s.\n4. Maintain load for 33 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_195",
+    "module": "Stress Testing",
+    "scenario": "Perform stress test by scaling VUs to 1250 on /auth/token until degradation",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/token.\n3. Ramp up to 195 Virtual Users in 10s.\n4. Maintain load for 35 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_196",
+    "module": "Endurance & Soak",
+    "scenario": "Run soak test of 198 VUs for 37 min on /auth/register to monitor memory leaks",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/register.\n3. Ramp up to 198 Virtual Users in 10s.\n4. Maintain load for 37 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_197",
+    "module": "Volume Testing",
+    "scenario": "Assess response payload compression efficiency under 201 concurrent requests",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /health.\n3. Ramp up to 201 Virtual Users in 10s.\n4. Maintain load for 39 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_198",
+    "module": "Resource Throttling",
+    "scenario": "Evaluate CPU usage throttling with 204 active requests on /simulator",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /simulator.\n3. Ramp up to 204 Virtual Users in 10s.\n4. Maintain load for 41 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_199",
+    "module": "Network Packet Audits",
+    "scenario": "Audit packet drop rates under simulated packet corruption at 207 VUs",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /analyze.\n3. Ramp up to 207 Virtual Users in 10s.\n4. Maintain load for 43 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_200",
+    "module": "API Connection Pooling",
+    "scenario": "Validate database connection pool availability under 10 concurrent queries",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /plants/history.\n3. Ramp up to 10 Virtual Users in 10s.\n4. Maintain load for 45 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_201",
+    "module": "Concurrency Benchmarks",
+    "scenario": "Verify API response time under 13 concurrent virtual users",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/token.\n3. Ramp up to 13 Virtual Users in 10s.\n4. Maintain load for 47 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_202",
+    "module": "Endpoint Throughput",
+    "scenario": "Benchmark /auth/register endpoint throughput under target load of 160 RPS",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/register.\n3. Ramp up to 16 Virtual Users in 10s.\n4. Maintain load for 49 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_203",
+    "module": "Latency Constraints",
+    "scenario": "Check average latency on /health is below 530ms with 19 VUs",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /health.\n3. Ramp up to 19 Virtual Users in 10s.\n4. Maintain load for 51 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_204",
+    "module": "Spike Testing",
+    "scenario": "Simulate traffic spike of 166 VUs on /simulator and check auto-recovery",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /simulator.\n3. Ramp up to 22 Virtual Users in 10s.\n4. Maintain load for 53 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_205",
+    "module": "Stress Testing",
+    "scenario": "Perform stress test by scaling VUs to 350 on /analyze until degradation",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /analyze.\n3. Ramp up to 25 Virtual Users in 10s.\n4. Maintain load for 55 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_206",
+    "module": "Endurance & Soak",
+    "scenario": "Run soak test of 28 VUs for 57 min on /plants/history to monitor memory leaks",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /plants/history.\n3. Ramp up to 28 Virtual Users in 10s.\n4. Maintain load for 57 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_207",
+    "module": "Volume Testing",
+    "scenario": "Assess response payload compression efficiency under 31 concurrent requests",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/token.\n3. Ramp up to 31 Virtual Users in 10s.\n4. Maintain load for 59 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_208",
+    "module": "Resource Throttling",
+    "scenario": "Evaluate CPU usage throttling with 34 active requests on /auth/register",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/register.\n3. Ramp up to 34 Virtual Users in 10s.\n4. Maintain load for 61 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_209",
+    "module": "Network Packet Audits",
+    "scenario": "Audit packet drop rates under simulated packet corruption at 37 VUs",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /health.\n3. Ramp up to 37 Virtual Users in 10s.\n4. Maintain load for 63 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_210",
+    "module": "API Connection Pooling",
+    "scenario": "Validate database connection pool availability under 40 concurrent queries",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /simulator.\n3. Ramp up to 40 Virtual Users in 10s.\n4. Maintain load for 5 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_211",
+    "module": "Concurrency Benchmarks",
+    "scenario": "Verify API response time under 43 concurrent virtual users",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /analyze.\n3. Ramp up to 43 Virtual Users in 10s.\n4. Maintain load for 7 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_212",
+    "module": "Endpoint Throughput",
+    "scenario": "Benchmark /plants/history endpoint throughput under target load of 210 RPS",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /plants/history.\n3. Ramp up to 46 Virtual Users in 10s.\n4. Maintain load for 9 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_213",
+    "module": "Latency Constraints",
+    "scenario": "Check average latency on /auth/token is below 630ms with 49 VUs",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/token.\n3. Ramp up to 49 Virtual Users in 10s.\n4. Maintain load for 11 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_214",
+    "module": "Spike Testing",
+    "scenario": "Simulate traffic spike of 206 VUs on /auth/register and check auto-recovery",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/register.\n3. Ramp up to 52 Virtual Users in 10s.\n4. Maintain load for 13 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_215",
+    "module": "Stress Testing",
+    "scenario": "Perform stress test by scaling VUs to 450 on /health until degradation",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /health.\n3. Ramp up to 55 Virtual Users in 10s.\n4. Maintain load for 15 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_216",
+    "module": "Endurance & Soak",
+    "scenario": "Run soak test of 58 VUs for 17 min on /simulator to monitor memory leaks",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /simulator.\n3. Ramp up to 58 Virtual Users in 10s.\n4. Maintain load for 17 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_217",
+    "module": "Volume Testing",
+    "scenario": "Assess response payload compression efficiency under 61 concurrent requests",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /analyze.\n3. Ramp up to 61 Virtual Users in 10s.\n4. Maintain load for 19 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_218",
+    "module": "Resource Throttling",
+    "scenario": "Evaluate CPU usage throttling with 64 active requests on /plants/history",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /plants/history.\n3. Ramp up to 64 Virtual Users in 10s.\n4. Maintain load for 21 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_219",
+    "module": "Network Packet Audits",
+    "scenario": "Audit packet drop rates under simulated packet corruption at 67 VUs",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/token.\n3. Ramp up to 67 Virtual Users in 10s.\n4. Maintain load for 23 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_220",
+    "module": "API Connection Pooling",
+    "scenario": "Validate database connection pool availability under 70 concurrent queries",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/register.\n3. Ramp up to 70 Virtual Users in 10s.\n4. Maintain load for 25 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_221",
+    "module": "Concurrency Benchmarks",
+    "scenario": "Verify API response time under 73 concurrent virtual users",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /health.\n3. Ramp up to 73 Virtual Users in 10s.\n4. Maintain load for 27 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_222",
+    "module": "Endpoint Throughput",
+    "scenario": "Benchmark /simulator endpoint throughput under target load of 260 RPS",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /simulator.\n3. Ramp up to 76 Virtual Users in 10s.\n4. Maintain load for 29 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_223",
+    "module": "Latency Constraints",
+    "scenario": "Check average latency on /analyze is below 730ms with 79 VUs",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /analyze.\n3. Ramp up to 79 Virtual Users in 10s.\n4. Maintain load for 31 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_224",
+    "module": "Spike Testing",
+    "scenario": "Simulate traffic spike of 246 VUs on /plants/history and check auto-recovery",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /plants/history.\n3. Ramp up to 82 Virtual Users in 10s.\n4. Maintain load for 33 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_225",
+    "module": "Stress Testing",
+    "scenario": "Perform stress test by scaling VUs to 550 on /auth/token until degradation",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/token.\n3. Ramp up to 85 Virtual Users in 10s.\n4. Maintain load for 35 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_226",
+    "module": "Endurance & Soak",
+    "scenario": "Run soak test of 88 VUs for 37 min on /auth/register to monitor memory leaks",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/register.\n3. Ramp up to 88 Virtual Users in 10s.\n4. Maintain load for 37 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_227",
+    "module": "Volume Testing",
+    "scenario": "Assess response payload compression efficiency under 91 concurrent requests",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /health.\n3. Ramp up to 91 Virtual Users in 10s.\n4. Maintain load for 39 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_228",
+    "module": "Resource Throttling",
+    "scenario": "Evaluate CPU usage throttling with 94 active requests on /simulator",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /simulator.\n3. Ramp up to 94 Virtual Users in 10s.\n4. Maintain load for 41 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_229",
+    "module": "Network Packet Audits",
+    "scenario": "Audit packet drop rates under simulated packet corruption at 97 VUs",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /analyze.\n3. Ramp up to 97 Virtual Users in 10s.\n4. Maintain load for 43 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_230",
+    "module": "API Connection Pooling",
+    "scenario": "Validate database connection pool availability under 100 concurrent queries",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /plants/history.\n3. Ramp up to 100 Virtual Users in 10s.\n4. Maintain load for 45 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_231",
+    "module": "Concurrency Benchmarks",
+    "scenario": "Verify API response time under 103 concurrent virtual users",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/token.\n3. Ramp up to 103 Virtual Users in 10s.\n4. Maintain load for 47 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_232",
+    "module": "Endpoint Throughput",
+    "scenario": "Benchmark /auth/register endpoint throughput under target load of 310 RPS",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/register.\n3. Ramp up to 106 Virtual Users in 10s.\n4. Maintain load for 49 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_233",
+    "module": "Latency Constraints",
+    "scenario": "Check average latency on /health is below 830ms with 109 VUs",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /health.\n3. Ramp up to 109 Virtual Users in 10s.\n4. Maintain load for 51 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_234",
+    "module": "Spike Testing",
+    "scenario": "Simulate traffic spike of 286 VUs on /simulator and check auto-recovery",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /simulator.\n3. Ramp up to 112 Virtual Users in 10s.\n4. Maintain load for 53 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_235",
+    "module": "Stress Testing",
+    "scenario": "Perform stress test by scaling VUs to 650 on /analyze until degradation",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /analyze.\n3. Ramp up to 115 Virtual Users in 10s.\n4. Maintain load for 55 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_236",
+    "module": "Endurance & Soak",
+    "scenario": "Run soak test of 118 VUs for 57 min on /plants/history to monitor memory leaks",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /plants/history.\n3. Ramp up to 118 Virtual Users in 10s.\n4. Maintain load for 57 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_237",
+    "module": "Volume Testing",
+    "scenario": "Assess response payload compression efficiency under 121 concurrent requests",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/token.\n3. Ramp up to 121 Virtual Users in 10s.\n4. Maintain load for 59 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_238",
+    "module": "Resource Throttling",
+    "scenario": "Evaluate CPU usage throttling with 124 active requests on /auth/register",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/register.\n3. Ramp up to 124 Virtual Users in 10s.\n4. Maintain load for 61 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_239",
+    "module": "Network Packet Audits",
+    "scenario": "Audit packet drop rates under simulated packet corruption at 127 VUs",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /health.\n3. Ramp up to 127 Virtual Users in 10s.\n4. Maintain load for 63 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_240",
+    "module": "API Connection Pooling",
+    "scenario": "Validate database connection pool availability under 130 concurrent queries",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /simulator.\n3. Ramp up to 130 Virtual Users in 10s.\n4. Maintain load for 5 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_241",
+    "module": "Concurrency Benchmarks",
+    "scenario": "Verify API response time under 133 concurrent virtual users",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /analyze.\n3. Ramp up to 133 Virtual Users in 10s.\n4. Maintain load for 7 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_242",
+    "module": "Endpoint Throughput",
+    "scenario": "Benchmark /plants/history endpoint throughput under target load of 60 RPS",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /plants/history.\n3. Ramp up to 136 Virtual Users in 10s.\n4. Maintain load for 9 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_243",
+    "module": "Latency Constraints",
+    "scenario": "Check average latency on /auth/token is below 130ms with 139 VUs",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/token.\n3. Ramp up to 139 Virtual Users in 10s.\n4. Maintain load for 11 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_244",
+    "module": "Spike Testing",
+    "scenario": "Simulate traffic spike of 326 VUs on /auth/register and check auto-recovery",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/register.\n3. Ramp up to 142 Virtual Users in 10s.\n4. Maintain load for 13 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_245",
+    "module": "Stress Testing",
+    "scenario": "Perform stress test by scaling VUs to 750 on /health until degradation",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /health.\n3. Ramp up to 145 Virtual Users in 10s.\n4. Maintain load for 15 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_246",
+    "module": "Endurance & Soak",
+    "scenario": "Run soak test of 148 VUs for 17 min on /simulator to monitor memory leaks",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /simulator.\n3. Ramp up to 148 Virtual Users in 10s.\n4. Maintain load for 17 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_247",
+    "module": "Volume Testing",
+    "scenario": "Assess response payload compression efficiency under 151 concurrent requests",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /analyze.\n3. Ramp up to 151 Virtual Users in 10s.\n4. Maintain load for 19 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_248",
+    "module": "Resource Throttling",
+    "scenario": "Evaluate CPU usage throttling with 154 active requests on /plants/history",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /plants/history.\n3. Ramp up to 154 Virtual Users in 10s.\n4. Maintain load for 21 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_249",
+    "module": "Network Packet Audits",
+    "scenario": "Audit packet drop rates under simulated packet corruption at 157 VUs",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/token.\n3. Ramp up to 157 Virtual Users in 10s.\n4. Maintain load for 23 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_250",
+    "module": "API Connection Pooling",
+    "scenario": "Validate database connection pool availability under 160 concurrent queries",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/register.\n3. Ramp up to 160 Virtual Users in 10s.\n4. Maintain load for 25 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_251",
+    "module": "Concurrency Benchmarks",
+    "scenario": "Verify API response time under 163 concurrent virtual users",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /health.\n3. Ramp up to 163 Virtual Users in 10s.\n4. Maintain load for 27 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_252",
+    "module": "Endpoint Throughput",
+    "scenario": "Benchmark /simulator endpoint throughput under target load of 110 RPS",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /simulator.\n3. Ramp up to 166 Virtual Users in 10s.\n4. Maintain load for 29 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_253",
+    "module": "Latency Constraints",
+    "scenario": "Check average latency on /analyze is below 230ms with 169 VUs",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /analyze.\n3. Ramp up to 169 Virtual Users in 10s.\n4. Maintain load for 31 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_254",
+    "module": "Spike Testing",
+    "scenario": "Simulate traffic spike of 366 VUs on /plants/history and check auto-recovery",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /plants/history.\n3. Ramp up to 172 Virtual Users in 10s.\n4. Maintain load for 33 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_255",
+    "module": "Stress Testing",
+    "scenario": "Perform stress test by scaling VUs to 850 on /auth/token until degradation",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/token.\n3. Ramp up to 175 Virtual Users in 10s.\n4. Maintain load for 35 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_256",
+    "module": "Endurance & Soak",
+    "scenario": "Run soak test of 178 VUs for 37 min on /auth/register to monitor memory leaks",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/register.\n3. Ramp up to 178 Virtual Users in 10s.\n4. Maintain load for 37 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_257",
+    "module": "Volume Testing",
+    "scenario": "Assess response payload compression efficiency under 181 concurrent requests",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /health.\n3. Ramp up to 181 Virtual Users in 10s.\n4. Maintain load for 39 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_258",
+    "module": "Resource Throttling",
+    "scenario": "Evaluate CPU usage throttling with 184 active requests on /simulator",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /simulator.\n3. Ramp up to 184 Virtual Users in 10s.\n4. Maintain load for 41 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_259",
+    "module": "Network Packet Audits",
+    "scenario": "Audit packet drop rates under simulated packet corruption at 187 VUs",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /analyze.\n3. Ramp up to 187 Virtual Users in 10s.\n4. Maintain load for 43 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_260",
+    "module": "API Connection Pooling",
+    "scenario": "Validate database connection pool availability under 190 concurrent queries",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /plants/history.\n3. Ramp up to 190 Virtual Users in 10s.\n4. Maintain load for 45 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_261",
+    "module": "Concurrency Benchmarks",
+    "scenario": "Verify API response time under 193 concurrent virtual users",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/token.\n3. Ramp up to 193 Virtual Users in 10s.\n4. Maintain load for 47 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_262",
+    "module": "Endpoint Throughput",
+    "scenario": "Benchmark /auth/register endpoint throughput under target load of 160 RPS",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/register.\n3. Ramp up to 196 Virtual Users in 10s.\n4. Maintain load for 49 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_263",
+    "module": "Latency Constraints",
+    "scenario": "Check average latency on /health is below 330ms with 199 VUs",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /health.\n3. Ramp up to 199 Virtual Users in 10s.\n4. Maintain load for 51 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_264",
+    "module": "Spike Testing",
+    "scenario": "Simulate traffic spike of 406 VUs on /simulator and check auto-recovery",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /simulator.\n3. Ramp up to 202 Virtual Users in 10s.\n4. Maintain load for 53 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_265",
+    "module": "Stress Testing",
+    "scenario": "Perform stress test by scaling VUs to 950 on /analyze until degradation",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /analyze.\n3. Ramp up to 205 Virtual Users in 10s.\n4. Maintain load for 55 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_266",
+    "module": "Endurance & Soak",
+    "scenario": "Run soak test of 208 VUs for 57 min on /plants/history to monitor memory leaks",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /plants/history.\n3. Ramp up to 208 Virtual Users in 10s.\n4. Maintain load for 57 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_267",
+    "module": "Volume Testing",
+    "scenario": "Assess response payload compression efficiency under 11 concurrent requests",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/token.\n3. Ramp up to 11 Virtual Users in 10s.\n4. Maintain load for 59 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_268",
+    "module": "Resource Throttling",
+    "scenario": "Evaluate CPU usage throttling with 14 active requests on /auth/register",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/register.\n3. Ramp up to 14 Virtual Users in 10s.\n4. Maintain load for 61 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_269",
+    "module": "Network Packet Audits",
+    "scenario": "Audit packet drop rates under simulated packet corruption at 17 VUs",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /health.\n3. Ramp up to 17 Virtual Users in 10s.\n4. Maintain load for 63 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_270",
+    "module": "API Connection Pooling",
+    "scenario": "Validate database connection pool availability under 20 concurrent queries",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /simulator.\n3. Ramp up to 20 Virtual Users in 10s.\n4. Maintain load for 5 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_271",
+    "module": "Concurrency Benchmarks",
+    "scenario": "Verify API response time under 23 concurrent virtual users",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /analyze.\n3. Ramp up to 23 Virtual Users in 10s.\n4. Maintain load for 7 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_272",
+    "module": "Endpoint Throughput",
+    "scenario": "Benchmark /plants/history endpoint throughput under target load of 210 RPS",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /plants/history.\n3. Ramp up to 26 Virtual Users in 10s.\n4. Maintain load for 9 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_273",
+    "module": "Latency Constraints",
+    "scenario": "Check average latency on /auth/token is below 430ms with 29 VUs",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/token.\n3. Ramp up to 29 Virtual Users in 10s.\n4. Maintain load for 11 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_274",
+    "module": "Spike Testing",
+    "scenario": "Simulate traffic spike of 446 VUs on /auth/register and check auto-recovery",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/register.\n3. Ramp up to 32 Virtual Users in 10s.\n4. Maintain load for 13 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_275",
+    "module": "Stress Testing",
+    "scenario": "Perform stress test by scaling VUs to 1050 on /health until degradation",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /health.\n3. Ramp up to 35 Virtual Users in 10s.\n4. Maintain load for 15 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_276",
+    "module": "Endurance & Soak",
+    "scenario": "Run soak test of 38 VUs for 17 min on /simulator to monitor memory leaks",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /simulator.\n3. Ramp up to 38 Virtual Users in 10s.\n4. Maintain load for 17 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_277",
+    "module": "Volume Testing",
+    "scenario": "Assess response payload compression efficiency under 41 concurrent requests",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /analyze.\n3. Ramp up to 41 Virtual Users in 10s.\n4. Maintain load for 19 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_278",
+    "module": "Resource Throttling",
+    "scenario": "Evaluate CPU usage throttling with 44 active requests on /plants/history",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /plants/history.\n3. Ramp up to 44 Virtual Users in 10s.\n4. Maintain load for 21 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_279",
+    "module": "Network Packet Audits",
+    "scenario": "Audit packet drop rates under simulated packet corruption at 47 VUs",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/token.\n3. Ramp up to 47 Virtual Users in 10s.\n4. Maintain load for 23 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_280",
+    "module": "API Connection Pooling",
+    "scenario": "Validate database connection pool availability under 50 concurrent queries",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/register.\n3. Ramp up to 50 Virtual Users in 10s.\n4. Maintain load for 25 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_281",
+    "module": "Concurrency Benchmarks",
+    "scenario": "Verify API response time under 53 concurrent virtual users",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /health.\n3. Ramp up to 53 Virtual Users in 10s.\n4. Maintain load for 27 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_282",
+    "module": "Endpoint Throughput",
+    "scenario": "Benchmark /simulator endpoint throughput under target load of 260 RPS",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /simulator.\n3. Ramp up to 56 Virtual Users in 10s.\n4. Maintain load for 29 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_283",
+    "module": "Latency Constraints",
+    "scenario": "Check average latency on /analyze is below 530ms with 59 VUs",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /analyze.\n3. Ramp up to 59 Virtual Users in 10s.\n4. Maintain load for 31 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_284",
+    "module": "Spike Testing",
+    "scenario": "Simulate traffic spike of 486 VUs on /plants/history and check auto-recovery",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /plants/history.\n3. Ramp up to 62 Virtual Users in 10s.\n4. Maintain load for 33 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_285",
+    "module": "Stress Testing",
+    "scenario": "Perform stress test by scaling VUs to 1150 on /auth/token until degradation",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/token.\n3. Ramp up to 65 Virtual Users in 10s.\n4. Maintain load for 35 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_286",
+    "module": "Endurance & Soak",
+    "scenario": "Run soak test of 68 VUs for 37 min on /auth/register to monitor memory leaks",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/register.\n3. Ramp up to 68 Virtual Users in 10s.\n4. Maintain load for 37 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_287",
+    "module": "Volume Testing",
+    "scenario": "Assess response payload compression efficiency under 71 concurrent requests",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /health.\n3. Ramp up to 71 Virtual Users in 10s.\n4. Maintain load for 39 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_288",
+    "module": "Resource Throttling",
+    "scenario": "Evaluate CPU usage throttling with 74 active requests on /simulator",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /simulator.\n3. Ramp up to 74 Virtual Users in 10s.\n4. Maintain load for 41 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_289",
+    "module": "Network Packet Audits",
+    "scenario": "Audit packet drop rates under simulated packet corruption at 77 VUs",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /analyze.\n3. Ramp up to 77 Virtual Users in 10s.\n4. Maintain load for 43 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_290",
+    "module": "API Connection Pooling",
+    "scenario": "Validate database connection pool availability under 80 concurrent queries",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /plants/history.\n3. Ramp up to 80 Virtual Users in 10s.\n4. Maintain load for 45 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_291",
+    "module": "Concurrency Benchmarks",
+    "scenario": "Verify API response time under 83 concurrent virtual users",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/token.\n3. Ramp up to 83 Virtual Users in 10s.\n4. Maintain load for 47 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_292",
+    "module": "Endpoint Throughput",
+    "scenario": "Benchmark /auth/register endpoint throughput under target load of 310 RPS",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/register.\n3. Ramp up to 86 Virtual Users in 10s.\n4. Maintain load for 49 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_293",
+    "module": "Latency Constraints",
+    "scenario": "Check average latency on /health is below 630ms with 89 VUs",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /health.\n3. Ramp up to 89 Virtual Users in 10s.\n4. Maintain load for 51 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_294",
+    "module": "Spike Testing",
+    "scenario": "Simulate traffic spike of 526 VUs on /simulator and check auto-recovery",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /simulator.\n3. Ramp up to 92 Virtual Users in 10s.\n4. Maintain load for 53 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_295",
+    "module": "Stress Testing",
+    "scenario": "Perform stress test by scaling VUs to 1250 on /analyze until degradation",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /analyze.\n3. Ramp up to 95 Virtual Users in 10s.\n4. Maintain load for 55 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_296",
+    "module": "Endurance & Soak",
+    "scenario": "Run soak test of 98 VUs for 57 min on /plants/history to monitor memory leaks",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /plants/history.\n3. Ramp up to 98 Virtual Users in 10s.\n4. Maintain load for 57 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_297",
+    "module": "Volume Testing",
+    "scenario": "Assess response payload compression efficiency under 101 concurrent requests",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/token.\n3. Ramp up to 101 Virtual Users in 10s.\n4. Maintain load for 59 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_298",
+    "module": "Resource Throttling",
+    "scenario": "Evaluate CPU usage throttling with 104 active requests on /auth/register",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /auth/register.\n3. Ramp up to 104 Virtual Users in 10s.\n4. Maintain load for 61 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_299",
+    "module": "Network Packet Audits",
+    "scenario": "Audit packet drop rates under simulated packet corruption at 107 VUs",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /health.\n3. Ramp up to 107 Virtual Users in 10s.\n4. Maintain load for 63 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  },
+  {
+    "id": "TC_LOAD_300",
+    "module": "API Connection Pooling",
+    "scenario": "Validate database connection pool availability under 110 concurrent queries",
+    "steps": "1. Setup Jmeter/Locust framework.\n2. Configure target endpoint: /simulator.\n3. Ramp up to 110 Virtual Users in 10s.\n4. Maintain load for 5 seconds.\n5. Capture latency percentiles and system resource metrics.",
+    "expected": "Response code 200 OK. Success rate is 100%. Avg response latency is within target threshold. No HTTP errors."
+  }
+]

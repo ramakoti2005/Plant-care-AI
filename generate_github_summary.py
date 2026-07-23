@@ -8,13 +8,14 @@ def generate_summary():
         print("GITHUB_STEP_SUMMARY not set. Skipping GitHub summary generation.")
         return
 
-    # Load results from the 5 tiers
+    # Load results from the 5 tiers + load test tier
     tiers_cfg = [
         {"name": "🌐 Web Application E2E", "path": "selenium_web/web_test_results.json", "report_url": "https://ramakoti2005.github.io/Plant-care-AI/reports/web-e2e%20report.html"},
         {"name": "📱 Android Mobile E2E", "path": "appium_mobile/app_test_results.json", "report_url": "https://ramakoti2005.github.io/Plant-care-AI/reports/mobile%20e2e%20report.html"},
         {"name": "⚙️ Backend Service Tests", "path": "backend_service/service_test_results.json", "report_url": "https://ramakoti2005.github.io/Plant-care-AI/reports/service%20report.html"},
         {"name": "🔒 Backend Security Scan", "path": "security_scan/scan_test_results.json", "report_url": "https://ramakoti2005.github.io/Plant-care-AI/reports/security%20scan%20report.html"},
-        {"name": "🛡️ Security E2E Tests", "path": "security_e2e/security_test_results.json", "report_url": "https://ramakoti2005.github.io/Plant-care-AI/reports/security%20e2e%20report.html"}
+        {"name": "🛡️ Security E2E Tests", "path": "security_e2e/security_test_results.json", "report_url": "https://ramakoti2005.github.io/Plant-care-AI/reports/security%20e2e%20report.html"},
+        {"name": "📊 Performance Load Test", "path": "load_testing/load_test_results.json", "report_url": "https://ramakoti2005.github.io/Plant-care-AI/reports/load%20test%20report.html"}
     ]
 
     loaded_tiers = []
@@ -59,15 +60,11 @@ def generate_summary():
         "latency_90th_ms": 0.0,
         "latency_95th_ms": 0.0
     }
-    load_results_path = "load_testing/load_test_results.json"
+    load_results_path = "load_testing/load_test_stats.json"
     if os.path.exists(load_results_path):
         with open(load_results_path, "r") as f:
             load_stats = json.load(f)
 
-    # 1 load test cases makes total + 1
-    total_tests += 1
-    total_passed += 1 # Load test counts as passed if success rate >= 50%
-    
     total_pass_rate = f"{(total_passed / total_tests * 100):.1f}%" if total_tests > 0 else "0.0%"
 
     markdown = []
@@ -96,9 +93,7 @@ def generate_summary():
     for lt in loaded_tiers:
         status = "✅ PASS" if lt["failed"] == 0 else "❌ FAIL"
         markdown.append(f"| {lt['name']} | {lt['total']} | {lt['passed']} | {lt['failed']} | 0 | {lt['rate']} | {status} | [HTML Report]({lt['report_url']}) |")
-    # Performance Load Test
-    load_rate_str = f"{load_stats['success_rate_percent']:.2f}% Success"
-    markdown.append(f"| 📊 Performance Load Test | {load_stats['total_requests']} (Reqs) | - | - | - | {load_rate_str} | ✅ OPTIMAL | [Run Details](https://github.com/ramakoti2005/Plant-care-AI/blob/main/load_testing/load_test_results.json) |\n")
+
 
     # Baseline Load Testing Performance Metrics Table
     markdown.append("### ⚡ Baseline Load Testing Performance metrics")
@@ -138,13 +133,7 @@ def generate_summary():
         markdown.append(get_details_table(lt["results"]))
         markdown.append(f"\n</details>\n")
         
-    # Performance Load Test detailed
-    markdown.append("<details>")
-    markdown.append("<summary>▶️ 📊 Performance Load Test (1 tests) - Click to expand</summary>\n")
-    markdown.append("| Test ID | Metric | Target | Result | Status |")
-    markdown.append("| --- | --- | --- | --- | --- |")
-    markdown.append(f"| `TC_PERF_001` | Concurrency & Throughput | 100 VUs @ >50 RPS | {load_stats['concurrency']} VUs @ {load_stats['avg_rps']} RPS | **🟢 PASS** |")
-    markdown.append("\n</details>\n")
+
 
     # Write
     with open(summary_file, "a", encoding="utf-8") as f:

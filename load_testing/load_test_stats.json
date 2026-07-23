@@ -1,0 +1,14 @@
+{
+  "concurrency": 100,
+  "duration_seconds": 60,
+  "total_requests": 7200,
+  "success_requests": 7200,
+  "failed_requests": 0,
+  "success_rate_percent": 100.0,
+  "avg_rps": 120.0,
+  "latency_min_ms": 72.0,
+  "latency_max_ms": 1625.0,
+  "latency_avg_ms": 320.0,
+  "latency_90th_ms": 480.0,
+  "latency_95th_ms": 550.0
+}
