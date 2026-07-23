@@ -150,6 +150,12 @@ async function runAppiumTests() {
     }
   }
 
+  // Print each test case log
+  for (const r of results) {
+    const statusSymbol = r.status === 'PASS' ? '✅' : '❌';
+    console.log(`[${r.id}] ${statusSymbol} ${r.module} - ${r.scenario}: ${r.status} (${r.duration_ms}ms)`);
+  }
+
   const passed = results.filter(r => r.status === 'PASS').length;
   const failed = results.filter(r => r.status === 'FAIL').length;
   console.log(`E2E Appium Test Summary: ${passed} Passed, ${failed} Failed, Total: ${results.length}`);

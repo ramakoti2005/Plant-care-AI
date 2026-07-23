@@ -60,6 +60,13 @@ try:
 except subprocess.CalledProcessError as e:
     print(f"Error generating Excel report: {e}")
 
+# 6. Generate GitHub Actions Summary
+print("\n--> Generating GitHub Actions Summary...")
+try:
+    subprocess.run([sys.executable, "generate_github_summary.py"], check=True)
+except subprocess.CalledProcessError as e:
+    print(f"Error generating GitHub Actions summary: {e}")
+
 print("\n==================================================")
 print("QA Execution Cycle Finished!")
 print("Generated Report: E2E_Test_Report_PlantCareAI.xlsx")
