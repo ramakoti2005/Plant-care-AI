@@ -46,7 +46,9 @@ class HistoryDetailScreen extends StatelessWidget {
       return path; 
     }
     final cleanPath = path.startsWith('/') ? path.substring(1) : path;
-    return 'https://plant-care-ai-6ng8.onrender.com/$cleanPath';
+    final uri = Uri.parse(ApiConfig.baseUrl);
+    final baseDomain = "${uri.scheme}://${uri.host}${uri.hasPort ? ':${uri.port}' : ''}";
+    return '$baseDomain/$cleanPath';
   }
 
   Widget buildDetailImage(String imageUrl, {BoxFit fit = BoxFit.cover, Color progressColor = Colors.green, Color iconColor = Colors.grey}) {
