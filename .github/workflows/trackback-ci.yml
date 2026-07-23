@@ -3,8 +3,8 @@ name: QA Test Automation (Trackback CI)
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
+permissions:
+  contents: write
 
 jobs:
   security-review:
@@ -211,3 +211,15 @@ jobs:
       with:
         name: E2E-QA-Test-Reports-HTML
         path: reports/
+
+    - name: Prepare Pages Files
+      run: |
+        mkdir -p public/reports
+        cp -r reports/* public/reports/
+        cp E2E_Test_Report_PlantCareAI.xlsx public/reports/
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v4
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./public

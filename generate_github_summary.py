@@ -10,11 +10,11 @@ def generate_summary():
 
     # Load results from the 5 tiers
     tiers_cfg = [
-        {"name": "🌐 Web Application E2E", "path": "selenium_web/web_test_results.json", "report_url": "https://ramakoti2005.github.io/Plant-care-AI/reports/web-e2e-report.html"},
-        {"name": "📱 Android Mobile E2E", "path": "appium_mobile/app_test_results.json", "report_url": "https://ramakoti2005.github.io/Plant-care-AI/reports/mobile-e2e-report.html"},
-        {"name": "⚙️ Backend Service Tests", "path": "backend_service/service_test_results.json", "report_url": "https://ramakoti2005.github.io/Plant-care-AI/reports/service-report.html"},
-        {"name": "🔒 Backend Security Scan", "path": "security_scan/scan_test_results.json", "report_url": "https://ramakoti2005.github.io/Plant-care-AI/reports/security-scan-report.html"},
-        {"name": "🛡️ Security E2E Tests", "path": "security_e2e/security_test_results.json", "report_url": "https://ramakoti2005.github.io/Plant-care-AI/reports/security-e2e-report.html"}
+        {"name": "🌐 Web Application E2E", "path": "selenium_web/web_test_results.json", "report_url": "https://ramakoti2005.github.io/Plant-care-AI/reports/web-e2e%20report.html"},
+        {"name": "📱 Android Mobile E2E", "path": "appium_mobile/app_test_results.json", "report_url": "https://ramakoti2005.github.io/Plant-care-AI/reports/mobile%20e2e%20report.html"},
+        {"name": "⚙️ Backend Service Tests", "path": "backend_service/service_test_results.json", "report_url": "https://ramakoti2005.github.io/Plant-care-AI/reports/service%20report.html"},
+        {"name": "🔒 Backend Security Scan", "path": "security_scan/scan_test_results.json", "report_url": "https://ramakoti2005.github.io/Plant-care-AI/reports/security%20scan%20report.html"},
+        {"name": "🛡️ Security E2E Tests", "path": "security_e2e/security_test_results.json", "report_url": "https://ramakoti2005.github.io/Plant-care-AI/reports/security%20e2e%20report.html"}
     ]
 
     loaded_tiers = []

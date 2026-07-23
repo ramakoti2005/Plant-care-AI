@@ -31,31 +31,31 @@ def generate_reports():
         {
             "title": "TrackBack Web – Selenium E2E Report",
             "json_path": "selenium_web/web_test_results.json",
-            "html_path": "reports/web-e2e-report.html",
+            "html_path": "reports/web-e2e report.html",
             "test_prefix": "TrackBack Web — E2E"
         },
         {
             "title": "TrackBack Mobile – Appium E2E Report",
             "json_path": "appium_mobile/app_test_results.json",
-            "html_path": "reports/mobile-e2e-report.html",
+            "html_path": "reports/mobile e2e report.html",
             "test_prefix": "TrackBack Mobile — E2E"
         },
         {
             "title": "TrackBack Service – Integration Report",
             "json_path": "backend_service/service_test_results.json",
-            "html_path": "reports/service-report.html",
+            "html_path": "reports/service report.html",
             "test_prefix": "TrackBack Service — Integration"
         },
         {
             "title": "TrackBack Security – Vulnerability Scan Report",
             "json_path": "security_scan/scan_test_results.json",
-            "html_path": "reports/security-scan-report.html",
+            "html_path": "reports/security scan report.html",
             "test_prefix": "TrackBack Security — Scan"
         },
         {
             "title": "TrackBack Security – End-to-End Report",
             "json_path": "security_e2e/security_test_results.json",
-            "html_path": "reports/security-e2e-report.html",
+            "html_path": "reports/security e2e report.html",
             "test_prefix": "TrackBack Security — E2E"
         }
     ]
