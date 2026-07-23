@@ -84,12 +84,12 @@ try:
 except subprocess.CalledProcessError as e:
     print(f"Error generating Excel report: {e}")
 
-# 9. Compile HTML Report
-print("\n--> Compiling Standalone HTML Dashboard Report...")
+# 9. Compile HTML Reports
+print("\n--> Compiling Screenshot-Perfect HTML Reports...")
 try:
-    subprocess.run([sys.executable, "generate_html_report.py"], check=True)
+    subprocess.run([sys.executable, "generate_html_reports.py"], check=True)
 except subprocess.CalledProcessError as e:
-    print(f"Error generating HTML report: {e}")
+    print(f"Error generating HTML reports: {e}")
 
 # 10. Generate GitHub Actions Summary
 print("\n--> Generating GitHub Actions Summary...")
@@ -102,7 +102,7 @@ print("\n==================================================")
 print("QA Execution Cycle Finished!")
 print("Generated Reports:")
 print("  - E2E_Test_Report_PlantCareAI.xlsx (Excel Report)")
-print("  - E2E_Test_Report_PlantCareAI.html (HTML Report)")
+print("  - reports/ (Screenshot-Perfect HTML Reports Folder)")
 print("==================================================")
 print("\nTo run the tests on your own environment, you can use:")
 print("  python run_all_tests.py")

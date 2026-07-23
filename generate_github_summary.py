@@ -10,11 +10,11 @@ def generate_summary():
 
     # Load results from the 5 tiers
     tiers_cfg = [
-        {"name": "🌐 Web Application E2E", "path": "selenium_web/web_test_results.json"},
-        {"name": "📱 Android Mobile E2E", "path": "appium_mobile/app_test_results.json"},
-        {"name": "⚙️ Backend Service Tests", "path": "backend_service/service_test_results.json"},
-        {"name": "🔒 Backend Security Scan", "path": "security_scan/scan_test_results.json"},
-        {"name": "🛡️ Security E2E Tests", "path": "security_e2e/security_test_results.json"}
+        {"name": "🌐 Web Application E2E", "path": "selenium_web/web_test_results.json", "report_url": "https://ramakoti2005.github.io/Plant-care-AI/reports/web-e2e-report.html"},
+        {"name": "📱 Android Mobile E2E", "path": "appium_mobile/app_test_results.json", "report_url": "https://ramakoti2005.github.io/Plant-care-AI/reports/mobile-e2e-report.html"},
+        {"name": "⚙️ Backend Service Tests", "path": "backend_service/service_test_results.json", "report_url": "https://ramakoti2005.github.io/Plant-care-AI/reports/service-report.html"},
+        {"name": "🔒 Backend Security Scan", "path": "security_scan/scan_test_results.json", "report_url": "https://ramakoti2005.github.io/Plant-care-AI/reports/security-scan-report.html"},
+        {"name": "🛡️ Security E2E Tests", "path": "security_e2e/security_test_results.json", "report_url": "https://ramakoti2005.github.io/Plant-care-AI/reports/security-e2e-report.html"}
     ]
 
     loaded_tiers = []
@@ -40,7 +40,8 @@ def generate_summary():
             "passed": passed,
             "failed": failed,
             "results": results,
-            "rate": f"{(passed / len(results) * 100):.1f}%" if results else "0.0%"
+            "rate": f"{(passed / len(results) * 100):.1f}%" if results else "0.0%",
+            "report_url": tc["report_url"]
         })
 
     # Load stats
@@ -94,8 +95,7 @@ def generate_summary():
     # 5 Tiers
     for lt in loaded_tiers:
         status = "✅ PASS" if lt["failed"] == 0 else "❌ FAIL"
-        markdown.append(f"| {lt['name']} | {lt['total']} | {lt['passed']} | {lt['failed']} | 0 | {lt['rate']} | {status} | [HTML Report](https://github.com/ramakoti2005/Plant-care-AI/blob/main/E2E_Test_Report_PlantCareAI.html) |")
-        
+        markdown.append(f"| {lt['name']} | {lt['total']} | {lt['passed']} | {lt['failed']} | 0 | {lt['rate']} | {status} | [HTML Report]({lt['report_url']}) |")
     # Performance Load Test
     load_rate_str = f"{load_stats['success_rate_percent']:.2f}% Success"
     markdown.append(f"| 📊 Performance Load Test | {load_stats['total_requests']} (Reqs) | - | - | - | {load_rate_str} | ✅ OPTIMAL | [Run Details](https://github.com/ramakoti2005/Plant-care-AI/blob/main/load_testing/load_test_results.json) |\n")
