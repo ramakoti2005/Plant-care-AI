@@ -1,2101 +1,2101 @@
 [
   {
-    "id": "TC_WEB_001",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Core Functionality - Scenario 1",
+    "id": "TC_SRV_001",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Core Functionality - Scenario 1",
     "steps": "1. Initialize session.\n2. Execute action sequence 1.\n3. Validate result state.",
     "expected": "Response must indicate successful completion and data parity."
   },
   {
-    "id": "TC_WEB_002",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Core Functionality - Scenario 2",
+    "id": "TC_SRV_002",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Core Functionality - Scenario 2",
     "steps": "1. Initialize session.\n2. Execute action sequence 2.\n3. Validate result state.",
     "expected": "Response must indicate successful completion and data parity."
   },
   {
-    "id": "TC_WEB_003",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Core Functionality - Scenario 3",
+    "id": "TC_SRV_003",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Core Functionality - Scenario 3",
     "steps": "1. Initialize session.\n2. Execute action sequence 3.\n3. Validate result state.",
     "expected": "Response must indicate successful completion and data parity."
   },
   {
-    "id": "TC_WEB_004",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Core Functionality - Scenario 4",
+    "id": "TC_SRV_004",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Core Functionality - Scenario 4",
     "steps": "1. Initialize session.\n2. Execute action sequence 4.\n3. Validate result state.",
     "expected": "Response must indicate successful completion and data parity."
   },
   {
-    "id": "TC_WEB_005",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Core Functionality - Scenario 5",
+    "id": "TC_SRV_005",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Core Functionality - Scenario 5",
     "steps": "1. Initialize session.\n2. Execute action sequence 5.\n3. Validate result state.",
     "expected": "Response must indicate successful completion and data parity."
   },
   {
-    "id": "TC_WEB_006",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Core Functionality - Scenario 6",
+    "id": "TC_SRV_006",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Core Functionality - Scenario 6",
     "steps": "1. Initialize session.\n2. Execute action sequence 6.\n3. Validate result state.",
     "expected": "Response must indicate successful completion and data parity."
   },
   {
-    "id": "TC_WEB_007",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Core Functionality - Scenario 7",
+    "id": "TC_SRV_007",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Core Functionality - Scenario 7",
     "steps": "1. Initialize session.\n2. Execute action sequence 7.\n3. Validate result state.",
     "expected": "Response must indicate successful completion and data parity."
   },
   {
-    "id": "TC_WEB_008",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Core Functionality - Scenario 8",
+    "id": "TC_SRV_008",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Core Functionality - Scenario 8",
     "steps": "1. Initialize session.\n2. Execute action sequence 8.\n3. Validate result state.",
     "expected": "Response must indicate successful completion and data parity."
   },
   {
-    "id": "TC_WEB_009",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Core Functionality - Scenario 9",
+    "id": "TC_SRV_009",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Core Functionality - Scenario 9",
     "steps": "1. Initialize session.\n2. Execute action sequence 9.\n3. Validate result state.",
     "expected": "Response must indicate successful completion and data parity."
   },
   {
-    "id": "TC_WEB_010",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Core Functionality - Scenario 10",
+    "id": "TC_SRV_010",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Core Functionality - Scenario 10",
     "steps": "1. Initialize session.\n2. Execute action sequence 10.\n3. Validate result state.",
     "expected": "Response must indicate successful completion and data parity."
   },
   {
-    "id": "TC_WEB_011",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Core Functionality - Scenario 11",
+    "id": "TC_SRV_011",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Core Functionality - Scenario 11",
     "steps": "1. Initialize session.\n2. Execute action sequence 11.\n3. Validate result state.",
     "expected": "Response must indicate successful completion and data parity."
   },
   {
-    "id": "TC_WEB_012",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Core Functionality - Scenario 12",
+    "id": "TC_SRV_012",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Core Functionality - Scenario 12",
     "steps": "1. Initialize session.\n2. Execute action sequence 12.\n3. Validate result state.",
     "expected": "Response must indicate successful completion and data parity."
   },
   {
-    "id": "TC_WEB_013",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Core Functionality - Scenario 13",
+    "id": "TC_SRV_013",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Core Functionality - Scenario 13",
     "steps": "1. Initialize session.\n2. Execute action sequence 13.\n3. Validate result state.",
     "expected": "Response must indicate successful completion and data parity."
   },
   {
-    "id": "TC_WEB_014",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Core Functionality - Scenario 14",
+    "id": "TC_SRV_014",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Core Functionality - Scenario 14",
     "steps": "1. Initialize session.\n2. Execute action sequence 14.\n3. Validate result state.",
     "expected": "Response must indicate successful completion and data parity."
   },
   {
-    "id": "TC_WEB_015",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Core Functionality - Scenario 15",
+    "id": "TC_SRV_015",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Core Functionality - Scenario 15",
     "steps": "1. Initialize session.\n2. Execute action sequence 15.\n3. Validate result state.",
     "expected": "Response must indicate successful completion and data parity."
   },
   {
-    "id": "TC_WEB_016",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Core Functionality - Scenario 16",
+    "id": "TC_SRV_016",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Core Functionality - Scenario 16",
     "steps": "1. Initialize session.\n2. Execute action sequence 16.\n3. Validate result state.",
     "expected": "Response must indicate successful completion and data parity."
   },
   {
-    "id": "TC_WEB_017",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Core Functionality - Scenario 17",
+    "id": "TC_SRV_017",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Core Functionality - Scenario 17",
     "steps": "1. Initialize session.\n2. Execute action sequence 17.\n3. Validate result state.",
     "expected": "Response must indicate successful completion and data parity."
   },
   {
-    "id": "TC_WEB_018",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Core Functionality - Scenario 18",
+    "id": "TC_SRV_018",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Core Functionality - Scenario 18",
     "steps": "1. Initialize session.\n2. Execute action sequence 18.\n3. Validate result state.",
     "expected": "Response must indicate successful completion and data parity."
   },
   {
-    "id": "TC_WEB_019",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Core Functionality - Scenario 19",
+    "id": "TC_SRV_019",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Core Functionality - Scenario 19",
     "steps": "1. Initialize session.\n2. Execute action sequence 19.\n3. Validate result state.",
     "expected": "Response must indicate successful completion and data parity."
   },
   {
-    "id": "TC_WEB_020",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Core Functionality - Scenario 20",
+    "id": "TC_SRV_020",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Core Functionality - Scenario 20",
     "steps": "1. Initialize session.\n2. Execute action sequence 20.\n3. Validate result state.",
     "expected": "Response must indicate successful completion and data parity."
   },
   {
-    "id": "TC_WEB_021",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Core Functionality - Scenario 21",
+    "id": "TC_SRV_021",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Core Functionality - Scenario 21",
     "steps": "1. Initialize session.\n2. Execute action sequence 21.\n3. Validate result state.",
     "expected": "Response must indicate successful completion and data parity."
   },
   {
-    "id": "TC_WEB_022",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Core Functionality - Scenario 22",
+    "id": "TC_SRV_022",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Core Functionality - Scenario 22",
     "steps": "1. Initialize session.\n2. Execute action sequence 22.\n3. Validate result state.",
     "expected": "Response must indicate successful completion and data parity."
   },
   {
-    "id": "TC_WEB_023",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Core Functionality - Scenario 23",
+    "id": "TC_SRV_023",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Core Functionality - Scenario 23",
     "steps": "1. Initialize session.\n2. Execute action sequence 23.\n3. Validate result state.",
     "expected": "Response must indicate successful completion and data parity."
   },
   {
-    "id": "TC_WEB_024",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Core Functionality - Scenario 24",
+    "id": "TC_SRV_024",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Core Functionality - Scenario 24",
     "steps": "1. Initialize session.\n2. Execute action sequence 24.\n3. Validate result state.",
     "expected": "Response must indicate successful completion and data parity."
   },
   {
-    "id": "TC_WEB_025",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Core Functionality - Scenario 25",
+    "id": "TC_SRV_025",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Core Functionality - Scenario 25",
     "steps": "1. Initialize session.\n2. Execute action sequence 25.\n3. Validate result state.",
     "expected": "Response must indicate successful completion and data parity."
   },
   {
-    "id": "TC_WEB_026",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Core Functionality - Scenario 26",
+    "id": "TC_SRV_026",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Core Functionality - Scenario 26",
     "steps": "1. Initialize session.\n2. Execute action sequence 26.\n3. Validate result state.",
     "expected": "Response must indicate successful completion and data parity."
   },
   {
-    "id": "TC_WEB_027",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Core Functionality - Scenario 27",
+    "id": "TC_SRV_027",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Core Functionality - Scenario 27",
     "steps": "1. Initialize session.\n2. Execute action sequence 27.\n3. Validate result state.",
     "expected": "Response must indicate successful completion and data parity."
   },
   {
-    "id": "TC_WEB_028",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Core Functionality - Scenario 28",
+    "id": "TC_SRV_028",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Core Functionality - Scenario 28",
     "steps": "1. Initialize session.\n2. Execute action sequence 28.\n3. Validate result state.",
     "expected": "Response must indicate successful completion and data parity."
   },
   {
-    "id": "TC_WEB_029",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Core Functionality - Scenario 29",
+    "id": "TC_SRV_029",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Core Functionality - Scenario 29",
     "steps": "1. Initialize session.\n2. Execute action sequence 29.\n3. Validate result state.",
     "expected": "Response must indicate successful completion and data parity."
   },
   {
-    "id": "TC_WEB_030",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Core Functionality - Scenario 30",
+    "id": "TC_SRV_030",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Core Functionality - Scenario 30",
     "steps": "1. Initialize session.\n2. Execute action sequence 30.\n3. Validate result state.",
     "expected": "Response must indicate successful completion and data parity."
   },
   {
-    "id": "TC_WEB_031",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Core Functionality - Scenario 31",
+    "id": "TC_SRV_031",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Core Functionality - Scenario 31",
     "steps": "1. Initialize session.\n2. Execute action sequence 31.\n3. Validate result state.",
     "expected": "Response must indicate successful completion and data parity."
   },
   {
-    "id": "TC_WEB_032",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Core Functionality - Scenario 32",
+    "id": "TC_SRV_032",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Core Functionality - Scenario 32",
     "steps": "1. Initialize session.\n2. Execute action sequence 32.\n3. Validate result state.",
     "expected": "Response must indicate successful completion and data parity."
   },
   {
-    "id": "TC_WEB_033",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Core Functionality - Scenario 33",
+    "id": "TC_SRV_033",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Core Functionality - Scenario 33",
     "steps": "1. Initialize session.\n2. Execute action sequence 33.\n3. Validate result state.",
     "expected": "Response must indicate successful completion and data parity."
   },
   {
-    "id": "TC_WEB_034",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Core Functionality - Scenario 34",
+    "id": "TC_SRV_034",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Core Functionality - Scenario 34",
     "steps": "1. Initialize session.\n2. Execute action sequence 34.\n3. Validate result state.",
     "expected": "Response must indicate successful completion and data parity."
   },
   {
-    "id": "TC_WEB_035",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Core Functionality - Scenario 35",
+    "id": "TC_SRV_035",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Core Functionality - Scenario 35",
     "steps": "1. Initialize session.\n2. Execute action sequence 35.\n3. Validate result state.",
     "expected": "Response must indicate successful completion and data parity."
   },
   {
-    "id": "TC_WEB_036",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Core Functionality - Scenario 36",
+    "id": "TC_SRV_036",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Core Functionality - Scenario 36",
     "steps": "1. Initialize session.\n2. Execute action sequence 36.\n3. Validate result state.",
     "expected": "Response must indicate successful completion and data parity."
   },
   {
-    "id": "TC_WEB_037",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Core Functionality - Scenario 37",
+    "id": "TC_SRV_037",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Core Functionality - Scenario 37",
     "steps": "1. Initialize session.\n2. Execute action sequence 37.\n3. Validate result state.",
     "expected": "Response must indicate successful completion and data parity."
   },
   {
-    "id": "TC_WEB_038",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Core Functionality - Scenario 38",
+    "id": "TC_SRV_038",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Core Functionality - Scenario 38",
     "steps": "1. Initialize session.\n2. Execute action sequence 38.\n3. Validate result state.",
     "expected": "Response must indicate successful completion and data parity."
   },
   {
-    "id": "TC_WEB_039",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Core Functionality - Scenario 39",
+    "id": "TC_SRV_039",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Core Functionality - Scenario 39",
     "steps": "1. Initialize session.\n2. Execute action sequence 39.\n3. Validate result state.",
     "expected": "Response must indicate successful completion and data parity."
   },
   {
-    "id": "TC_WEB_040",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Core Functionality - Scenario 40",
+    "id": "TC_SRV_040",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Core Functionality - Scenario 40",
     "steps": "1. Initialize session.\n2. Execute action sequence 40.\n3. Validate result state.",
     "expected": "Response must indicate successful completion and data parity."
   },
   {
-    "id": "TC_WEB_041",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Core Functionality - Scenario 41",
+    "id": "TC_SRV_041",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Core Functionality - Scenario 41",
     "steps": "1. Initialize session.\n2. Execute action sequence 41.\n3. Validate result state.",
     "expected": "Response must indicate successful completion and data parity."
   },
   {
-    "id": "TC_WEB_042",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Core Functionality - Scenario 42",
+    "id": "TC_SRV_042",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Core Functionality - Scenario 42",
     "steps": "1. Initialize session.\n2. Execute action sequence 42.\n3. Validate result state.",
     "expected": "Response must indicate successful completion and data parity."
   },
   {
-    "id": "TC_WEB_043",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Core Functionality - Scenario 43",
+    "id": "TC_SRV_043",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Core Functionality - Scenario 43",
     "steps": "1. Initialize session.\n2. Execute action sequence 43.\n3. Validate result state.",
     "expected": "Response must indicate successful completion and data parity."
   },
   {
-    "id": "TC_WEB_044",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Core Functionality - Scenario 44",
+    "id": "TC_SRV_044",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Core Functionality - Scenario 44",
     "steps": "1. Initialize session.\n2. Execute action sequence 44.\n3. Validate result state.",
     "expected": "Response must indicate successful completion and data parity."
   },
   {
-    "id": "TC_WEB_045",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Core Functionality - Scenario 45",
+    "id": "TC_SRV_045",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Core Functionality - Scenario 45",
     "steps": "1. Initialize session.\n2. Execute action sequence 45.\n3. Validate result state.",
     "expected": "Response must indicate successful completion and data parity."
   },
   {
-    "id": "TC_WEB_046",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Core Functionality - Scenario 46",
+    "id": "TC_SRV_046",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Core Functionality - Scenario 46",
     "steps": "1. Initialize session.\n2. Execute action sequence 46.\n3. Validate result state.",
     "expected": "Response must indicate successful completion and data parity."
   },
   {
-    "id": "TC_WEB_047",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Core Functionality - Scenario 47",
+    "id": "TC_SRV_047",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Core Functionality - Scenario 47",
     "steps": "1. Initialize session.\n2. Execute action sequence 47.\n3. Validate result state.",
     "expected": "Response must indicate successful completion and data parity."
   },
   {
-    "id": "TC_WEB_048",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Core Functionality - Scenario 48",
+    "id": "TC_SRV_048",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Core Functionality - Scenario 48",
     "steps": "1. Initialize session.\n2. Execute action sequence 48.\n3. Validate result state.",
     "expected": "Response must indicate successful completion and data parity."
   },
   {
-    "id": "TC_WEB_049",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Core Functionality - Scenario 49",
+    "id": "TC_SRV_049",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Core Functionality - Scenario 49",
     "steps": "1. Initialize session.\n2. Execute action sequence 49.\n3. Validate result state.",
     "expected": "Response must indicate successful completion and data parity."
   },
   {
-    "id": "TC_WEB_050",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Core Functionality - Scenario 50",
+    "id": "TC_SRV_050",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Core Functionality - Scenario 50",
     "steps": "1. Initialize session.\n2. Execute action sequence 50.\n3. Validate result state.",
     "expected": "Response must indicate successful completion and data parity."
   },
   {
-    "id": "TC_WEB_051",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Core Functionality - Scenario 51",
+    "id": "TC_SRV_051",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Core Functionality - Scenario 51",
     "steps": "1. Initialize session.\n2. Execute action sequence 51.\n3. Validate result state.",
     "expected": "Response must indicate successful completion and data parity."
   },
   {
-    "id": "TC_WEB_052",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Core Functionality - Scenario 52",
+    "id": "TC_SRV_052",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Core Functionality - Scenario 52",
     "steps": "1. Initialize session.\n2. Execute action sequence 52.\n3. Validate result state.",
     "expected": "Response must indicate successful completion and data parity."
   },
   {
-    "id": "TC_WEB_053",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Core Functionality - Scenario 53",
+    "id": "TC_SRV_053",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Core Functionality - Scenario 53",
     "steps": "1. Initialize session.\n2. Execute action sequence 53.\n3. Validate result state.",
     "expected": "Response must indicate successful completion and data parity."
   },
   {
-    "id": "TC_WEB_054",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Core Functionality - Scenario 54",
+    "id": "TC_SRV_054",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Core Functionality - Scenario 54",
     "steps": "1. Initialize session.\n2. Execute action sequence 54.\n3. Validate result state.",
     "expected": "Response must indicate successful completion and data parity."
   },
   {
-    "id": "TC_WEB_055",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Core Functionality - Scenario 55",
+    "id": "TC_SRV_055",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Core Functionality - Scenario 55",
     "steps": "1. Initialize session.\n2. Execute action sequence 55.\n3. Validate result state.",
     "expected": "Response must indicate successful completion and data parity."
   },
   {
-    "id": "TC_WEB_056",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Core Functionality - Scenario 56",
+    "id": "TC_SRV_056",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Core Functionality - Scenario 56",
     "steps": "1. Initialize session.\n2. Execute action sequence 56.\n3. Validate result state.",
     "expected": "Response must indicate successful completion and data parity."
   },
   {
-    "id": "TC_WEB_057",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Core Functionality - Scenario 57",
+    "id": "TC_SRV_057",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Core Functionality - Scenario 57",
     "steps": "1. Initialize session.\n2. Execute action sequence 57.\n3. Validate result state.",
     "expected": "Response must indicate successful completion and data parity."
   },
   {
-    "id": "TC_WEB_058",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Core Functionality - Scenario 58",
+    "id": "TC_SRV_058",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Core Functionality - Scenario 58",
     "steps": "1. Initialize session.\n2. Execute action sequence 58.\n3. Validate result state.",
     "expected": "Response must indicate successful completion and data parity."
   },
   {
-    "id": "TC_WEB_059",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Core Functionality - Scenario 59",
+    "id": "TC_SRV_059",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Core Functionality - Scenario 59",
     "steps": "1. Initialize session.\n2. Execute action sequence 59.\n3. Validate result state.",
     "expected": "Response must indicate successful completion and data parity."
   },
   {
-    "id": "TC_WEB_060",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Core Functionality - Scenario 60",
+    "id": "TC_SRV_060",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Core Functionality - Scenario 60",
     "steps": "1. Initialize session.\n2. Execute action sequence 60.\n3. Validate result state.",
     "expected": "Response must indicate successful completion and data parity."
   },
   {
-    "id": "TC_WEB_061",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Boundary Conditions - Boundary 1",
+    "id": "TC_SRV_061",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Boundary Conditions - Boundary 1",
     "steps": "1. Set parameters to limits 1.\n2. Send request to endpoint.\n3. Verify error handling.",
     "expected": "App should display descriptive validation constraint message."
   },
   {
-    "id": "TC_WEB_062",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Boundary Conditions - Boundary 2",
+    "id": "TC_SRV_062",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Boundary Conditions - Boundary 2",
     "steps": "1. Set parameters to limits 2.\n2. Send request to endpoint.\n3. Verify error handling.",
     "expected": "App should display descriptive validation constraint message."
   },
   {
-    "id": "TC_WEB_063",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Boundary Conditions - Boundary 3",
+    "id": "TC_SRV_063",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Boundary Conditions - Boundary 3",
     "steps": "1. Set parameters to limits 3.\n2. Send request to endpoint.\n3. Verify error handling.",
     "expected": "App should display descriptive validation constraint message."
   },
   {
-    "id": "TC_WEB_064",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Boundary Conditions - Boundary 4",
+    "id": "TC_SRV_064",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Boundary Conditions - Boundary 4",
     "steps": "1. Set parameters to limits 4.\n2. Send request to endpoint.\n3. Verify error handling.",
     "expected": "App should display descriptive validation constraint message."
   },
   {
-    "id": "TC_WEB_065",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Boundary Conditions - Boundary 5",
+    "id": "TC_SRV_065",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Boundary Conditions - Boundary 5",
     "steps": "1. Set parameters to limits 5.\n2. Send request to endpoint.\n3. Verify error handling.",
     "expected": "App should display descriptive validation constraint message."
   },
   {
-    "id": "TC_WEB_066",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Boundary Conditions - Boundary 6",
+    "id": "TC_SRV_066",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Boundary Conditions - Boundary 6",
     "steps": "1. Set parameters to limits 6.\n2. Send request to endpoint.\n3. Verify error handling.",
     "expected": "App should display descriptive validation constraint message."
   },
   {
-    "id": "TC_WEB_067",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Boundary Conditions - Boundary 7",
+    "id": "TC_SRV_067",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Boundary Conditions - Boundary 7",
     "steps": "1. Set parameters to limits 7.\n2. Send request to endpoint.\n3. Verify error handling.",
     "expected": "App should display descriptive validation constraint message."
   },
   {
-    "id": "TC_WEB_068",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Boundary Conditions - Boundary 8",
+    "id": "TC_SRV_068",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Boundary Conditions - Boundary 8",
     "steps": "1. Set parameters to limits 8.\n2. Send request to endpoint.\n3. Verify error handling.",
     "expected": "App should display descriptive validation constraint message."
   },
   {
-    "id": "TC_WEB_069",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Boundary Conditions - Boundary 9",
+    "id": "TC_SRV_069",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Boundary Conditions - Boundary 9",
     "steps": "1. Set parameters to limits 9.\n2. Send request to endpoint.\n3. Verify error handling.",
     "expected": "App should display descriptive validation constraint message."
   },
   {
-    "id": "TC_WEB_070",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Boundary Conditions - Boundary 10",
+    "id": "TC_SRV_070",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Boundary Conditions - Boundary 10",
     "steps": "1. Set parameters to limits 10.\n2. Send request to endpoint.\n3. Verify error handling.",
     "expected": "App should display descriptive validation constraint message."
   },
   {
-    "id": "TC_WEB_071",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Boundary Conditions - Boundary 11",
+    "id": "TC_SRV_071",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Boundary Conditions - Boundary 11",
     "steps": "1. Set parameters to limits 11.\n2. Send request to endpoint.\n3. Verify error handling.",
     "expected": "App should display descriptive validation constraint message."
   },
   {
-    "id": "TC_WEB_072",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Boundary Conditions - Boundary 12",
+    "id": "TC_SRV_072",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Boundary Conditions - Boundary 12",
     "steps": "1. Set parameters to limits 12.\n2. Send request to endpoint.\n3. Verify error handling.",
     "expected": "App should display descriptive validation constraint message."
   },
   {
-    "id": "TC_WEB_073",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Boundary Conditions - Boundary 13",
+    "id": "TC_SRV_073",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Boundary Conditions - Boundary 13",
     "steps": "1. Set parameters to limits 13.\n2. Send request to endpoint.\n3. Verify error handling.",
     "expected": "App should display descriptive validation constraint message."
   },
   {
-    "id": "TC_WEB_074",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Boundary Conditions - Boundary 14",
+    "id": "TC_SRV_074",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Boundary Conditions - Boundary 14",
     "steps": "1. Set parameters to limits 14.\n2. Send request to endpoint.\n3. Verify error handling.",
     "expected": "App should display descriptive validation constraint message."
   },
   {
-    "id": "TC_WEB_075",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Boundary Conditions - Boundary 15",
+    "id": "TC_SRV_075",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Boundary Conditions - Boundary 15",
     "steps": "1. Set parameters to limits 15.\n2. Send request to endpoint.\n3. Verify error handling.",
     "expected": "App should display descriptive validation constraint message."
   },
   {
-    "id": "TC_WEB_076",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Boundary Conditions - Boundary 16",
+    "id": "TC_SRV_076",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Boundary Conditions - Boundary 16",
     "steps": "1. Set parameters to limits 16.\n2. Send request to endpoint.\n3. Verify error handling.",
     "expected": "App should display descriptive validation constraint message."
   },
   {
-    "id": "TC_WEB_077",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Boundary Conditions - Boundary 17",
+    "id": "TC_SRV_077",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Boundary Conditions - Boundary 17",
     "steps": "1. Set parameters to limits 17.\n2. Send request to endpoint.\n3. Verify error handling.",
     "expected": "App should display descriptive validation constraint message."
   },
   {
-    "id": "TC_WEB_078",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Boundary Conditions - Boundary 18",
+    "id": "TC_SRV_078",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Boundary Conditions - Boundary 18",
     "steps": "1. Set parameters to limits 18.\n2. Send request to endpoint.\n3. Verify error handling.",
     "expected": "App should display descriptive validation constraint message."
   },
   {
-    "id": "TC_WEB_079",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Boundary Conditions - Boundary 19",
+    "id": "TC_SRV_079",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Boundary Conditions - Boundary 19",
     "steps": "1. Set parameters to limits 19.\n2. Send request to endpoint.\n3. Verify error handling.",
     "expected": "App should display descriptive validation constraint message."
   },
   {
-    "id": "TC_WEB_080",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Boundary Conditions - Boundary 20",
+    "id": "TC_SRV_080",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Boundary Conditions - Boundary 20",
     "steps": "1. Set parameters to limits 20.\n2. Send request to endpoint.\n3. Verify error handling.",
     "expected": "App should display descriptive validation constraint message."
   },
   {
-    "id": "TC_WEB_081",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Boundary Conditions - Boundary 21",
+    "id": "TC_SRV_081",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Boundary Conditions - Boundary 21",
     "steps": "1. Set parameters to limits 21.\n2. Send request to endpoint.\n3. Verify error handling.",
     "expected": "App should display descriptive validation constraint message."
   },
   {
-    "id": "TC_WEB_082",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Boundary Conditions - Boundary 22",
+    "id": "TC_SRV_082",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Boundary Conditions - Boundary 22",
     "steps": "1. Set parameters to limits 22.\n2. Send request to endpoint.\n3. Verify error handling.",
     "expected": "App should display descriptive validation constraint message."
   },
   {
-    "id": "TC_WEB_083",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Boundary Conditions - Boundary 23",
+    "id": "TC_SRV_083",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Boundary Conditions - Boundary 23",
     "steps": "1. Set parameters to limits 23.\n2. Send request to endpoint.\n3. Verify error handling.",
     "expected": "App should display descriptive validation constraint message."
   },
   {
-    "id": "TC_WEB_084",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Boundary Conditions - Boundary 24",
+    "id": "TC_SRV_084",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Boundary Conditions - Boundary 24",
     "steps": "1. Set parameters to limits 24.\n2. Send request to endpoint.\n3. Verify error handling.",
     "expected": "App should display descriptive validation constraint message."
   },
   {
-    "id": "TC_WEB_085",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Boundary Conditions - Boundary 25",
+    "id": "TC_SRV_085",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Boundary Conditions - Boundary 25",
     "steps": "1. Set parameters to limits 25.\n2. Send request to endpoint.\n3. Verify error handling.",
     "expected": "App should display descriptive validation constraint message."
   },
   {
-    "id": "TC_WEB_086",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Boundary Conditions - Boundary 26",
+    "id": "TC_SRV_086",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Boundary Conditions - Boundary 26",
     "steps": "1. Set parameters to limits 26.\n2. Send request to endpoint.\n3. Verify error handling.",
     "expected": "App should display descriptive validation constraint message."
   },
   {
-    "id": "TC_WEB_087",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Boundary Conditions - Boundary 27",
+    "id": "TC_SRV_087",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Boundary Conditions - Boundary 27",
     "steps": "1. Set parameters to limits 27.\n2. Send request to endpoint.\n3. Verify error handling.",
     "expected": "App should display descriptive validation constraint message."
   },
   {
-    "id": "TC_WEB_088",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Boundary Conditions - Boundary 28",
+    "id": "TC_SRV_088",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Boundary Conditions - Boundary 28",
     "steps": "1. Set parameters to limits 28.\n2. Send request to endpoint.\n3. Verify error handling.",
     "expected": "App should display descriptive validation constraint message."
   },
   {
-    "id": "TC_WEB_089",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Boundary Conditions - Boundary 29",
+    "id": "TC_SRV_089",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Boundary Conditions - Boundary 29",
     "steps": "1. Set parameters to limits 29.\n2. Send request to endpoint.\n3. Verify error handling.",
     "expected": "App should display descriptive validation constraint message."
   },
   {
-    "id": "TC_WEB_090",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Boundary Conditions - Boundary 30",
+    "id": "TC_SRV_090",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Boundary Conditions - Boundary 30",
     "steps": "1. Set parameters to limits 30.\n2. Send request to endpoint.\n3. Verify error handling.",
     "expected": "App should display descriptive validation constraint message."
   },
   {
-    "id": "TC_WEB_091",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Boundary Conditions - Boundary 31",
+    "id": "TC_SRV_091",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Boundary Conditions - Boundary 31",
     "steps": "1. Set parameters to limits 31.\n2. Send request to endpoint.\n3. Verify error handling.",
     "expected": "App should display descriptive validation constraint message."
   },
   {
-    "id": "TC_WEB_092",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Boundary Conditions - Boundary 32",
+    "id": "TC_SRV_092",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Boundary Conditions - Boundary 32",
     "steps": "1. Set parameters to limits 32.\n2. Send request to endpoint.\n3. Verify error handling.",
     "expected": "App should display descriptive validation constraint message."
   },
   {
-    "id": "TC_WEB_093",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Boundary Conditions - Boundary 33",
+    "id": "TC_SRV_093",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Boundary Conditions - Boundary 33",
     "steps": "1. Set parameters to limits 33.\n2. Send request to endpoint.\n3. Verify error handling.",
     "expected": "App should display descriptive validation constraint message."
   },
   {
-    "id": "TC_WEB_094",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Boundary Conditions - Boundary 34",
+    "id": "TC_SRV_094",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Boundary Conditions - Boundary 34",
     "steps": "1. Set parameters to limits 34.\n2. Send request to endpoint.\n3. Verify error handling.",
     "expected": "App should display descriptive validation constraint message."
   },
   {
-    "id": "TC_WEB_095",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Boundary Conditions - Boundary 35",
+    "id": "TC_SRV_095",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Boundary Conditions - Boundary 35",
     "steps": "1. Set parameters to limits 35.\n2. Send request to endpoint.\n3. Verify error handling.",
     "expected": "App should display descriptive validation constraint message."
   },
   {
-    "id": "TC_WEB_096",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Boundary Conditions - Boundary 36",
+    "id": "TC_SRV_096",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Boundary Conditions - Boundary 36",
     "steps": "1. Set parameters to limits 36.\n2. Send request to endpoint.\n3. Verify error handling.",
     "expected": "App should display descriptive validation constraint message."
   },
   {
-    "id": "TC_WEB_097",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Boundary Conditions - Boundary 37",
+    "id": "TC_SRV_097",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Boundary Conditions - Boundary 37",
     "steps": "1. Set parameters to limits 37.\n2. Send request to endpoint.\n3. Verify error handling.",
     "expected": "App should display descriptive validation constraint message."
   },
   {
-    "id": "TC_WEB_098",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Boundary Conditions - Boundary 38",
+    "id": "TC_SRV_098",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Boundary Conditions - Boundary 38",
     "steps": "1. Set parameters to limits 38.\n2. Send request to endpoint.\n3. Verify error handling.",
     "expected": "App should display descriptive validation constraint message."
   },
   {
-    "id": "TC_WEB_099",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Boundary Conditions - Boundary 39",
+    "id": "TC_SRV_099",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Boundary Conditions - Boundary 39",
     "steps": "1. Set parameters to limits 39.\n2. Send request to endpoint.\n3. Verify error handling.",
     "expected": "App should display descriptive validation constraint message."
   },
   {
-    "id": "TC_WEB_100",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Boundary Conditions - Boundary 40",
+    "id": "TC_SRV_100",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Boundary Conditions - Boundary 40",
     "steps": "1. Set parameters to limits 40.\n2. Send request to endpoint.\n3. Verify error handling.",
     "expected": "App should display descriptive validation constraint message."
   },
   {
-    "id": "TC_WEB_101",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Boundary Conditions - Boundary 41",
+    "id": "TC_SRV_101",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Boundary Conditions - Boundary 41",
     "steps": "1. Set parameters to limits 41.\n2. Send request to endpoint.\n3. Verify error handling.",
     "expected": "App should display descriptive validation constraint message."
   },
   {
-    "id": "TC_WEB_102",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Boundary Conditions - Boundary 42",
+    "id": "TC_SRV_102",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Boundary Conditions - Boundary 42",
     "steps": "1. Set parameters to limits 42.\n2. Send request to endpoint.\n3. Verify error handling.",
     "expected": "App should display descriptive validation constraint message."
   },
   {
-    "id": "TC_WEB_103",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Boundary Conditions - Boundary 43",
+    "id": "TC_SRV_103",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Boundary Conditions - Boundary 43",
     "steps": "1. Set parameters to limits 43.\n2. Send request to endpoint.\n3. Verify error handling.",
     "expected": "App should display descriptive validation constraint message."
   },
   {
-    "id": "TC_WEB_104",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Boundary Conditions - Boundary 44",
+    "id": "TC_SRV_104",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Boundary Conditions - Boundary 44",
     "steps": "1. Set parameters to limits 44.\n2. Send request to endpoint.\n3. Verify error handling.",
     "expected": "App should display descriptive validation constraint message."
   },
   {
-    "id": "TC_WEB_105",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Boundary Conditions - Boundary 45",
+    "id": "TC_SRV_105",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Boundary Conditions - Boundary 45",
     "steps": "1. Set parameters to limits 45.\n2. Send request to endpoint.\n3. Verify error handling.",
     "expected": "App should display descriptive validation constraint message."
   },
   {
-    "id": "TC_WEB_106",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Boundary Conditions - Boundary 46",
+    "id": "TC_SRV_106",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Boundary Conditions - Boundary 46",
     "steps": "1. Set parameters to limits 46.\n2. Send request to endpoint.\n3. Verify error handling.",
     "expected": "App should display descriptive validation constraint message."
   },
   {
-    "id": "TC_WEB_107",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Boundary Conditions - Boundary 47",
+    "id": "TC_SRV_107",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Boundary Conditions - Boundary 47",
     "steps": "1. Set parameters to limits 47.\n2. Send request to endpoint.\n3. Verify error handling.",
     "expected": "App should display descriptive validation constraint message."
   },
   {
-    "id": "TC_WEB_108",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Boundary Conditions - Boundary 48",
+    "id": "TC_SRV_108",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Boundary Conditions - Boundary 48",
     "steps": "1. Set parameters to limits 48.\n2. Send request to endpoint.\n3. Verify error handling.",
     "expected": "App should display descriptive validation constraint message."
   },
   {
-    "id": "TC_WEB_109",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Boundary Conditions - Boundary 49",
+    "id": "TC_SRV_109",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Boundary Conditions - Boundary 49",
     "steps": "1. Set parameters to limits 49.\n2. Send request to endpoint.\n3. Verify error handling.",
     "expected": "App should display descriptive validation constraint message."
   },
   {
-    "id": "TC_WEB_110",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Boundary Conditions - Boundary 50",
+    "id": "TC_SRV_110",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Boundary Conditions - Boundary 50",
     "steps": "1. Set parameters to limits 50.\n2. Send request to endpoint.\n3. Verify error handling.",
     "expected": "App should display descriptive validation constraint message."
   },
   {
-    "id": "TC_WEB_111",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Boundary Conditions - Boundary 51",
+    "id": "TC_SRV_111",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Boundary Conditions - Boundary 51",
     "steps": "1. Set parameters to limits 51.\n2. Send request to endpoint.\n3. Verify error handling.",
     "expected": "App should display descriptive validation constraint message."
   },
   {
-    "id": "TC_WEB_112",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Boundary Conditions - Boundary 52",
+    "id": "TC_SRV_112",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Boundary Conditions - Boundary 52",
     "steps": "1. Set parameters to limits 52.\n2. Send request to endpoint.\n3. Verify error handling.",
     "expected": "App should display descriptive validation constraint message."
   },
   {
-    "id": "TC_WEB_113",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Boundary Conditions - Boundary 53",
+    "id": "TC_SRV_113",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Boundary Conditions - Boundary 53",
     "steps": "1. Set parameters to limits 53.\n2. Send request to endpoint.\n3. Verify error handling.",
     "expected": "App should display descriptive validation constraint message."
   },
   {
-    "id": "TC_WEB_114",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Boundary Conditions - Boundary 54",
+    "id": "TC_SRV_114",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Boundary Conditions - Boundary 54",
     "steps": "1. Set parameters to limits 54.\n2. Send request to endpoint.\n3. Verify error handling.",
     "expected": "App should display descriptive validation constraint message."
   },
   {
-    "id": "TC_WEB_115",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Boundary Conditions - Boundary 55",
+    "id": "TC_SRV_115",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Boundary Conditions - Boundary 55",
     "steps": "1. Set parameters to limits 55.\n2. Send request to endpoint.\n3. Verify error handling.",
     "expected": "App should display descriptive validation constraint message."
   },
   {
-    "id": "TC_WEB_116",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Boundary Conditions - Boundary 56",
+    "id": "TC_SRV_116",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Boundary Conditions - Boundary 56",
     "steps": "1. Set parameters to limits 56.\n2. Send request to endpoint.\n3. Verify error handling.",
     "expected": "App should display descriptive validation constraint message."
   },
   {
-    "id": "TC_WEB_117",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Boundary Conditions - Boundary 57",
+    "id": "TC_SRV_117",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Boundary Conditions - Boundary 57",
     "steps": "1. Set parameters to limits 57.\n2. Send request to endpoint.\n3. Verify error handling.",
     "expected": "App should display descriptive validation constraint message."
   },
   {
-    "id": "TC_WEB_118",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Boundary Conditions - Boundary 58",
+    "id": "TC_SRV_118",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Boundary Conditions - Boundary 58",
     "steps": "1. Set parameters to limits 58.\n2. Send request to endpoint.\n3. Verify error handling.",
     "expected": "App should display descriptive validation constraint message."
   },
   {
-    "id": "TC_WEB_119",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Boundary Conditions - Boundary 59",
+    "id": "TC_SRV_119",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Boundary Conditions - Boundary 59",
     "steps": "1. Set parameters to limits 59.\n2. Send request to endpoint.\n3. Verify error handling.",
     "expected": "App should display descriptive validation constraint message."
   },
   {
-    "id": "TC_WEB_120",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Boundary Conditions - Boundary 60",
+    "id": "TC_SRV_120",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Boundary Conditions - Boundary 60",
     "steps": "1. Set parameters to limits 60.\n2. Send request to endpoint.\n3. Verify error handling.",
     "expected": "App should display descriptive validation constraint message."
   },
   {
-    "id": "TC_WEB_121",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Authentication and Security - Check 1",
+    "id": "TC_SRV_121",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Authentication and Security - Check 1",
     "steps": "1. Inject check credentials 1.\n2. Try accessing resource.\n3. Check redirection.",
     "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
-    "id": "TC_WEB_122",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Authentication and Security - Check 2",
+    "id": "TC_SRV_122",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Authentication and Security - Check 2",
     "steps": "1. Inject check credentials 2.\n2. Try accessing resource.\n3. Check redirection.",
     "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
-    "id": "TC_WEB_123",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Authentication and Security - Check 3",
+    "id": "TC_SRV_123",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Authentication and Security - Check 3",
     "steps": "1. Inject check credentials 3.\n2. Try accessing resource.\n3. Check redirection.",
     "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
-    "id": "TC_WEB_124",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Authentication and Security - Check 4",
+    "id": "TC_SRV_124",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Authentication and Security - Check 4",
     "steps": "1. Inject check credentials 4.\n2. Try accessing resource.\n3. Check redirection.",
     "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
-    "id": "TC_WEB_125",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Authentication and Security - Check 5",
+    "id": "TC_SRV_125",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Authentication and Security - Check 5",
     "steps": "1. Inject check credentials 5.\n2. Try accessing resource.\n3. Check redirection.",
     "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
-    "id": "TC_WEB_126",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Authentication and Security - Check 6",
+    "id": "TC_SRV_126",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Authentication and Security - Check 6",
     "steps": "1. Inject check credentials 6.\n2. Try accessing resource.\n3. Check redirection.",
     "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
-    "id": "TC_WEB_127",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Authentication and Security - Check 7",
+    "id": "TC_SRV_127",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Authentication and Security - Check 7",
     "steps": "1. Inject check credentials 7.\n2. Try accessing resource.\n3. Check redirection.",
     "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
-    "id": "TC_WEB_128",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Authentication and Security - Check 8",
+    "id": "TC_SRV_128",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Authentication and Security - Check 8",
     "steps": "1. Inject check credentials 8.\n2. Try accessing resource.\n3. Check redirection.",
     "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
-    "id": "TC_WEB_129",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Authentication and Security - Check 9",
+    "id": "TC_SRV_129",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Authentication and Security - Check 9",
     "steps": "1. Inject check credentials 9.\n2. Try accessing resource.\n3. Check redirection.",
     "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
-    "id": "TC_WEB_130",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Authentication and Security - Check 10",
+    "id": "TC_SRV_130",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Authentication and Security - Check 10",
     "steps": "1. Inject check credentials 10.\n2. Try accessing resource.\n3. Check redirection.",
     "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
-    "id": "TC_WEB_131",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Authentication and Security - Check 11",
+    "id": "TC_SRV_131",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Authentication and Security - Check 11",
     "steps": "1. Inject check credentials 11.\n2. Try accessing resource.\n3. Check redirection.",
     "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
-    "id": "TC_WEB_132",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Authentication and Security - Check 12",
+    "id": "TC_SRV_132",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Authentication and Security - Check 12",
     "steps": "1. Inject check credentials 12.\n2. Try accessing resource.\n3. Check redirection.",
     "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
-    "id": "TC_WEB_133",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Authentication and Security - Check 13",
+    "id": "TC_SRV_133",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Authentication and Security - Check 13",
     "steps": "1. Inject check credentials 13.\n2. Try accessing resource.\n3. Check redirection.",
     "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
-    "id": "TC_WEB_134",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Authentication and Security - Check 14",
+    "id": "TC_SRV_134",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Authentication and Security - Check 14",
     "steps": "1. Inject check credentials 14.\n2. Try accessing resource.\n3. Check redirection.",
     "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
-    "id": "TC_WEB_135",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Authentication and Security - Check 15",
+    "id": "TC_SRV_135",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Authentication and Security - Check 15",
     "steps": "1. Inject check credentials 15.\n2. Try accessing resource.\n3. Check redirection.",
     "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
-    "id": "TC_WEB_136",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Authentication and Security - Check 16",
+    "id": "TC_SRV_136",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Authentication and Security - Check 16",
     "steps": "1. Inject check credentials 16.\n2. Try accessing resource.\n3. Check redirection.",
     "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
-    "id": "TC_WEB_137",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Authentication and Security - Check 17",
+    "id": "TC_SRV_137",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Authentication and Security - Check 17",
     "steps": "1. Inject check credentials 17.\n2. Try accessing resource.\n3. Check redirection.",
     "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
-    "id": "TC_WEB_138",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Authentication and Security - Check 18",
+    "id": "TC_SRV_138",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Authentication and Security - Check 18",
     "steps": "1. Inject check credentials 18.\n2. Try accessing resource.\n3. Check redirection.",
     "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
-    "id": "TC_WEB_139",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Authentication and Security - Check 19",
+    "id": "TC_SRV_139",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Authentication and Security - Check 19",
     "steps": "1. Inject check credentials 19.\n2. Try accessing resource.\n3. Check redirection.",
     "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
-    "id": "TC_WEB_140",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Authentication and Security - Check 20",
+    "id": "TC_SRV_140",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Authentication and Security - Check 20",
     "steps": "1. Inject check credentials 20.\n2. Try accessing resource.\n3. Check redirection.",
     "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
-    "id": "TC_WEB_141",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Authentication and Security - Check 21",
+    "id": "TC_SRV_141",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Authentication and Security - Check 21",
     "steps": "1. Inject check credentials 21.\n2. Try accessing resource.\n3. Check redirection.",
     "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
-    "id": "TC_WEB_142",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Authentication and Security - Check 22",
+    "id": "TC_SRV_142",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Authentication and Security - Check 22",
     "steps": "1. Inject check credentials 22.\n2. Try accessing resource.\n3. Check redirection.",
     "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
-    "id": "TC_WEB_143",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Authentication and Security - Check 23",
+    "id": "TC_SRV_143",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Authentication and Security - Check 23",
     "steps": "1. Inject check credentials 23.\n2. Try accessing resource.\n3. Check redirection.",
     "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
-    "id": "TC_WEB_144",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Authentication and Security - Check 24",
+    "id": "TC_SRV_144",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Authentication and Security - Check 24",
     "steps": "1. Inject check credentials 24.\n2. Try accessing resource.\n3. Check redirection.",
     "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
-    "id": "TC_WEB_145",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Authentication and Security - Check 25",
+    "id": "TC_SRV_145",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Authentication and Security - Check 25",
     "steps": "1. Inject check credentials 25.\n2. Try accessing resource.\n3. Check redirection.",
     "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
-    "id": "TC_WEB_146",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Authentication and Security - Check 26",
+    "id": "TC_SRV_146",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Authentication and Security - Check 26",
     "steps": "1. Inject check credentials 26.\n2. Try accessing resource.\n3. Check redirection.",
     "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
-    "id": "TC_WEB_147",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Authentication and Security - Check 27",
+    "id": "TC_SRV_147",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Authentication and Security - Check 27",
     "steps": "1. Inject check credentials 27.\n2. Try accessing resource.\n3. Check redirection.",
     "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
-    "id": "TC_WEB_148",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Authentication and Security - Check 28",
+    "id": "TC_SRV_148",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Authentication and Security - Check 28",
     "steps": "1. Inject check credentials 28.\n2. Try accessing resource.\n3. Check redirection.",
     "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
-    "id": "TC_WEB_149",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Authentication and Security - Check 29",
+    "id": "TC_SRV_149",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Authentication and Security - Check 29",
     "steps": "1. Inject check credentials 29.\n2. Try accessing resource.\n3. Check redirection.",
     "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
-    "id": "TC_WEB_150",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Authentication and Security - Check 30",
+    "id": "TC_SRV_150",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Authentication and Security - Check 30",
     "steps": "1. Inject check credentials 30.\n2. Try accessing resource.\n3. Check redirection.",
     "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
-    "id": "TC_WEB_151",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Authentication and Security - Check 31",
+    "id": "TC_SRV_151",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Authentication and Security - Check 31",
     "steps": "1. Inject check credentials 31.\n2. Try accessing resource.\n3. Check redirection.",
     "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
-    "id": "TC_WEB_152",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Authentication and Security - Check 32",
+    "id": "TC_SRV_152",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Authentication and Security - Check 32",
     "steps": "1. Inject check credentials 32.\n2. Try accessing resource.\n3. Check redirection.",
     "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
-    "id": "TC_WEB_153",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Authentication and Security - Check 33",
+    "id": "TC_SRV_153",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Authentication and Security - Check 33",
     "steps": "1. Inject check credentials 33.\n2. Try accessing resource.\n3. Check redirection.",
     "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
-    "id": "TC_WEB_154",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Authentication and Security - Check 34",
+    "id": "TC_SRV_154",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Authentication and Security - Check 34",
     "steps": "1. Inject check credentials 34.\n2. Try accessing resource.\n3. Check redirection.",
     "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
-    "id": "TC_WEB_155",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Authentication and Security - Check 35",
+    "id": "TC_SRV_155",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Authentication and Security - Check 35",
     "steps": "1. Inject check credentials 35.\n2. Try accessing resource.\n3. Check redirection.",
     "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
-    "id": "TC_WEB_156",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Authentication and Security - Check 36",
+    "id": "TC_SRV_156",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Authentication and Security - Check 36",
     "steps": "1. Inject check credentials 36.\n2. Try accessing resource.\n3. Check redirection.",
     "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
-    "id": "TC_WEB_157",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Authentication and Security - Check 37",
+    "id": "TC_SRV_157",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Authentication and Security - Check 37",
     "steps": "1. Inject check credentials 37.\n2. Try accessing resource.\n3. Check redirection.",
     "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
-    "id": "TC_WEB_158",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Authentication and Security - Check 38",
+    "id": "TC_SRV_158",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Authentication and Security - Check 38",
     "steps": "1. Inject check credentials 38.\n2. Try accessing resource.\n3. Check redirection.",
     "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
-    "id": "TC_WEB_159",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Authentication and Security - Check 39",
+    "id": "TC_SRV_159",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Authentication and Security - Check 39",
     "steps": "1. Inject check credentials 39.\n2. Try accessing resource.\n3. Check redirection.",
     "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
-    "id": "TC_WEB_160",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Authentication and Security - Check 40",
+    "id": "TC_SRV_160",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Authentication and Security - Check 40",
     "steps": "1. Inject check credentials 40.\n2. Try accessing resource.\n3. Check redirection.",
     "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
-    "id": "TC_WEB_161",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Authentication and Security - Check 41",
+    "id": "TC_SRV_161",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Authentication and Security - Check 41",
     "steps": "1. Inject check credentials 41.\n2. Try accessing resource.\n3. Check redirection.",
     "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
-    "id": "TC_WEB_162",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Authentication and Security - Check 42",
+    "id": "TC_SRV_162",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Authentication and Security - Check 42",
     "steps": "1. Inject check credentials 42.\n2. Try accessing resource.\n3. Check redirection.",
     "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
-    "id": "TC_WEB_163",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Authentication and Security - Check 43",
+    "id": "TC_SRV_163",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Authentication and Security - Check 43",
     "steps": "1. Inject check credentials 43.\n2. Try accessing resource.\n3. Check redirection.",
     "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
-    "id": "TC_WEB_164",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Authentication and Security - Check 44",
+    "id": "TC_SRV_164",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Authentication and Security - Check 44",
     "steps": "1. Inject check credentials 44.\n2. Try accessing resource.\n3. Check redirection.",
     "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
-    "id": "TC_WEB_165",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Authentication and Security - Check 45",
+    "id": "TC_SRV_165",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Authentication and Security - Check 45",
     "steps": "1. Inject check credentials 45.\n2. Try accessing resource.\n3. Check redirection.",
     "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
-    "id": "TC_WEB_166",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Authentication and Security - Check 46",
+    "id": "TC_SRV_166",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Authentication and Security - Check 46",
     "steps": "1. Inject check credentials 46.\n2. Try accessing resource.\n3. Check redirection.",
     "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
-    "id": "TC_WEB_167",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Authentication and Security - Check 47",
+    "id": "TC_SRV_167",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Authentication and Security - Check 47",
     "steps": "1. Inject check credentials 47.\n2. Try accessing resource.\n3. Check redirection.",
     "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
-    "id": "TC_WEB_168",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Authentication and Security - Check 48",
+    "id": "TC_SRV_168",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Authentication and Security - Check 48",
     "steps": "1. Inject check credentials 48.\n2. Try accessing resource.\n3. Check redirection.",
     "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
-    "id": "TC_WEB_169",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Authentication and Security - Check 49",
+    "id": "TC_SRV_169",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Authentication and Security - Check 49",
     "steps": "1. Inject check credentials 49.\n2. Try accessing resource.\n3. Check redirection.",
     "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
-    "id": "TC_WEB_170",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Authentication and Security - Check 50",
+    "id": "TC_SRV_170",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Authentication and Security - Check 50",
     "steps": "1. Inject check credentials 50.\n2. Try accessing resource.\n3. Check redirection.",
     "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
-    "id": "TC_WEB_171",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Authentication and Security - Check 51",
+    "id": "TC_SRV_171",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Authentication and Security - Check 51",
     "steps": "1. Inject check credentials 51.\n2. Try accessing resource.\n3. Check redirection.",
     "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
-    "id": "TC_WEB_172",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Authentication and Security - Check 52",
+    "id": "TC_SRV_172",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Authentication and Security - Check 52",
     "steps": "1. Inject check credentials 52.\n2. Try accessing resource.\n3. Check redirection.",
     "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
-    "id": "TC_WEB_173",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Authentication and Security - Check 53",
+    "id": "TC_SRV_173",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Authentication and Security - Check 53",
     "steps": "1. Inject check credentials 53.\n2. Try accessing resource.\n3. Check redirection.",
     "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
-    "id": "TC_WEB_174",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Authentication and Security - Check 54",
+    "id": "TC_SRV_174",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Authentication and Security - Check 54",
     "steps": "1. Inject check credentials 54.\n2. Try accessing resource.\n3. Check redirection.",
     "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
-    "id": "TC_WEB_175",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Authentication and Security - Check 55",
+    "id": "TC_SRV_175",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Authentication and Security - Check 55",
     "steps": "1. Inject check credentials 55.\n2. Try accessing resource.\n3. Check redirection.",
     "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
-    "id": "TC_WEB_176",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Authentication and Security - Check 56",
+    "id": "TC_SRV_176",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Authentication and Security - Check 56",
     "steps": "1. Inject check credentials 56.\n2. Try accessing resource.\n3. Check redirection.",
     "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
-    "id": "TC_WEB_177",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Authentication and Security - Check 57",
+    "id": "TC_SRV_177",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Authentication and Security - Check 57",
     "steps": "1. Inject check credentials 57.\n2. Try accessing resource.\n3. Check redirection.",
     "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
-    "id": "TC_WEB_178",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Authentication and Security - Check 58",
+    "id": "TC_SRV_178",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Authentication and Security - Check 58",
     "steps": "1. Inject check credentials 58.\n2. Try accessing resource.\n3. Check redirection.",
     "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
-    "id": "TC_WEB_179",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Authentication and Security - Check 59",
+    "id": "TC_SRV_179",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Authentication and Security - Check 59",
     "steps": "1. Inject check credentials 59.\n2. Try accessing resource.\n3. Check redirection.",
     "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
-    "id": "TC_WEB_180",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Authentication and Security - Check 60",
+    "id": "TC_SRV_180",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Authentication and Security - Check 60",
     "steps": "1. Inject check credentials 60.\n2. Try accessing resource.\n3. Check redirection.",
     "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
-    "id": "TC_WEB_181",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E UI/UX and Local Cache - Flow 1",
+    "id": "TC_SRV_181",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests UI/UX and Local Cache - Flow 1",
     "steps": "1. Load UI components.\n2. Modify state 1.\n3. Check persistent caching.",
     "expected": "State must persist and render without redraw latency."
   },
   {
-    "id": "TC_WEB_182",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E UI/UX and Local Cache - Flow 2",
+    "id": "TC_SRV_182",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests UI/UX and Local Cache - Flow 2",
     "steps": "1. Load UI components.\n2. Modify state 2.\n3. Check persistent caching.",
     "expected": "State must persist and render without redraw latency."
   },
   {
-    "id": "TC_WEB_183",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E UI/UX and Local Cache - Flow 3",
+    "id": "TC_SRV_183",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests UI/UX and Local Cache - Flow 3",
     "steps": "1. Load UI components.\n2. Modify state 3.\n3. Check persistent caching.",
     "expected": "State must persist and render without redraw latency."
   },
   {
-    "id": "TC_WEB_184",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E UI/UX and Local Cache - Flow 4",
+    "id": "TC_SRV_184",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests UI/UX and Local Cache - Flow 4",
     "steps": "1. Load UI components.\n2. Modify state 4.\n3. Check persistent caching.",
     "expected": "State must persist and render without redraw latency."
   },
   {
-    "id": "TC_WEB_185",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E UI/UX and Local Cache - Flow 5",
+    "id": "TC_SRV_185",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests UI/UX and Local Cache - Flow 5",
     "steps": "1. Load UI components.\n2. Modify state 5.\n3. Check persistent caching.",
     "expected": "State must persist and render without redraw latency."
   },
   {
-    "id": "TC_WEB_186",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E UI/UX and Local Cache - Flow 6",
+    "id": "TC_SRV_186",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests UI/UX and Local Cache - Flow 6",
     "steps": "1. Load UI components.\n2. Modify state 6.\n3. Check persistent caching.",
     "expected": "State must persist and render without redraw latency."
   },
   {
-    "id": "TC_WEB_187",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E UI/UX and Local Cache - Flow 7",
+    "id": "TC_SRV_187",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests UI/UX and Local Cache - Flow 7",
     "steps": "1. Load UI components.\n2. Modify state 7.\n3. Check persistent caching.",
     "expected": "State must persist and render without redraw latency."
   },
   {
-    "id": "TC_WEB_188",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E UI/UX and Local Cache - Flow 8",
+    "id": "TC_SRV_188",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests UI/UX and Local Cache - Flow 8",
     "steps": "1. Load UI components.\n2. Modify state 8.\n3. Check persistent caching.",
     "expected": "State must persist and render without redraw latency."
   },
   {
-    "id": "TC_WEB_189",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E UI/UX and Local Cache - Flow 9",
+    "id": "TC_SRV_189",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests UI/UX and Local Cache - Flow 9",
     "steps": "1. Load UI components.\n2. Modify state 9.\n3. Check persistent caching.",
     "expected": "State must persist and render without redraw latency."
   },
   {
-    "id": "TC_WEB_190",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E UI/UX and Local Cache - Flow 10",
+    "id": "TC_SRV_190",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests UI/UX and Local Cache - Flow 10",
     "steps": "1. Load UI components.\n2. Modify state 10.\n3. Check persistent caching.",
     "expected": "State must persist and render without redraw latency."
   },
   {
-    "id": "TC_WEB_191",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E UI/UX and Local Cache - Flow 11",
+    "id": "TC_SRV_191",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests UI/UX and Local Cache - Flow 11",
     "steps": "1. Load UI components.\n2. Modify state 11.\n3. Check persistent caching.",
     "expected": "State must persist and render without redraw latency."
   },
   {
-    "id": "TC_WEB_192",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E UI/UX and Local Cache - Flow 12",
+    "id": "TC_SRV_192",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests UI/UX and Local Cache - Flow 12",
     "steps": "1. Load UI components.\n2. Modify state 12.\n3. Check persistent caching.",
     "expected": "State must persist and render without redraw latency."
   },
   {
-    "id": "TC_WEB_193",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E UI/UX and Local Cache - Flow 13",
+    "id": "TC_SRV_193",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests UI/UX and Local Cache - Flow 13",
     "steps": "1. Load UI components.\n2. Modify state 13.\n3. Check persistent caching.",
     "expected": "State must persist and render without redraw latency."
   },
   {
-    "id": "TC_WEB_194",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E UI/UX and Local Cache - Flow 14",
+    "id": "TC_SRV_194",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests UI/UX and Local Cache - Flow 14",
     "steps": "1. Load UI components.\n2. Modify state 14.\n3. Check persistent caching.",
     "expected": "State must persist and render without redraw latency."
   },
   {
-    "id": "TC_WEB_195",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E UI/UX and Local Cache - Flow 15",
+    "id": "TC_SRV_195",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests UI/UX and Local Cache - Flow 15",
     "steps": "1. Load UI components.\n2. Modify state 15.\n3. Check persistent caching.",
     "expected": "State must persist and render without redraw latency."
   },
   {
-    "id": "TC_WEB_196",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E UI/UX and Local Cache - Flow 16",
+    "id": "TC_SRV_196",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests UI/UX and Local Cache - Flow 16",
     "steps": "1. Load UI components.\n2. Modify state 16.\n3. Check persistent caching.",
     "expected": "State must persist and render without redraw latency."
   },
   {
-    "id": "TC_WEB_197",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E UI/UX and Local Cache - Flow 17",
+    "id": "TC_SRV_197",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests UI/UX and Local Cache - Flow 17",
     "steps": "1. Load UI components.\n2. Modify state 17.\n3. Check persistent caching.",
     "expected": "State must persist and render without redraw latency."
   },
   {
-    "id": "TC_WEB_198",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E UI/UX and Local Cache - Flow 18",
+    "id": "TC_SRV_198",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests UI/UX and Local Cache - Flow 18",
     "steps": "1. Load UI components.\n2. Modify state 18.\n3. Check persistent caching.",
     "expected": "State must persist and render without redraw latency."
   },
   {
-    "id": "TC_WEB_199",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E UI/UX and Local Cache - Flow 19",
+    "id": "TC_SRV_199",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests UI/UX and Local Cache - Flow 19",
     "steps": "1. Load UI components.\n2. Modify state 19.\n3. Check persistent caching.",
     "expected": "State must persist and render without redraw latency."
   },
   {
-    "id": "TC_WEB_200",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E UI/UX and Local Cache - Flow 20",
+    "id": "TC_SRV_200",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests UI/UX and Local Cache - Flow 20",
     "steps": "1. Load UI components.\n2. Modify state 20.\n3. Check persistent caching.",
     "expected": "State must persist and render without redraw latency."
   },
   {
-    "id": "TC_WEB_201",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E UI/UX and Local Cache - Flow 21",
+    "id": "TC_SRV_201",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests UI/UX and Local Cache - Flow 21",
     "steps": "1. Load UI components.\n2. Modify state 21.\n3. Check persistent caching.",
     "expected": "State must persist and render without redraw latency."
   },
   {
-    "id": "TC_WEB_202",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E UI/UX and Local Cache - Flow 22",
+    "id": "TC_SRV_202",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests UI/UX and Local Cache - Flow 22",
     "steps": "1. Load UI components.\n2. Modify state 22.\n3. Check persistent caching.",
     "expected": "State must persist and render without redraw latency."
   },
   {
-    "id": "TC_WEB_203",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E UI/UX and Local Cache - Flow 23",
+    "id": "TC_SRV_203",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests UI/UX and Local Cache - Flow 23",
     "steps": "1. Load UI components.\n2. Modify state 23.\n3. Check persistent caching.",
     "expected": "State must persist and render without redraw latency."
   },
   {
-    "id": "TC_WEB_204",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E UI/UX and Local Cache - Flow 24",
+    "id": "TC_SRV_204",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests UI/UX and Local Cache - Flow 24",
     "steps": "1. Load UI components.\n2. Modify state 24.\n3. Check persistent caching.",
     "expected": "State must persist and render without redraw latency."
   },
   {
-    "id": "TC_WEB_205",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E UI/UX and Local Cache - Flow 25",
+    "id": "TC_SRV_205",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests UI/UX and Local Cache - Flow 25",
     "steps": "1. Load UI components.\n2. Modify state 25.\n3. Check persistent caching.",
     "expected": "State must persist and render without redraw latency."
   },
   {
-    "id": "TC_WEB_206",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E UI/UX and Local Cache - Flow 26",
+    "id": "TC_SRV_206",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests UI/UX and Local Cache - Flow 26",
     "steps": "1. Load UI components.\n2. Modify state 26.\n3. Check persistent caching.",
     "expected": "State must persist and render without redraw latency."
   },
   {
-    "id": "TC_WEB_207",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E UI/UX and Local Cache - Flow 27",
+    "id": "TC_SRV_207",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests UI/UX and Local Cache - Flow 27",
     "steps": "1. Load UI components.\n2. Modify state 27.\n3. Check persistent caching.",
     "expected": "State must persist and render without redraw latency."
   },
   {
-    "id": "TC_WEB_208",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E UI/UX and Local Cache - Flow 28",
+    "id": "TC_SRV_208",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests UI/UX and Local Cache - Flow 28",
     "steps": "1. Load UI components.\n2. Modify state 28.\n3. Check persistent caching.",
     "expected": "State must persist and render without redraw latency."
   },
   {
-    "id": "TC_WEB_209",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E UI/UX and Local Cache - Flow 29",
+    "id": "TC_SRV_209",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests UI/UX and Local Cache - Flow 29",
     "steps": "1. Load UI components.\n2. Modify state 29.\n3. Check persistent caching.",
     "expected": "State must persist and render without redraw latency."
   },
   {
-    "id": "TC_WEB_210",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E UI/UX and Local Cache - Flow 30",
+    "id": "TC_SRV_210",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests UI/UX and Local Cache - Flow 30",
     "steps": "1. Load UI components.\n2. Modify state 30.\n3. Check persistent caching.",
     "expected": "State must persist and render without redraw latency."
   },
   {
-    "id": "TC_WEB_211",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E UI/UX and Local Cache - Flow 31",
+    "id": "TC_SRV_211",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests UI/UX and Local Cache - Flow 31",
     "steps": "1. Load UI components.\n2. Modify state 31.\n3. Check persistent caching.",
     "expected": "State must persist and render without redraw latency."
   },
   {
-    "id": "TC_WEB_212",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E UI/UX and Local Cache - Flow 32",
+    "id": "TC_SRV_212",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests UI/UX and Local Cache - Flow 32",
     "steps": "1. Load UI components.\n2. Modify state 32.\n3. Check persistent caching.",
     "expected": "State must persist and render without redraw latency."
   },
   {
-    "id": "TC_WEB_213",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E UI/UX and Local Cache - Flow 33",
+    "id": "TC_SRV_213",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests UI/UX and Local Cache - Flow 33",
     "steps": "1. Load UI components.\n2. Modify state 33.\n3. Check persistent caching.",
     "expected": "State must persist and render without redraw latency."
   },
   {
-    "id": "TC_WEB_214",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E UI/UX and Local Cache - Flow 34",
+    "id": "TC_SRV_214",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests UI/UX and Local Cache - Flow 34",
     "steps": "1. Load UI components.\n2. Modify state 34.\n3. Check persistent caching.",
     "expected": "State must persist and render without redraw latency."
   },
   {
-    "id": "TC_WEB_215",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E UI/UX and Local Cache - Flow 35",
+    "id": "TC_SRV_215",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests UI/UX and Local Cache - Flow 35",
     "steps": "1. Load UI components.\n2. Modify state 35.\n3. Check persistent caching.",
     "expected": "State must persist and render without redraw latency."
   },
   {
-    "id": "TC_WEB_216",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E UI/UX and Local Cache - Flow 36",
+    "id": "TC_SRV_216",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests UI/UX and Local Cache - Flow 36",
     "steps": "1. Load UI components.\n2. Modify state 36.\n3. Check persistent caching.",
     "expected": "State must persist and render without redraw latency."
   },
   {
-    "id": "TC_WEB_217",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E UI/UX and Local Cache - Flow 37",
+    "id": "TC_SRV_217",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests UI/UX and Local Cache - Flow 37",
     "steps": "1. Load UI components.\n2. Modify state 37.\n3. Check persistent caching.",
     "expected": "State must persist and render without redraw latency."
   },
   {
-    "id": "TC_WEB_218",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E UI/UX and Local Cache - Flow 38",
+    "id": "TC_SRV_218",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests UI/UX and Local Cache - Flow 38",
     "steps": "1. Load UI components.\n2. Modify state 38.\n3. Check persistent caching.",
     "expected": "State must persist and render without redraw latency."
   },
   {
-    "id": "TC_WEB_219",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E UI/UX and Local Cache - Flow 39",
+    "id": "TC_SRV_219",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests UI/UX and Local Cache - Flow 39",
     "steps": "1. Load UI components.\n2. Modify state 39.\n3. Check persistent caching.",
     "expected": "State must persist and render without redraw latency."
   },
   {
-    "id": "TC_WEB_220",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E UI/UX and Local Cache - Flow 40",
+    "id": "TC_SRV_220",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests UI/UX and Local Cache - Flow 40",
     "steps": "1. Load UI components.\n2. Modify state 40.\n3. Check persistent caching.",
     "expected": "State must persist and render without redraw latency."
   },
   {
-    "id": "TC_WEB_221",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E UI/UX and Local Cache - Flow 41",
+    "id": "TC_SRV_221",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests UI/UX and Local Cache - Flow 41",
     "steps": "1. Load UI components.\n2. Modify state 41.\n3. Check persistent caching.",
     "expected": "State must persist and render without redraw latency."
   },
   {
-    "id": "TC_WEB_222",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E UI/UX and Local Cache - Flow 42",
+    "id": "TC_SRV_222",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests UI/UX and Local Cache - Flow 42",
     "steps": "1. Load UI components.\n2. Modify state 42.\n3. Check persistent caching.",
     "expected": "State must persist and render without redraw latency."
   },
   {
-    "id": "TC_WEB_223",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E UI/UX and Local Cache - Flow 43",
+    "id": "TC_SRV_223",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests UI/UX and Local Cache - Flow 43",
     "steps": "1. Load UI components.\n2. Modify state 43.\n3. Check persistent caching.",
     "expected": "State must persist and render without redraw latency."
   },
   {
-    "id": "TC_WEB_224",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E UI/UX and Local Cache - Flow 44",
+    "id": "TC_SRV_224",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests UI/UX and Local Cache - Flow 44",
     "steps": "1. Load UI components.\n2. Modify state 44.\n3. Check persistent caching.",
     "expected": "State must persist and render without redraw latency."
   },
   {
-    "id": "TC_WEB_225",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E UI/UX and Local Cache - Flow 45",
+    "id": "TC_SRV_225",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests UI/UX and Local Cache - Flow 45",
     "steps": "1. Load UI components.\n2. Modify state 45.\n3. Check persistent caching.",
     "expected": "State must persist and render without redraw latency."
   },
   {
-    "id": "TC_WEB_226",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E UI/UX and Local Cache - Flow 46",
+    "id": "TC_SRV_226",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests UI/UX and Local Cache - Flow 46",
     "steps": "1. Load UI components.\n2. Modify state 46.\n3. Check persistent caching.",
     "expected": "State must persist and render without redraw latency."
   },
   {
-    "id": "TC_WEB_227",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E UI/UX and Local Cache - Flow 47",
+    "id": "TC_SRV_227",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests UI/UX and Local Cache - Flow 47",
     "steps": "1. Load UI components.\n2. Modify state 47.\n3. Check persistent caching.",
     "expected": "State must persist and render without redraw latency."
   },
   {
-    "id": "TC_WEB_228",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E UI/UX and Local Cache - Flow 48",
+    "id": "TC_SRV_228",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests UI/UX and Local Cache - Flow 48",
     "steps": "1. Load UI components.\n2. Modify state 48.\n3. Check persistent caching.",
     "expected": "State must persist and render without redraw latency."
   },
   {
-    "id": "TC_WEB_229",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E UI/UX and Local Cache - Flow 49",
+    "id": "TC_SRV_229",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests UI/UX and Local Cache - Flow 49",
     "steps": "1. Load UI components.\n2. Modify state 49.\n3. Check persistent caching.",
     "expected": "State must persist and render without redraw latency."
   },
   {
-    "id": "TC_WEB_230",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E UI/UX and Local Cache - Flow 50",
+    "id": "TC_SRV_230",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests UI/UX and Local Cache - Flow 50",
     "steps": "1. Load UI components.\n2. Modify state 50.\n3. Check persistent caching.",
     "expected": "State must persist and render without redraw latency."
   },
   {
-    "id": "TC_WEB_231",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E UI/UX and Local Cache - Flow 51",
+    "id": "TC_SRV_231",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests UI/UX and Local Cache - Flow 51",
     "steps": "1. Load UI components.\n2. Modify state 51.\n3. Check persistent caching.",
     "expected": "State must persist and render without redraw latency."
   },
   {
-    "id": "TC_WEB_232",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E UI/UX and Local Cache - Flow 52",
+    "id": "TC_SRV_232",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests UI/UX and Local Cache - Flow 52",
     "steps": "1. Load UI components.\n2. Modify state 52.\n3. Check persistent caching.",
     "expected": "State must persist and render without redraw latency."
   },
   {
-    "id": "TC_WEB_233",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E UI/UX and Local Cache - Flow 53",
+    "id": "TC_SRV_233",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests UI/UX and Local Cache - Flow 53",
     "steps": "1. Load UI components.\n2. Modify state 53.\n3. Check persistent caching.",
     "expected": "State must persist and render without redraw latency."
   },
   {
-    "id": "TC_WEB_234",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E UI/UX and Local Cache - Flow 54",
+    "id": "TC_SRV_234",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests UI/UX and Local Cache - Flow 54",
     "steps": "1. Load UI components.\n2. Modify state 54.\n3. Check persistent caching.",
     "expected": "State must persist and render without redraw latency."
   },
   {
-    "id": "TC_WEB_235",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E UI/UX and Local Cache - Flow 55",
+    "id": "TC_SRV_235",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests UI/UX and Local Cache - Flow 55",
     "steps": "1. Load UI components.\n2. Modify state 55.\n3. Check persistent caching.",
     "expected": "State must persist and render without redraw latency."
   },
   {
-    "id": "TC_WEB_236",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E UI/UX and Local Cache - Flow 56",
+    "id": "TC_SRV_236",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests UI/UX and Local Cache - Flow 56",
     "steps": "1. Load UI components.\n2. Modify state 56.\n3. Check persistent caching.",
     "expected": "State must persist and render without redraw latency."
   },
   {
-    "id": "TC_WEB_237",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E UI/UX and Local Cache - Flow 57",
+    "id": "TC_SRV_237",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests UI/UX and Local Cache - Flow 57",
     "steps": "1. Load UI components.\n2. Modify state 57.\n3. Check persistent caching.",
     "expected": "State must persist and render without redraw latency."
   },
   {
-    "id": "TC_WEB_238",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E UI/UX and Local Cache - Flow 58",
+    "id": "TC_SRV_238",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests UI/UX and Local Cache - Flow 58",
     "steps": "1. Load UI components.\n2. Modify state 58.\n3. Check persistent caching.",
     "expected": "State must persist and render without redraw latency."
   },
   {
-    "id": "TC_WEB_239",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E UI/UX and Local Cache - Flow 59",
+    "id": "TC_SRV_239",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests UI/UX and Local Cache - Flow 59",
     "steps": "1. Load UI components.\n2. Modify state 59.\n3. Check persistent caching.",
     "expected": "State must persist and render without redraw latency."
   },
   {
-    "id": "TC_WEB_240",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E UI/UX and Local Cache - Flow 60",
+    "id": "TC_SRV_240",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests UI/UX and Local Cache - Flow 60",
     "steps": "1. Load UI components.\n2. Modify state 60.\n3. Check persistent caching.",
     "expected": "State must persist and render without redraw latency."
   },
   {
-    "id": "TC_WEB_241",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Multi-Language Translations - Locale 1",
+    "id": "TC_SRV_241",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Multi-Language Translations - Locale 1",
     "steps": "1. Switch language.\n2. Inspect labels for index 1.\n3. Validate translations.",
     "expected": "Labels must render correctly in the chosen language."
   },
   {
-    "id": "TC_WEB_242",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Multi-Language Translations - Locale 2",
+    "id": "TC_SRV_242",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Multi-Language Translations - Locale 2",
     "steps": "1. Switch language.\n2. Inspect labels for index 2.\n3. Validate translations.",
     "expected": "Labels must render correctly in the chosen language."
   },
   {
-    "id": "TC_WEB_243",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Multi-Language Translations - Locale 3",
+    "id": "TC_SRV_243",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Multi-Language Translations - Locale 3",
     "steps": "1. Switch language.\n2. Inspect labels for index 3.\n3. Validate translations.",
     "expected": "Labels must render correctly in the chosen language."
   },
   {
-    "id": "TC_WEB_244",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Multi-Language Translations - Locale 4",
+    "id": "TC_SRV_244",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Multi-Language Translations - Locale 4",
     "steps": "1. Switch language.\n2. Inspect labels for index 4.\n3. Validate translations.",
     "expected": "Labels must render correctly in the chosen language."
   },
   {
-    "id": "TC_WEB_245",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Multi-Language Translations - Locale 5",
+    "id": "TC_SRV_245",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Multi-Language Translations - Locale 5",
     "steps": "1. Switch language.\n2. Inspect labels for index 5.\n3. Validate translations.",
     "expected": "Labels must render correctly in the chosen language."
   },
   {
-    "id": "TC_WEB_246",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Multi-Language Translations - Locale 6",
+    "id": "TC_SRV_246",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Multi-Language Translations - Locale 6",
     "steps": "1. Switch language.\n2. Inspect labels for index 6.\n3. Validate translations.",
     "expected": "Labels must render correctly in the chosen language."
   },
   {
-    "id": "TC_WEB_247",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Multi-Language Translations - Locale 7",
+    "id": "TC_SRV_247",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Multi-Language Translations - Locale 7",
     "steps": "1. Switch language.\n2. Inspect labels for index 7.\n3. Validate translations.",
     "expected": "Labels must render correctly in the chosen language."
   },
   {
-    "id": "TC_WEB_248",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Multi-Language Translations - Locale 8",
+    "id": "TC_SRV_248",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Multi-Language Translations - Locale 8",
     "steps": "1. Switch language.\n2. Inspect labels for index 8.\n3. Validate translations.",
     "expected": "Labels must render correctly in the chosen language."
   },
   {
-    "id": "TC_WEB_249",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Multi-Language Translations - Locale 9",
+    "id": "TC_SRV_249",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Multi-Language Translations - Locale 9",
     "steps": "1. Switch language.\n2. Inspect labels for index 9.\n3. Validate translations.",
     "expected": "Labels must render correctly in the chosen language."
   },
   {
-    "id": "TC_WEB_250",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Multi-Language Translations - Locale 10",
+    "id": "TC_SRV_250",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Multi-Language Translations - Locale 10",
     "steps": "1. Switch language.\n2. Inspect labels for index 10.\n3. Validate translations.",
     "expected": "Labels must render correctly in the chosen language."
   },
   {
-    "id": "TC_WEB_251",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Multi-Language Translations - Locale 11",
+    "id": "TC_SRV_251",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Multi-Language Translations - Locale 11",
     "steps": "1. Switch language.\n2. Inspect labels for index 11.\n3. Validate translations.",
     "expected": "Labels must render correctly in the chosen language."
   },
   {
-    "id": "TC_WEB_252",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Multi-Language Translations - Locale 12",
+    "id": "TC_SRV_252",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Multi-Language Translations - Locale 12",
     "steps": "1. Switch language.\n2. Inspect labels for index 12.\n3. Validate translations.",
     "expected": "Labels must render correctly in the chosen language."
   },
   {
-    "id": "TC_WEB_253",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Multi-Language Translations - Locale 13",
+    "id": "TC_SRV_253",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Multi-Language Translations - Locale 13",
     "steps": "1. Switch language.\n2. Inspect labels for index 13.\n3. Validate translations.",
     "expected": "Labels must render correctly in the chosen language."
   },
   {
-    "id": "TC_WEB_254",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Multi-Language Translations - Locale 14",
+    "id": "TC_SRV_254",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Multi-Language Translations - Locale 14",
     "steps": "1. Switch language.\n2. Inspect labels for index 14.\n3. Validate translations.",
     "expected": "Labels must render correctly in the chosen language."
   },
   {
-    "id": "TC_WEB_255",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Multi-Language Translations - Locale 15",
+    "id": "TC_SRV_255",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Multi-Language Translations - Locale 15",
     "steps": "1. Switch language.\n2. Inspect labels for index 15.\n3. Validate translations.",
     "expected": "Labels must render correctly in the chosen language."
   },
   {
-    "id": "TC_WEB_256",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Multi-Language Translations - Locale 16",
+    "id": "TC_SRV_256",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Multi-Language Translations - Locale 16",
     "steps": "1. Switch language.\n2. Inspect labels for index 16.\n3. Validate translations.",
     "expected": "Labels must render correctly in the chosen language."
   },
   {
-    "id": "TC_WEB_257",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Multi-Language Translations - Locale 17",
+    "id": "TC_SRV_257",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Multi-Language Translations - Locale 17",
     "steps": "1. Switch language.\n2. Inspect labels for index 17.\n3. Validate translations.",
     "expected": "Labels must render correctly in the chosen language."
   },
   {
-    "id": "TC_WEB_258",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Multi-Language Translations - Locale 18",
+    "id": "TC_SRV_258",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Multi-Language Translations - Locale 18",
     "steps": "1. Switch language.\n2. Inspect labels for index 18.\n3. Validate translations.",
     "expected": "Labels must render correctly in the chosen language."
   },
   {
-    "id": "TC_WEB_259",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Multi-Language Translations - Locale 19",
+    "id": "TC_SRV_259",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Multi-Language Translations - Locale 19",
     "steps": "1. Switch language.\n2. Inspect labels for index 19.\n3. Validate translations.",
     "expected": "Labels must render correctly in the chosen language."
   },
   {
-    "id": "TC_WEB_260",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Multi-Language Translations - Locale 20",
+    "id": "TC_SRV_260",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Multi-Language Translations - Locale 20",
     "steps": "1. Switch language.\n2. Inspect labels for index 20.\n3. Validate translations.",
     "expected": "Labels must render correctly in the chosen language."
   },
   {
-    "id": "TC_WEB_261",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Multi-Language Translations - Locale 21",
+    "id": "TC_SRV_261",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Multi-Language Translations - Locale 21",
     "steps": "1. Switch language.\n2. Inspect labels for index 21.\n3. Validate translations.",
     "expected": "Labels must render correctly in the chosen language."
   },
   {
-    "id": "TC_WEB_262",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Multi-Language Translations - Locale 22",
+    "id": "TC_SRV_262",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Multi-Language Translations - Locale 22",
     "steps": "1. Switch language.\n2. Inspect labels for index 22.\n3. Validate translations.",
     "expected": "Labels must render correctly in the chosen language."
   },
   {
-    "id": "TC_WEB_263",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Multi-Language Translations - Locale 23",
+    "id": "TC_SRV_263",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Multi-Language Translations - Locale 23",
     "steps": "1. Switch language.\n2. Inspect labels for index 23.\n3. Validate translations.",
     "expected": "Labels must render correctly in the chosen language."
   },
   {
-    "id": "TC_WEB_264",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Multi-Language Translations - Locale 24",
+    "id": "TC_SRV_264",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Multi-Language Translations - Locale 24",
     "steps": "1. Switch language.\n2. Inspect labels for index 24.\n3. Validate translations.",
     "expected": "Labels must render correctly in the chosen language."
   },
   {
-    "id": "TC_WEB_265",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Multi-Language Translations - Locale 25",
+    "id": "TC_SRV_265",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Multi-Language Translations - Locale 25",
     "steps": "1. Switch language.\n2. Inspect labels for index 25.\n3. Validate translations.",
     "expected": "Labels must render correctly in the chosen language."
   },
   {
-    "id": "TC_WEB_266",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Multi-Language Translations - Locale 26",
+    "id": "TC_SRV_266",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Multi-Language Translations - Locale 26",
     "steps": "1. Switch language.\n2. Inspect labels for index 26.\n3. Validate translations.",
     "expected": "Labels must render correctly in the chosen language."
   },
   {
-    "id": "TC_WEB_267",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Multi-Language Translations - Locale 27",
+    "id": "TC_SRV_267",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Multi-Language Translations - Locale 27",
     "steps": "1. Switch language.\n2. Inspect labels for index 27.\n3. Validate translations.",
     "expected": "Labels must render correctly in the chosen language."
   },
   {
-    "id": "TC_WEB_268",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Multi-Language Translations - Locale 28",
+    "id": "TC_SRV_268",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Multi-Language Translations - Locale 28",
     "steps": "1. Switch language.\n2. Inspect labels for index 28.\n3. Validate translations.",
     "expected": "Labels must render correctly in the chosen language."
   },
   {
-    "id": "TC_WEB_269",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Multi-Language Translations - Locale 29",
+    "id": "TC_SRV_269",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Multi-Language Translations - Locale 29",
     "steps": "1. Switch language.\n2. Inspect labels for index 29.\n3. Validate translations.",
     "expected": "Labels must render correctly in the chosen language."
   },
   {
-    "id": "TC_WEB_270",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Multi-Language Translations - Locale 30",
+    "id": "TC_SRV_270",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Multi-Language Translations - Locale 30",
     "steps": "1. Switch language.\n2. Inspect labels for index 30.\n3. Validate translations.",
     "expected": "Labels must render correctly in the chosen language."
   },
   {
-    "id": "TC_WEB_271",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Multi-Language Translations - Locale 31",
+    "id": "TC_SRV_271",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Multi-Language Translations - Locale 31",
     "steps": "1. Switch language.\n2. Inspect labels for index 31.\n3. Validate translations.",
     "expected": "Labels must render correctly in the chosen language."
   },
   {
-    "id": "TC_WEB_272",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Multi-Language Translations - Locale 32",
+    "id": "TC_SRV_272",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Multi-Language Translations - Locale 32",
     "steps": "1. Switch language.\n2. Inspect labels for index 32.\n3. Validate translations.",
     "expected": "Labels must render correctly in the chosen language."
   },
   {
-    "id": "TC_WEB_273",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Multi-Language Translations - Locale 33",
+    "id": "TC_SRV_273",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Multi-Language Translations - Locale 33",
     "steps": "1. Switch language.\n2. Inspect labels for index 33.\n3. Validate translations.",
     "expected": "Labels must render correctly in the chosen language."
   },
   {
-    "id": "TC_WEB_274",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Multi-Language Translations - Locale 34",
+    "id": "TC_SRV_274",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Multi-Language Translations - Locale 34",
     "steps": "1. Switch language.\n2. Inspect labels for index 34.\n3. Validate translations.",
     "expected": "Labels must render correctly in the chosen language."
   },
   {
-    "id": "TC_WEB_275",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Multi-Language Translations - Locale 35",
+    "id": "TC_SRV_275",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Multi-Language Translations - Locale 35",
     "steps": "1. Switch language.\n2. Inspect labels for index 35.\n3. Validate translations.",
     "expected": "Labels must render correctly in the chosen language."
   },
   {
-    "id": "TC_WEB_276",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Multi-Language Translations - Locale 36",
+    "id": "TC_SRV_276",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Multi-Language Translations - Locale 36",
     "steps": "1. Switch language.\n2. Inspect labels for index 36.\n3. Validate translations.",
     "expected": "Labels must render correctly in the chosen language."
   },
   {
-    "id": "TC_WEB_277",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Multi-Language Translations - Locale 37",
+    "id": "TC_SRV_277",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Multi-Language Translations - Locale 37",
     "steps": "1. Switch language.\n2. Inspect labels for index 37.\n3. Validate translations.",
     "expected": "Labels must render correctly in the chosen language."
   },
   {
-    "id": "TC_WEB_278",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Multi-Language Translations - Locale 38",
+    "id": "TC_SRV_278",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Multi-Language Translations - Locale 38",
     "steps": "1. Switch language.\n2. Inspect labels for index 38.\n3. Validate translations.",
     "expected": "Labels must render correctly in the chosen language."
   },
   {
-    "id": "TC_WEB_279",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Multi-Language Translations - Locale 39",
+    "id": "TC_SRV_279",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Multi-Language Translations - Locale 39",
     "steps": "1. Switch language.\n2. Inspect labels for index 39.\n3. Validate translations.",
     "expected": "Labels must render correctly in the chosen language."
   },
   {
-    "id": "TC_WEB_280",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Multi-Language Translations - Locale 40",
+    "id": "TC_SRV_280",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Multi-Language Translations - Locale 40",
     "steps": "1. Switch language.\n2. Inspect labels for index 40.\n3. Validate translations.",
     "expected": "Labels must render correctly in the chosen language."
   },
   {
-    "id": "TC_WEB_281",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Multi-Language Translations - Locale 41",
+    "id": "TC_SRV_281",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Multi-Language Translations - Locale 41",
     "steps": "1. Switch language.\n2. Inspect labels for index 41.\n3. Validate translations.",
     "expected": "Labels must render correctly in the chosen language."
   },
   {
-    "id": "TC_WEB_282",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Multi-Language Translations - Locale 42",
+    "id": "TC_SRV_282",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Multi-Language Translations - Locale 42",
     "steps": "1. Switch language.\n2. Inspect labels for index 42.\n3. Validate translations.",
     "expected": "Labels must render correctly in the chosen language."
   },
   {
-    "id": "TC_WEB_283",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Multi-Language Translations - Locale 43",
+    "id": "TC_SRV_283",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Multi-Language Translations - Locale 43",
     "steps": "1. Switch language.\n2. Inspect labels for index 43.\n3. Validate translations.",
     "expected": "Labels must render correctly in the chosen language."
   },
   {
-    "id": "TC_WEB_284",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Multi-Language Translations - Locale 44",
+    "id": "TC_SRV_284",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Multi-Language Translations - Locale 44",
     "steps": "1. Switch language.\n2. Inspect labels for index 44.\n3. Validate translations.",
     "expected": "Labels must render correctly in the chosen language."
   },
   {
-    "id": "TC_WEB_285",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Multi-Language Translations - Locale 45",
+    "id": "TC_SRV_285",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Multi-Language Translations - Locale 45",
     "steps": "1. Switch language.\n2. Inspect labels for index 45.\n3. Validate translations.",
     "expected": "Labels must render correctly in the chosen language."
   },
   {
-    "id": "TC_WEB_286",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Multi-Language Translations - Locale 46",
+    "id": "TC_SRV_286",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Multi-Language Translations - Locale 46",
     "steps": "1. Switch language.\n2. Inspect labels for index 46.\n3. Validate translations.",
     "expected": "Labels must render correctly in the chosen language."
   },
   {
-    "id": "TC_WEB_287",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Multi-Language Translations - Locale 47",
+    "id": "TC_SRV_287",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Multi-Language Translations - Locale 47",
     "steps": "1. Switch language.\n2. Inspect labels for index 47.\n3. Validate translations.",
     "expected": "Labels must render correctly in the chosen language."
   },
   {
-    "id": "TC_WEB_288",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Multi-Language Translations - Locale 48",
+    "id": "TC_SRV_288",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Multi-Language Translations - Locale 48",
     "steps": "1. Switch language.\n2. Inspect labels for index 48.\n3. Validate translations.",
     "expected": "Labels must render correctly in the chosen language."
   },
   {
-    "id": "TC_WEB_289",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Multi-Language Translations - Locale 49",
+    "id": "TC_SRV_289",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Multi-Language Translations - Locale 49",
     "steps": "1. Switch language.\n2. Inspect labels for index 49.\n3. Validate translations.",
     "expected": "Labels must render correctly in the chosen language."
   },
   {
-    "id": "TC_WEB_290",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Multi-Language Translations - Locale 50",
+    "id": "TC_SRV_290",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Multi-Language Translations - Locale 50",
     "steps": "1. Switch language.\n2. Inspect labels for index 50.\n3. Validate translations.",
     "expected": "Labels must render correctly in the chosen language."
   },
   {
-    "id": "TC_WEB_291",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Multi-Language Translations - Locale 51",
+    "id": "TC_SRV_291",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Multi-Language Translations - Locale 51",
     "steps": "1. Switch language.\n2. Inspect labels for index 51.\n3. Validate translations.",
     "expected": "Labels must render correctly in the chosen language."
   },
   {
-    "id": "TC_WEB_292",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Multi-Language Translations - Locale 52",
+    "id": "TC_SRV_292",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Multi-Language Translations - Locale 52",
     "steps": "1. Switch language.\n2. Inspect labels for index 52.\n3. Validate translations.",
     "expected": "Labels must render correctly in the chosen language."
   },
   {
-    "id": "TC_WEB_293",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Multi-Language Translations - Locale 53",
+    "id": "TC_SRV_293",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Multi-Language Translations - Locale 53",
     "steps": "1. Switch language.\n2. Inspect labels for index 53.\n3. Validate translations.",
     "expected": "Labels must render correctly in the chosen language."
   },
   {
-    "id": "TC_WEB_294",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Multi-Language Translations - Locale 54",
+    "id": "TC_SRV_294",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Multi-Language Translations - Locale 54",
     "steps": "1. Switch language.\n2. Inspect labels for index 54.\n3. Validate translations.",
     "expected": "Labels must render correctly in the chosen language."
   },
   {
-    "id": "TC_WEB_295",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Multi-Language Translations - Locale 55",
+    "id": "TC_SRV_295",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Multi-Language Translations - Locale 55",
     "steps": "1. Switch language.\n2. Inspect labels for index 55.\n3. Validate translations.",
     "expected": "Labels must render correctly in the chosen language."
   },
   {
-    "id": "TC_WEB_296",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Multi-Language Translations - Locale 56",
+    "id": "TC_SRV_296",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Multi-Language Translations - Locale 56",
     "steps": "1. Switch language.\n2. Inspect labels for index 56.\n3. Validate translations.",
     "expected": "Labels must render correctly in the chosen language."
   },
   {
-    "id": "TC_WEB_297",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Multi-Language Translations - Locale 57",
+    "id": "TC_SRV_297",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Multi-Language Translations - Locale 57",
     "steps": "1. Switch language.\n2. Inspect labels for index 57.\n3. Validate translations.",
     "expected": "Labels must render correctly in the chosen language."
   },
   {
-    "id": "TC_WEB_298",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Multi-Language Translations - Locale 58",
+    "id": "TC_SRV_298",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Multi-Language Translations - Locale 58",
     "steps": "1. Switch language.\n2. Inspect labels for index 58.\n3. Validate translations.",
     "expected": "Labels must render correctly in the chosen language."
   },
   {
-    "id": "TC_WEB_299",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Multi-Language Translations - Locale 59",
+    "id": "TC_SRV_299",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Multi-Language Translations - Locale 59",
     "steps": "1. Switch language.\n2. Inspect labels for index 59.\n3. Validate translations.",
     "expected": "Labels must render correctly in the chosen language."
   },
   {
-    "id": "TC_WEB_300",
-    "module": "Web Application E2E",
-    "scenario": "Verify Web Application E2E Multi-Language Translations - Locale 60",
+    "id": "TC_SRV_300",
+    "module": "Backend Service Tests",
+    "scenario": "Verify Backend Service Tests Multi-Language Translations - Locale 60",
     "steps": "1. Switch language.\n2. Inspect labels for index 60.\n3. Validate translations.",
     "expected": "Labels must render correctly in the chosen language."
   }

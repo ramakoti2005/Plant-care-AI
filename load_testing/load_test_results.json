@@ -1,14 +1,14 @@
 {
   "concurrency": 100,
   "duration_seconds": 60,
-  "total_requests": 959,
-  "success_requests": 520,
-  "failed_requests": 439,
-  "success_rate_percent": 54.223149113660064,
-  "avg_rps": 35.04,
-  "latency_min_ms": 333.93,
-  "latency_max_ms": 12345.9,
-  "latency_avg_ms": 6370.36,
-  "latency_90th_ms": 11132.23,
-  "latency_95th_ms": 11211.69
+  "total_requests": 1751,
+  "success_requests": 1395,
+  "failed_requests": 356,
+  "success_rate_percent": 79.66876070816676,
+  "avg_rps": 27.71,
+  "latency_min_ms": 296.39,
+  "latency_max_ms": 14775.41,
+  "latency_avg_ms": 3324.54,
+  "latency_90th_ms": 6894.62,
+  "latency_95th_ms": 8207.22
 }

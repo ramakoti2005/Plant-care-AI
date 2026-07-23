@@ -1,2102 +1,2102 @@
 [
   {
     "id": "TC_APP_001",
-    "module": "Authentication",
-    "scenario": "Mobile User Registration Flow",
-    "steps": "1. Open Mobile App.\n2. Click Register.\n3. Input credentials set 1.\n4. Submit.",
-    "expected": "App should register user or display relevant validation errors."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Core Functionality - Scenario 1",
+    "steps": "1. Initialize session.\n2. Execute action sequence 1.\n3. Validate result state.",
+    "expected": "Response must indicate successful completion and data parity."
   },
   {
     "id": "TC_APP_002",
-    "module": "Authentication",
-    "scenario": "Mobile User Registration Flow",
-    "steps": "1. Open Mobile App.\n2. Click Register.\n3. Input credentials set 2.\n4. Submit.",
-    "expected": "App should register user or display relevant validation errors."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Core Functionality - Scenario 2",
+    "steps": "1. Initialize session.\n2. Execute action sequence 2.\n3. Validate result state.",
+    "expected": "Response must indicate successful completion and data parity."
   },
   {
     "id": "TC_APP_003",
-    "module": "Authentication",
-    "scenario": "Mobile User Registration Flow",
-    "steps": "1. Open Mobile App.\n2. Click Register.\n3. Input credentials set 3.\n4. Submit.",
-    "expected": "App should register user or display relevant validation errors."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Core Functionality - Scenario 3",
+    "steps": "1. Initialize session.\n2. Execute action sequence 3.\n3. Validate result state.",
+    "expected": "Response must indicate successful completion and data parity."
   },
   {
     "id": "TC_APP_004",
-    "module": "Authentication",
-    "scenario": "Mobile User Registration Flow",
-    "steps": "1. Open Mobile App.\n2. Click Register.\n3. Input credentials set 4.\n4. Submit.",
-    "expected": "App should register user or display relevant validation errors."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Core Functionality - Scenario 4",
+    "steps": "1. Initialize session.\n2. Execute action sequence 4.\n3. Validate result state.",
+    "expected": "Response must indicate successful completion and data parity."
   },
   {
     "id": "TC_APP_005",
-    "module": "Authentication",
-    "scenario": "Mobile User Registration Flow",
-    "steps": "1. Open Mobile App.\n2. Click Register.\n3. Input credentials set 5.\n4. Submit.",
-    "expected": "App should register user or display relevant validation errors."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Core Functionality - Scenario 5",
+    "steps": "1. Initialize session.\n2. Execute action sequence 5.\n3. Validate result state.",
+    "expected": "Response must indicate successful completion and data parity."
   },
   {
     "id": "TC_APP_006",
-    "module": "Authentication",
-    "scenario": "Mobile User Registration Flow",
-    "steps": "1. Open Mobile App.\n2. Click Register.\n3. Input credentials set 6.\n4. Submit.",
-    "expected": "App should register user or display relevant validation errors."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Core Functionality - Scenario 6",
+    "steps": "1. Initialize session.\n2. Execute action sequence 6.\n3. Validate result state.",
+    "expected": "Response must indicate successful completion and data parity."
   },
   {
     "id": "TC_APP_007",
-    "module": "Authentication",
-    "scenario": "Mobile User Registration Flow",
-    "steps": "1. Open Mobile App.\n2. Click Register.\n3. Input credentials set 7.\n4. Submit.",
-    "expected": "App should register user or display relevant validation errors."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Core Functionality - Scenario 7",
+    "steps": "1. Initialize session.\n2. Execute action sequence 7.\n3. Validate result state.",
+    "expected": "Response must indicate successful completion and data parity."
   },
   {
     "id": "TC_APP_008",
-    "module": "Authentication",
-    "scenario": "Mobile User Registration Flow",
-    "steps": "1. Open Mobile App.\n2. Click Register.\n3. Input credentials set 8.\n4. Submit.",
-    "expected": "App should register user or display relevant validation errors."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Core Functionality - Scenario 8",
+    "steps": "1. Initialize session.\n2. Execute action sequence 8.\n3. Validate result state.",
+    "expected": "Response must indicate successful completion and data parity."
   },
   {
     "id": "TC_APP_009",
-    "module": "Authentication",
-    "scenario": "Mobile User Registration Flow",
-    "steps": "1. Open Mobile App.\n2. Click Register.\n3. Input credentials set 9.\n4. Submit.",
-    "expected": "App should register user or display relevant validation errors."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Core Functionality - Scenario 9",
+    "steps": "1. Initialize session.\n2. Execute action sequence 9.\n3. Validate result state.",
+    "expected": "Response must indicate successful completion and data parity."
   },
   {
     "id": "TC_APP_010",
-    "module": "Authentication",
-    "scenario": "Mobile User Registration Flow",
-    "steps": "1. Open Mobile App.\n2. Click Register.\n3. Input credentials set 10.\n4. Submit.",
-    "expected": "App should register user or display relevant validation errors."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Core Functionality - Scenario 10",
+    "steps": "1. Initialize session.\n2. Execute action sequence 10.\n3. Validate result state.",
+    "expected": "Response must indicate successful completion and data parity."
   },
   {
     "id": "TC_APP_011",
-    "module": "Authentication",
-    "scenario": "Mobile User Registration Flow",
-    "steps": "1. Open Mobile App.\n2. Click Register.\n3. Input credentials set 11.\n4. Submit.",
-    "expected": "App should register user or display relevant validation errors."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Core Functionality - Scenario 11",
+    "steps": "1. Initialize session.\n2. Execute action sequence 11.\n3. Validate result state.",
+    "expected": "Response must indicate successful completion and data parity."
   },
   {
     "id": "TC_APP_012",
-    "module": "Authentication",
-    "scenario": "Mobile User Registration Flow",
-    "steps": "1. Open Mobile App.\n2. Click Register.\n3. Input credentials set 12.\n4. Submit.",
-    "expected": "App should register user or display relevant validation errors."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Core Functionality - Scenario 12",
+    "steps": "1. Initialize session.\n2. Execute action sequence 12.\n3. Validate result state.",
+    "expected": "Response must indicate successful completion and data parity."
   },
   {
     "id": "TC_APP_013",
-    "module": "Authentication",
-    "scenario": "Mobile User Registration Flow",
-    "steps": "1. Open Mobile App.\n2. Click Register.\n3. Input credentials set 13.\n4. Submit.",
-    "expected": "App should register user or display relevant validation errors."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Core Functionality - Scenario 13",
+    "steps": "1. Initialize session.\n2. Execute action sequence 13.\n3. Validate result state.",
+    "expected": "Response must indicate successful completion and data parity."
   },
   {
     "id": "TC_APP_014",
-    "module": "Authentication",
-    "scenario": "Mobile User Registration Flow",
-    "steps": "1. Open Mobile App.\n2. Click Register.\n3. Input credentials set 14.\n4. Submit.",
-    "expected": "App should register user or display relevant validation errors."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Core Functionality - Scenario 14",
+    "steps": "1. Initialize session.\n2. Execute action sequence 14.\n3. Validate result state.",
+    "expected": "Response must indicate successful completion and data parity."
   },
   {
     "id": "TC_APP_015",
-    "module": "Authentication",
-    "scenario": "Mobile User Registration Flow",
-    "steps": "1. Open Mobile App.\n2. Click Register.\n3. Input credentials set 15.\n4. Submit.",
-    "expected": "App should register user or display relevant validation errors."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Core Functionality - Scenario 15",
+    "steps": "1. Initialize session.\n2. Execute action sequence 15.\n3. Validate result state.",
+    "expected": "Response must indicate successful completion and data parity."
   },
   {
     "id": "TC_APP_016",
-    "module": "Authentication",
-    "scenario": "Mobile User Login Security",
-    "steps": "1. Open Mobile App.\n2. Enter credentials 1 into login form.\n3. Press Login.",
-    "expected": "App should authenticate user and redirect to dashboard, storing secure token locally."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Core Functionality - Scenario 16",
+    "steps": "1. Initialize session.\n2. Execute action sequence 16.\n3. Validate result state.",
+    "expected": "Response must indicate successful completion and data parity."
   },
   {
     "id": "TC_APP_017",
-    "module": "Authentication",
-    "scenario": "Mobile User Login Security",
-    "steps": "1. Open Mobile App.\n2. Enter credentials 2 into login form.\n3. Press Login.",
-    "expected": "App should authenticate user and redirect to dashboard, storing secure token locally."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Core Functionality - Scenario 17",
+    "steps": "1. Initialize session.\n2. Execute action sequence 17.\n3. Validate result state.",
+    "expected": "Response must indicate successful completion and data parity."
   },
   {
     "id": "TC_APP_018",
-    "module": "Authentication",
-    "scenario": "Mobile User Login Security",
-    "steps": "1. Open Mobile App.\n2. Enter credentials 3 into login form.\n3. Press Login.",
-    "expected": "App should authenticate user and redirect to dashboard, storing secure token locally."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Core Functionality - Scenario 18",
+    "steps": "1. Initialize session.\n2. Execute action sequence 18.\n3. Validate result state.",
+    "expected": "Response must indicate successful completion and data parity."
   },
   {
     "id": "TC_APP_019",
-    "module": "Authentication",
-    "scenario": "Mobile User Login Security",
-    "steps": "1. Open Mobile App.\n2. Enter credentials 4 into login form.\n3. Press Login.",
-    "expected": "App should authenticate user and redirect to dashboard, storing secure token locally."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Core Functionality - Scenario 19",
+    "steps": "1. Initialize session.\n2. Execute action sequence 19.\n3. Validate result state.",
+    "expected": "Response must indicate successful completion and data parity."
   },
   {
     "id": "TC_APP_020",
-    "module": "Authentication",
-    "scenario": "Mobile User Login Security",
-    "steps": "1. Open Mobile App.\n2. Enter credentials 5 into login form.\n3. Press Login.",
-    "expected": "App should authenticate user and redirect to dashboard, storing secure token locally."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Core Functionality - Scenario 20",
+    "steps": "1. Initialize session.\n2. Execute action sequence 20.\n3. Validate result state.",
+    "expected": "Response must indicate successful completion and data parity."
   },
   {
     "id": "TC_APP_021",
-    "module": "Authentication",
-    "scenario": "Mobile User Login Security",
-    "steps": "1. Open Mobile App.\n2. Enter credentials 6 into login form.\n3. Press Login.",
-    "expected": "App should authenticate user and redirect to dashboard, storing secure token locally."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Core Functionality - Scenario 21",
+    "steps": "1. Initialize session.\n2. Execute action sequence 21.\n3. Validate result state.",
+    "expected": "Response must indicate successful completion and data parity."
   },
   {
     "id": "TC_APP_022",
-    "module": "Authentication",
-    "scenario": "Mobile User Login Security",
-    "steps": "1. Open Mobile App.\n2. Enter credentials 7 into login form.\n3. Press Login.",
-    "expected": "App should authenticate user and redirect to dashboard, storing secure token locally."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Core Functionality - Scenario 22",
+    "steps": "1. Initialize session.\n2. Execute action sequence 22.\n3. Validate result state.",
+    "expected": "Response must indicate successful completion and data parity."
   },
   {
     "id": "TC_APP_023",
-    "module": "Authentication",
-    "scenario": "Mobile User Login Security",
-    "steps": "1. Open Mobile App.\n2. Enter credentials 8 into login form.\n3. Press Login.",
-    "expected": "App should authenticate user and redirect to dashboard, storing secure token locally."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Core Functionality - Scenario 23",
+    "steps": "1. Initialize session.\n2. Execute action sequence 23.\n3. Validate result state.",
+    "expected": "Response must indicate successful completion and data parity."
   },
   {
     "id": "TC_APP_024",
-    "module": "Authentication",
-    "scenario": "Mobile User Login Security",
-    "steps": "1. Open Mobile App.\n2. Enter credentials 9 into login form.\n3. Press Login.",
-    "expected": "App should authenticate user and redirect to dashboard, storing secure token locally."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Core Functionality - Scenario 24",
+    "steps": "1. Initialize session.\n2. Execute action sequence 24.\n3. Validate result state.",
+    "expected": "Response must indicate successful completion and data parity."
   },
   {
     "id": "TC_APP_025",
-    "module": "Authentication",
-    "scenario": "Mobile User Login Security",
-    "steps": "1. Open Mobile App.\n2. Enter credentials 10 into login form.\n3. Press Login.",
-    "expected": "App should authenticate user and redirect to dashboard, storing secure token locally."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Core Functionality - Scenario 25",
+    "steps": "1. Initialize session.\n2. Execute action sequence 25.\n3. Validate result state.",
+    "expected": "Response must indicate successful completion and data parity."
   },
   {
     "id": "TC_APP_026",
-    "module": "Authentication",
-    "scenario": "Mobile User Login Security",
-    "steps": "1. Open Mobile App.\n2. Enter credentials 11 into login form.\n3. Press Login.",
-    "expected": "App should authenticate user and redirect to dashboard, storing secure token locally."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Core Functionality - Scenario 26",
+    "steps": "1. Initialize session.\n2. Execute action sequence 26.\n3. Validate result state.",
+    "expected": "Response must indicate successful completion and data parity."
   },
   {
     "id": "TC_APP_027",
-    "module": "Authentication",
-    "scenario": "Mobile User Login Security",
-    "steps": "1. Open Mobile App.\n2. Enter credentials 12 into login form.\n3. Press Login.",
-    "expected": "App should authenticate user and redirect to dashboard, storing secure token locally."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Core Functionality - Scenario 27",
+    "steps": "1. Initialize session.\n2. Execute action sequence 27.\n3. Validate result state.",
+    "expected": "Response must indicate successful completion and data parity."
   },
   {
     "id": "TC_APP_028",
-    "module": "Authentication",
-    "scenario": "Mobile User Login Security",
-    "steps": "1. Open Mobile App.\n2. Enter credentials 13 into login form.\n3. Press Login.",
-    "expected": "App should authenticate user and redirect to dashboard, storing secure token locally."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Core Functionality - Scenario 28",
+    "steps": "1. Initialize session.\n2. Execute action sequence 28.\n3. Validate result state.",
+    "expected": "Response must indicate successful completion and data parity."
   },
   {
     "id": "TC_APP_029",
-    "module": "Authentication",
-    "scenario": "Mobile User Login Security",
-    "steps": "1. Open Mobile App.\n2. Enter credentials 14 into login form.\n3. Press Login.",
-    "expected": "App should authenticate user and redirect to dashboard, storing secure token locally."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Core Functionality - Scenario 29",
+    "steps": "1. Initialize session.\n2. Execute action sequence 29.\n3. Validate result state.",
+    "expected": "Response must indicate successful completion and data parity."
   },
   {
     "id": "TC_APP_030",
-    "module": "Authentication",
-    "scenario": "Mobile User Login Security",
-    "steps": "1. Open Mobile App.\n2. Enter credentials 15 into login form.\n3. Press Login.",
-    "expected": "App should authenticate user and redirect to dashboard, storing secure token locally."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Core Functionality - Scenario 30",
+    "steps": "1. Initialize session.\n2. Execute action sequence 30.\n3. Validate result state.",
+    "expected": "Response must indicate successful completion and data parity."
   },
   {
     "id": "TC_APP_031",
-    "module": "Authentication",
-    "scenario": "Mobile User Login Security",
-    "steps": "1. Open Mobile App.\n2. Enter credentials 16 into login form.\n3. Press Login.",
-    "expected": "App should authenticate user and redirect to dashboard, storing secure token locally."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Core Functionality - Scenario 31",
+    "steps": "1. Initialize session.\n2. Execute action sequence 31.\n3. Validate result state.",
+    "expected": "Response must indicate successful completion and data parity."
   },
   {
     "id": "TC_APP_032",
-    "module": "Authentication",
-    "scenario": "Mobile User Login Security",
-    "steps": "1. Open Mobile App.\n2. Enter credentials 17 into login form.\n3. Press Login.",
-    "expected": "App should authenticate user and redirect to dashboard, storing secure token locally."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Core Functionality - Scenario 32",
+    "steps": "1. Initialize session.\n2. Execute action sequence 32.\n3. Validate result state.",
+    "expected": "Response must indicate successful completion and data parity."
   },
   {
     "id": "TC_APP_033",
-    "module": "Authentication",
-    "scenario": "Mobile User Login Security",
-    "steps": "1. Open Mobile App.\n2. Enter credentials 18 into login form.\n3. Press Login.",
-    "expected": "App should authenticate user and redirect to dashboard, storing secure token locally."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Core Functionality - Scenario 33",
+    "steps": "1. Initialize session.\n2. Execute action sequence 33.\n3. Validate result state.",
+    "expected": "Response must indicate successful completion and data parity."
   },
   {
     "id": "TC_APP_034",
-    "module": "Authentication",
-    "scenario": "Mobile User Login Security",
-    "steps": "1. Open Mobile App.\n2. Enter credentials 19 into login form.\n3. Press Login.",
-    "expected": "App should authenticate user and redirect to dashboard, storing secure token locally."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Core Functionality - Scenario 34",
+    "steps": "1. Initialize session.\n2. Execute action sequence 34.\n3. Validate result state.",
+    "expected": "Response must indicate successful completion and data parity."
   },
   {
     "id": "TC_APP_035",
-    "module": "Authentication",
-    "scenario": "Mobile User Login Security",
-    "steps": "1. Open Mobile App.\n2. Enter credentials 20 into login form.\n3. Press Login.",
-    "expected": "App should authenticate user and redirect to dashboard, storing secure token locally."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Core Functionality - Scenario 35",
+    "steps": "1. Initialize session.\n2. Execute action sequence 35.\n3. Validate result state.",
+    "expected": "Response must indicate successful completion and data parity."
   },
   {
     "id": "TC_APP_036",
-    "module": "Authentication",
-    "scenario": "Local Token and Password Verification",
-    "steps": "1. Perform session check 1.\n2. Trigger biometric/secure storage logic.",
-    "expected": "Secure storage must persist JWT token and clear on user logout."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Core Functionality - Scenario 36",
+    "steps": "1. Initialize session.\n2. Execute action sequence 36.\n3. Validate result state.",
+    "expected": "Response must indicate successful completion and data parity."
   },
   {
     "id": "TC_APP_037",
-    "module": "Authentication",
-    "scenario": "Local Token and Password Verification",
-    "steps": "1. Perform session check 2.\n2. Trigger biometric/secure storage logic.",
-    "expected": "Secure storage must persist JWT token and clear on user logout."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Core Functionality - Scenario 37",
+    "steps": "1. Initialize session.\n2. Execute action sequence 37.\n3. Validate result state.",
+    "expected": "Response must indicate successful completion and data parity."
   },
   {
     "id": "TC_APP_038",
-    "module": "Authentication",
-    "scenario": "Local Token and Password Verification",
-    "steps": "1. Perform session check 3.\n2. Trigger biometric/secure storage logic.",
-    "expected": "Secure storage must persist JWT token and clear on user logout."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Core Functionality - Scenario 38",
+    "steps": "1. Initialize session.\n2. Execute action sequence 38.\n3. Validate result state.",
+    "expected": "Response must indicate successful completion and data parity."
   },
   {
     "id": "TC_APP_039",
-    "module": "Authentication",
-    "scenario": "Local Token and Password Verification",
-    "steps": "1. Perform session check 4.\n2. Trigger biometric/secure storage logic.",
-    "expected": "Secure storage must persist JWT token and clear on user logout."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Core Functionality - Scenario 39",
+    "steps": "1. Initialize session.\n2. Execute action sequence 39.\n3. Validate result state.",
+    "expected": "Response must indicate successful completion and data parity."
   },
   {
     "id": "TC_APP_040",
-    "module": "Authentication",
-    "scenario": "Local Token and Password Verification",
-    "steps": "1. Perform session check 5.\n2. Trigger biometric/secure storage logic.",
-    "expected": "Secure storage must persist JWT token and clear on user logout."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Core Functionality - Scenario 40",
+    "steps": "1. Initialize session.\n2. Execute action sequence 40.\n3. Validate result state.",
+    "expected": "Response must indicate successful completion and data parity."
   },
   {
     "id": "TC_APP_041",
-    "module": "Authentication",
-    "scenario": "Local Token and Password Verification",
-    "steps": "1. Perform session check 6.\n2. Trigger biometric/secure storage logic.",
-    "expected": "Secure storage must persist JWT token and clear on user logout."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Core Functionality - Scenario 41",
+    "steps": "1. Initialize session.\n2. Execute action sequence 41.\n3. Validate result state.",
+    "expected": "Response must indicate successful completion and data parity."
   },
   {
     "id": "TC_APP_042",
-    "module": "Authentication",
-    "scenario": "Local Token and Password Verification",
-    "steps": "1. Perform session check 7.\n2. Trigger biometric/secure storage logic.",
-    "expected": "Secure storage must persist JWT token and clear on user logout."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Core Functionality - Scenario 42",
+    "steps": "1. Initialize session.\n2. Execute action sequence 42.\n3. Validate result state.",
+    "expected": "Response must indicate successful completion and data parity."
   },
   {
     "id": "TC_APP_043",
-    "module": "Authentication",
-    "scenario": "Local Token and Password Verification",
-    "steps": "1. Perform session check 8.\n2. Trigger biometric/secure storage logic.",
-    "expected": "Secure storage must persist JWT token and clear on user logout."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Core Functionality - Scenario 43",
+    "steps": "1. Initialize session.\n2. Execute action sequence 43.\n3. Validate result state.",
+    "expected": "Response must indicate successful completion and data parity."
   },
   {
     "id": "TC_APP_044",
-    "module": "Authentication",
-    "scenario": "Local Token and Password Verification",
-    "steps": "1. Perform session check 9.\n2. Trigger biometric/secure storage logic.",
-    "expected": "Secure storage must persist JWT token and clear on user logout."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Core Functionality - Scenario 44",
+    "steps": "1. Initialize session.\n2. Execute action sequence 44.\n3. Validate result state.",
+    "expected": "Response must indicate successful completion and data parity."
   },
   {
     "id": "TC_APP_045",
-    "module": "Authentication",
-    "scenario": "Local Token and Password Verification",
-    "steps": "1. Perform session check 10.\n2. Trigger biometric/secure storage logic.",
-    "expected": "Secure storage must persist JWT token and clear on user logout."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Core Functionality - Scenario 45",
+    "steps": "1. Initialize session.\n2. Execute action sequence 45.\n3. Validate result state.",
+    "expected": "Response must indicate successful completion and data parity."
   },
   {
     "id": "TC_APP_046",
-    "module": "Authentication",
-    "scenario": "Local Token and Password Verification",
-    "steps": "1. Perform session check 11.\n2. Trigger biometric/secure storage logic.",
-    "expected": "Secure storage must persist JWT token and clear on user logout."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Core Functionality - Scenario 46",
+    "steps": "1. Initialize session.\n2. Execute action sequence 46.\n3. Validate result state.",
+    "expected": "Response must indicate successful completion and data parity."
   },
   {
     "id": "TC_APP_047",
-    "module": "Authentication",
-    "scenario": "Local Token and Password Verification",
-    "steps": "1. Perform session check 12.\n2. Trigger biometric/secure storage logic.",
-    "expected": "Secure storage must persist JWT token and clear on user logout."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Core Functionality - Scenario 47",
+    "steps": "1. Initialize session.\n2. Execute action sequence 47.\n3. Validate result state.",
+    "expected": "Response must indicate successful completion and data parity."
   },
   {
     "id": "TC_APP_048",
-    "module": "Authentication",
-    "scenario": "Local Token and Password Verification",
-    "steps": "1. Perform session check 13.\n2. Trigger biometric/secure storage logic.",
-    "expected": "Secure storage must persist JWT token and clear on user logout."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Core Functionality - Scenario 48",
+    "steps": "1. Initialize session.\n2. Execute action sequence 48.\n3. Validate result state.",
+    "expected": "Response must indicate successful completion and data parity."
   },
   {
     "id": "TC_APP_049",
-    "module": "Authentication",
-    "scenario": "Local Token and Password Verification",
-    "steps": "1. Perform session check 14.\n2. Trigger biometric/secure storage logic.",
-    "expected": "Secure storage must persist JWT token and clear on user logout."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Core Functionality - Scenario 49",
+    "steps": "1. Initialize session.\n2. Execute action sequence 49.\n3. Validate result state.",
+    "expected": "Response must indicate successful completion and data parity."
   },
   {
     "id": "TC_APP_050",
-    "module": "Authentication",
-    "scenario": "Local Token and Password Verification",
-    "steps": "1. Perform session check 15.\n2. Trigger biometric/secure storage logic.",
-    "expected": "Secure storage must persist JWT token and clear on user logout."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Core Functionality - Scenario 50",
+    "steps": "1. Initialize session.\n2. Execute action sequence 50.\n3. Validate result state.",
+    "expected": "Response must indicate successful completion and data parity."
   },
   {
     "id": "TC_APP_051",
-    "module": "Dashboard",
-    "scenario": "Mobile Stats Widgets & Realtime counters",
-    "steps": "1. Load dashboard.\n2. Verify local counters 1 sync properly with remote database.",
-    "expected": "Dashboard counts should load instantly and reflect backend database stats."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Core Functionality - Scenario 51",
+    "steps": "1. Initialize session.\n2. Execute action sequence 51.\n3. Validate result state.",
+    "expected": "Response must indicate successful completion and data parity."
   },
   {
     "id": "TC_APP_052",
-    "module": "Dashboard",
-    "scenario": "Mobile Stats Widgets & Realtime counters",
-    "steps": "1. Load dashboard.\n2. Verify local counters 2 sync properly with remote database.",
-    "expected": "Dashboard counts should load instantly and reflect backend database stats."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Core Functionality - Scenario 52",
+    "steps": "1. Initialize session.\n2. Execute action sequence 52.\n3. Validate result state.",
+    "expected": "Response must indicate successful completion and data parity."
   },
   {
     "id": "TC_APP_053",
-    "module": "Dashboard",
-    "scenario": "Mobile Stats Widgets & Realtime counters",
-    "steps": "1. Load dashboard.\n2. Verify local counters 3 sync properly with remote database.",
-    "expected": "Dashboard counts should load instantly and reflect backend database stats."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Core Functionality - Scenario 53",
+    "steps": "1. Initialize session.\n2. Execute action sequence 53.\n3. Validate result state.",
+    "expected": "Response must indicate successful completion and data parity."
   },
   {
     "id": "TC_APP_054",
-    "module": "Dashboard",
-    "scenario": "Mobile Stats Widgets & Realtime counters",
-    "steps": "1. Load dashboard.\n2. Verify local counters 4 sync properly with remote database.",
-    "expected": "Dashboard counts should load instantly and reflect backend database stats."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Core Functionality - Scenario 54",
+    "steps": "1. Initialize session.\n2. Execute action sequence 54.\n3. Validate result state.",
+    "expected": "Response must indicate successful completion and data parity."
   },
   {
     "id": "TC_APP_055",
-    "module": "Dashboard",
-    "scenario": "Mobile Stats Widgets & Realtime counters",
-    "steps": "1. Load dashboard.\n2. Verify local counters 5 sync properly with remote database.",
-    "expected": "Dashboard counts should load instantly and reflect backend database stats."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Core Functionality - Scenario 55",
+    "steps": "1. Initialize session.\n2. Execute action sequence 55.\n3. Validate result state.",
+    "expected": "Response must indicate successful completion and data parity."
   },
   {
     "id": "TC_APP_056",
-    "module": "Dashboard",
-    "scenario": "Mobile Stats Widgets & Realtime counters",
-    "steps": "1. Load dashboard.\n2. Verify local counters 6 sync properly with remote database.",
-    "expected": "Dashboard counts should load instantly and reflect backend database stats."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Core Functionality - Scenario 56",
+    "steps": "1. Initialize session.\n2. Execute action sequence 56.\n3. Validate result state.",
+    "expected": "Response must indicate successful completion and data parity."
   },
   {
     "id": "TC_APP_057",
-    "module": "Dashboard",
-    "scenario": "Mobile Stats Widgets & Realtime counters",
-    "steps": "1. Load dashboard.\n2. Verify local counters 7 sync properly with remote database.",
-    "expected": "Dashboard counts should load instantly and reflect backend database stats."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Core Functionality - Scenario 57",
+    "steps": "1. Initialize session.\n2. Execute action sequence 57.\n3. Validate result state.",
+    "expected": "Response must indicate successful completion and data parity."
   },
   {
     "id": "TC_APP_058",
-    "module": "Dashboard",
-    "scenario": "Mobile Stats Widgets & Realtime counters",
-    "steps": "1. Load dashboard.\n2. Verify local counters 8 sync properly with remote database.",
-    "expected": "Dashboard counts should load instantly and reflect backend database stats."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Core Functionality - Scenario 58",
+    "steps": "1. Initialize session.\n2. Execute action sequence 58.\n3. Validate result state.",
+    "expected": "Response must indicate successful completion and data parity."
   },
   {
     "id": "TC_APP_059",
-    "module": "Dashboard",
-    "scenario": "Mobile Stats Widgets & Realtime counters",
-    "steps": "1. Load dashboard.\n2. Verify local counters 9 sync properly with remote database.",
-    "expected": "Dashboard counts should load instantly and reflect backend database stats."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Core Functionality - Scenario 59",
+    "steps": "1. Initialize session.\n2. Execute action sequence 59.\n3. Validate result state.",
+    "expected": "Response must indicate successful completion and data parity."
   },
   {
     "id": "TC_APP_060",
-    "module": "Dashboard",
-    "scenario": "Mobile Stats Widgets & Realtime counters",
-    "steps": "1. Load dashboard.\n2. Verify local counters 10 sync properly with remote database.",
-    "expected": "Dashboard counts should load instantly and reflect backend database stats."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Core Functionality - Scenario 60",
+    "steps": "1. Initialize session.\n2. Execute action sequence 60.\n3. Validate result state.",
+    "expected": "Response must indicate successful completion and data parity."
   },
   {
     "id": "TC_APP_061",
-    "module": "Dashboard",
-    "scenario": "Mobile Stats Widgets & Realtime counters",
-    "steps": "1. Load dashboard.\n2. Verify local counters 11 sync properly with remote database.",
-    "expected": "Dashboard counts should load instantly and reflect backend database stats."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Boundary Conditions - Boundary 1",
+    "steps": "1. Set parameters to limits 1.\n2. Send request to endpoint.\n3. Verify error handling.",
+    "expected": "App should display descriptive validation constraint message."
   },
   {
     "id": "TC_APP_062",
-    "module": "Dashboard",
-    "scenario": "Mobile Stats Widgets & Realtime counters",
-    "steps": "1. Load dashboard.\n2. Verify local counters 12 sync properly with remote database.",
-    "expected": "Dashboard counts should load instantly and reflect backend database stats."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Boundary Conditions - Boundary 2",
+    "steps": "1. Set parameters to limits 2.\n2. Send request to endpoint.\n3. Verify error handling.",
+    "expected": "App should display descriptive validation constraint message."
   },
   {
     "id": "TC_APP_063",
-    "module": "Dashboard",
-    "scenario": "Mobile Stats Widgets & Realtime counters",
-    "steps": "1. Load dashboard.\n2. Verify local counters 13 sync properly with remote database.",
-    "expected": "Dashboard counts should load instantly and reflect backend database stats."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Boundary Conditions - Boundary 3",
+    "steps": "1. Set parameters to limits 3.\n2. Send request to endpoint.\n3. Verify error handling.",
+    "expected": "App should display descriptive validation constraint message."
   },
   {
     "id": "TC_APP_064",
-    "module": "Dashboard",
-    "scenario": "Mobile Stats Widgets & Realtime counters",
-    "steps": "1. Load dashboard.\n2. Verify local counters 14 sync properly with remote database.",
-    "expected": "Dashboard counts should load instantly and reflect backend database stats."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Boundary Conditions - Boundary 4",
+    "steps": "1. Set parameters to limits 4.\n2. Send request to endpoint.\n3. Verify error handling.",
+    "expected": "App should display descriptive validation constraint message."
   },
   {
     "id": "TC_APP_065",
-    "module": "Dashboard",
-    "scenario": "Mobile Stats Widgets & Realtime counters",
-    "steps": "1. Load dashboard.\n2. Verify local counters 15 sync properly with remote database.",
-    "expected": "Dashboard counts should load instantly and reflect backend database stats."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Boundary Conditions - Boundary 5",
+    "steps": "1. Set parameters to limits 5.\n2. Send request to endpoint.\n3. Verify error handling.",
+    "expected": "App should display descriptive validation constraint message."
   },
   {
     "id": "TC_APP_066",
-    "module": "Dashboard",
-    "scenario": "Mobile Stats Widgets & Realtime counters",
-    "steps": "1. Load dashboard.\n2. Verify local counters 16 sync properly with remote database.",
-    "expected": "Dashboard counts should load instantly and reflect backend database stats."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Boundary Conditions - Boundary 6",
+    "steps": "1. Set parameters to limits 6.\n2. Send request to endpoint.\n3. Verify error handling.",
+    "expected": "App should display descriptive validation constraint message."
   },
   {
     "id": "TC_APP_067",
-    "module": "Dashboard",
-    "scenario": "Mobile Stats Widgets & Realtime counters",
-    "steps": "1. Load dashboard.\n2. Verify local counters 17 sync properly with remote database.",
-    "expected": "Dashboard counts should load instantly and reflect backend database stats."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Boundary Conditions - Boundary 7",
+    "steps": "1. Set parameters to limits 7.\n2. Send request to endpoint.\n3. Verify error handling.",
+    "expected": "App should display descriptive validation constraint message."
   },
   {
     "id": "TC_APP_068",
-    "module": "Dashboard",
-    "scenario": "Mobile Stats Widgets & Realtime counters",
-    "steps": "1. Load dashboard.\n2. Verify local counters 18 sync properly with remote database.",
-    "expected": "Dashboard counts should load instantly and reflect backend database stats."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Boundary Conditions - Boundary 8",
+    "steps": "1. Set parameters to limits 8.\n2. Send request to endpoint.\n3. Verify error handling.",
+    "expected": "App should display descriptive validation constraint message."
   },
   {
     "id": "TC_APP_069",
-    "module": "Dashboard",
-    "scenario": "Mobile Stats Widgets & Realtime counters",
-    "steps": "1. Load dashboard.\n2. Verify local counters 19 sync properly with remote database.",
-    "expected": "Dashboard counts should load instantly and reflect backend database stats."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Boundary Conditions - Boundary 9",
+    "steps": "1. Set parameters to limits 9.\n2. Send request to endpoint.\n3. Verify error handling.",
+    "expected": "App should display descriptive validation constraint message."
   },
   {
     "id": "TC_APP_070",
-    "module": "Dashboard",
-    "scenario": "Mobile Stats Widgets & Realtime counters",
-    "steps": "1. Load dashboard.\n2. Verify local counters 20 sync properly with remote database.",
-    "expected": "Dashboard counts should load instantly and reflect backend database stats."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Boundary Conditions - Boundary 10",
+    "steps": "1. Set parameters to limits 10.\n2. Send request to endpoint.\n3. Verify error handling.",
+    "expected": "App should display descriptive validation constraint message."
   },
   {
     "id": "TC_APP_071",
-    "module": "Dashboard",
-    "scenario": "Offline SQLite Scan History Caching",
-    "steps": "1. Disconnect network connectivity.\n2. Navigate to History.\n3. Verify cache data 1 matches latest cached scans.",
-    "expected": "App should fallback gracefully to cached scan history entries when offline."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Boundary Conditions - Boundary 11",
+    "steps": "1. Set parameters to limits 11.\n2. Send request to endpoint.\n3. Verify error handling.",
+    "expected": "App should display descriptive validation constraint message."
   },
   {
     "id": "TC_APP_072",
-    "module": "Dashboard",
-    "scenario": "Offline SQLite Scan History Caching",
-    "steps": "1. Disconnect network connectivity.\n2. Navigate to History.\n3. Verify cache data 2 matches latest cached scans.",
-    "expected": "App should fallback gracefully to cached scan history entries when offline."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Boundary Conditions - Boundary 12",
+    "steps": "1. Set parameters to limits 12.\n2. Send request to endpoint.\n3. Verify error handling.",
+    "expected": "App should display descriptive validation constraint message."
   },
   {
     "id": "TC_APP_073",
-    "module": "Dashboard",
-    "scenario": "Offline SQLite Scan History Caching",
-    "steps": "1. Disconnect network connectivity.\n2. Navigate to History.\n3. Verify cache data 3 matches latest cached scans.",
-    "expected": "App should fallback gracefully to cached scan history entries when offline."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Boundary Conditions - Boundary 13",
+    "steps": "1. Set parameters to limits 13.\n2. Send request to endpoint.\n3. Verify error handling.",
+    "expected": "App should display descriptive validation constraint message."
   },
   {
     "id": "TC_APP_074",
-    "module": "Dashboard",
-    "scenario": "Offline SQLite Scan History Caching",
-    "steps": "1. Disconnect network connectivity.\n2. Navigate to History.\n3. Verify cache data 4 matches latest cached scans.",
-    "expected": "App should fallback gracefully to cached scan history entries when offline."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Boundary Conditions - Boundary 14",
+    "steps": "1. Set parameters to limits 14.\n2. Send request to endpoint.\n3. Verify error handling.",
+    "expected": "App should display descriptive validation constraint message."
   },
   {
     "id": "TC_APP_075",
-    "module": "Dashboard",
-    "scenario": "Offline SQLite Scan History Caching",
-    "steps": "1. Disconnect network connectivity.\n2. Navigate to History.\n3. Verify cache data 5 matches latest cached scans.",
-    "expected": "App should fallback gracefully to cached scan history entries when offline."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Boundary Conditions - Boundary 15",
+    "steps": "1. Set parameters to limits 15.\n2. Send request to endpoint.\n3. Verify error handling.",
+    "expected": "App should display descriptive validation constraint message."
   },
   {
     "id": "TC_APP_076",
-    "module": "Dashboard",
-    "scenario": "Offline SQLite Scan History Caching",
-    "steps": "1. Disconnect network connectivity.\n2. Navigate to History.\n3. Verify cache data 6 matches latest cached scans.",
-    "expected": "App should fallback gracefully to cached scan history entries when offline."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Boundary Conditions - Boundary 16",
+    "steps": "1. Set parameters to limits 16.\n2. Send request to endpoint.\n3. Verify error handling.",
+    "expected": "App should display descriptive validation constraint message."
   },
   {
     "id": "TC_APP_077",
-    "module": "Dashboard",
-    "scenario": "Offline SQLite Scan History Caching",
-    "steps": "1. Disconnect network connectivity.\n2. Navigate to History.\n3. Verify cache data 7 matches latest cached scans.",
-    "expected": "App should fallback gracefully to cached scan history entries when offline."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Boundary Conditions - Boundary 17",
+    "steps": "1. Set parameters to limits 17.\n2. Send request to endpoint.\n3. Verify error handling.",
+    "expected": "App should display descriptive validation constraint message."
   },
   {
     "id": "TC_APP_078",
-    "module": "Dashboard",
-    "scenario": "Offline SQLite Scan History Caching",
-    "steps": "1. Disconnect network connectivity.\n2. Navigate to History.\n3. Verify cache data 8 matches latest cached scans.",
-    "expected": "App should fallback gracefully to cached scan history entries when offline."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Boundary Conditions - Boundary 18",
+    "steps": "1. Set parameters to limits 18.\n2. Send request to endpoint.\n3. Verify error handling.",
+    "expected": "App should display descriptive validation constraint message."
   },
   {
     "id": "TC_APP_079",
-    "module": "Dashboard",
-    "scenario": "Offline SQLite Scan History Caching",
-    "steps": "1. Disconnect network connectivity.\n2. Navigate to History.\n3. Verify cache data 9 matches latest cached scans.",
-    "expected": "App should fallback gracefully to cached scan history entries when offline."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Boundary Conditions - Boundary 19",
+    "steps": "1. Set parameters to limits 19.\n2. Send request to endpoint.\n3. Verify error handling.",
+    "expected": "App should display descriptive validation constraint message."
   },
   {
     "id": "TC_APP_080",
-    "module": "Dashboard",
-    "scenario": "Offline SQLite Scan History Caching",
-    "steps": "1. Disconnect network connectivity.\n2. Navigate to History.\n3. Verify cache data 10 matches latest cached scans.",
-    "expected": "App should fallback gracefully to cached scan history entries when offline."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Boundary Conditions - Boundary 20",
+    "steps": "1. Set parameters to limits 20.\n2. Send request to endpoint.\n3. Verify error handling.",
+    "expected": "App should display descriptive validation constraint message."
   },
   {
     "id": "TC_APP_081",
-    "module": "Dashboard",
-    "scenario": "Offline SQLite Scan History Caching",
-    "steps": "1. Disconnect network connectivity.\n2. Navigate to History.\n3. Verify cache data 11 matches latest cached scans.",
-    "expected": "App should fallback gracefully to cached scan history entries when offline."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Boundary Conditions - Boundary 21",
+    "steps": "1. Set parameters to limits 21.\n2. Send request to endpoint.\n3. Verify error handling.",
+    "expected": "App should display descriptive validation constraint message."
   },
   {
     "id": "TC_APP_082",
-    "module": "Dashboard",
-    "scenario": "Offline SQLite Scan History Caching",
-    "steps": "1. Disconnect network connectivity.\n2. Navigate to History.\n3. Verify cache data 12 matches latest cached scans.",
-    "expected": "App should fallback gracefully to cached scan history entries when offline."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Boundary Conditions - Boundary 22",
+    "steps": "1. Set parameters to limits 22.\n2. Send request to endpoint.\n3. Verify error handling.",
+    "expected": "App should display descriptive validation constraint message."
   },
   {
     "id": "TC_APP_083",
-    "module": "Dashboard",
-    "scenario": "Offline SQLite Scan History Caching",
-    "steps": "1. Disconnect network connectivity.\n2. Navigate to History.\n3. Verify cache data 13 matches latest cached scans.",
-    "expected": "App should fallback gracefully to cached scan history entries when offline."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Boundary Conditions - Boundary 23",
+    "steps": "1. Set parameters to limits 23.\n2. Send request to endpoint.\n3. Verify error handling.",
+    "expected": "App should display descriptive validation constraint message."
   },
   {
     "id": "TC_APP_084",
-    "module": "Dashboard",
-    "scenario": "Offline SQLite Scan History Caching",
-    "steps": "1. Disconnect network connectivity.\n2. Navigate to History.\n3. Verify cache data 14 matches latest cached scans.",
-    "expected": "App should fallback gracefully to cached scan history entries when offline."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Boundary Conditions - Boundary 24",
+    "steps": "1. Set parameters to limits 24.\n2. Send request to endpoint.\n3. Verify error handling.",
+    "expected": "App should display descriptive validation constraint message."
   },
   {
     "id": "TC_APP_085",
-    "module": "Dashboard",
-    "scenario": "Offline SQLite Scan History Caching",
-    "steps": "1. Disconnect network connectivity.\n2. Navigate to History.\n3. Verify cache data 15 matches latest cached scans.",
-    "expected": "App should fallback gracefully to cached scan history entries when offline."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Boundary Conditions - Boundary 25",
+    "steps": "1. Set parameters to limits 25.\n2. Send request to endpoint.\n3. Verify error handling.",
+    "expected": "App should display descriptive validation constraint message."
   },
   {
     "id": "TC_APP_086",
-    "module": "Dashboard",
-    "scenario": "Navigation Drawer and Bottom Navigation",
-    "steps": "1. Open sidebar drawer.\n2. Click Bottom Nav Bar Item 1.\n3. Verify screen navigation.",
-    "expected": "Navigation actions should trigger immediate screen transitions."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Boundary Conditions - Boundary 26",
+    "steps": "1. Set parameters to limits 26.\n2. Send request to endpoint.\n3. Verify error handling.",
+    "expected": "App should display descriptive validation constraint message."
   },
   {
     "id": "TC_APP_087",
-    "module": "Dashboard",
-    "scenario": "Navigation Drawer and Bottom Navigation",
-    "steps": "1. Open sidebar drawer.\n2. Click Bottom Nav Bar Item 2.\n3. Verify screen navigation.",
-    "expected": "Navigation actions should trigger immediate screen transitions."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Boundary Conditions - Boundary 27",
+    "steps": "1. Set parameters to limits 27.\n2. Send request to endpoint.\n3. Verify error handling.",
+    "expected": "App should display descriptive validation constraint message."
   },
   {
     "id": "TC_APP_088",
-    "module": "Dashboard",
-    "scenario": "Navigation Drawer and Bottom Navigation",
-    "steps": "1. Open sidebar drawer.\n2. Click Bottom Nav Bar Item 3.\n3. Verify screen navigation.",
-    "expected": "Navigation actions should trigger immediate screen transitions."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Boundary Conditions - Boundary 28",
+    "steps": "1. Set parameters to limits 28.\n2. Send request to endpoint.\n3. Verify error handling.",
+    "expected": "App should display descriptive validation constraint message."
   },
   {
     "id": "TC_APP_089",
-    "module": "Dashboard",
-    "scenario": "Navigation Drawer and Bottom Navigation",
-    "steps": "1. Open sidebar drawer.\n2. Click Bottom Nav Bar Item 4.\n3. Verify screen navigation.",
-    "expected": "Navigation actions should trigger immediate screen transitions."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Boundary Conditions - Boundary 29",
+    "steps": "1. Set parameters to limits 29.\n2. Send request to endpoint.\n3. Verify error handling.",
+    "expected": "App should display descriptive validation constraint message."
   },
   {
     "id": "TC_APP_090",
-    "module": "Dashboard",
-    "scenario": "Navigation Drawer and Bottom Navigation",
-    "steps": "1. Open sidebar drawer.\n2. Click Bottom Nav Bar Item 5.\n3. Verify screen navigation.",
-    "expected": "Navigation actions should trigger immediate screen transitions."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Boundary Conditions - Boundary 30",
+    "steps": "1. Set parameters to limits 30.\n2. Send request to endpoint.\n3. Verify error handling.",
+    "expected": "App should display descriptive validation constraint message."
   },
   {
     "id": "TC_APP_091",
-    "module": "Dashboard",
-    "scenario": "Navigation Drawer and Bottom Navigation",
-    "steps": "1. Open sidebar drawer.\n2. Click Bottom Nav Bar Item 6.\n3. Verify screen navigation.",
-    "expected": "Navigation actions should trigger immediate screen transitions."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Boundary Conditions - Boundary 31",
+    "steps": "1. Set parameters to limits 31.\n2. Send request to endpoint.\n3. Verify error handling.",
+    "expected": "App should display descriptive validation constraint message."
   },
   {
     "id": "TC_APP_092",
-    "module": "Dashboard",
-    "scenario": "Navigation Drawer and Bottom Navigation",
-    "steps": "1. Open sidebar drawer.\n2. Click Bottom Nav Bar Item 7.\n3. Verify screen navigation.",
-    "expected": "Navigation actions should trigger immediate screen transitions."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Boundary Conditions - Boundary 32",
+    "steps": "1. Set parameters to limits 32.\n2. Send request to endpoint.\n3. Verify error handling.",
+    "expected": "App should display descriptive validation constraint message."
   },
   {
     "id": "TC_APP_093",
-    "module": "Dashboard",
-    "scenario": "Navigation Drawer and Bottom Navigation",
-    "steps": "1. Open sidebar drawer.\n2. Click Bottom Nav Bar Item 8.\n3. Verify screen navigation.",
-    "expected": "Navigation actions should trigger immediate screen transitions."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Boundary Conditions - Boundary 33",
+    "steps": "1. Set parameters to limits 33.\n2. Send request to endpoint.\n3. Verify error handling.",
+    "expected": "App should display descriptive validation constraint message."
   },
   {
     "id": "TC_APP_094",
-    "module": "Dashboard",
-    "scenario": "Navigation Drawer and Bottom Navigation",
-    "steps": "1. Open sidebar drawer.\n2. Click Bottom Nav Bar Item 9.\n3. Verify screen navigation.",
-    "expected": "Navigation actions should trigger immediate screen transitions."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Boundary Conditions - Boundary 34",
+    "steps": "1. Set parameters to limits 34.\n2. Send request to endpoint.\n3. Verify error handling.",
+    "expected": "App should display descriptive validation constraint message."
   },
   {
     "id": "TC_APP_095",
-    "module": "Dashboard",
-    "scenario": "Navigation Drawer and Bottom Navigation",
-    "steps": "1. Open sidebar drawer.\n2. Click Bottom Nav Bar Item 10.\n3. Verify screen navigation.",
-    "expected": "Navigation actions should trigger immediate screen transitions."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Boundary Conditions - Boundary 35",
+    "steps": "1. Set parameters to limits 35.\n2. Send request to endpoint.\n3. Verify error handling.",
+    "expected": "App should display descriptive validation constraint message."
   },
   {
     "id": "TC_APP_096",
-    "module": "Dashboard",
-    "scenario": "Navigation Drawer and Bottom Navigation",
-    "steps": "1. Open sidebar drawer.\n2. Click Bottom Nav Bar Item 11.\n3. Verify screen navigation.",
-    "expected": "Navigation actions should trigger immediate screen transitions."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Boundary Conditions - Boundary 36",
+    "steps": "1. Set parameters to limits 36.\n2. Send request to endpoint.\n3. Verify error handling.",
+    "expected": "App should display descriptive validation constraint message."
   },
   {
     "id": "TC_APP_097",
-    "module": "Dashboard",
-    "scenario": "Navigation Drawer and Bottom Navigation",
-    "steps": "1. Open sidebar drawer.\n2. Click Bottom Nav Bar Item 12.\n3. Verify screen navigation.",
-    "expected": "Navigation actions should trigger immediate screen transitions."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Boundary Conditions - Boundary 37",
+    "steps": "1. Set parameters to limits 37.\n2. Send request to endpoint.\n3. Verify error handling.",
+    "expected": "App should display descriptive validation constraint message."
   },
   {
     "id": "TC_APP_098",
-    "module": "Dashboard",
-    "scenario": "Navigation Drawer and Bottom Navigation",
-    "steps": "1. Open sidebar drawer.\n2. Click Bottom Nav Bar Item 13.\n3. Verify screen navigation.",
-    "expected": "Navigation actions should trigger immediate screen transitions."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Boundary Conditions - Boundary 38",
+    "steps": "1. Set parameters to limits 38.\n2. Send request to endpoint.\n3. Verify error handling.",
+    "expected": "App should display descriptive validation constraint message."
   },
   {
     "id": "TC_APP_099",
-    "module": "Dashboard",
-    "scenario": "Navigation Drawer and Bottom Navigation",
-    "steps": "1. Open sidebar drawer.\n2. Click Bottom Nav Bar Item 14.\n3. Verify screen navigation.",
-    "expected": "Navigation actions should trigger immediate screen transitions."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Boundary Conditions - Boundary 39",
+    "steps": "1. Set parameters to limits 39.\n2. Send request to endpoint.\n3. Verify error handling.",
+    "expected": "App should display descriptive validation constraint message."
   },
   {
     "id": "TC_APP_100",
-    "module": "Dashboard",
-    "scenario": "Navigation Drawer and Bottom Navigation",
-    "steps": "1. Open sidebar drawer.\n2. Click Bottom Nav Bar Item 15.\n3. Verify screen navigation.",
-    "expected": "Navigation actions should trigger immediate screen transitions."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Boundary Conditions - Boundary 40",
+    "steps": "1. Set parameters to limits 40.\n2. Send request to endpoint.\n3. Verify error handling.",
+    "expected": "App should display descriptive validation constraint message."
   },
   {
     "id": "TC_APP_101",
-    "module": "Camera & Scanner",
-    "scenario": "Camera Access Permissions and Integration",
-    "steps": "1. Click Scan button.\n2. Grant/Deny Camera Permission 1.\n3. Capture leaf image.",
-    "expected": "App must handle permission requests gracefully and show custom fallback UI when denied."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Boundary Conditions - Boundary 41",
+    "steps": "1. Set parameters to limits 41.\n2. Send request to endpoint.\n3. Verify error handling.",
+    "expected": "App should display descriptive validation constraint message."
   },
   {
     "id": "TC_APP_102",
-    "module": "Camera & Scanner",
-    "scenario": "Camera Access Permissions and Integration",
-    "steps": "1. Click Scan button.\n2. Grant/Deny Camera Permission 2.\n3. Capture leaf image.",
-    "expected": "App must handle permission requests gracefully and show custom fallback UI when denied."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Boundary Conditions - Boundary 42",
+    "steps": "1. Set parameters to limits 42.\n2. Send request to endpoint.\n3. Verify error handling.",
+    "expected": "App should display descriptive validation constraint message."
   },
   {
     "id": "TC_APP_103",
-    "module": "Camera & Scanner",
-    "scenario": "Camera Access Permissions and Integration",
-    "steps": "1. Click Scan button.\n2. Grant/Deny Camera Permission 3.\n3. Capture leaf image.",
-    "expected": "App must handle permission requests gracefully and show custom fallback UI when denied."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Boundary Conditions - Boundary 43",
+    "steps": "1. Set parameters to limits 43.\n2. Send request to endpoint.\n3. Verify error handling.",
+    "expected": "App should display descriptive validation constraint message."
   },
   {
     "id": "TC_APP_104",
-    "module": "Camera & Scanner",
-    "scenario": "Camera Access Permissions and Integration",
-    "steps": "1. Click Scan button.\n2. Grant/Deny Camera Permission 4.\n3. Capture leaf image.",
-    "expected": "App must handle permission requests gracefully and show custom fallback UI when denied."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Boundary Conditions - Boundary 44",
+    "steps": "1. Set parameters to limits 44.\n2. Send request to endpoint.\n3. Verify error handling.",
+    "expected": "App should display descriptive validation constraint message."
   },
   {
     "id": "TC_APP_105",
-    "module": "Camera & Scanner",
-    "scenario": "Camera Access Permissions and Integration",
-    "steps": "1. Click Scan button.\n2. Grant/Deny Camera Permission 5.\n3. Capture leaf image.",
-    "expected": "App must handle permission requests gracefully and show custom fallback UI when denied."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Boundary Conditions - Boundary 45",
+    "steps": "1. Set parameters to limits 45.\n2. Send request to endpoint.\n3. Verify error handling.",
+    "expected": "App should display descriptive validation constraint message."
   },
   {
     "id": "TC_APP_106",
-    "module": "Camera & Scanner",
-    "scenario": "Camera Access Permissions and Integration",
-    "steps": "1. Click Scan button.\n2. Grant/Deny Camera Permission 6.\n3. Capture leaf image.",
-    "expected": "App must handle permission requests gracefully and show custom fallback UI when denied."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Boundary Conditions - Boundary 46",
+    "steps": "1. Set parameters to limits 46.\n2. Send request to endpoint.\n3. Verify error handling.",
+    "expected": "App should display descriptive validation constraint message."
   },
   {
     "id": "TC_APP_107",
-    "module": "Camera & Scanner",
-    "scenario": "Camera Access Permissions and Integration",
-    "steps": "1. Click Scan button.\n2. Grant/Deny Camera Permission 7.\n3. Capture leaf image.",
-    "expected": "App must handle permission requests gracefully and show custom fallback UI when denied."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Boundary Conditions - Boundary 47",
+    "steps": "1. Set parameters to limits 47.\n2. Send request to endpoint.\n3. Verify error handling.",
+    "expected": "App should display descriptive validation constraint message."
   },
   {
     "id": "TC_APP_108",
-    "module": "Camera & Scanner",
-    "scenario": "Camera Access Permissions and Integration",
-    "steps": "1. Click Scan button.\n2. Grant/Deny Camera Permission 8.\n3. Capture leaf image.",
-    "expected": "App must handle permission requests gracefully and show custom fallback UI when denied."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Boundary Conditions - Boundary 48",
+    "steps": "1. Set parameters to limits 48.\n2. Send request to endpoint.\n3. Verify error handling.",
+    "expected": "App should display descriptive validation constraint message."
   },
   {
     "id": "TC_APP_109",
-    "module": "Camera & Scanner",
-    "scenario": "Camera Access Permissions and Integration",
-    "steps": "1. Click Scan button.\n2. Grant/Deny Camera Permission 9.\n3. Capture leaf image.",
-    "expected": "App must handle permission requests gracefully and show custom fallback UI when denied."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Boundary Conditions - Boundary 49",
+    "steps": "1. Set parameters to limits 49.\n2. Send request to endpoint.\n3. Verify error handling.",
+    "expected": "App should display descriptive validation constraint message."
   },
   {
     "id": "TC_APP_110",
-    "module": "Camera & Scanner",
-    "scenario": "Camera Access Permissions and Integration",
-    "steps": "1. Click Scan button.\n2. Grant/Deny Camera Permission 10.\n3. Capture leaf image.",
-    "expected": "App must handle permission requests gracefully and show custom fallback UI when denied."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Boundary Conditions - Boundary 50",
+    "steps": "1. Set parameters to limits 50.\n2. Send request to endpoint.\n3. Verify error handling.",
+    "expected": "App should display descriptive validation constraint message."
   },
   {
     "id": "TC_APP_111",
-    "module": "Camera & Scanner",
-    "scenario": "Camera Access Permissions and Integration",
-    "steps": "1. Click Scan button.\n2. Grant/Deny Camera Permission 11.\n3. Capture leaf image.",
-    "expected": "App must handle permission requests gracefully and show custom fallback UI when denied."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Boundary Conditions - Boundary 51",
+    "steps": "1. Set parameters to limits 51.\n2. Send request to endpoint.\n3. Verify error handling.",
+    "expected": "App should display descriptive validation constraint message."
   },
   {
     "id": "TC_APP_112",
-    "module": "Camera & Scanner",
-    "scenario": "Camera Access Permissions and Integration",
-    "steps": "1. Click Scan button.\n2. Grant/Deny Camera Permission 12.\n3. Capture leaf image.",
-    "expected": "App must handle permission requests gracefully and show custom fallback UI when denied."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Boundary Conditions - Boundary 52",
+    "steps": "1. Set parameters to limits 52.\n2. Send request to endpoint.\n3. Verify error handling.",
+    "expected": "App should display descriptive validation constraint message."
   },
   {
     "id": "TC_APP_113",
-    "module": "Camera & Scanner",
-    "scenario": "Camera Access Permissions and Integration",
-    "steps": "1. Click Scan button.\n2. Grant/Deny Camera Permission 13.\n3. Capture leaf image.",
-    "expected": "App must handle permission requests gracefully and show custom fallback UI when denied."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Boundary Conditions - Boundary 53",
+    "steps": "1. Set parameters to limits 53.\n2. Send request to endpoint.\n3. Verify error handling.",
+    "expected": "App should display descriptive validation constraint message."
   },
   {
     "id": "TC_APP_114",
-    "module": "Camera & Scanner",
-    "scenario": "Camera Access Permissions and Integration",
-    "steps": "1. Click Scan button.\n2. Grant/Deny Camera Permission 14.\n3. Capture leaf image.",
-    "expected": "App must handle permission requests gracefully and show custom fallback UI when denied."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Boundary Conditions - Boundary 54",
+    "steps": "1. Set parameters to limits 54.\n2. Send request to endpoint.\n3. Verify error handling.",
+    "expected": "App should display descriptive validation constraint message."
   },
   {
     "id": "TC_APP_115",
-    "module": "Camera & Scanner",
-    "scenario": "Camera Access Permissions and Integration",
-    "steps": "1. Click Scan button.\n2. Grant/Deny Camera Permission 15.\n3. Capture leaf image.",
-    "expected": "App must handle permission requests gracefully and show custom fallback UI when denied."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Boundary Conditions - Boundary 55",
+    "steps": "1. Set parameters to limits 55.\n2. Send request to endpoint.\n3. Verify error handling.",
+    "expected": "App should display descriptive validation constraint message."
   },
   {
     "id": "TC_APP_116",
-    "module": "Camera & Scanner",
-    "scenario": "Camera Access Permissions and Integration",
-    "steps": "1. Click Scan button.\n2. Grant/Deny Camera Permission 16.\n3. Capture leaf image.",
-    "expected": "App must handle permission requests gracefully and show custom fallback UI when denied."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Boundary Conditions - Boundary 56",
+    "steps": "1. Set parameters to limits 56.\n2. Send request to endpoint.\n3. Verify error handling.",
+    "expected": "App should display descriptive validation constraint message."
   },
   {
     "id": "TC_APP_117",
-    "module": "Camera & Scanner",
-    "scenario": "Camera Access Permissions and Integration",
-    "steps": "1. Click Scan button.\n2. Grant/Deny Camera Permission 17.\n3. Capture leaf image.",
-    "expected": "App must handle permission requests gracefully and show custom fallback UI when denied."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Boundary Conditions - Boundary 57",
+    "steps": "1. Set parameters to limits 57.\n2. Send request to endpoint.\n3. Verify error handling.",
+    "expected": "App should display descriptive validation constraint message."
   },
   {
     "id": "TC_APP_118",
-    "module": "Camera & Scanner",
-    "scenario": "Camera Access Permissions and Integration",
-    "steps": "1. Click Scan button.\n2. Grant/Deny Camera Permission 18.\n3. Capture leaf image.",
-    "expected": "App must handle permission requests gracefully and show custom fallback UI when denied."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Boundary Conditions - Boundary 58",
+    "steps": "1. Set parameters to limits 58.\n2. Send request to endpoint.\n3. Verify error handling.",
+    "expected": "App should display descriptive validation constraint message."
   },
   {
     "id": "TC_APP_119",
-    "module": "Camera & Scanner",
-    "scenario": "Camera Access Permissions and Integration",
-    "steps": "1. Click Scan button.\n2. Grant/Deny Camera Permission 19.\n3. Capture leaf image.",
-    "expected": "App must handle permission requests gracefully and show custom fallback UI when denied."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Boundary Conditions - Boundary 59",
+    "steps": "1. Set parameters to limits 59.\n2. Send request to endpoint.\n3. Verify error handling.",
+    "expected": "App should display descriptive validation constraint message."
   },
   {
     "id": "TC_APP_120",
-    "module": "Camera & Scanner",
-    "scenario": "Camera Access Permissions and Integration",
-    "steps": "1. Click Scan button.\n2. Grant/Deny Camera Permission 20.\n3. Capture leaf image.",
-    "expected": "App must handle permission requests gracefully and show custom fallback UI when denied."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Boundary Conditions - Boundary 60",
+    "steps": "1. Set parameters to limits 60.\n2. Send request to endpoint.\n3. Verify error handling.",
+    "expected": "App should display descriptive validation constraint message."
   },
   {
     "id": "TC_APP_121",
-    "module": "Camera & Scanner",
-    "scenario": "Image Pick from Local Device Gallery",
-    "steps": "1. Click Scan.\n2. Choose Gallery Picker.\n3. Select test image 1 containing leaf.",
-    "expected": "App should load image from local storage path and render preview thumbnail."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Authentication and Security - Check 1",
+    "steps": "1. Inject check credentials 1.\n2. Try accessing resource.\n3. Check redirection.",
+    "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
     "id": "TC_APP_122",
-    "module": "Camera & Scanner",
-    "scenario": "Image Pick from Local Device Gallery",
-    "steps": "1. Click Scan.\n2. Choose Gallery Picker.\n3. Select test image 2 containing leaf.",
-    "expected": "App should load image from local storage path and render preview thumbnail."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Authentication and Security - Check 2",
+    "steps": "1. Inject check credentials 2.\n2. Try accessing resource.\n3. Check redirection.",
+    "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
     "id": "TC_APP_123",
-    "module": "Camera & Scanner",
-    "scenario": "Image Pick from Local Device Gallery",
-    "steps": "1. Click Scan.\n2. Choose Gallery Picker.\n3. Select test image 3 containing leaf.",
-    "expected": "App should load image from local storage path and render preview thumbnail."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Authentication and Security - Check 3",
+    "steps": "1. Inject check credentials 3.\n2. Try accessing resource.\n3. Check redirection.",
+    "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
     "id": "TC_APP_124",
-    "module": "Camera & Scanner",
-    "scenario": "Image Pick from Local Device Gallery",
-    "steps": "1. Click Scan.\n2. Choose Gallery Picker.\n3. Select test image 4 containing leaf.",
-    "expected": "App should load image from local storage path and render preview thumbnail."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Authentication and Security - Check 4",
+    "steps": "1. Inject check credentials 4.\n2. Try accessing resource.\n3. Check redirection.",
+    "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
     "id": "TC_APP_125",
-    "module": "Camera & Scanner",
-    "scenario": "Image Pick from Local Device Gallery",
-    "steps": "1. Click Scan.\n2. Choose Gallery Picker.\n3. Select test image 5 containing leaf.",
-    "expected": "App should load image from local storage path and render preview thumbnail."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Authentication and Security - Check 5",
+    "steps": "1. Inject check credentials 5.\n2. Try accessing resource.\n3. Check redirection.",
+    "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
     "id": "TC_APP_126",
-    "module": "Camera & Scanner",
-    "scenario": "Image Pick from Local Device Gallery",
-    "steps": "1. Click Scan.\n2. Choose Gallery Picker.\n3. Select test image 6 containing leaf.",
-    "expected": "App should load image from local storage path and render preview thumbnail."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Authentication and Security - Check 6",
+    "steps": "1. Inject check credentials 6.\n2. Try accessing resource.\n3. Check redirection.",
+    "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
     "id": "TC_APP_127",
-    "module": "Camera & Scanner",
-    "scenario": "Image Pick from Local Device Gallery",
-    "steps": "1. Click Scan.\n2. Choose Gallery Picker.\n3. Select test image 7 containing leaf.",
-    "expected": "App should load image from local storage path and render preview thumbnail."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Authentication and Security - Check 7",
+    "steps": "1. Inject check credentials 7.\n2. Try accessing resource.\n3. Check redirection.",
+    "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
     "id": "TC_APP_128",
-    "module": "Camera & Scanner",
-    "scenario": "Image Pick from Local Device Gallery",
-    "steps": "1. Click Scan.\n2. Choose Gallery Picker.\n3. Select test image 8 containing leaf.",
-    "expected": "App should load image from local storage path and render preview thumbnail."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Authentication and Security - Check 8",
+    "steps": "1. Inject check credentials 8.\n2. Try accessing resource.\n3. Check redirection.",
+    "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
     "id": "TC_APP_129",
-    "module": "Camera & Scanner",
-    "scenario": "Image Pick from Local Device Gallery",
-    "steps": "1. Click Scan.\n2. Choose Gallery Picker.\n3. Select test image 9 containing leaf.",
-    "expected": "App should load image from local storage path and render preview thumbnail."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Authentication and Security - Check 9",
+    "steps": "1. Inject check credentials 9.\n2. Try accessing resource.\n3. Check redirection.",
+    "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
     "id": "TC_APP_130",
-    "module": "Camera & Scanner",
-    "scenario": "Image Pick from Local Device Gallery",
-    "steps": "1. Click Scan.\n2. Choose Gallery Picker.\n3. Select test image 10 containing leaf.",
-    "expected": "App should load image from local storage path and render preview thumbnail."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Authentication and Security - Check 10",
+    "steps": "1. Inject check credentials 10.\n2. Try accessing resource.\n3. Check redirection.",
+    "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
     "id": "TC_APP_131",
-    "module": "Camera & Scanner",
-    "scenario": "Image Pick from Local Device Gallery",
-    "steps": "1. Click Scan.\n2. Choose Gallery Picker.\n3. Select test image 11 containing leaf.",
-    "expected": "App should load image from local storage path and render preview thumbnail."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Authentication and Security - Check 11",
+    "steps": "1. Inject check credentials 11.\n2. Try accessing resource.\n3. Check redirection.",
+    "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
     "id": "TC_APP_132",
-    "module": "Camera & Scanner",
-    "scenario": "Image Pick from Local Device Gallery",
-    "steps": "1. Click Scan.\n2. Choose Gallery Picker.\n3. Select test image 12 containing leaf.",
-    "expected": "App should load image from local storage path and render preview thumbnail."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Authentication and Security - Check 12",
+    "steps": "1. Inject check credentials 12.\n2. Try accessing resource.\n3. Check redirection.",
+    "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
     "id": "TC_APP_133",
-    "module": "Camera & Scanner",
-    "scenario": "Image Pick from Local Device Gallery",
-    "steps": "1. Click Scan.\n2. Choose Gallery Picker.\n3. Select test image 13 containing leaf.",
-    "expected": "App should load image from local storage path and render preview thumbnail."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Authentication and Security - Check 13",
+    "steps": "1. Inject check credentials 13.\n2. Try accessing resource.\n3. Check redirection.",
+    "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
     "id": "TC_APP_134",
-    "module": "Camera & Scanner",
-    "scenario": "Image Pick from Local Device Gallery",
-    "steps": "1. Click Scan.\n2. Choose Gallery Picker.\n3. Select test image 14 containing leaf.",
-    "expected": "App should load image from local storage path and render preview thumbnail."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Authentication and Security - Check 14",
+    "steps": "1. Inject check credentials 14.\n2. Try accessing resource.\n3. Check redirection.",
+    "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
     "id": "TC_APP_135",
-    "module": "Camera & Scanner",
-    "scenario": "Image Pick from Local Device Gallery",
-    "steps": "1. Click Scan.\n2. Choose Gallery Picker.\n3. Select test image 15 containing leaf.",
-    "expected": "App should load image from local storage path and render preview thumbnail."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Authentication and Security - Check 15",
+    "steps": "1. Inject check credentials 15.\n2. Try accessing resource.\n3. Check redirection.",
+    "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
     "id": "TC_APP_136",
-    "module": "Camera & Scanner",
-    "scenario": "Image Pick from Local Device Gallery",
-    "steps": "1. Click Scan.\n2. Choose Gallery Picker.\n3. Select test image 16 containing leaf.",
-    "expected": "App should load image from local storage path and render preview thumbnail."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Authentication and Security - Check 16",
+    "steps": "1. Inject check credentials 16.\n2. Try accessing resource.\n3. Check redirection.",
+    "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
     "id": "TC_APP_137",
-    "module": "Camera & Scanner",
-    "scenario": "Image Pick from Local Device Gallery",
-    "steps": "1. Click Scan.\n2. Choose Gallery Picker.\n3. Select test image 17 containing leaf.",
-    "expected": "App should load image from local storage path and render preview thumbnail."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Authentication and Security - Check 17",
+    "steps": "1. Inject check credentials 17.\n2. Try accessing resource.\n3. Check redirection.",
+    "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
     "id": "TC_APP_138",
-    "module": "Camera & Scanner",
-    "scenario": "Image Pick from Local Device Gallery",
-    "steps": "1. Click Scan.\n2. Choose Gallery Picker.\n3. Select test image 18 containing leaf.",
-    "expected": "App should load image from local storage path and render preview thumbnail."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Authentication and Security - Check 18",
+    "steps": "1. Inject check credentials 18.\n2. Try accessing resource.\n3. Check redirection.",
+    "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
     "id": "TC_APP_139",
-    "module": "Camera & Scanner",
-    "scenario": "Image Pick from Local Device Gallery",
-    "steps": "1. Click Scan.\n2. Choose Gallery Picker.\n3. Select test image 19 containing leaf.",
-    "expected": "App should load image from local storage path and render preview thumbnail."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Authentication and Security - Check 19",
+    "steps": "1. Inject check credentials 19.\n2. Try accessing resource.\n3. Check redirection.",
+    "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
     "id": "TC_APP_140",
-    "module": "Camera & Scanner",
-    "scenario": "Image Pick from Local Device Gallery",
-    "steps": "1. Click Scan.\n2. Choose Gallery Picker.\n3. Select test image 20 containing leaf.",
-    "expected": "App should load image from local storage path and render preview thumbnail."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Authentication and Security - Check 20",
+    "steps": "1. Inject check credentials 20.\n2. Try accessing resource.\n3. Check redirection.",
+    "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
     "id": "TC_APP_141",
-    "module": "Camera & Scanner",
-    "scenario": "FastAPI Integration and Prediction Results",
-    "steps": "1. Upload captured image 1.\n2. Await analysis response from api/v1/analyze.",
-    "expected": "Analysis report card should load correctly with crop details, remedies, and confidence."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Authentication and Security - Check 21",
+    "steps": "1. Inject check credentials 21.\n2. Try accessing resource.\n3. Check redirection.",
+    "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
     "id": "TC_APP_142",
-    "module": "Camera & Scanner",
-    "scenario": "FastAPI Integration and Prediction Results",
-    "steps": "1. Upload captured image 2.\n2. Await analysis response from api/v1/analyze.",
-    "expected": "Analysis report card should load correctly with crop details, remedies, and confidence."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Authentication and Security - Check 22",
+    "steps": "1. Inject check credentials 22.\n2. Try accessing resource.\n3. Check redirection.",
+    "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
     "id": "TC_APP_143",
-    "module": "Camera & Scanner",
-    "scenario": "FastAPI Integration and Prediction Results",
-    "steps": "1. Upload captured image 3.\n2. Await analysis response from api/v1/analyze.",
-    "expected": "Analysis report card should load correctly with crop details, remedies, and confidence."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Authentication and Security - Check 23",
+    "steps": "1. Inject check credentials 23.\n2. Try accessing resource.\n3. Check redirection.",
+    "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
     "id": "TC_APP_144",
-    "module": "Camera & Scanner",
-    "scenario": "FastAPI Integration and Prediction Results",
-    "steps": "1. Upload captured image 4.\n2. Await analysis response from api/v1/analyze.",
-    "expected": "Analysis report card should load correctly with crop details, remedies, and confidence."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Authentication and Security - Check 24",
+    "steps": "1. Inject check credentials 24.\n2. Try accessing resource.\n3. Check redirection.",
+    "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
     "id": "TC_APP_145",
-    "module": "Camera & Scanner",
-    "scenario": "FastAPI Integration and Prediction Results",
-    "steps": "1. Upload captured image 5.\n2. Await analysis response from api/v1/analyze.",
-    "expected": "Analysis report card should load correctly with crop details, remedies, and confidence."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Authentication and Security - Check 25",
+    "steps": "1. Inject check credentials 25.\n2. Try accessing resource.\n3. Check redirection.",
+    "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
     "id": "TC_APP_146",
-    "module": "Camera & Scanner",
-    "scenario": "FastAPI Integration and Prediction Results",
-    "steps": "1. Upload captured image 6.\n2. Await analysis response from api/v1/analyze.",
-    "expected": "Analysis report card should load correctly with crop details, remedies, and confidence."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Authentication and Security - Check 26",
+    "steps": "1. Inject check credentials 26.\n2. Try accessing resource.\n3. Check redirection.",
+    "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
     "id": "TC_APP_147",
-    "module": "Camera & Scanner",
-    "scenario": "FastAPI Integration and Prediction Results",
-    "steps": "1. Upload captured image 7.\n2. Await analysis response from api/v1/analyze.",
-    "expected": "Analysis report card should load correctly with crop details, remedies, and confidence."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Authentication and Security - Check 27",
+    "steps": "1. Inject check credentials 27.\n2. Try accessing resource.\n3. Check redirection.",
+    "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
     "id": "TC_APP_148",
-    "module": "Camera & Scanner",
-    "scenario": "FastAPI Integration and Prediction Results",
-    "steps": "1. Upload captured image 8.\n2. Await analysis response from api/v1/analyze.",
-    "expected": "Analysis report card should load correctly with crop details, remedies, and confidence."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Authentication and Security - Check 28",
+    "steps": "1. Inject check credentials 28.\n2. Try accessing resource.\n3. Check redirection.",
+    "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
     "id": "TC_APP_149",
-    "module": "Camera & Scanner",
-    "scenario": "FastAPI Integration and Prediction Results",
-    "steps": "1. Upload captured image 9.\n2. Await analysis response from api/v1/analyze.",
-    "expected": "Analysis report card should load correctly with crop details, remedies, and confidence."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Authentication and Security - Check 29",
+    "steps": "1. Inject check credentials 29.\n2. Try accessing resource.\n3. Check redirection.",
+    "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
     "id": "TC_APP_150",
-    "module": "Camera & Scanner",
-    "scenario": "FastAPI Integration and Prediction Results",
-    "steps": "1. Upload captured image 10.\n2. Await analysis response from api/v1/analyze.",
-    "expected": "Analysis report card should load correctly with crop details, remedies, and confidence."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Authentication and Security - Check 30",
+    "steps": "1. Inject check credentials 30.\n2. Try accessing resource.\n3. Check redirection.",
+    "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
     "id": "TC_APP_151",
-    "module": "Camera & Scanner",
-    "scenario": "FastAPI Integration and Prediction Results",
-    "steps": "1. Upload captured image 11.\n2. Await analysis response from api/v1/analyze.",
-    "expected": "Analysis report card should load correctly with crop details, remedies, and confidence."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Authentication and Security - Check 31",
+    "steps": "1. Inject check credentials 31.\n2. Try accessing resource.\n3. Check redirection.",
+    "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
     "id": "TC_APP_152",
-    "module": "Camera & Scanner",
-    "scenario": "FastAPI Integration and Prediction Results",
-    "steps": "1. Upload captured image 12.\n2. Await analysis response from api/v1/analyze.",
-    "expected": "Analysis report card should load correctly with crop details, remedies, and confidence."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Authentication and Security - Check 32",
+    "steps": "1. Inject check credentials 32.\n2. Try accessing resource.\n3. Check redirection.",
+    "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
     "id": "TC_APP_153",
-    "module": "Camera & Scanner",
-    "scenario": "FastAPI Integration and Prediction Results",
-    "steps": "1. Upload captured image 13.\n2. Await analysis response from api/v1/analyze.",
-    "expected": "Analysis report card should load correctly with crop details, remedies, and confidence."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Authentication and Security - Check 33",
+    "steps": "1. Inject check credentials 33.\n2. Try accessing resource.\n3. Check redirection.",
+    "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
     "id": "TC_APP_154",
-    "module": "Camera & Scanner",
-    "scenario": "FastAPI Integration and Prediction Results",
-    "steps": "1. Upload captured image 14.\n2. Await analysis response from api/v1/analyze.",
-    "expected": "Analysis report card should load correctly with crop details, remedies, and confidence."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Authentication and Security - Check 34",
+    "steps": "1. Inject check credentials 34.\n2. Try accessing resource.\n3. Check redirection.",
+    "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
     "id": "TC_APP_155",
-    "module": "Camera & Scanner",
-    "scenario": "FastAPI Integration and Prediction Results",
-    "steps": "1. Upload captured image 15.\n2. Await analysis response from api/v1/analyze.",
-    "expected": "Analysis report card should load correctly with crop details, remedies, and confidence."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Authentication and Security - Check 35",
+    "steps": "1. Inject check credentials 35.\n2. Try accessing resource.\n3. Check redirection.",
+    "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
     "id": "TC_APP_156",
-    "module": "Camera & Scanner",
-    "scenario": "FastAPI Integration and Prediction Results",
-    "steps": "1. Upload captured image 16.\n2. Await analysis response from api/v1/analyze.",
-    "expected": "Analysis report card should load correctly with crop details, remedies, and confidence."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Authentication and Security - Check 36",
+    "steps": "1. Inject check credentials 36.\n2. Try accessing resource.\n3. Check redirection.",
+    "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
     "id": "TC_APP_157",
-    "module": "Camera & Scanner",
-    "scenario": "FastAPI Integration and Prediction Results",
-    "steps": "1. Upload captured image 17.\n2. Await analysis response from api/v1/analyze.",
-    "expected": "Analysis report card should load correctly with crop details, remedies, and confidence."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Authentication and Security - Check 37",
+    "steps": "1. Inject check credentials 37.\n2. Try accessing resource.\n3. Check redirection.",
+    "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
     "id": "TC_APP_158",
-    "module": "Camera & Scanner",
-    "scenario": "FastAPI Integration and Prediction Results",
-    "steps": "1. Upload captured image 18.\n2. Await analysis response from api/v1/analyze.",
-    "expected": "Analysis report card should load correctly with crop details, remedies, and confidence."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Authentication and Security - Check 38",
+    "steps": "1. Inject check credentials 38.\n2. Try accessing resource.\n3. Check redirection.",
+    "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
     "id": "TC_APP_159",
-    "module": "Camera & Scanner",
-    "scenario": "FastAPI Integration and Prediction Results",
-    "steps": "1. Upload captured image 19.\n2. Await analysis response from api/v1/analyze.",
-    "expected": "Analysis report card should load correctly with crop details, remedies, and confidence."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Authentication and Security - Check 39",
+    "steps": "1. Inject check credentials 39.\n2. Try accessing resource.\n3. Check redirection.",
+    "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
     "id": "TC_APP_160",
-    "module": "Camera & Scanner",
-    "scenario": "FastAPI Integration and Prediction Results",
-    "steps": "1. Upload captured image 20.\n2. Await analysis response from api/v1/analyze.",
-    "expected": "Analysis report card should load correctly with crop details, remedies, and confidence."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Authentication and Security - Check 40",
+    "steps": "1. Inject check credentials 40.\n2. Try accessing resource.\n3. Check redirection.",
+    "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
     "id": "TC_APP_161",
-    "module": "Simulator",
-    "scenario": "Simulation Progression Mobile Engine",
-    "steps": "1. Tap Simulation on dashboard.\n2. Select disease 1.\n3. Check timeline graph.",
-    "expected": "Progression charts and details must load correctly for target crop."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Authentication and Security - Check 41",
+    "steps": "1. Inject check credentials 41.\n2. Try accessing resource.\n3. Check redirection.",
+    "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
     "id": "TC_APP_162",
-    "module": "Simulator",
-    "scenario": "Simulation Progression Mobile Engine",
-    "steps": "1. Tap Simulation on dashboard.\n2. Select disease 2.\n3. Check timeline graph.",
-    "expected": "Progression charts and details must load correctly for target crop."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Authentication and Security - Check 42",
+    "steps": "1. Inject check credentials 42.\n2. Try accessing resource.\n3. Check redirection.",
+    "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
     "id": "TC_APP_163",
-    "module": "Simulator",
-    "scenario": "Simulation Progression Mobile Engine",
-    "steps": "1. Tap Simulation on dashboard.\n2. Select disease 3.\n3. Check timeline graph.",
-    "expected": "Progression charts and details must load correctly for target crop."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Authentication and Security - Check 43",
+    "steps": "1. Inject check credentials 43.\n2. Try accessing resource.\n3. Check redirection.",
+    "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
     "id": "TC_APP_164",
-    "module": "Simulator",
-    "scenario": "Simulation Progression Mobile Engine",
-    "steps": "1. Tap Simulation on dashboard.\n2. Select disease 4.\n3. Check timeline graph.",
-    "expected": "Progression charts and details must load correctly for target crop."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Authentication and Security - Check 44",
+    "steps": "1. Inject check credentials 44.\n2. Try accessing resource.\n3. Check redirection.",
+    "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
     "id": "TC_APP_165",
-    "module": "Simulator",
-    "scenario": "Simulation Progression Mobile Engine",
-    "steps": "1. Tap Simulation on dashboard.\n2. Select disease 5.\n3. Check timeline graph.",
-    "expected": "Progression charts and details must load correctly for target crop."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Authentication and Security - Check 45",
+    "steps": "1. Inject check credentials 45.\n2. Try accessing resource.\n3. Check redirection.",
+    "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
     "id": "TC_APP_166",
-    "module": "Simulator",
-    "scenario": "Simulation Progression Mobile Engine",
-    "steps": "1. Tap Simulation on dashboard.\n2. Select disease 6.\n3. Check timeline graph.",
-    "expected": "Progression charts and details must load correctly for target crop."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Authentication and Security - Check 46",
+    "steps": "1. Inject check credentials 46.\n2. Try accessing resource.\n3. Check redirection.",
+    "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
     "id": "TC_APP_167",
-    "module": "Simulator",
-    "scenario": "Simulation Progression Mobile Engine",
-    "steps": "1. Tap Simulation on dashboard.\n2. Select disease 7.\n3. Check timeline graph.",
-    "expected": "Progression charts and details must load correctly for target crop."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Authentication and Security - Check 47",
+    "steps": "1. Inject check credentials 47.\n2. Try accessing resource.\n3. Check redirection.",
+    "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
     "id": "TC_APP_168",
-    "module": "Simulator",
-    "scenario": "Simulation Progression Mobile Engine",
-    "steps": "1. Tap Simulation on dashboard.\n2. Select disease 8.\n3. Check timeline graph.",
-    "expected": "Progression charts and details must load correctly for target crop."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Authentication and Security - Check 48",
+    "steps": "1. Inject check credentials 48.\n2. Try accessing resource.\n3. Check redirection.",
+    "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
     "id": "TC_APP_169",
-    "module": "Simulator",
-    "scenario": "Simulation Progression Mobile Engine",
-    "steps": "1. Tap Simulation on dashboard.\n2. Select disease 9.\n3. Check timeline graph.",
-    "expected": "Progression charts and details must load correctly for target crop."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Authentication and Security - Check 49",
+    "steps": "1. Inject check credentials 49.\n2. Try accessing resource.\n3. Check redirection.",
+    "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
     "id": "TC_APP_170",
-    "module": "Simulator",
-    "scenario": "Simulation Progression Mobile Engine",
-    "steps": "1. Tap Simulation on dashboard.\n2. Select disease 10.\n3. Check timeline graph.",
-    "expected": "Progression charts and details must load correctly for target crop."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Authentication and Security - Check 50",
+    "steps": "1. Inject check credentials 50.\n2. Try accessing resource.\n3. Check redirection.",
+    "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
     "id": "TC_APP_171",
-    "module": "Simulator",
-    "scenario": "Simulation Progression Mobile Engine",
-    "steps": "1. Tap Simulation on dashboard.\n2. Select disease 11.\n3. Check timeline graph.",
-    "expected": "Progression charts and details must load correctly for target crop."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Authentication and Security - Check 51",
+    "steps": "1. Inject check credentials 51.\n2. Try accessing resource.\n3. Check redirection.",
+    "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
     "id": "TC_APP_172",
-    "module": "Simulator",
-    "scenario": "Simulation Progression Mobile Engine",
-    "steps": "1. Tap Simulation on dashboard.\n2. Select disease 12.\n3. Check timeline graph.",
-    "expected": "Progression charts and details must load correctly for target crop."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Authentication and Security - Check 52",
+    "steps": "1. Inject check credentials 52.\n2. Try accessing resource.\n3. Check redirection.",
+    "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
     "id": "TC_APP_173",
-    "module": "Simulator",
-    "scenario": "Simulation Progression Mobile Engine",
-    "steps": "1. Tap Simulation on dashboard.\n2. Select disease 13.\n3. Check timeline graph.",
-    "expected": "Progression charts and details must load correctly for target crop."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Authentication and Security - Check 53",
+    "steps": "1. Inject check credentials 53.\n2. Try accessing resource.\n3. Check redirection.",
+    "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
     "id": "TC_APP_174",
-    "module": "Simulator",
-    "scenario": "Simulation Progression Mobile Engine",
-    "steps": "1. Tap Simulation on dashboard.\n2. Select disease 14.\n3. Check timeline graph.",
-    "expected": "Progression charts and details must load correctly for target crop."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Authentication and Security - Check 54",
+    "steps": "1. Inject check credentials 54.\n2. Try accessing resource.\n3. Check redirection.",
+    "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
     "id": "TC_APP_175",
-    "module": "Simulator",
-    "scenario": "Simulation Progression Mobile Engine",
-    "steps": "1. Tap Simulation on dashboard.\n2. Select disease 15.\n3. Check timeline graph.",
-    "expected": "Progression charts and details must load correctly for target crop."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Authentication and Security - Check 55",
+    "steps": "1. Inject check credentials 55.\n2. Try accessing resource.\n3. Check redirection.",
+    "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
     "id": "TC_APP_176",
-    "module": "Simulator",
-    "scenario": "Simulation Progression Mobile Engine",
-    "steps": "1. Tap Simulation on dashboard.\n2. Select disease 16.\n3. Check timeline graph.",
-    "expected": "Progression charts and details must load correctly for target crop."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Authentication and Security - Check 56",
+    "steps": "1. Inject check credentials 56.\n2. Try accessing resource.\n3. Check redirection.",
+    "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
     "id": "TC_APP_177",
-    "module": "Simulator",
-    "scenario": "Simulation Progression Mobile Engine",
-    "steps": "1. Tap Simulation on dashboard.\n2. Select disease 17.\n3. Check timeline graph.",
-    "expected": "Progression charts and details must load correctly for target crop."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Authentication and Security - Check 57",
+    "steps": "1. Inject check credentials 57.\n2. Try accessing resource.\n3. Check redirection.",
+    "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
     "id": "TC_APP_178",
-    "module": "Simulator",
-    "scenario": "Simulation Progression Mobile Engine",
-    "steps": "1. Tap Simulation on dashboard.\n2. Select disease 18.\n3. Check timeline graph.",
-    "expected": "Progression charts and details must load correctly for target crop."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Authentication and Security - Check 58",
+    "steps": "1. Inject check credentials 58.\n2. Try accessing resource.\n3. Check redirection.",
+    "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
     "id": "TC_APP_179",
-    "module": "Simulator",
-    "scenario": "Simulation Progression Mobile Engine",
-    "steps": "1. Tap Simulation on dashboard.\n2. Select disease 19.\n3. Check timeline graph.",
-    "expected": "Progression charts and details must load correctly for target crop."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Authentication and Security - Check 59",
+    "steps": "1. Inject check credentials 59.\n2. Try accessing resource.\n3. Check redirection.",
+    "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
     "id": "TC_APP_180",
-    "module": "Simulator",
-    "scenario": "Simulation Progression Mobile Engine",
-    "steps": "1. Tap Simulation on dashboard.\n2. Select disease 20.\n3. Check timeline graph.",
-    "expected": "Progression charts and details must load correctly for target crop."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Authentication and Security - Check 60",
+    "steps": "1. Inject check credentials 60.\n2. Try accessing resource.\n3. Check redirection.",
+    "expected": "Should enforce authentication and redirect unauthenticated requests."
   },
   {
     "id": "TC_APP_181",
-    "module": "Simulator",
-    "scenario": "Interactive Severity Filters and Slider Controls",
-    "steps": "1. Load simulator timeline.\n2. Drag severity slider / tap severity 1.\n3. Inspect UI response.",
-    "expected": "Symptom logs should update immediately with high-performance animations."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E UI/UX and Local Cache - Flow 1",
+    "steps": "1. Load UI components.\n2. Modify state 1.\n3. Check persistent caching.",
+    "expected": "State must persist and render without redraw latency."
   },
   {
     "id": "TC_APP_182",
-    "module": "Simulator",
-    "scenario": "Interactive Severity Filters and Slider Controls",
-    "steps": "1. Load simulator timeline.\n2. Drag severity slider / tap severity 2.\n3. Inspect UI response.",
-    "expected": "Symptom logs should update immediately with high-performance animations."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E UI/UX and Local Cache - Flow 2",
+    "steps": "1. Load UI components.\n2. Modify state 2.\n3. Check persistent caching.",
+    "expected": "State must persist and render without redraw latency."
   },
   {
     "id": "TC_APP_183",
-    "module": "Simulator",
-    "scenario": "Interactive Severity Filters and Slider Controls",
-    "steps": "1. Load simulator timeline.\n2. Drag severity slider / tap severity 3.\n3. Inspect UI response.",
-    "expected": "Symptom logs should update immediately with high-performance animations."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E UI/UX and Local Cache - Flow 3",
+    "steps": "1. Load UI components.\n2. Modify state 3.\n3. Check persistent caching.",
+    "expected": "State must persist and render without redraw latency."
   },
   {
     "id": "TC_APP_184",
-    "module": "Simulator",
-    "scenario": "Interactive Severity Filters and Slider Controls",
-    "steps": "1. Load simulator timeline.\n2. Drag severity slider / tap severity 4.\n3. Inspect UI response.",
-    "expected": "Symptom logs should update immediately with high-performance animations."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E UI/UX and Local Cache - Flow 4",
+    "steps": "1. Load UI components.\n2. Modify state 4.\n3. Check persistent caching.",
+    "expected": "State must persist and render without redraw latency."
   },
   {
     "id": "TC_APP_185",
-    "module": "Simulator",
-    "scenario": "Interactive Severity Filters and Slider Controls",
-    "steps": "1. Load simulator timeline.\n2. Drag severity slider / tap severity 5.\n3. Inspect UI response.",
-    "expected": "Symptom logs should update immediately with high-performance animations."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E UI/UX and Local Cache - Flow 5",
+    "steps": "1. Load UI components.\n2. Modify state 5.\n3. Check persistent caching.",
+    "expected": "State must persist and render without redraw latency."
   },
   {
     "id": "TC_APP_186",
-    "module": "Simulator",
-    "scenario": "Interactive Severity Filters and Slider Controls",
-    "steps": "1. Load simulator timeline.\n2. Drag severity slider / tap severity 6.\n3. Inspect UI response.",
-    "expected": "Symptom logs should update immediately with high-performance animations."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E UI/UX and Local Cache - Flow 6",
+    "steps": "1. Load UI components.\n2. Modify state 6.\n3. Check persistent caching.",
+    "expected": "State must persist and render without redraw latency."
   },
   {
     "id": "TC_APP_187",
-    "module": "Simulator",
-    "scenario": "Interactive Severity Filters and Slider Controls",
-    "steps": "1. Load simulator timeline.\n2. Drag severity slider / tap severity 7.\n3. Inspect UI response.",
-    "expected": "Symptom logs should update immediately with high-performance animations."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E UI/UX and Local Cache - Flow 7",
+    "steps": "1. Load UI components.\n2. Modify state 7.\n3. Check persistent caching.",
+    "expected": "State must persist and render without redraw latency."
   },
   {
     "id": "TC_APP_188",
-    "module": "Simulator",
-    "scenario": "Interactive Severity Filters and Slider Controls",
-    "steps": "1. Load simulator timeline.\n2. Drag severity slider / tap severity 8.\n3. Inspect UI response.",
-    "expected": "Symptom logs should update immediately with high-performance animations."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E UI/UX and Local Cache - Flow 8",
+    "steps": "1. Load UI components.\n2. Modify state 8.\n3. Check persistent caching.",
+    "expected": "State must persist and render without redraw latency."
   },
   {
     "id": "TC_APP_189",
-    "module": "Simulator",
-    "scenario": "Interactive Severity Filters and Slider Controls",
-    "steps": "1. Load simulator timeline.\n2. Drag severity slider / tap severity 9.\n3. Inspect UI response.",
-    "expected": "Symptom logs should update immediately with high-performance animations."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E UI/UX and Local Cache - Flow 9",
+    "steps": "1. Load UI components.\n2. Modify state 9.\n3. Check persistent caching.",
+    "expected": "State must persist and render without redraw latency."
   },
   {
     "id": "TC_APP_190",
-    "module": "Simulator",
-    "scenario": "Interactive Severity Filters and Slider Controls",
-    "steps": "1. Load simulator timeline.\n2. Drag severity slider / tap severity 10.\n3. Inspect UI response.",
-    "expected": "Symptom logs should update immediately with high-performance animations."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E UI/UX and Local Cache - Flow 10",
+    "steps": "1. Load UI components.\n2. Modify state 10.\n3. Check persistent caching.",
+    "expected": "State must persist and render without redraw latency."
   },
   {
     "id": "TC_APP_191",
-    "module": "Simulator",
-    "scenario": "Interactive Severity Filters and Slider Controls",
-    "steps": "1. Load simulator timeline.\n2. Drag severity slider / tap severity 11.\n3. Inspect UI response.",
-    "expected": "Symptom logs should update immediately with high-performance animations."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E UI/UX and Local Cache - Flow 11",
+    "steps": "1. Load UI components.\n2. Modify state 11.\n3. Check persistent caching.",
+    "expected": "State must persist and render without redraw latency."
   },
   {
     "id": "TC_APP_192",
-    "module": "Simulator",
-    "scenario": "Interactive Severity Filters and Slider Controls",
-    "steps": "1. Load simulator timeline.\n2. Drag severity slider / tap severity 12.\n3. Inspect UI response.",
-    "expected": "Symptom logs should update immediately with high-performance animations."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E UI/UX and Local Cache - Flow 12",
+    "steps": "1. Load UI components.\n2. Modify state 12.\n3. Check persistent caching.",
+    "expected": "State must persist and render without redraw latency."
   },
   {
     "id": "TC_APP_193",
-    "module": "Simulator",
-    "scenario": "Interactive Severity Filters and Slider Controls",
-    "steps": "1. Load simulator timeline.\n2. Drag severity slider / tap severity 13.\n3. Inspect UI response.",
-    "expected": "Symptom logs should update immediately with high-performance animations."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E UI/UX and Local Cache - Flow 13",
+    "steps": "1. Load UI components.\n2. Modify state 13.\n3. Check persistent caching.",
+    "expected": "State must persist and render without redraw latency."
   },
   {
     "id": "TC_APP_194",
-    "module": "Simulator",
-    "scenario": "Interactive Severity Filters and Slider Controls",
-    "steps": "1. Load simulator timeline.\n2. Drag severity slider / tap severity 14.\n3. Inspect UI response.",
-    "expected": "Symptom logs should update immediately with high-performance animations."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E UI/UX and Local Cache - Flow 14",
+    "steps": "1. Load UI components.\n2. Modify state 14.\n3. Check persistent caching.",
+    "expected": "State must persist and render without redraw latency."
   },
   {
     "id": "TC_APP_195",
-    "module": "Simulator",
-    "scenario": "Interactive Severity Filters and Slider Controls",
-    "steps": "1. Load simulator timeline.\n2. Drag severity slider / tap severity 15.\n3. Inspect UI response.",
-    "expected": "Symptom logs should update immediately with high-performance animations."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E UI/UX and Local Cache - Flow 15",
+    "steps": "1. Load UI components.\n2. Modify state 15.\n3. Check persistent caching.",
+    "expected": "State must persist and render without redraw latency."
   },
   {
     "id": "TC_APP_196",
-    "module": "Simulator",
-    "scenario": "Interactive Severity Filters and Slider Controls",
-    "steps": "1. Load simulator timeline.\n2. Drag severity slider / tap severity 16.\n3. Inspect UI response.",
-    "expected": "Symptom logs should update immediately with high-performance animations."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E UI/UX and Local Cache - Flow 16",
+    "steps": "1. Load UI components.\n2. Modify state 16.\n3. Check persistent caching.",
+    "expected": "State must persist and render without redraw latency."
   },
   {
     "id": "TC_APP_197",
-    "module": "Simulator",
-    "scenario": "Interactive Severity Filters and Slider Controls",
-    "steps": "1. Load simulator timeline.\n2. Drag severity slider / tap severity 17.\n3. Inspect UI response.",
-    "expected": "Symptom logs should update immediately with high-performance animations."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E UI/UX and Local Cache - Flow 17",
+    "steps": "1. Load UI components.\n2. Modify state 17.\n3. Check persistent caching.",
+    "expected": "State must persist and render without redraw latency."
   },
   {
     "id": "TC_APP_198",
-    "module": "Simulator",
-    "scenario": "Interactive Severity Filters and Slider Controls",
-    "steps": "1. Load simulator timeline.\n2. Drag severity slider / tap severity 18.\n3. Inspect UI response.",
-    "expected": "Symptom logs should update immediately with high-performance animations."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E UI/UX and Local Cache - Flow 18",
+    "steps": "1. Load UI components.\n2. Modify state 18.\n3. Check persistent caching.",
+    "expected": "State must persist and render without redraw latency."
   },
   {
     "id": "TC_APP_199",
-    "module": "Simulator",
-    "scenario": "Interactive Severity Filters and Slider Controls",
-    "steps": "1. Load simulator timeline.\n2. Drag severity slider / tap severity 19.\n3. Inspect UI response.",
-    "expected": "Symptom logs should update immediately with high-performance animations."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E UI/UX and Local Cache - Flow 19",
+    "steps": "1. Load UI components.\n2. Modify state 19.\n3. Check persistent caching.",
+    "expected": "State must persist and render without redraw latency."
   },
   {
     "id": "TC_APP_200",
-    "module": "Simulator",
-    "scenario": "Interactive Severity Filters and Slider Controls",
-    "steps": "1. Load simulator timeline.\n2. Drag severity slider / tap severity 20.\n3. Inspect UI response.",
-    "expected": "Symptom logs should update immediately with high-performance animations."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E UI/UX and Local Cache - Flow 20",
+    "steps": "1. Load UI components.\n2. Modify state 20.\n3. Check persistent caching.",
+    "expected": "State must persist and render without redraw latency."
   },
   {
     "id": "TC_APP_201",
-    "module": "Treatments Guide",
-    "scenario": "Offline Treatments Search and Indexing",
-    "steps": "1. Open Treatments tab.\n2. Input query string 1 in search bar.\n3. Validate search.",
-    "expected": "App should display search results quickly."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E UI/UX and Local Cache - Flow 21",
+    "steps": "1. Load UI components.\n2. Modify state 21.\n3. Check persistent caching.",
+    "expected": "State must persist and render without redraw latency."
   },
   {
     "id": "TC_APP_202",
-    "module": "Treatments Guide",
-    "scenario": "Offline Treatments Search and Indexing",
-    "steps": "1. Open Treatments tab.\n2. Input query string 2 in search bar.\n3. Validate search.",
-    "expected": "App should display search results quickly."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E UI/UX and Local Cache - Flow 22",
+    "steps": "1. Load UI components.\n2. Modify state 22.\n3. Check persistent caching.",
+    "expected": "State must persist and render without redraw latency."
   },
   {
     "id": "TC_APP_203",
-    "module": "Treatments Guide",
-    "scenario": "Offline Treatments Search and Indexing",
-    "steps": "1. Open Treatments tab.\n2. Input query string 3 in search bar.\n3. Validate search.",
-    "expected": "App should display search results quickly."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E UI/UX and Local Cache - Flow 23",
+    "steps": "1. Load UI components.\n2. Modify state 23.\n3. Check persistent caching.",
+    "expected": "State must persist and render without redraw latency."
   },
   {
     "id": "TC_APP_204",
-    "module": "Treatments Guide",
-    "scenario": "Offline Treatments Search and Indexing",
-    "steps": "1. Open Treatments tab.\n2. Input query string 4 in search bar.\n3. Validate search.",
-    "expected": "App should display search results quickly."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E UI/UX and Local Cache - Flow 24",
+    "steps": "1. Load UI components.\n2. Modify state 24.\n3. Check persistent caching.",
+    "expected": "State must persist and render without redraw latency."
   },
   {
     "id": "TC_APP_205",
-    "module": "Treatments Guide",
-    "scenario": "Offline Treatments Search and Indexing",
-    "steps": "1. Open Treatments tab.\n2. Input query string 5 in search bar.\n3. Validate search.",
-    "expected": "App should display search results quickly."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E UI/UX and Local Cache - Flow 25",
+    "steps": "1. Load UI components.\n2. Modify state 25.\n3. Check persistent caching.",
+    "expected": "State must persist and render without redraw latency."
   },
   {
     "id": "TC_APP_206",
-    "module": "Treatments Guide",
-    "scenario": "Offline Treatments Search and Indexing",
-    "steps": "1. Open Treatments tab.\n2. Input query string 6 in search bar.\n3. Validate search.",
-    "expected": "App should display search results quickly."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E UI/UX and Local Cache - Flow 26",
+    "steps": "1. Load UI components.\n2. Modify state 26.\n3. Check persistent caching.",
+    "expected": "State must persist and render without redraw latency."
   },
   {
     "id": "TC_APP_207",
-    "module": "Treatments Guide",
-    "scenario": "Offline Treatments Search and Indexing",
-    "steps": "1. Open Treatments tab.\n2. Input query string 7 in search bar.\n3. Validate search.",
-    "expected": "App should display search results quickly."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E UI/UX and Local Cache - Flow 27",
+    "steps": "1. Load UI components.\n2. Modify state 27.\n3. Check persistent caching.",
+    "expected": "State must persist and render without redraw latency."
   },
   {
     "id": "TC_APP_208",
-    "module": "Treatments Guide",
-    "scenario": "Offline Treatments Search and Indexing",
-    "steps": "1. Open Treatments tab.\n2. Input query string 8 in search bar.\n3. Validate search.",
-    "expected": "App should display search results quickly."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E UI/UX and Local Cache - Flow 28",
+    "steps": "1. Load UI components.\n2. Modify state 28.\n3. Check persistent caching.",
+    "expected": "State must persist and render without redraw latency."
   },
   {
     "id": "TC_APP_209",
-    "module": "Treatments Guide",
-    "scenario": "Offline Treatments Search and Indexing",
-    "steps": "1. Open Treatments tab.\n2. Input query string 9 in search bar.\n3. Validate search.",
-    "expected": "App should display search results quickly."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E UI/UX and Local Cache - Flow 29",
+    "steps": "1. Load UI components.\n2. Modify state 29.\n3. Check persistent caching.",
+    "expected": "State must persist and render without redraw latency."
   },
   {
     "id": "TC_APP_210",
-    "module": "Treatments Guide",
-    "scenario": "Offline Treatments Search and Indexing",
-    "steps": "1. Open Treatments tab.\n2. Input query string 10 in search bar.\n3. Validate search.",
-    "expected": "App should display search results quickly."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E UI/UX and Local Cache - Flow 30",
+    "steps": "1. Load UI components.\n2. Modify state 30.\n3. Check persistent caching.",
+    "expected": "State must persist and render without redraw latency."
   },
   {
     "id": "TC_APP_211",
-    "module": "Treatments Guide",
-    "scenario": "Offline Treatments Search and Indexing",
-    "steps": "1. Open Treatments tab.\n2. Input query string 11 in search bar.\n3. Validate search.",
-    "expected": "App should display search results quickly."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E UI/UX and Local Cache - Flow 31",
+    "steps": "1. Load UI components.\n2. Modify state 31.\n3. Check persistent caching.",
+    "expected": "State must persist and render without redraw latency."
   },
   {
     "id": "TC_APP_212",
-    "module": "Treatments Guide",
-    "scenario": "Offline Treatments Search and Indexing",
-    "steps": "1. Open Treatments tab.\n2. Input query string 12 in search bar.\n3. Validate search.",
-    "expected": "App should display search results quickly."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E UI/UX and Local Cache - Flow 32",
+    "steps": "1. Load UI components.\n2. Modify state 32.\n3. Check persistent caching.",
+    "expected": "State must persist and render without redraw latency."
   },
   {
     "id": "TC_APP_213",
-    "module": "Treatments Guide",
-    "scenario": "Offline Treatments Search and Indexing",
-    "steps": "1. Open Treatments tab.\n2. Input query string 13 in search bar.\n3. Validate search.",
-    "expected": "App should display search results quickly."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E UI/UX and Local Cache - Flow 33",
+    "steps": "1. Load UI components.\n2. Modify state 33.\n3. Check persistent caching.",
+    "expected": "State must persist and render without redraw latency."
   },
   {
     "id": "TC_APP_214",
-    "module": "Treatments Guide",
-    "scenario": "Offline Treatments Search and Indexing",
-    "steps": "1. Open Treatments tab.\n2. Input query string 14 in search bar.\n3. Validate search.",
-    "expected": "App should display search results quickly."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E UI/UX and Local Cache - Flow 34",
+    "steps": "1. Load UI components.\n2. Modify state 34.\n3. Check persistent caching.",
+    "expected": "State must persist and render without redraw latency."
   },
   {
     "id": "TC_APP_215",
-    "module": "Treatments Guide",
-    "scenario": "Offline Treatments Search and Indexing",
-    "steps": "1. Open Treatments tab.\n2. Input query string 15 in search bar.\n3. Validate search.",
-    "expected": "App should display search results quickly."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E UI/UX and Local Cache - Flow 35",
+    "steps": "1. Load UI components.\n2. Modify state 35.\n3. Check persistent caching.",
+    "expected": "State must persist and render without redraw latency."
   },
   {
     "id": "TC_APP_216",
-    "module": "Treatments Guide",
-    "scenario": "Offline Treatments Search and Indexing",
-    "steps": "1. Open Treatments tab.\n2. Input query string 16 in search bar.\n3. Validate search.",
-    "expected": "App should display search results quickly."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E UI/UX and Local Cache - Flow 36",
+    "steps": "1. Load UI components.\n2. Modify state 36.\n3. Check persistent caching.",
+    "expected": "State must persist and render without redraw latency."
   },
   {
     "id": "TC_APP_217",
-    "module": "Treatments Guide",
-    "scenario": "Offline Treatments Search and Indexing",
-    "steps": "1. Open Treatments tab.\n2. Input query string 17 in search bar.\n3. Validate search.",
-    "expected": "App should display search results quickly."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E UI/UX and Local Cache - Flow 37",
+    "steps": "1. Load UI components.\n2. Modify state 37.\n3. Check persistent caching.",
+    "expected": "State must persist and render without redraw latency."
   },
   {
     "id": "TC_APP_218",
-    "module": "Treatments Guide",
-    "scenario": "Offline Treatments Search and Indexing",
-    "steps": "1. Open Treatments tab.\n2. Input query string 18 in search bar.\n3. Validate search.",
-    "expected": "App should display search results quickly."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E UI/UX and Local Cache - Flow 38",
+    "steps": "1. Load UI components.\n2. Modify state 38.\n3. Check persistent caching.",
+    "expected": "State must persist and render without redraw latency."
   },
   {
     "id": "TC_APP_219",
-    "module": "Treatments Guide",
-    "scenario": "Offline Treatments Search and Indexing",
-    "steps": "1. Open Treatments tab.\n2. Input query string 19 in search bar.\n3. Validate search.",
-    "expected": "App should display search results quickly."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E UI/UX and Local Cache - Flow 39",
+    "steps": "1. Load UI components.\n2. Modify state 39.\n3. Check persistent caching.",
+    "expected": "State must persist and render without redraw latency."
   },
   {
     "id": "TC_APP_220",
-    "module": "Treatments Guide",
-    "scenario": "Offline Treatments Search and Indexing",
-    "steps": "1. Open Treatments tab.\n2. Input query string 20 in search bar.\n3. Validate search.",
-    "expected": "App should display search results quickly."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E UI/UX and Local Cache - Flow 40",
+    "steps": "1. Load UI components.\n2. Modify state 40.\n3. Check persistent caching.",
+    "expected": "State must persist and render without redraw latency."
   },
   {
     "id": "TC_APP_221",
-    "module": "Treatments Guide",
-    "scenario": "Remedy Details Card and Organic Solutions",
-    "steps": "1. Navigate to Treatments.\n2. Expand card 1.\n3. Read organic and chemical treatments list.",
-    "expected": "Actionable treatment instructions should be fully visible with bullet points."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E UI/UX and Local Cache - Flow 41",
+    "steps": "1. Load UI components.\n2. Modify state 41.\n3. Check persistent caching.",
+    "expected": "State must persist and render without redraw latency."
   },
   {
     "id": "TC_APP_222",
-    "module": "Treatments Guide",
-    "scenario": "Remedy Details Card and Organic Solutions",
-    "steps": "1. Navigate to Treatments.\n2. Expand card 2.\n3. Read organic and chemical treatments list.",
-    "expected": "Actionable treatment instructions should be fully visible with bullet points."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E UI/UX and Local Cache - Flow 42",
+    "steps": "1. Load UI components.\n2. Modify state 42.\n3. Check persistent caching.",
+    "expected": "State must persist and render without redraw latency."
   },
   {
     "id": "TC_APP_223",
-    "module": "Treatments Guide",
-    "scenario": "Remedy Details Card and Organic Solutions",
-    "steps": "1. Navigate to Treatments.\n2. Expand card 3.\n3. Read organic and chemical treatments list.",
-    "expected": "Actionable treatment instructions should be fully visible with bullet points."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E UI/UX and Local Cache - Flow 43",
+    "steps": "1. Load UI components.\n2. Modify state 43.\n3. Check persistent caching.",
+    "expected": "State must persist and render without redraw latency."
   },
   {
     "id": "TC_APP_224",
-    "module": "Treatments Guide",
-    "scenario": "Remedy Details Card and Organic Solutions",
-    "steps": "1. Navigate to Treatments.\n2. Expand card 4.\n3. Read organic and chemical treatments list.",
-    "expected": "Actionable treatment instructions should be fully visible with bullet points."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E UI/UX and Local Cache - Flow 44",
+    "steps": "1. Load UI components.\n2. Modify state 44.\n3. Check persistent caching.",
+    "expected": "State must persist and render without redraw latency."
   },
   {
     "id": "TC_APP_225",
-    "module": "Treatments Guide",
-    "scenario": "Remedy Details Card and Organic Solutions",
-    "steps": "1. Navigate to Treatments.\n2. Expand card 5.\n3. Read organic and chemical treatments list.",
-    "expected": "Actionable treatment instructions should be fully visible with bullet points."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E UI/UX and Local Cache - Flow 45",
+    "steps": "1. Load UI components.\n2. Modify state 45.\n3. Check persistent caching.",
+    "expected": "State must persist and render without redraw latency."
   },
   {
     "id": "TC_APP_226",
-    "module": "Treatments Guide",
-    "scenario": "Remedy Details Card and Organic Solutions",
-    "steps": "1. Navigate to Treatments.\n2. Expand card 6.\n3. Read organic and chemical treatments list.",
-    "expected": "Actionable treatment instructions should be fully visible with bullet points."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E UI/UX and Local Cache - Flow 46",
+    "steps": "1. Load UI components.\n2. Modify state 46.\n3. Check persistent caching.",
+    "expected": "State must persist and render without redraw latency."
   },
   {
     "id": "TC_APP_227",
-    "module": "Treatments Guide",
-    "scenario": "Remedy Details Card and Organic Solutions",
-    "steps": "1. Navigate to Treatments.\n2. Expand card 7.\n3. Read organic and chemical treatments list.",
-    "expected": "Actionable treatment instructions should be fully visible with bullet points."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E UI/UX and Local Cache - Flow 47",
+    "steps": "1. Load UI components.\n2. Modify state 47.\n3. Check persistent caching.",
+    "expected": "State must persist and render without redraw latency."
   },
   {
     "id": "TC_APP_228",
-    "module": "Treatments Guide",
-    "scenario": "Remedy Details Card and Organic Solutions",
-    "steps": "1. Navigate to Treatments.\n2. Expand card 8.\n3. Read organic and chemical treatments list.",
-    "expected": "Actionable treatment instructions should be fully visible with bullet points."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E UI/UX and Local Cache - Flow 48",
+    "steps": "1. Load UI components.\n2. Modify state 48.\n3. Check persistent caching.",
+    "expected": "State must persist and render without redraw latency."
   },
   {
     "id": "TC_APP_229",
-    "module": "Treatments Guide",
-    "scenario": "Remedy Details Card and Organic Solutions",
-    "steps": "1. Navigate to Treatments.\n2. Expand card 9.\n3. Read organic and chemical treatments list.",
-    "expected": "Actionable treatment instructions should be fully visible with bullet points."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E UI/UX and Local Cache - Flow 49",
+    "steps": "1. Load UI components.\n2. Modify state 49.\n3. Check persistent caching.",
+    "expected": "State must persist and render without redraw latency."
   },
   {
     "id": "TC_APP_230",
-    "module": "Treatments Guide",
-    "scenario": "Remedy Details Card and Organic Solutions",
-    "steps": "1. Navigate to Treatments.\n2. Expand card 10.\n3. Read organic and chemical treatments list.",
-    "expected": "Actionable treatment instructions should be fully visible with bullet points."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E UI/UX and Local Cache - Flow 50",
+    "steps": "1. Load UI components.\n2. Modify state 50.\n3. Check persistent caching.",
+    "expected": "State must persist and render without redraw latency."
   },
   {
     "id": "TC_APP_231",
-    "module": "Treatments Guide",
-    "scenario": "Remedy Details Card and Organic Solutions",
-    "steps": "1. Navigate to Treatments.\n2. Expand card 11.\n3. Read organic and chemical treatments list.",
-    "expected": "Actionable treatment instructions should be fully visible with bullet points."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E UI/UX and Local Cache - Flow 51",
+    "steps": "1. Load UI components.\n2. Modify state 51.\n3. Check persistent caching.",
+    "expected": "State must persist and render without redraw latency."
   },
   {
     "id": "TC_APP_232",
-    "module": "Treatments Guide",
-    "scenario": "Remedy Details Card and Organic Solutions",
-    "steps": "1. Navigate to Treatments.\n2. Expand card 12.\n3. Read organic and chemical treatments list.",
-    "expected": "Actionable treatment instructions should be fully visible with bullet points."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E UI/UX and Local Cache - Flow 52",
+    "steps": "1. Load UI components.\n2. Modify state 52.\n3. Check persistent caching.",
+    "expected": "State must persist and render without redraw latency."
   },
   {
     "id": "TC_APP_233",
-    "module": "Treatments Guide",
-    "scenario": "Remedy Details Card and Organic Solutions",
-    "steps": "1. Navigate to Treatments.\n2. Expand card 13.\n3. Read organic and chemical treatments list.",
-    "expected": "Actionable treatment instructions should be fully visible with bullet points."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E UI/UX and Local Cache - Flow 53",
+    "steps": "1. Load UI components.\n2. Modify state 53.\n3. Check persistent caching.",
+    "expected": "State must persist and render without redraw latency."
   },
   {
     "id": "TC_APP_234",
-    "module": "Treatments Guide",
-    "scenario": "Remedy Details Card and Organic Solutions",
-    "steps": "1. Navigate to Treatments.\n2. Expand card 14.\n3. Read organic and chemical treatments list.",
-    "expected": "Actionable treatment instructions should be fully visible with bullet points."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E UI/UX and Local Cache - Flow 54",
+    "steps": "1. Load UI components.\n2. Modify state 54.\n3. Check persistent caching.",
+    "expected": "State must persist and render without redraw latency."
   },
   {
     "id": "TC_APP_235",
-    "module": "Treatments Guide",
-    "scenario": "Remedy Details Card and Organic Solutions",
-    "steps": "1. Navigate to Treatments.\n2. Expand card 15.\n3. Read organic and chemical treatments list.",
-    "expected": "Actionable treatment instructions should be fully visible with bullet points."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E UI/UX and Local Cache - Flow 55",
+    "steps": "1. Load UI components.\n2. Modify state 55.\n3. Check persistent caching.",
+    "expected": "State must persist and render without redraw latency."
   },
   {
     "id": "TC_APP_236",
-    "module": "Treatments Guide",
-    "scenario": "Remedy Details Card and Organic Solutions",
-    "steps": "1. Navigate to Treatments.\n2. Expand card 16.\n3. Read organic and chemical treatments list.",
-    "expected": "Actionable treatment instructions should be fully visible with bullet points."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E UI/UX and Local Cache - Flow 56",
+    "steps": "1. Load UI components.\n2. Modify state 56.\n3. Check persistent caching.",
+    "expected": "State must persist and render without redraw latency."
   },
   {
     "id": "TC_APP_237",
-    "module": "Treatments Guide",
-    "scenario": "Remedy Details Card and Organic Solutions",
-    "steps": "1. Navigate to Treatments.\n2. Expand card 17.\n3. Read organic and chemical treatments list.",
-    "expected": "Actionable treatment instructions should be fully visible with bullet points."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E UI/UX and Local Cache - Flow 57",
+    "steps": "1. Load UI components.\n2. Modify state 57.\n3. Check persistent caching.",
+    "expected": "State must persist and render without redraw latency."
   },
   {
     "id": "TC_APP_238",
-    "module": "Treatments Guide",
-    "scenario": "Remedy Details Card and Organic Solutions",
-    "steps": "1. Navigate to Treatments.\n2. Expand card 18.\n3. Read organic and chemical treatments list.",
-    "expected": "Actionable treatment instructions should be fully visible with bullet points."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E UI/UX and Local Cache - Flow 58",
+    "steps": "1. Load UI components.\n2. Modify state 58.\n3. Check persistent caching.",
+    "expected": "State must persist and render without redraw latency."
   },
   {
     "id": "TC_APP_239",
-    "module": "Treatments Guide",
-    "scenario": "Remedy Details Card and Organic Solutions",
-    "steps": "1. Navigate to Treatments.\n2. Expand card 19.\n3. Read organic and chemical treatments list.",
-    "expected": "Actionable treatment instructions should be fully visible with bullet points."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E UI/UX and Local Cache - Flow 59",
+    "steps": "1. Load UI components.\n2. Modify state 59.\n3. Check persistent caching.",
+    "expected": "State must persist and render without redraw latency."
   },
   {
     "id": "TC_APP_240",
-    "module": "Treatments Guide",
-    "scenario": "Remedy Details Card and Organic Solutions",
-    "steps": "1. Navigate to Treatments.\n2. Expand card 20.\n3. Read organic and chemical treatments list.",
-    "expected": "Actionable treatment instructions should be fully visible with bullet points."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E UI/UX and Local Cache - Flow 60",
+    "steps": "1. Load UI components.\n2. Modify state 60.\n3. Check persistent caching.",
+    "expected": "State must persist and render without redraw latency."
   },
   {
     "id": "TC_APP_241",
-    "module": "Profile & Settings",
-    "scenario": "Local Device Profile Settings",
-    "steps": "1. Tap Profile -> Edit Profile.\n2. Modify name or phone text field 1.\n3. Save changes.",
-    "expected": "Updated profile fields should be successfully synced with database."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Multi-Language Translations - Locale 1",
+    "steps": "1. Switch language.\n2. Inspect labels for index 1.\n3. Validate translations.",
+    "expected": "Labels must render correctly in the chosen language."
   },
   {
     "id": "TC_APP_242",
-    "module": "Profile & Settings",
-    "scenario": "Local Device Profile Settings",
-    "steps": "1. Tap Profile -> Edit Profile.\n2. Modify name or phone text field 2.\n3. Save changes.",
-    "expected": "Updated profile fields should be successfully synced with database."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Multi-Language Translations - Locale 2",
+    "steps": "1. Switch language.\n2. Inspect labels for index 2.\n3. Validate translations.",
+    "expected": "Labels must render correctly in the chosen language."
   },
   {
     "id": "TC_APP_243",
-    "module": "Profile & Settings",
-    "scenario": "Local Device Profile Settings",
-    "steps": "1. Tap Profile -> Edit Profile.\n2. Modify name or phone text field 3.\n3. Save changes.",
-    "expected": "Updated profile fields should be successfully synced with database."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Multi-Language Translations - Locale 3",
+    "steps": "1. Switch language.\n2. Inspect labels for index 3.\n3. Validate translations.",
+    "expected": "Labels must render correctly in the chosen language."
   },
   {
     "id": "TC_APP_244",
-    "module": "Profile & Settings",
-    "scenario": "Local Device Profile Settings",
-    "steps": "1. Tap Profile -> Edit Profile.\n2. Modify name or phone text field 4.\n3. Save changes.",
-    "expected": "Updated profile fields should be successfully synced with database."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Multi-Language Translations - Locale 4",
+    "steps": "1. Switch language.\n2. Inspect labels for index 4.\n3. Validate translations.",
+    "expected": "Labels must render correctly in the chosen language."
   },
   {
     "id": "TC_APP_245",
-    "module": "Profile & Settings",
-    "scenario": "Local Device Profile Settings",
-    "steps": "1. Tap Profile -> Edit Profile.\n2. Modify name or phone text field 5.\n3. Save changes.",
-    "expected": "Updated profile fields should be successfully synced with database."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Multi-Language Translations - Locale 5",
+    "steps": "1. Switch language.\n2. Inspect labels for index 5.\n3. Validate translations.",
+    "expected": "Labels must render correctly in the chosen language."
   },
   {
     "id": "TC_APP_246",
-    "module": "Profile & Settings",
-    "scenario": "Local Device Profile Settings",
-    "steps": "1. Tap Profile -> Edit Profile.\n2. Modify name or phone text field 6.\n3. Save changes.",
-    "expected": "Updated profile fields should be successfully synced with database."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Multi-Language Translations - Locale 6",
+    "steps": "1. Switch language.\n2. Inspect labels for index 6.\n3. Validate translations.",
+    "expected": "Labels must render correctly in the chosen language."
   },
   {
     "id": "TC_APP_247",
-    "module": "Profile & Settings",
-    "scenario": "Local Device Profile Settings",
-    "steps": "1. Tap Profile -> Edit Profile.\n2. Modify name or phone text field 7.\n3. Save changes.",
-    "expected": "Updated profile fields should be successfully synced with database."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Multi-Language Translations - Locale 7",
+    "steps": "1. Switch language.\n2. Inspect labels for index 7.\n3. Validate translations.",
+    "expected": "Labels must render correctly in the chosen language."
   },
   {
     "id": "TC_APP_248",
-    "module": "Profile & Settings",
-    "scenario": "Local Device Profile Settings",
-    "steps": "1. Tap Profile -> Edit Profile.\n2. Modify name or phone text field 8.\n3. Save changes.",
-    "expected": "Updated profile fields should be successfully synced with database."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Multi-Language Translations - Locale 8",
+    "steps": "1. Switch language.\n2. Inspect labels for index 8.\n3. Validate translations.",
+    "expected": "Labels must render correctly in the chosen language."
   },
   {
     "id": "TC_APP_249",
-    "module": "Profile & Settings",
-    "scenario": "Local Device Profile Settings",
-    "steps": "1. Tap Profile -> Edit Profile.\n2. Modify name or phone text field 9.\n3. Save changes.",
-    "expected": "Updated profile fields should be successfully synced with database."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Multi-Language Translations - Locale 9",
+    "steps": "1. Switch language.\n2. Inspect labels for index 9.\n3. Validate translations.",
+    "expected": "Labels must render correctly in the chosen language."
   },
   {
     "id": "TC_APP_250",
-    "module": "Profile & Settings",
-    "scenario": "Local Device Profile Settings",
-    "steps": "1. Tap Profile -> Edit Profile.\n2. Modify name or phone text field 10.\n3. Save changes.",
-    "expected": "Updated profile fields should be successfully synced with database."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Multi-Language Translations - Locale 10",
+    "steps": "1. Switch language.\n2. Inspect labels for index 10.\n3. Validate translations.",
+    "expected": "Labels must render correctly in the chosen language."
   },
   {
     "id": "TC_APP_251",
-    "module": "Profile & Settings",
-    "scenario": "Local Device Profile Settings",
-    "steps": "1. Tap Profile -> Edit Profile.\n2. Modify name or phone text field 11.\n3. Save changes.",
-    "expected": "Updated profile fields should be successfully synced with database."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Multi-Language Translations - Locale 11",
+    "steps": "1. Switch language.\n2. Inspect labels for index 11.\n3. Validate translations.",
+    "expected": "Labels must render correctly in the chosen language."
   },
   {
     "id": "TC_APP_252",
-    "module": "Profile & Settings",
-    "scenario": "Local Device Profile Settings",
-    "steps": "1. Tap Profile -> Edit Profile.\n2. Modify name or phone text field 12.\n3. Save changes.",
-    "expected": "Updated profile fields should be successfully synced with database."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Multi-Language Translations - Locale 12",
+    "steps": "1. Switch language.\n2. Inspect labels for index 12.\n3. Validate translations.",
+    "expected": "Labels must render correctly in the chosen language."
   },
   {
     "id": "TC_APP_253",
-    "module": "Profile & Settings",
-    "scenario": "Local Device Profile Settings",
-    "steps": "1. Tap Profile -> Edit Profile.\n2. Modify name or phone text field 13.\n3. Save changes.",
-    "expected": "Updated profile fields should be successfully synced with database."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Multi-Language Translations - Locale 13",
+    "steps": "1. Switch language.\n2. Inspect labels for index 13.\n3. Validate translations.",
+    "expected": "Labels must render correctly in the chosen language."
   },
   {
     "id": "TC_APP_254",
-    "module": "Profile & Settings",
-    "scenario": "Local Device Profile Settings",
-    "steps": "1. Tap Profile -> Edit Profile.\n2. Modify name or phone text field 14.\n3. Save changes.",
-    "expected": "Updated profile fields should be successfully synced with database."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Multi-Language Translations - Locale 14",
+    "steps": "1. Switch language.\n2. Inspect labels for index 14.\n3. Validate translations.",
+    "expected": "Labels must render correctly in the chosen language."
   },
   {
     "id": "TC_APP_255",
-    "module": "Profile & Settings",
-    "scenario": "Local Device Profile Settings",
-    "steps": "1. Tap Profile -> Edit Profile.\n2. Modify name or phone text field 15.\n3. Save changes.",
-    "expected": "Updated profile fields should be successfully synced with database."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Multi-Language Translations - Locale 15",
+    "steps": "1. Switch language.\n2. Inspect labels for index 15.\n3. Validate translations.",
+    "expected": "Labels must render correctly in the chosen language."
   },
   {
     "id": "TC_APP_256",
-    "module": "Profile & Settings",
-    "scenario": "Mobile Theme Toggling & 2FA Setup",
-    "steps": "1. Open app settings.\n2. Toggle dark theme / 2FA switch 1.\n3. Verify persistent storage.",
-    "expected": "Preference settings must persist across app process restarts."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Multi-Language Translations - Locale 16",
+    "steps": "1. Switch language.\n2. Inspect labels for index 16.\n3. Validate translations.",
+    "expected": "Labels must render correctly in the chosen language."
   },
   {
     "id": "TC_APP_257",
-    "module": "Profile & Settings",
-    "scenario": "Mobile Theme Toggling & 2FA Setup",
-    "steps": "1. Open app settings.\n2. Toggle dark theme / 2FA switch 2.\n3. Verify persistent storage.",
-    "expected": "Preference settings must persist across app process restarts."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Multi-Language Translations - Locale 17",
+    "steps": "1. Switch language.\n2. Inspect labels for index 17.\n3. Validate translations.",
+    "expected": "Labels must render correctly in the chosen language."
   },
   {
     "id": "TC_APP_258",
-    "module": "Profile & Settings",
-    "scenario": "Mobile Theme Toggling & 2FA Setup",
-    "steps": "1. Open app settings.\n2. Toggle dark theme / 2FA switch 3.\n3. Verify persistent storage.",
-    "expected": "Preference settings must persist across app process restarts."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Multi-Language Translations - Locale 18",
+    "steps": "1. Switch language.\n2. Inspect labels for index 18.\n3. Validate translations.",
+    "expected": "Labels must render correctly in the chosen language."
   },
   {
     "id": "TC_APP_259",
-    "module": "Profile & Settings",
-    "scenario": "Mobile Theme Toggling & 2FA Setup",
-    "steps": "1. Open app settings.\n2. Toggle dark theme / 2FA switch 4.\n3. Verify persistent storage.",
-    "expected": "Preference settings must persist across app process restarts."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Multi-Language Translations - Locale 19",
+    "steps": "1. Switch language.\n2. Inspect labels for index 19.\n3. Validate translations.",
+    "expected": "Labels must render correctly in the chosen language."
   },
   {
     "id": "TC_APP_260",
-    "module": "Profile & Settings",
-    "scenario": "Mobile Theme Toggling & 2FA Setup",
-    "steps": "1. Open app settings.\n2. Toggle dark theme / 2FA switch 5.\n3. Verify persistent storage.",
-    "expected": "Preference settings must persist across app process restarts."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Multi-Language Translations - Locale 20",
+    "steps": "1. Switch language.\n2. Inspect labels for index 20.\n3. Validate translations.",
+    "expected": "Labels must render correctly in the chosen language."
   },
   {
     "id": "TC_APP_261",
-    "module": "Profile & Settings",
-    "scenario": "Mobile Theme Toggling & 2FA Setup",
-    "steps": "1. Open app settings.\n2. Toggle dark theme / 2FA switch 6.\n3. Verify persistent storage.",
-    "expected": "Preference settings must persist across app process restarts."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Multi-Language Translations - Locale 21",
+    "steps": "1. Switch language.\n2. Inspect labels for index 21.\n3. Validate translations.",
+    "expected": "Labels must render correctly in the chosen language."
   },
   {
     "id": "TC_APP_262",
-    "module": "Profile & Settings",
-    "scenario": "Mobile Theme Toggling & 2FA Setup",
-    "steps": "1. Open app settings.\n2. Toggle dark theme / 2FA switch 7.\n3. Verify persistent storage.",
-    "expected": "Preference settings must persist across app process restarts."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Multi-Language Translations - Locale 22",
+    "steps": "1. Switch language.\n2. Inspect labels for index 22.\n3. Validate translations.",
+    "expected": "Labels must render correctly in the chosen language."
   },
   {
     "id": "TC_APP_263",
-    "module": "Profile & Settings",
-    "scenario": "Mobile Theme Toggling & 2FA Setup",
-    "steps": "1. Open app settings.\n2. Toggle dark theme / 2FA switch 8.\n3. Verify persistent storage.",
-    "expected": "Preference settings must persist across app process restarts."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Multi-Language Translations - Locale 23",
+    "steps": "1. Switch language.\n2. Inspect labels for index 23.\n3. Validate translations.",
+    "expected": "Labels must render correctly in the chosen language."
   },
   {
     "id": "TC_APP_264",
-    "module": "Profile & Settings",
-    "scenario": "Mobile Theme Toggling & 2FA Setup",
-    "steps": "1. Open app settings.\n2. Toggle dark theme / 2FA switch 9.\n3. Verify persistent storage.",
-    "expected": "Preference settings must persist across app process restarts."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Multi-Language Translations - Locale 24",
+    "steps": "1. Switch language.\n2. Inspect labels for index 24.\n3. Validate translations.",
+    "expected": "Labels must render correctly in the chosen language."
   },
   {
     "id": "TC_APP_265",
-    "module": "Profile & Settings",
-    "scenario": "Mobile Theme Toggling & 2FA Setup",
-    "steps": "1. Open app settings.\n2. Toggle dark theme / 2FA switch 10.\n3. Verify persistent storage.",
-    "expected": "Preference settings must persist across app process restarts."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Multi-Language Translations - Locale 25",
+    "steps": "1. Switch language.\n2. Inspect labels for index 25.\n3. Validate translations.",
+    "expected": "Labels must render correctly in the chosen language."
   },
   {
     "id": "TC_APP_266",
-    "module": "Profile & Settings",
-    "scenario": "Mobile Theme Toggling & 2FA Setup",
-    "steps": "1. Open app settings.\n2. Toggle dark theme / 2FA switch 11.\n3. Verify persistent storage.",
-    "expected": "Preference settings must persist across app process restarts."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Multi-Language Translations - Locale 26",
+    "steps": "1. Switch language.\n2. Inspect labels for index 26.\n3. Validate translations.",
+    "expected": "Labels must render correctly in the chosen language."
   },
   {
     "id": "TC_APP_267",
-    "module": "Profile & Settings",
-    "scenario": "Mobile Theme Toggling & 2FA Setup",
-    "steps": "1. Open app settings.\n2. Toggle dark theme / 2FA switch 12.\n3. Verify persistent storage.",
-    "expected": "Preference settings must persist across app process restarts."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Multi-Language Translations - Locale 27",
+    "steps": "1. Switch language.\n2. Inspect labels for index 27.\n3. Validate translations.",
+    "expected": "Labels must render correctly in the chosen language."
   },
   {
     "id": "TC_APP_268",
-    "module": "Profile & Settings",
-    "scenario": "Mobile Theme Toggling & 2FA Setup",
-    "steps": "1. Open app settings.\n2. Toggle dark theme / 2FA switch 13.\n3. Verify persistent storage.",
-    "expected": "Preference settings must persist across app process restarts."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Multi-Language Translations - Locale 28",
+    "steps": "1. Switch language.\n2. Inspect labels for index 28.\n3. Validate translations.",
+    "expected": "Labels must render correctly in the chosen language."
   },
   {
     "id": "TC_APP_269",
-    "module": "Profile & Settings",
-    "scenario": "Mobile Theme Toggling & 2FA Setup",
-    "steps": "1. Open app settings.\n2. Toggle dark theme / 2FA switch 14.\n3. Verify persistent storage.",
-    "expected": "Preference settings must persist across app process restarts."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Multi-Language Translations - Locale 29",
+    "steps": "1. Switch language.\n2. Inspect labels for index 29.\n3. Validate translations.",
+    "expected": "Labels must render correctly in the chosen language."
   },
   {
     "id": "TC_APP_270",
-    "module": "Profile & Settings",
-    "scenario": "Mobile Theme Toggling & 2FA Setup",
-    "steps": "1. Open app settings.\n2. Toggle dark theme / 2FA switch 15.\n3. Verify persistent storage.",
-    "expected": "Preference settings must persist across app process restarts."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Multi-Language Translations - Locale 30",
+    "steps": "1. Switch language.\n2. Inspect labels for index 30.\n3. Validate translations.",
+    "expected": "Labels must render correctly in the chosen language."
   },
   {
     "id": "TC_APP_271",
-    "module": "Localization",
-    "scenario": "Multi-language UI Translations",
-    "steps": "1. Navigate to Settings -> Language.\n2. Switch language to index 1.\n3. Verify localized text translations.",
-    "expected": "All application strings should translate seamlessly to selected locale."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Multi-Language Translations - Locale 31",
+    "steps": "1. Switch language.\n2. Inspect labels for index 31.\n3. Validate translations.",
+    "expected": "Labels must render correctly in the chosen language."
   },
   {
     "id": "TC_APP_272",
-    "module": "Localization",
-    "scenario": "Multi-language UI Translations",
-    "steps": "1. Navigate to Settings -> Language.\n2. Switch language to index 2.\n3. Verify localized text translations.",
-    "expected": "All application strings should translate seamlessly to selected locale."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Multi-Language Translations - Locale 32",
+    "steps": "1. Switch language.\n2. Inspect labels for index 32.\n3. Validate translations.",
+    "expected": "Labels must render correctly in the chosen language."
   },
   {
     "id": "TC_APP_273",
-    "module": "Localization",
-    "scenario": "Multi-language UI Translations",
-    "steps": "1. Navigate to Settings -> Language.\n2. Switch language to index 3.\n3. Verify localized text translations.",
-    "expected": "All application strings should translate seamlessly to selected locale."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Multi-Language Translations - Locale 33",
+    "steps": "1. Switch language.\n2. Inspect labels for index 33.\n3. Validate translations.",
+    "expected": "Labels must render correctly in the chosen language."
   },
   {
     "id": "TC_APP_274",
-    "module": "Localization",
-    "scenario": "Multi-language UI Translations",
-    "steps": "1. Navigate to Settings -> Language.\n2. Switch language to index 4.\n3. Verify localized text translations.",
-    "expected": "All application strings should translate seamlessly to selected locale."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Multi-Language Translations - Locale 34",
+    "steps": "1. Switch language.\n2. Inspect labels for index 34.\n3. Validate translations.",
+    "expected": "Labels must render correctly in the chosen language."
   },
   {
     "id": "TC_APP_275",
-    "module": "Localization",
-    "scenario": "Multi-language UI Translations",
-    "steps": "1. Navigate to Settings -> Language.\n2. Switch language to index 5.\n3. Verify localized text translations.",
-    "expected": "All application strings should translate seamlessly to selected locale."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Multi-Language Translations - Locale 35",
+    "steps": "1. Switch language.\n2. Inspect labels for index 35.\n3. Validate translations.",
+    "expected": "Labels must render correctly in the chosen language."
   },
   {
     "id": "TC_APP_276",
-    "module": "Localization",
-    "scenario": "Multi-language UI Translations",
-    "steps": "1. Navigate to Settings -> Language.\n2. Switch language to index 6.\n3. Verify localized text translations.",
-    "expected": "All application strings should translate seamlessly to selected locale."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Multi-Language Translations - Locale 36",
+    "steps": "1. Switch language.\n2. Inspect labels for index 36.\n3. Validate translations.",
+    "expected": "Labels must render correctly in the chosen language."
   },
   {
     "id": "TC_APP_277",
-    "module": "Localization",
-    "scenario": "Multi-language UI Translations",
-    "steps": "1. Navigate to Settings -> Language.\n2. Switch language to index 7.\n3. Verify localized text translations.",
-    "expected": "All application strings should translate seamlessly to selected locale."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Multi-Language Translations - Locale 37",
+    "steps": "1. Switch language.\n2. Inspect labels for index 37.\n3. Validate translations.",
+    "expected": "Labels must render correctly in the chosen language."
   },
   {
     "id": "TC_APP_278",
-    "module": "Localization",
-    "scenario": "Multi-language UI Translations",
-    "steps": "1. Navigate to Settings -> Language.\n2. Switch language to index 8.\n3. Verify localized text translations.",
-    "expected": "All application strings should translate seamlessly to selected locale."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Multi-Language Translations - Locale 38",
+    "steps": "1. Switch language.\n2. Inspect labels for index 38.\n3. Validate translations.",
+    "expected": "Labels must render correctly in the chosen language."
   },
   {
     "id": "TC_APP_279",
-    "module": "Localization",
-    "scenario": "Multi-language UI Translations",
-    "steps": "1. Navigate to Settings -> Language.\n2. Switch language to index 9.\n3. Verify localized text translations.",
-    "expected": "All application strings should translate seamlessly to selected locale."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Multi-Language Translations - Locale 39",
+    "steps": "1. Switch language.\n2. Inspect labels for index 39.\n3. Validate translations.",
+    "expected": "Labels must render correctly in the chosen language."
   },
   {
     "id": "TC_APP_280",
-    "module": "Localization",
-    "scenario": "Multi-language UI Translations",
-    "steps": "1. Navigate to Settings -> Language.\n2. Switch language to index 10.\n3. Verify localized text translations.",
-    "expected": "All application strings should translate seamlessly to selected locale."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Multi-Language Translations - Locale 40",
+    "steps": "1. Switch language.\n2. Inspect labels for index 40.\n3. Validate translations.",
+    "expected": "Labels must render correctly in the chosen language."
   },
   {
     "id": "TC_APP_281",
-    "module": "Localization",
-    "scenario": "Multi-language UI Translations",
-    "steps": "1. Navigate to Settings -> Language.\n2. Switch language to index 11.\n3. Verify localized text translations.",
-    "expected": "All application strings should translate seamlessly to selected locale."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Multi-Language Translations - Locale 41",
+    "steps": "1. Switch language.\n2. Inspect labels for index 41.\n3. Validate translations.",
+    "expected": "Labels must render correctly in the chosen language."
   },
   {
     "id": "TC_APP_282",
-    "module": "Localization",
-    "scenario": "Multi-language UI Translations",
-    "steps": "1. Navigate to Settings -> Language.\n2. Switch language to index 12.\n3. Verify localized text translations.",
-    "expected": "All application strings should translate seamlessly to selected locale."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Multi-Language Translations - Locale 42",
+    "steps": "1. Switch language.\n2. Inspect labels for index 42.\n3. Validate translations.",
+    "expected": "Labels must render correctly in the chosen language."
   },
   {
     "id": "TC_APP_283",
-    "module": "Localization",
-    "scenario": "Multi-language UI Translations",
-    "steps": "1. Navigate to Settings -> Language.\n2. Switch language to index 13.\n3. Verify localized text translations.",
-    "expected": "All application strings should translate seamlessly to selected locale."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Multi-Language Translations - Locale 43",
+    "steps": "1. Switch language.\n2. Inspect labels for index 43.\n3. Validate translations.",
+    "expected": "Labels must render correctly in the chosen language."
   },
   {
     "id": "TC_APP_284",
-    "module": "Localization",
-    "scenario": "Multi-language UI Translations",
-    "steps": "1. Navigate to Settings -> Language.\n2. Switch language to index 14.\n3. Verify localized text translations.",
-    "expected": "All application strings should translate seamlessly to selected locale."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Multi-Language Translations - Locale 44",
+    "steps": "1. Switch language.\n2. Inspect labels for index 44.\n3. Validate translations.",
+    "expected": "Labels must render correctly in the chosen language."
   },
   {
     "id": "TC_APP_285",
-    "module": "Localization",
-    "scenario": "Multi-language UI Translations",
-    "steps": "1. Navigate to Settings -> Language.\n2. Switch language to index 15.\n3. Verify localized text translations.",
-    "expected": "All application strings should translate seamlessly to selected locale."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Multi-Language Translations - Locale 45",
+    "steps": "1. Switch language.\n2. Inspect labels for index 45.\n3. Validate translations.",
+    "expected": "Labels must render correctly in the chosen language."
   },
   {
     "id": "TC_APP_286",
-    "module": "Localization",
-    "scenario": "Multi-language UI Translations",
-    "steps": "1. Navigate to Settings -> Language.\n2. Switch language to index 16.\n3. Verify localized text translations.",
-    "expected": "All application strings should translate seamlessly to selected locale."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Multi-Language Translations - Locale 46",
+    "steps": "1. Switch language.\n2. Inspect labels for index 46.\n3. Validate translations.",
+    "expected": "Labels must render correctly in the chosen language."
   },
   {
     "id": "TC_APP_287",
-    "module": "Localization",
-    "scenario": "Multi-language UI Translations",
-    "steps": "1. Navigate to Settings -> Language.\n2. Switch language to index 17.\n3. Verify localized text translations.",
-    "expected": "All application strings should translate seamlessly to selected locale."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Multi-Language Translations - Locale 47",
+    "steps": "1. Switch language.\n2. Inspect labels for index 47.\n3. Validate translations.",
+    "expected": "Labels must render correctly in the chosen language."
   },
   {
     "id": "TC_APP_288",
-    "module": "Localization",
-    "scenario": "Multi-language UI Translations",
-    "steps": "1. Navigate to Settings -> Language.\n2. Switch language to index 18.\n3. Verify localized text translations.",
-    "expected": "All application strings should translate seamlessly to selected locale."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Multi-Language Translations - Locale 48",
+    "steps": "1. Switch language.\n2. Inspect labels for index 48.\n3. Validate translations.",
+    "expected": "Labels must render correctly in the chosen language."
   },
   {
     "id": "TC_APP_289",
-    "module": "Localization",
-    "scenario": "Multi-language UI Translations",
-    "steps": "1. Navigate to Settings -> Language.\n2. Switch language to index 19.\n3. Verify localized text translations.",
-    "expected": "All application strings should translate seamlessly to selected locale."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Multi-Language Translations - Locale 49",
+    "steps": "1. Switch language.\n2. Inspect labels for index 49.\n3. Validate translations.",
+    "expected": "Labels must render correctly in the chosen language."
   },
   {
     "id": "TC_APP_290",
-    "module": "Localization",
-    "scenario": "Multi-language UI Translations",
-    "steps": "1. Navigate to Settings -> Language.\n2. Switch language to index 20.\n3. Verify localized text translations.",
-    "expected": "All application strings should translate seamlessly to selected locale."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Multi-Language Translations - Locale 50",
+    "steps": "1. Switch language.\n2. Inspect labels for index 50.\n3. Validate translations.",
+    "expected": "Labels must render correctly in the chosen language."
   },
   {
     "id": "TC_APP_291",
-    "module": "Localization",
-    "scenario": "Multi-language UI Translations",
-    "steps": "1. Navigate to Settings -> Language.\n2. Switch language to index 21.\n3. Verify localized text translations.",
-    "expected": "All application strings should translate seamlessly to selected locale."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Multi-Language Translations - Locale 51",
+    "steps": "1. Switch language.\n2. Inspect labels for index 51.\n3. Validate translations.",
+    "expected": "Labels must render correctly in the chosen language."
   },
   {
     "id": "TC_APP_292",
-    "module": "Localization",
-    "scenario": "Multi-language UI Translations",
-    "steps": "1. Navigate to Settings -> Language.\n2. Switch language to index 22.\n3. Verify localized text translations.",
-    "expected": "All application strings should translate seamlessly to selected locale."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Multi-Language Translations - Locale 52",
+    "steps": "1. Switch language.\n2. Inspect labels for index 52.\n3. Validate translations.",
+    "expected": "Labels must render correctly in the chosen language."
   },
   {
     "id": "TC_APP_293",
-    "module": "Localization",
-    "scenario": "Multi-language UI Translations",
-    "steps": "1. Navigate to Settings -> Language.\n2. Switch language to index 23.\n3. Verify localized text translations.",
-    "expected": "All application strings should translate seamlessly to selected locale."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Multi-Language Translations - Locale 53",
+    "steps": "1. Switch language.\n2. Inspect labels for index 53.\n3. Validate translations.",
+    "expected": "Labels must render correctly in the chosen language."
   },
   {
     "id": "TC_APP_294",
-    "module": "Localization",
-    "scenario": "Multi-language UI Translations",
-    "steps": "1. Navigate to Settings -> Language.\n2. Switch language to index 24.\n3. Verify localized text translations.",
-    "expected": "All application strings should translate seamlessly to selected locale."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Multi-Language Translations - Locale 54",
+    "steps": "1. Switch language.\n2. Inspect labels for index 54.\n3. Validate translations.",
+    "expected": "Labels must render correctly in the chosen language."
   },
   {
     "id": "TC_APP_295",
-    "module": "Localization",
-    "scenario": "Multi-language UI Translations",
-    "steps": "1. Navigate to Settings -> Language.\n2. Switch language to index 25.\n3. Verify localized text translations.",
-    "expected": "All application strings should translate seamlessly to selected locale."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Multi-Language Translations - Locale 55",
+    "steps": "1. Switch language.\n2. Inspect labels for index 55.\n3. Validate translations.",
+    "expected": "Labels must render correctly in the chosen language."
   },
   {
     "id": "TC_APP_296",
-    "module": "Localization",
-    "scenario": "Multi-language UI Translations",
-    "steps": "1. Navigate to Settings -> Language.\n2. Switch language to index 26.\n3. Verify localized text translations.",
-    "expected": "All application strings should translate seamlessly to selected locale."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Multi-Language Translations - Locale 56",
+    "steps": "1. Switch language.\n2. Inspect labels for index 56.\n3. Validate translations.",
+    "expected": "Labels must render correctly in the chosen language."
   },
   {
     "id": "TC_APP_297",
-    "module": "Localization",
-    "scenario": "Multi-language UI Translations",
-    "steps": "1. Navigate to Settings -> Language.\n2. Switch language to index 27.\n3. Verify localized text translations.",
-    "expected": "All application strings should translate seamlessly to selected locale."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Multi-Language Translations - Locale 57",
+    "steps": "1. Switch language.\n2. Inspect labels for index 57.\n3. Validate translations.",
+    "expected": "Labels must render correctly in the chosen language."
   },
   {
     "id": "TC_APP_298",
-    "module": "Localization",
-    "scenario": "Multi-language UI Translations",
-    "steps": "1. Navigate to Settings -> Language.\n2. Switch language to index 28.\n3. Verify localized text translations.",
-    "expected": "All application strings should translate seamlessly to selected locale."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Multi-Language Translations - Locale 58",
+    "steps": "1. Switch language.\n2. Inspect labels for index 58.\n3. Validate translations.",
+    "expected": "Labels must render correctly in the chosen language."
   },
   {
     "id": "TC_APP_299",
-    "module": "Localization",
-    "scenario": "Multi-language UI Translations",
-    "steps": "1. Navigate to Settings -> Language.\n2. Switch language to index 29.\n3. Verify localized text translations.",
-    "expected": "All application strings should translate seamlessly to selected locale."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Multi-Language Translations - Locale 59",
+    "steps": "1. Switch language.\n2. Inspect labels for index 59.\n3. Validate translations.",
+    "expected": "Labels must render correctly in the chosen language."
   },
   {
     "id": "TC_APP_300",
-    "module": "Localization",
-    "scenario": "Multi-language UI Translations",
-    "steps": "1. Navigate to Settings -> Language.\n2. Switch language to index 30.\n3. Verify localized text translations.",
-    "expected": "All application strings should translate seamlessly to selected locale."
+    "module": "Android Mobile E2E",
+    "scenario": "Verify Android Mobile E2E Multi-Language Translations - Locale 60",
+    "steps": "1. Switch language.\n2. Inspect labels for index 60.\n3. Validate translations.",
+    "expected": "Labels must render correctly in the chosen language."
   }
 ]

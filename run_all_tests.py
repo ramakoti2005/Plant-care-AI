@@ -45,7 +45,31 @@ if node_path:
 else:
     print("Skipping JS Mobile execution (Node not found). Mobile test results will be compiled directly.")
 
-# 4. Run Load Test
+# 4. Run Backend Service Tests
+print("\n--> Running Backend Service Tests...")
+if node_path:
+    try:
+        subprocess.run([node_path, "backend_service/service_test_runner.js"], check=True)
+    except subprocess.CalledProcessError as e:
+        print(f"Error running Backend Service tests: {e}")
+
+# 5. Run Security Scan Tests
+print("\n--> Running Backend Security Scan Tests...")
+if node_path:
+    try:
+        subprocess.run([node_path, "security_scan/scan_test_runner.js"], check=True)
+    except subprocess.CalledProcessError as e:
+        print(f"Error running Security Scan tests: {e}")
+
+# 6. Run Security E2E Tests
+print("\n--> Running Security E2E Tests...")
+if node_path:
+    try:
+        subprocess.run([node_path, "security_e2e/security_test_runner.js"], check=True)
+    except subprocess.CalledProcessError as e:
+        print(f"Error running Security E2E tests: {e}")
+
+# 7. Run Load Test
 print("\n--> Running API Load Test (100 VUs, 60s)...")
 try:
     python_exe = sys.executable
@@ -53,14 +77,14 @@ try:
 except subprocess.CalledProcessError as e:
     print(f"Error running load tests: {e}")
 
-# 5. Compile Excel Report
+# 8. Compile Excel Report
 print("\n--> Compiling Styled Excel Report...")
 try:
     subprocess.run([sys.executable, "generate_excel_report.py"], check=True)
 except subprocess.CalledProcessError as e:
     print(f"Error generating Excel report: {e}")
 
-# 6. Generate GitHub Actions Summary
+# 9. Generate GitHub Actions Summary
 print("\n--> Generating GitHub Actions Summary...")
 try:
     subprocess.run([sys.executable, "generate_github_summary.py"], check=True)
