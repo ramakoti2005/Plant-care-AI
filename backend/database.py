@@ -1,5 +1,5 @@
 import os
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, text
 from sqlalchemy.orm import sessionmaker, declarative_base
 
 # Load environment variables from .env file locally
@@ -20,6 +20,13 @@ except ImportError:
 
 DATABASE_URL = os.getenv("DATABASE_URL")
 
+# Resolve the SQLite database path dynamically relative to the root directory
+# (one level up from this file 'backend/database.py')
+sqlite_db_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "plant_disease.db")
+sqlite_url = f"sqlite:///{sqlite_db_path}"
+
+fallback_to_sqlite = False
+
 if DATABASE_URL:
     DATABASE_URL = DATABASE_URL.replace(
         "postgres://",
@@ -31,23 +38,45 @@ if DATABASE_URL:
         separator = "&" if "?" in DATABASE_URL else "?"
         DATABASE_URL = f"{DATABASE_URL}{separator}sslmode=require"
 else:
-    DATABASE_URL = "sqlite:///./plant_disease.db"
+    DATABASE_URL = sqlite_url
 
-# Configure database engine with optimization for Supabase / PostgreSQL connection pool limits
+# Configure database engine
 if "sqlite" in DATABASE_URL:
     engine = create_engine(
         DATABASE_URL,
         connect_args={"check_same_thread": False}
     )
 else:
-    engine = create_engine(
-        DATABASE_URL,
-        pool_size=5,
-        max_overflow=10,
-        pool_timeout=30,
-        pool_recycle=1800,
-        pool_pre_ping=True
-    )
+    # Attempt to test connection to remote database with a fast timeout (5 seconds)
+    print(f"Testing database connection to remote database...")
+    try:
+        temp_engine = create_engine(
+            DATABASE_URL,
+            connect_args={"connect_timeout": 5}
+        )
+        with temp_engine.connect() as conn:
+            conn.execute(text("SELECT 1"))
+        temp_engine.dispose()
+        print("Successfully connected to the remote database.")
+        
+        # Use remote engine
+        engine = create_engine(
+            DATABASE_URL,
+            pool_size=5,
+            max_overflow=10,
+            pool_timeout=30,
+            pool_recycle=1800,
+            pool_pre_ping=True
+        )
+    except Exception as e:
+        print(f"Database connection error: {e}")
+        print("Falling back to local SQLite database.")
+        fallback_to_sqlite = True
+        DATABASE_URL = sqlite_url
+        engine = create_engine(
+            sqlite_url,
+            connect_args={"check_same_thread": False}
+        )
 
 SessionLocal = sessionmaker(
     autocommit=False,
