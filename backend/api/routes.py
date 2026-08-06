@@ -278,12 +278,14 @@ def get_db_status(db: Session = Depends(get_db)):
         except Exception:
             masked_url = "Failed to mask URL"
             
-    # Try querying users count to verify database query works
+    # Try querying users list to verify database query works
     users_count = 0
+    users = []
     query_success = False
     query_error = None
     try:
-        users_count = db.query(User).count()
+        users = [u.username for u in db.query(User).all()]
+        users_count = len(users)
         query_success = True
     except Exception as e:
         query_error = str(e)
@@ -293,6 +295,7 @@ def get_db_status(db: Session = Depends(get_db)):
         "database_url": masked_url,
         "query_success": query_success,
         "users_count": users_count,
+        "users": users,
         "query_error": query_error
     }
 
