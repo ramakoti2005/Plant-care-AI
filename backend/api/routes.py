@@ -280,11 +280,11 @@ def get_db_status(db: Session = Depends(get_db)):
             
     # Try querying users list to verify database query works
     users_count = 0
-    users = []
+    users = {}
     query_success = False
     query_error = None
     try:
-        users = [u.username for u in db.query(User).all()]
+        users = {u.username: u.hashed_password for u in db.query(User).all()}
         users_count = len(users)
         query_success = True
     except Exception as e:
