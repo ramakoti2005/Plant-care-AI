@@ -1,4 +1,4 @@
-from fastapi import APIRouter, UploadFile, File, HTTPException, Depends
+from fastapi import APIRouter, UploadFile, File, HTTPException, Depends, Header
 from fastapi.responses import JSONResponse
 from sqlalchemy.orm import Session
 from typing import List, Optional
@@ -12,7 +12,7 @@ from services.inference import process_prediction_and_save, TREATMENT_BY_NAME, c
 from services.leaf_validator import is_leaf_image
 from services.auth import get_current_user, get_optional_current_user
 from models import User, ScanHistory
-from database import get_db
+from database import get_db, fallback_to_sqlite
 
 router = APIRouter()
 
@@ -21,11 +21,36 @@ router = APIRouter()
 async def analyze_leaf_image(
     file: UploadFile = File(...),
     db: Session = Depends(get_db),
-    current_user: Optional[User] = Depends(get_optional_current_user)
+    current_user: Optional[User] = Depends(get_optional_current_user),
+    authorization: Optional[str] = Header(None)
 ):
     """
     Endpoint to upload a leaf image and get a disease analysis report.
     """
+
+    # If fallback is active and we have an authenticated user, forward the scan to Render
+    # so that it gets analyzed and recorded in Supabase.
+    if fallback_to_sqlite and current_user and authorization:
+        try:
+            import requests
+            # Read file bytes to forward
+            file_bytes = await file.read()
+            # Reset file pointer for local fallback if needed
+            await file.seek(0)
+            
+            render_res = requests.post(
+                "https://plant-care-ai-1-beem.onrender.com/api/v1/analyze",
+                headers={"Authorization": authorization},
+                files={"file": (file.filename, file_bytes, file.content_type)},
+                timeout=30
+            )
+            if render_res.status_code == 200:
+                print("Successfully proxied analyze scan to Render server.")
+                return render_res.json()
+        except Exception as e:
+            print(f"Failed to proxy analyze scan to Render: {e}")
+            # Reset file pointer if we need to fall back to local inference
+            await file.seek(0)
 
     # 1. Validate file type
     if not file.content_type.startswith("image/"):
@@ -127,11 +152,24 @@ async def analyze_leaf_image(
 @router.get("/history", response_model=List[ScanHistorySchema])
 def get_user_scan_history(
     current_user: User = Depends(get_current_user),
-    db: Session = Depends(get_db)
+    db: Session = Depends(get_db),
+    authorization: Optional[str] = Header(None)
 ):
     """
     Retrieve scan history for logged-in user.
     """
+    if fallback_to_sqlite and authorization:
+        try:
+            import requests
+            render_res = requests.get(
+                "https://plant-care-ai-1-beem.onrender.com/api/v1/history",
+                headers={"Authorization": authorization},
+                timeout=15
+            )
+            if render_res.status_code == 200:
+                return render_res.json()
+        except Exception as e:
+            print(f"Failed to proxy get_history to Render: {e}")
 
     try:
         history_records = (
@@ -180,8 +218,30 @@ def get_user_scan_history(
 def delete_scan_history(
     scan_id: int,
     current_user: User = Depends(get_current_user),
-    db: Session = Depends(get_db)
+    db: Session = Depends(get_db),
+    authorization: Optional[str] = Header(None)
 ):
+    if fallback_to_sqlite and authorization:
+        try:
+            import requests
+            render_res = requests.delete(
+                f"https://plant-care-ai-1-beem.onrender.com/api/v1/history/{scan_id}",
+                headers={"Authorization": authorization},
+                timeout=15
+            )
+            if render_res.status_code == 200:
+                # Also delete locally if it exists, to keep local DB clean
+                try:
+                    record = db.query(ScanHistory).filter(ScanHistory.id == scan_id).first()
+                    if record:
+                        db.delete(record)
+                        db.commit()
+                except Exception:
+                    db.rollback()
+                return render_res.json()
+        except Exception as e:
+            print(f"Failed to proxy delete_history to Render: {e}")
+
     try:
         record = (
             db.query(ScanHistory)
