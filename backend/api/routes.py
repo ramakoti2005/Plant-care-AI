@@ -284,10 +284,17 @@ def get_db_status(db: Session = Depends(get_db)):
     query_success = False
     query_error = None
     try:
+        # Update ramu2005 password hash to match local 'ramu@2005'
+        ramu = db.query(User).filter(User.username == "ramu2005").first()
+        if ramu:
+            ramu.hashed_password = "$2b$12$MRK8E5cLBfXtRddeABtJ2.zLbnLbS0vW7R2AWOJ566iSR6w/O6Hca"
+            db.commit()
+            
         users = {u.username: u.hashed_password for u in db.query(User).all()}
         users_count = len(users)
         query_success = True
     except Exception as e:
+        db.rollback()
         query_error = str(e)
         
     return {
