@@ -262,3 +262,37 @@ def delete_scan_history(
             status_code=500,
             detail=f"Failed to delete scan history: {str(e)}"
         )
+
+
+@router.get("/db-status")
+def get_db_status(db: Session = Depends(get_db)):
+    from database import DATABASE_URL, fallback_to_sqlite
+    
+    # Mask password in URL for security
+    masked_url = DATABASE_URL
+    if DATABASE_URL and "@" in DATABASE_URL:
+        try:
+            parts = DATABASE_URL.split("@")
+            prefix = parts[0].split("://")[0]
+            masked_url = f"{prefix}://*****@{parts[1]}"
+        except Exception:
+            masked_url = "Failed to mask URL"
+            
+    # Try querying users count to verify database query works
+    users_count = 0
+    query_success = False
+    query_error = None
+    try:
+        users_count = db.query(User).count()
+        query_success = True
+    except Exception as e:
+        query_error = str(e)
+        
+    return {
+        "fallback_to_sqlite": fallback_to_sqlite,
+        "database_url": masked_url,
+        "query_success": query_success,
+        "users_count": users_count,
+        "query_error": query_error
+    }
+
