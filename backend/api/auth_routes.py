@@ -16,6 +16,32 @@ router = APIRouter()
 @router.post("/register", response_model=schemas.User)
 def register_user(user: schemas.UserCreate, db: Session = Depends(database.get_db)):
     try:
+        # If SQLite fallback is active, verify and register on Render remote database too
+        if database.fallback_to_sqlite:
+            try:
+                import requests
+                # Proxy registration request to Render backend
+                render_res = requests.post(
+                    "https://plant-care-ai-1-beem.onrender.com/api/v1/auth/register",
+                    json={
+                        "username": user.username,
+                        "email": user.email,
+                        "password": user.password
+                    },
+                    timeout=15
+                )
+                if render_res.status_code == 400:
+                    # Remote returned conflict (e.g. username/email already registered)
+                    # We raise the same error to keep databases perfectly in sync
+                    detail = render_res.json().get("detail", "Username or Email already registered on remote server.")
+                    raise HTTPException(status_code=400, detail=detail)
+                elif render_res.status_code != 200:
+                    print(f"Warning: remote registration proxy returned status {render_res.status_code}: {render_res.text}")
+            except HTTPException as he:
+                raise he
+            except Exception as e:
+                print(f"Failed to proxy registration to Render: {e}")
+
         db_user = auth.get_user(db, username=user.username)
         if db_user:
             raise HTTPException(status_code=400, detail="Username already registered")
